@@ -73,7 +73,7 @@ See the [project specification](project/project-specification.qmd), [midterm blu
 
 ## Primary Text
 
-Asaf, S. (2026). *Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation.* Regent Financial LLC, New York. 421 pp.
+Asaf, S. (2026). *Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation.* Forthcoming, 2026. 421 pp. Manuscript under review.
 
 The book is structured in two parts that mirror the course's two tracks:
 
