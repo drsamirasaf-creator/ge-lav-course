@@ -6,7 +6,7 @@ subtitle: "Python notebooks reproducing every numerical result"
 The companion code lives in a public GitHub repo:
 **[ge-lav-companion-code](https://github.com/drsamirasaf-creator/ge-lav-companion-code)**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-orange.svg)](https://polyformproject.org/licenses/noncommercial/1.0.0)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Tests](https://github.com/drsamirasaf-creator/ge-lav-companion-code/actions/workflows/tests.yml/badge.svg)](https://github.com/drsamirasaf-creator/ge-lav-companion-code/actions/workflows/tests.yml)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/drsamirasaf-creator/ge-lav-companion-code/main)
@@ -66,6 +66,18 @@ Tested with Python 3.10, 3.11, 3.12 on macOS, Linux, Windows.
 **Capstone project:** Fork the repo, replace the synthetic data with your
 project's data, and submit your notebook with the final paper. Code
 submissions get **+5% bonus** on the project grade.
+
+## License
+
+This code is released under the **[PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0)**.
+
+Permitted: classroom teaching, student coursework, academic research, and personal study.
+
+**Not permitted without prior written consent:** commercial use, SaaS deployment, resale, incorporation into competing valuation products, or use by for-profit organizations outside their internal research and education functions.
+
+The production GE-LAV® engine at [liquidityillusion.com](https://liquidityillusion.com) is separately licensed and not covered by this repository.
+
+For commercial licensing: drsamirasaf@gmail.com
 
 ## Need help?
 
