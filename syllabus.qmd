@@ -71,7 +71,7 @@ T2.6. **Derive** the Pigouvian exit tax that implements the constrained social o
 
 ## Primary Text
 
-Asaf, S. (2026). *Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation.* Oxford University Press / Regent Financial LLC. ISBN 9798881716103. **Required.**
+Asaf, S. (2026). *Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation.* Regent Financial LLC. ISBN 9798881716103. **Required.**
 
 The book is structured for both audiences:
 
