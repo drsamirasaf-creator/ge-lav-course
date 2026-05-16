@@ -1,0 +1,74 @@
+---
+title: "Companion Code"
+subtitle: "Python notebooks reproducing every numerical result"
+---
+
+The companion code lives in a public GitHub repo:
+**[ge-lav-companion-code](https://github.com/drsamirasaf-creator/ge-lav-companion-code)**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Tests](https://github.com/drsamirasaf-creator/ge-lav-companion-code/actions/workflows/tests.yml/badge.svg)](https://github.com/drsamirasaf-creator/ge-lav-companion-code/actions/workflows/tests.yml)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/drsamirasaf-creator/ge-lav-companion-code/main)
+
+## What it contains
+
+Eight Jupyter notebooks that reproduce every numerical result from the lectures:
+
+| Notebook | Topic | Sessions |
+|---|---|---|
+| `01_ou_calibration` | Ornstein-Uhlenbeck process: simulate, calibrate | S04, S19, S22 |
+| `02_pi_term_structure` | Fit pi(L,T) to secondary market discount data | S05, S17 |
+| `03_exit_boundary` | Solve the HJB free-boundary problem for L*(t) | S11, S12, S20, S25 |
+| `04_pme_la_irr_la_pme` | Compute IRR / PME / LA-IRR / LA-PME | S07 |
+| `05_mfg_solver` | Mean-field game fixed-point iteration | S21, S26 |
+| `06_jensen_bias` | Quantify Jensen bias by asset class | S23, S29 |
+| `07_stress_scenarios` | Portfolio stress testing under L-shock paths | S18 |
+| `08_pigouvian_tax` | Compute tau*(L) and welfare gap closure | S24, S29 |
+
+Each notebook is self-contained, runs in under 30 seconds, and uses synthetic
+data. Drop in real data when you have it.
+
+## How to run
+
+### Option A — One-click in Google Colab
+
+Each notebook on GitHub has an **Open in Colab** badge at the top. Click it
+and Colab will load the notebook with the `gelav` package auto-installed.
+No local setup needed.
+
+### Option B — One-click in Binder
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/drsamirasaf-creator/ge-lav-companion-code/main)
+
+Click the badge above. Binder launches a free JupyterLab in your browser with
+everything pre-installed. First build takes 2-3 minutes; subsequent visits
+are 30 seconds.
+
+### Option C — Clone and run locally
+
+Open a terminal and run:
+
+    git clone https://github.com/drsamirasaf-creator/ge-lav-companion-code.git
+    cd ge-lav-companion-code
+    python -m venv .venv && source .venv/bin/activate
+    pip install -e .
+    jupyter notebook notebooks/
+
+Tested with Python 3.10, 3.11, 3.12 on macOS, Linux, Windows.
+
+## For students
+
+**Track 1 (practitioner):** Focus on notebooks 01, 02, 03, 04, 07.
+
+**Track 2 (researcher):** Focus on notebooks 03, 05, 06, 08.
+
+**Capstone project:** Fork the repo, replace the synthetic data with your
+project's data, and submit your notebook with the final paper. Code
+submissions get **+5% bonus** on the project grade.
+
+## Need help?
+
+Open an issue on the [GitHub repo](https://github.com/drsamirasaf-creator/ge-lav-companion-code/issues),
+or email drsamirasaf@gmail.com.
+
