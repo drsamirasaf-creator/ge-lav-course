@@ -1,0 +1,307 @@
+# Midterm Exam — Answer Key {#sec-midterm-answer-key}
+
+::: callout-warning
+## Instructor reference only
+
+This document contains full solutions, grading rubrics, and partial credit guidance. **Do NOT distribute to students before grading is complete.**
+
+For student-facing post-exam solutions, post a redacted version (solutions only, no rubric).
+:::
+
+------------------------------------------------------------------------
+
+## Part A: Multiple Choice / Short Answer
+
+### A1: Correct answer = **B** ($\sigma^2 / (2\kappa)$)
+
+3 points if correct; 0 otherwise. No partial credit on multiple choice.
+
+### A2: Correct answer = **C** (1.5 years)
+
+Computation: half-life = $\ln(2)/\kappa = 0.693/0.45 = 1.54$ years.
+
+3 points if correct.
+
+### A3: Correct answer = **D** (Adverse selection between GPs and LPs)
+
+The three structural failures are stochastic premium, Jensen bias, and McKean-Vlasov externality. Adverse selection exists but is NOT one of the three identified in Session 2.
+
+3 points if correct.
+
+### A4: Correct answer = **B** (ratio of distributions to capital calls, both discounted by the S&P 500 returns)
+
+A is wrong (IRR difference is not PME). C confuses LA-IRR with PME. D is wrong (PME involves discount ratios, not terminal values). E describes Direct Alpha.
+
+3 points if correct.
+
+### A5: Sample answer (full credit):
+
+> "The Jensen convexity bias is the systematic upward correction to private market valuations due to the strict convexity of the discount factor function with respect to the stochastic liquidity state — formally, $V^{LAV} > V^{DCF}$ when $r(L)$ is convex in $L$."
+
+Rubric:
+- **3 pts:** Correct identification of (1) convexity origin, (2) direction (positive), (3) mathematical/conceptual precision
+- **2 pts:** Correct concept but missing precision or direction
+- **1 pt:** Vaguely correct but misses key elements
+- **0 pts:** Incorrect or absent
+
+### A6: Correct answer = **B** (Long-Nickels reinvests intermediate distributions at the benchmark return)
+
+This is the key methodological difference. KS uses observed cash flows; LN implicitly reinvests.
+
+3 points if correct.
+
+### A7: Sample answer (full credit):
+
+> "Four regimes:
+> 1. Boom (2003-2007): low discounts, positive $L_t$, narrow secondary spreads
+> 2. GFC (2008-2010): deep discounts (40-50%), $L_t \approx -2$, market freeze
+> 3. Normalization (2011-2019): moderate discounts (5-15%), $L_t$ near long-run mean
+> 4. Multi-shock era (2020-2024): variable discounts including COVID, rate shock"
+
+Rubric:
+- **3 pts:** All four named with approximate dates
+- **2 pts:** Three of four named correctly
+- **1 pt:** Two of four
+- **0 pts:** One or zero correct
+
+### A8: Correct answer = **C** (welfare and regulatory implications)
+
+The five requirements: stochastic, heterogeneity, endogenous clearing, implementability, welfare/regulatory. Fifth = welfare and regulatory.
+
+3 points if correct.
+
+------------------------------------------------------------------------
+
+## Part B: Quantitative Problems
+
+### B1: OU Stationary Distribution (9 pts)
+
+**(a) (4 pts):**
+- Stationary mean: $E[L_\infty] = \bar{L} = 0.0$ (1 pt)
+- Stationary variance: $\sigma^2/(2\kappa) = 0.09 / 0.80 = 0.1125$ (2 pts)
+- Full distribution: $L_\infty \sim \mathcal{N}(0, 0.1125)$ or equivalently with std $\approx 0.335$ (1 pt)
+
+**(b) (3 pts):**
+- Half-life $= \ln(2)/\kappa = 0.693/0.40 = 1.73$ years (3 pts)
+- Round to 1.7 yr or 1.73 yr both acceptable
+- Off by factor → 1 pt (sign of formula but wrong arithmetic)
+
+**(c) (2 pts):**
+- Approximately 68% (standard normal property: ±1σ contains ~68%)
+- Full credit if 0.65 to 0.70 (2 pts)
+- Partial if recognizes Gaussian property but wrong specific number (1 pt)
+
+### B2: Jensen Bias by Horizon (9 pts)
+
+**(a) (3 pts):**
+- $B(12) = 0.17\% \times 12 = 2.04\%$ (3 pts)
+
+**(b) (3 pts):**
+- $B(10) = 0.17\% \times 10 = 1.7\%$ (1 pt)
+- Dollar Jensen bias: $\$250M \times 1.7\% = \$4.25M$ (1 pt)
+- LAV value: $\$250M + \$4.25M = \$254.25M$ (1 pt)
+
+**(c) (3 pts):**
+- Sample answer: "Jensen bias is always positive because the discount factor $\exp(-rT)$ is convex in $r$, and $r(L)$ is convex in $L$. By Jensen's inequality, $E[\exp(-r(L)T)] > \exp(-E[r(L)]T)$, so LAV exceeds DCF whenever there's variance in $L$." (3 pts)
+- Partial credit for correct direction without convexity argument (2 pts)
+- Partial for correct sign but no reasoning (1 pt)
+
+### B3: PME Computation (9 pts)
+
+**Numerator** (distributions / benchmark): $0 + 0 + 15/1.18 + 25/1.30 + 30/1.40$
+= $0 + 0 + 12.71 + 19.23 + 21.43 = 53.37$ (3 pts)
+
+**Denominator** (calls / benchmark): $40/1.00 + 0 + 0 + 0 + 0 = 40$ (3 pts)
+
+**KS PME** = $53.37 / 40 = 1.33$ (3 pts)
+
+Rubric:
+- Full credit if computation correct
+- 6 pts if methodology correct but arithmetic errors
+- 3 pts if confused with another PME variant
+- 0 pts if confused metric entirely
+
+### B4: OU Conditional Forecast (9 pts)
+
+Using $E[L_t | L_0] = \bar{L} + (L_0 - \bar{L}) e^{-\kappa t}$ with $L_0 = -1.0$, $\bar{L} = 1.0$, $\kappa = 0.45$:
+
+**(a) (4 pts):**
+
+| $t$ | $e^{-0.45t}$ | $E[L_t]$ |
+|---|---|---|
+| 1 | 0.638 | $1.0 + (-2.0)(0.638) = -0.276$ |
+| 2 | 0.407 | $1.0 - 0.814 = 0.186$ |
+| 5 | 0.105 | $1.0 - 0.210 = 0.790$ |
+| 10 | 0.011 | $1.0 - 0.022 = 0.978$ |
+
+1 point per correct value.
+
+**(b) (3 pts):**
+
+Using $\text{Var}[L_t | L_0] = (\sigma^2 / (2\kappa))(1 - e^{-2\kappa t})$ with $\sigma^2/(2\kappa) = 0.1024/0.9 = 0.1138$:
+
+| $t$ | $e^{-0.9t}$ | $1 - e^{-0.9t}$ | $\text{Var}[L_t]$ |
+|---|---|---|---|
+| 1 | 0.407 | 0.593 | 0.0675 |
+| 2 | 0.165 | 0.835 | 0.0950 |
+| 5 | 0.011 | 0.989 | 0.1125 |
+| 10 | $\approx 0$ | $\approx 1$ | 0.1138 |
+
+1 point for any one correct value, 2 for two, 3 for all four.
+
+**(c) (2 pts):**
+
+$E[L_t | L_0]$ within 0.1 of $\bar{L} = 1.0$ means $|E[L_t] - 1.0| < 0.1$, i.e., $|(-2.0)e^{-0.45t}| < 0.1$, so $e^{-0.45t} < 0.05$, giving $t > \ln(20)/0.45 \approx 6.66$ years.
+
+**Answer: approximately 7 years** (full credit for 6-7 years; partial for any answer 5-10 years).
+
+------------------------------------------------------------------------
+
+## Part C: Conceptual Essays
+
+### C1: Why DCF Fails (10 pts)
+
+**Sample strong answer (180 words):**
+
+> Discounted cash flow valuation systematically misvalues private market assets because it ignores three observable economic realities. First, the illiquidity premium charged by the secondary market is *not* a constant: empirical evidence from 2003-2024 shows the implied liquidity state $L_t$ varies from approximately $+0.7$ in boom regimes to $-2.0$ during the GFC, with corresponding premium variations of 5-40%. DCF's constant-discount-rate assumption is empirically falsified.
+>
+> Second, even averaging over time, DCF systematically understates value due to *Jensen convexity bias*. The discount factor $\exp(-r(L)T)$ is a convex function of the random $r(L)$, so $E[\exp(-rT)] > \exp(-E[r]T)$. For a typical 10-year buyout asset at calibrated parameters, the Jensen bias is approximately 1.7%; for a 20-year infrastructure asset, it can reach 3.6% or more.
+>
+> Third, individual LP exit decisions create externalities through secondary market clearing that DCF ignores entirely.
+>
+> Bottom line: a typical institutional private market portfolio is misvalued by 3-8% in normal regimes and substantially more in stressed regimes — material at the IC level.
+
+**Rubric:**
+
+- **10 pts:** All three failures cited; empirical magnitudes correct; structured argument; bottom-line concrete
+- **8 pts:** Two of three failures + magnitudes
+- **6 pts:** One failure thoroughly; or all three superficially
+- **4 pts:** Generic critique without GE-LAV-specific content
+- **2 pts:** Confused or incorrect
+- **0 pts:** Absent
+
+Common mistakes:
+- Confusing Jensen bias with the equilibrium correction (-3 pts)
+- Citing the wrong magnitude (e.g., 50% instead of 5%) without context (-2 pts)
+- Forgetting bottom-line concrete recommendation (-1 pt)
+
+### C2: McKean-Vlasov Externality (10 pts)
+
+**Sample strong answer (190 words):**
+
+> When 1,000 LPs all face allocation pressure during stress (say, GFC), each one decides individually whether to sell secondaries. Each LP's individual sale only marginally widens secondary discounts — perhaps 0.1 basis point. But when many LPs sell simultaneously, the cumulative effect widens discounts by 100+ basis points. Each LP pays the price imposed by everyone else's behavior, but no individual LP internalizes their contribution to the collective cost.
+>
+> Across the $13 trillion private capital market, this externality costs approximately 2.3% per year in aggregate welfare — roughly $300 billion annually. The loss is concentrated in stress regimes (when coordination failures matter most) and in long-duration assets (which accumulate the most).
+>
+> The policy response is a Pigouvian exit tax that varies with the liquidity state: zero in normal conditions, rising to ~7% in GFC-depth stress. This would internalize the externality, closing approximately 60-80% of the welfare gap.
+>
+> Implementation challenges include: real-time state measurement, cross-border coordination, political opposition from forced sellers. Realistic adoption timeline is 5-10 years for major regulatory frameworks (Solvency II, Basel III) to incorporate Pigouvian elements.
+
+**Rubric:**
+
+- **10 pts:** Externality mechanism clear; magnitude cited (2.3%/yr or $300B); Pigouvian response named; implementation challenges acknowledged
+- **8 pts:** Three of four elements
+- **6 pts:** Two of four elements
+- **4 pts:** Mechanism stated but no magnitudes
+- **2 pts:** Confused or incorrect
+- **0 pts:** Absent
+
+Common mistakes:
+- Confusing the externality with general market liquidity risk (-2 pts)
+- Wrong magnitude (e.g., 23% instead of 2.3%) without correction (-3 pts)
+- Forgetting Pigouvian response (-2 pts)
+
+------------------------------------------------------------------------
+
+## Part D: Integrative Case
+
+### D1: The 2007-Vintage Trapped LP (20 pts)
+
+**(a) DCF analysis (6 pts):**
+
+DCF hold-value at 12% discount: assuming reasonably even distribution stream over 5 years, the present value of expected distributions roughly equals NAV (DCF rate appropriate for buyout).
+
+Rough computation: $V^{DCF} \approx \$145M$ at NAV-equivalence assumption.
+
+Alternative: if assuming gradual distributions over 5 years totaling ~$200M (initial commitment), discounted at 12%:
+$V^{DCF} \approx \$200M / 1.12^{2.5} \approx \$200M / 1.32 \approx \$152M$ (rough midpoint)
+
+Rubric:
+- 6 pts: Reasonable assumption + correct arithmetic
+- 4 pts: Reasonable assumption but arithmetic error
+- 2 pts: Recognized need for DCF but didn't compute
+- 0 pts: Absent
+
+**(b) LAV adjustment (6 pts):**
+
+Jensen bias for 5-year buyout at calibrated $A = 0.16\%$/yr:
+$B(5) = 0.16\% \times 5 = 0.8\%$
+
+LAV value: $V^{LAV} = V^{DCF} \times (1 + 0.8\%) = \$145M \times 1.008 = \$146.2M$
+
+Rubric:
+- 6 pts: Correct Jensen bias + correct LAV computation
+- 4 pts: Correct Jensen bias but arithmetic error
+- 2 pts: Used wrong $A$ value but methodology sound
+- 0 pts: Failed to attempt
+
+**(c) GE-LAV qualitative discussion (4 pts):**
+
+At deep stress ($L = -1.8$), the GE-LAV equilibrium correction is substantial. The equilibrium rate $r_{GE}$ approaches 30%+ vs. DCF's 12%, producing massive downward correction.
+
+For a 5-year horizon: $V^{GE-LAV} \approx V^{DCF} \times (1.12/1.30)^{2.5} \approx \$145M \times 0.65 \approx \$94M$
+
+This is *below* the current secondary bid of $80M, but *above* it significantly enough that GE-LAV would say HOLD (mean reversion will lift the position over 5 years).
+
+Rubric:
+- 4 pts: Correct direction + reasonable magnitude estimate
+- 3 pts: Correct direction; rough but defensible magnitude
+- 2 pts: Correct direction; magnitude not estimated
+- 0 pts: Wrong direction or absent
+
+**(d) Recommendation (4 pts):**
+
+Sample strong answer:
+> "Recommend HOLD. The current secondary bid of $80M is below the GE-LAV equilibrium value of approximately $94M, meaning a secondary sale at this price destroys value. Mean reversion of $L_t$ over the remaining 5-year horizon will likely bring the GE-LAV value back toward the LAV mark of $146M. Board pressure for liquidity discipline is real but doesn't override the framework's analysis. Alternative liquidity sources (NAV loan, public market repositioning, partial sale of less-stressed positions) should be explored before considering this specific exit."
+
+Rubric:
+- 4 pts: Defensible recommendation + GE-LAV quantitative justification + acknowledgment of board pressure
+- 3 pts: Defensible recommendation + some quantitative justification
+- 2 pts: Recommendation without quantitative basis
+- 0 pts: Recommendation contradicts the analysis or absent
+
+------------------------------------------------------------------------
+
+## Total Score Calculation
+
+- Part A: ___ / 24
+- Part B: ___ / 36
+- Part C: ___ / 20
+- Part D: ___ / 20
+- **TOTAL: ___ / 100**
+
+### Grade Boundaries
+
+- 90+: A (excellent mastery)
+- 80-89: B (strong understanding)
+- 70-79: C (adequate; some gaps)
+- 60-69: D (significant gaps; remediation needed)
+- <60: F (substantial misunderstanding; intervention needed)
+
+### Class-Wide Diagnostic Checklist
+
+After grading, identify topics where >30% of students missed:
+
+- [ ] OU stationary distribution (B1)
+- [ ] Jensen bias computation (B2)
+- [ ] PME methodology (B3)
+- [ ] Conditional forecasting (B4)
+- [ ] Why DCF fails essay (C1)
+- [ ] McKean-Vlasov externality essay (C2)
+- [ ] Integrative analysis (D1)
+
+For any topic missed by >30% of students, plan a focused review session before Session 11.
+
+------------------------------------------------------------------------
+
+[← Midterm Exam](midterm-full-exam.qmd) | [Midterm Blueprint](midterm-blueprint.qmd)

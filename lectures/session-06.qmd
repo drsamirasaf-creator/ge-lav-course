@@ -1,0 +1,252 @@
+# Session 6: IRR · The Internal Rate of Return Problem {#sec-session-06}
+
+| | |
+|---|---|
+| **Unit** | 2 — Measurement and Theory |
+| **Book Chapter** | 4 (sections 4.2–4.4) |
+| **Slide source** | All new |
+| **Slides needed** | ~15 new |
+| **Track** | Common core (both tracks) |
+
+## Learning Objectives
+
+By the end of this session, students will be able to:
+
+1. **Define IRR** precisely and state its mathematical relationship to NPV.
+2. **Identify** the two structural biases of IRR (reinvestment assumption + sign-pattern dependence).
+3. **Distinguish** money-weighted from time-weighted returns and explain when each is appropriate.
+4. **Compute IRR** for a simple cash flow pattern and identify when multiple IRRs exist.
+5. **Explain** why a constant-rate metric cannot correctly summarize performance when discount rates are stochastic.
+6. **Prepare** for Session 7's PME discussion by understanding why IRR's failures motivated PME's development.
+
+## Pre-Class Assignment
+
+- **Read:** Book Chapter 4, sections 4.2–4.4 (~10 pages)
+- **Optional:** Phalippou (2008), "The Hazards of Using IRR to Measure Performance: The Case of Private Equity," *Journal of Performance Measurement*
+
+## In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:05 | Why measurement matters: returns based on bad valuations are bad returns | Lecture |
+| 0:05–0:20 | What IRR is, mathematically and conceptually | Lecture + math |
+| 0:20–0:35 | Money-weighted vs. time-weighted returns | Lecture + worked example |
+| 0:35–0:50 | Two IRR biases: reinvestment + sign-pattern | Lecture + worked examples |
+| 0:50–1:05 | Multiple IRRs and the descending-discount problem | Lecture + numerical examples |
+| 1:05–1:15 | The constant-rate fallacy: IRR under stochastic discount rates | Lecture |
+
+## Slide Content Briefs (New Slides Needed)
+
+### Slide 6.1 — Title
+
+- **Title:** "The IRR Problem"
+- **Tag line:** "Why the most-used metric in private markets is structurally broken"
+- **Speaker notes:** Frame Unit 2 as the *measurement* counterpart to Unit 1's *valuation* critique. Bad valuations cause bad returns calculations.
+
+### Slide 6.2 — IRR: Definition
+
+- **Title:** "IRR formally"
+- **Definition:** "IRR is the discount rate $r$ that makes NPV = 0"
+- **Equation:** $0 = \sum_{t=0}^{T} \dfrac{CF_t}{(1+r)^t}$
+- **Solving:** Implicit equation; typically solved numerically (Newton-Raphson or Excel's IRR function)
+- **Standard interpretation:** "Annualized return on capital invested"
+- **Speaker notes:** Set up the math cleanly. Students will know IRR intuitively; the goal is to make them careful about it.
+
+### Slide 6.3 — IRR: Numerical Example
+
+- **Title:** "A clean IRR computation"
+- **Cash flows:**
+  - $t = 0$: $-\$100M$ (initial commitment, drawn over 3 years)
+  - $t = 4$: $+\$25M$
+  - $t = 6$: $+\$50M$
+  - $t = 8$: $+\$75M$
+  - $t = 10$: $+\$30M$
+- **IRR:** Solve $-100 + 25(1+r)^{-4} + 50(1+r)^{-6} + 75(1+r)^{-8} + 30(1+r)^{-10} = 0$
+- **Solution:** $r \approx 14.2\%$
+- **Speaker notes:** Walk through one Newton iteration on the board if time. Students should see *how* IRR is solved, not just trust Excel.
+
+### Slide 6.4 — Money-Weighted vs. Time-Weighted
+
+- **Title:** "Two different questions, two different metrics"
+- **Money-weighted return (= IRR):**
+  - "What return did *the capital* earn?"
+  - Heavily influenced by timing of large cash flows
+  - Standard in private markets
+- **Time-weighted return:**
+  - "What return did *the manager* generate?"
+  - Independent of investor cash flow timing
+  - Standard in public markets (mutual funds, hedge funds)
+- **Why PE uses MWR (= IRR):**
+  - GP controls capital call timing
+  - LP cares about return on dollars *actually deployed*
+- **Speaker notes:** This distinction matters for comparing PE returns to public benchmarks. PME (Session 7) is designed to bridge MWR-based PE returns with TWR-based public benchmarks.
+
+### Slide 6.5 — Worked: MWR vs. TWR Difference
+
+- **Title:** "When MWR and TWR diverge"
+- **Setup:** Two funds with identical underlying portfolio performance but different cash flow timing
+- **Fund A:** Calls capital early in fund life, distributes late
+- **Fund B:** Calls capital late, distributes early
+- **Result:** Same TWR (both managed the portfolio the same way), but Fund B has higher IRR (capital was deployed for less time on the larger amounts)
+- **Speaker notes:** This is a classic teaching example. Make sure students understand: the same investment skill can produce different IRRs depending on cash flow timing alone.
+
+### Slide 6.6 — IRR Bias #1: The Reinvestment Assumption
+
+- **Title:** "Bias 1: IRR assumes intermediate cash flows are reinvested at IRR itself"
+- **Setup:** "When IRR = 18%, the math implicitly assumes every distribution is reinvested at 18% for the remainder of the fund life"
+- **Reality:** "LPs typically receive distributions and either spend them or invest at much lower public market rates (~7-10% for diversified equities)"
+- **Implication:** "IRR systematically overstates the realized return when distributions are large and early"
+- **Magnitude:** "Can overstate by 2-5 percentage points for typical PE fund cash flow patterns"
+- **Speaker notes:** This is well-known but under-appreciated. The Modified IRR (MIRR) is a partial fix that uses a separate reinvestment rate, but isn't standard in PE reporting.
+
+### Slide 6.7 — IRR Bias #2: Sign-Pattern Dependence
+
+- **Title:** "Bias 2: IRR is sensitive to the sign pattern of cash flows"
+- **Standard case (-, 0, ..., 0, +):** Single IRR, well-defined
+- **Mixed signs (-, +, -, +):** Multiple IRRs can exist (Descartes' rule of signs)
+- **PE example:** Continuation fund recapitalizations create intermediate negative cash flows (LP rolls over into new vehicle, takes some cash out) → multiple IRRs possible
+- **Speaker notes:** This is *very* common in modern PE with continuation funds and GP-led secondaries. Students will encounter this in practice.
+
+### Slide 6.8 — Multiple IRRs: A Concrete Example
+
+- **Title:** "When IRR isn't unique"
+- **Cash flows:**
+  - $t = 0$: $-\$100$
+  - $t = 1$: $+\$230$
+  - $t = 2$: $-\$132$
+- **NPV equation:** $-100 + 230/(1+r) - 132/(1+r)^2 = 0$
+- **Two solutions:** $r = 10\%$ and $r = 20\%$
+- **Which is "the IRR"?** Both, mathematically. Neither, economically.
+- **Recommended approach:** "Use NPV at a fixed discount rate; report IRR only with caveats about sign pattern"
+- **Speaker notes:** This blows students' minds the first time. It's textbook material but rarely emphasized.
+
+### Slide 6.9 — IRR Under Stochastic Discount Rates
+
+- **Title:** "Where IRR fundamentally breaks: when rates are stochastic"
+- **Setup:** "IRR by construction is a *single number* — one constant rate"
+- **GE-LAV reality:** Discount rate $r(L_t)$ varies with liquidity state
+- **The mismatch:**
+  - IRR averages out the rate variation
+  - But the *correct* present value uses the full path of $L_t$
+  - These give different answers (Jensen's inequality again)
+- **Speaker notes:** Connect to Session 2's Jensen discussion. IRR's constant-rate assumption embeds the same convexity error as DCF's constant-premium assumption.
+
+### Slide 6.10 — The Constant-Rate Fallacy
+
+- **Title:** "The Constant-Rate Fallacy"
+- **Boxed statement:** "Any metric that compresses time-varying discount rates into a single constant rate inherits the systematic bias of DCF."
+- **Implications:**
+  - IRR is biased
+  - Money-weighted return is biased (same as IRR)
+  - Hurdle rate comparisons are biased
+  - Carried interest computations are biased
+- **The cure:** Liquidity-adjusted metrics (LA-IRR, LA-PME) — covered Session 7
+- **Speaker notes:** This is the bridge to Session 7. IRR's problem is the same as DCF's problem, restated.
+
+### Slide 6.11 — Empirical Magnitudes: How Wrong Is IRR?
+
+- **Title:** "How wrong is IRR in practice?"
+- **Data:** Pooled IRR of US PE buyout funds 1990–2024 (Preqin, Kaplan-Schoar)
+- **Reported pooled IRR:** ~12.5% per year
+- **Phalippou (2009) adjustment for reinvestment assumption:** ~9.5%
+- **Stafford (2022) adjustment for valuation smoothing:** ~7.5%
+- **GE-LAV-adjusted estimate (LA-IRR):** ~8.5% (intermediate)
+- **Speaker notes:** This is *the* number for students to remember. Reported PE returns are 3-5 percentage points overstated by methodology choices.
+
+### Slide 6.12 — IRR and Vintage-Year Effects
+
+- **Title:** "Why vintage matters more than skill"
+- **Empirical finding:** "Vintage year (when the fund started investing) explains 40-60% of variation in fund-level IRR across managers"
+- **Implication:** "Top-quartile vintage 2009 outperforms top-quartile vintage 2007 — not because managers were better, but because market entry conditions were"
+- **Connection to GE-LAV:** "Vintage effect is partly a *liquidity state* effect — funds starting in low-L states (high implied premium) benefit when L mean-reverts back to $\bar{L}$"
+- **Speaker notes:** Students often think of PE returns as manager-driven. Vintage effects dominate. GE-LAV explains why mathematically.
+
+### Slide 6.13 — IRR and Carry: Why Practitioners Defend IRR
+
+- **Title:** "Why IRR survives despite known flaws"
+- **The institutional reasons:**
+  - **Carried interest is computed on IRR** — moving away from IRR moves the carry calculation
+  - **GP compensation is anchored to IRR hurdles** — typically 8% preferred return
+  - **LP allocators benchmark on IRR** — switching benchmarks is painful
+  - **No regulatory mandate to change** — IRR is in IPEV, ILPA, and Solvency II guidance
+- **Speaker notes:** This is the *political economy* of IRR persistence. Students entering the industry should understand this.
+
+### Slide 6.14 — Proposed Solutions Overview (Tease for Session 7)
+
+- **Title:** "Three responses to the IRR problem"
+- **Three columns:**
+  1. **Reformed IRR:** MIRR with explicit reinvestment rate; sign-pattern caveats; still constant-rate
+  2. **PME family:** Compare to public benchmark — Kaplan-Schoar, Long-Nickels, Direct Alpha
+  3. **LA-IRR / LA-PME:** Liquidity-adjusted version that handles stochastic rates correctly
+- **Speaker notes:** Session 7 covers all three families in detail.
+
+### Slide 6.15 — Summary
+
+- **Title:** "IRR: where it works, where it fails"
+- **Works:**
+  - Simple sign pattern (single negative followed by positives)
+  - Stable market conditions
+  - Comparing across short hold periods
+- **Fails:**
+  - Mixed sign patterns (continuation funds, recapitalizations)
+  - Stochastic discount rates (always, in private markets)
+  - Cross-vintage comparisons
+  - Long-horizon assets where Jensen bias accumulates
+- **Speaker notes:** Honest summary. IRR isn't useless; it's incomplete.
+
+## Discussion Questions
+
+1. The GP-LP relationship has IRR baked into the carried interest formula. If GE-LAV becomes adopted methodology, does the carry formula need to change? How?
+2. Public mutual funds use TWR. Why has PE never moved to TWR despite known IRR flaws?
+3. Two PE funds have identical IRRs of 18% but very different cash flow timing patterns. How would you distinguish them from each other in selecting which to commit capital to?
+
+## Worked Numerical Example: When IRR Misleads
+
+**Setup:** Two PE funds, both reporting IRR = 18%.
+
+**Fund A (front-loaded distributions):**
+- $t=0$: $-\$100M$
+- $t=2$: $+\$80M$
+- $t=4$: $+\$40M$
+- $t=6$: $+\$20M$
+- IRR: 18% (capital out quickly)
+
+**Fund B (back-loaded distributions):**
+- $t=0$: $-\$100M$
+- $t=2$: $+\$0M$
+- $t=4$: $+\$0M$
+- $t=8$: $+\$200M$
+- IRR: 18% (capital out only at end)
+
+**The reinvestment problem:**
+
+If LP can reinvest at 7% public market rate:
+
+- **Fund A realized return:** $80M from year 2 grows at 7% to $(80 \cdot 1.07^6) + (40 \cdot 1.07^4) + 20 = \$120M + \$52M + \$20M = \$192M$ at year 8 — total return 92% over 8 years = **8.4% annualized**
+- **Fund B realized return:** $200M at year 8 — total return 100% = **9.05% annualized**
+
+**Interpretation:** Same reported IRR (18%), but Fund B's realized return to the LP is higher because the IRR overstatement is larger for Fund A.
+
+**Lesson:** Reported IRR can rank funds in the wrong order when reinvestment assumption matters.
+
+## Common Student Confusions (Instructor Notes)
+
+- **"Isn't MIRR the standard fix?"** MIRR exists but isn't standard in PE reporting. ILPA and IPEV use plain IRR. Industry inertia.
+- **"Can't I just use the Modified Dietz return?"** That's a TWR computation. It tells you a different thing (manager skill) than IRR (return on dollars deployed). Both have a role.
+- **"If IRR is so flawed, why do all PE funds report it?"** Because LPs demand it, regulators sanction it, and carry computation depends on it. Network effects.
+- **"What is Direct Alpha vs. Long-Nickels PME?"** Tease — covered Session 7.
+
+## What to Expect Next Session
+
+Session 7 dives into **PME (Public Market Equivalent)** and its variants. We'll cover:
+- The Kaplan-Schoar PME and what it computes
+- Long-Nickels PME (with implicit reinvestment in the benchmark)
+- Direct Alpha (Gredil-Griffiths-Stucke)
+- **LA-IRR and LA-PME** — the GE-LAV-corrected versions
+- Which method to use in which context
+
+**Reading:** Book Chapter 4, sections 4.5–4.10 (~12 pages).
+
+------------------------------------------------------------------------
+
+[← Session 5](session-05.qmd) | [Schedule](../schedule.qmd) | [Next: Session 7 →](session-07.qmd)

@@ -1,0 +1,233 @@
+# Track 2 — Problem Set 2 (Researcher) {#sec-track2-ps2}
+
+**Drops:** Session 9\
+**Due:** Session 16\
+**Weight:** 6.25% of course grade\
+**Coverage:** Sessions 11–15 with math depth\
+**Track:** Researcher (Track 2) only
+
+## Question 1: HJB for the Exit Problem (25 points)
+
+Consider the simplified GE-LAV exit problem on a finite time horizon $[0, T]$:
+- State: $L_t$ following OU dynamics with $\kappa, \sigma, \bar{L}$ canonical values
+- Action: continue holding or exit (binary)
+- Hold value: $V(L, t)$ satisfying the HJB PDE
+- Exit payoff: $G(L) = V_0 \cdot (1 - d(L))$ where $d(L)$ is the secondary discount function
+
+**(a) (10 pts)** Write the full variational inequality:
+$$\min\{-\mathcal{L}V + rV - C, V - G\} = 0$$
+where $\mathcal{L}$ is the OU infinitesimal generator. Specifically, write out:
+- $\mathcal{L}V$ in terms of $\partial_t, \partial_L, \partial_{LL}$
+- The continuation region equation
+- The exercise region equation
+- The free boundary matching conditions (value match and smooth pasting)
+
+**(b) (10 pts)** Implement the finite-difference solver in Python. Use:
+- Grid: $L \in [-3, 3]$, 200 points; $t \in [0, T]$ with $T = 10$, $N_t = 200$ steps
+- Crank-Nicolson scheme for stability
+- $d(L) = 0.05 - 0.20 L$ for secondary discount approximation
+- $r(L) = 0.075 - 0.025 L + 0.021 L^2$ for the effective rate
+- $C(L) = 0.1$ (constant cash flow rate)
+
+Output: the $L^*(t)$ exit boundary curve.
+
+**(c) (5 pts)** Plot the $L^*(t)$ boundary. Verify smooth pasting numerically by checking that $V(L^*, t)$ and $G(L)$ have matched slopes at the boundary.
+
+**Solution outline:**
+
+(a) HJB operator: $\mathcal{L}V = \partial_t V + \kappa(\bar{L} - L)\partial_L V + \frac{1}{2}\sigma^2 \partial_{LL} V$
+
+Continuation: $\partial_t V + \kappa(\bar{L} - L)\partial_L V + \frac{1}{2}\sigma^2 \partial_{LL} V - r(L) V + C(L) = 0$ when $V > G$
+
+Exercise: $V = G$ when continuation value would be smaller.
+
+Boundary conditions at $L^*$: $V(L^*, t) = G(L^*)$ (value match), $\partial_L V|_{L^*} = G'(L^*)$ (smooth pasting).
+
+(b) Implementation skeleton:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+kappa, sigma, L_bar = 0.45, 0.32, 1.0
+T = 10
+N_L, N_t = 200, 200
+L = np.linspace(-3, 3, N_L)
+t = np.linspace(0, T, N_t)
+dL = L[1] - L[0]
+dt = t[1] - t[0]
+
+# Coefficients
+def r(L):
+    return 0.075 - 0.025*L + 0.021*L**2
+
+def d(L):
+    return np.clip(0.05 - 0.20*L, 0, 0.6)
+
+def C(L):
+    return 0.1
+
+# Initial value at terminal time
+V = np.zeros(N_L)
+G = 1.0 * (1 - d(L))  # exit payoff
+V_terminal = G.copy()
+
+# Crank-Nicolson backward iteration
+# (Tridiagonal solver omitted for brevity; standard implementation)
+
+# Backward step
+V[:, N_t-1] = V_terminal
+for n in range(N_t-2, -1, -1):
+    # Build tridiagonal matrix for Crank-Nicolson
+    # ... (standard finite-difference Laplacian + drift terms)
+    # ... solve linear system to advance one step
+    V_cont = ...  # continuation value
+    V[:, n] = np.maximum(V_cont, G)  # American option style
+
+# Extract exit boundary
+L_star = np.zeros(N_t)
+for n in range(N_t):
+    boundary_mask = V[:, n] > G + 1e-6
+    # Find rightmost point where boundary holds
+    L_star[n] = ...
+```
+
+Expected output: $L^*(t)$ curve rising from $L^*(0) \approx -1.8$ to $L^*(T-\epsilon) \approx 0$.
+
+(c) Smooth pasting verification: compute $\partial_L V$ and $G'(L)$ at each $L^*(t)$. Numerical agreement to within discretization error (~1-2%).
+
+## Question 2: MFG Fixed-Point Iteration (25 points)
+
+Implement the MFG fixed-point algorithm for a simplified GE-LAV system with 100 representative LPs.
+
+**(a) (10 pts)** Set up the McKean-Vlasov problem:
+- Each LP has state $L_t^i$ following OU dynamics
+- Equilibrium liquidity premium $\lambda^*(\mu_t)$ depends on population distribution
+- For simplicity, take $\lambda^*(\mu_t) = \pi_0 + 0.5 \cdot (E[L_t]/E[L_\infty])$ — a stylized coupling
+
+**(b) (10 pts)** Code the fixed-point iteration:
+```
+1. Initialize μ⁰ = uniform on [-2, 2]
+2. For each iteration k:
+   a. Compute λ*(μᵏ)
+   b. Solve HJB for representative LP given λ*
+   c. Simulate N=100 LPs forward; estimate μᵏ⁺¹
+   d. Check convergence: ||μᵏ⁺¹ - μᵏ||_W₁ < ε
+```
+
+**(c) (5 pts)** Verify convergence under the stability condition. Report number of iterations, final equilibrium $\lambda^*$, and propagation-of-chaos rate.
+
+**Solution outline:**
+
+(a) Setup: standard. Key insight: $\lambda^*$ depends on aggregate $\mu_t$, creating coupling.
+
+(b) Iteration code skeleton:
+
+```python
+def MFG_iteration(N=100, max_iter=20, tol=1e-3):
+    # Initialize population
+    mu = np.random.uniform(-2, 2, N)  # initial distribution
+    history = []
+    
+    for k in range(max_iter):
+        # Step 1: equilibrium premium
+        L_mean = np.mean(mu)
+        L_inf_mean = 1.0  # long-run mean
+        lambda_star = 0.045 + 0.5 * (L_mean / L_inf_mean)
+        
+        # Step 2: solve HJB given lambda_star (use solver from Q1)
+        L_star, V = solve_HJB(lambda_star)
+        
+        # Step 3: simulate forward
+        mu_new = simulate_forward(mu, L_star, dt=1.0)
+        
+        # Convergence check
+        diff = wasserstein_1d(mu, mu_new)
+        history.append(diff)
+        
+        if diff < tol:
+            break
+        mu = mu_new
+    
+    return mu, lambda_star, history
+```
+
+(c) Expected results: convergence in 10-15 iterations under stability condition $\kappa > \gamma \cdot \text{Lip}(\phi)$ (with stylized $\gamma \cdot \text{Lip}(\phi) \approx 0.1$). Final $\lambda^* \approx 0.045 + 0.5 \cdot (1.0/1.0) = 0.095 ≈ 9.5\%$. Note this is *not* the canonical 4.5% because the stylized coupling here is different from the calibrated form.
+
+Propagation of chaos: error in $\mu$ vs. continuum limit ≈ $1/\sqrt{N} = 0.1$ at $N=100$. Visible in oscillations of the fixed-point iteration trajectory.
+
+## Question 3: Welfare Gap Derivation (15 points)
+
+Derive the welfare gap $\Delta W$ between decentralized and centralized MFG equilibria.
+
+**(a) (8 pts)** Set up the planner's problem:
+- Choose population-level exit policy $u^*(L, \mu)$ to maximize aggregate welfare $W = \int U(L, \mu) p(L, t) dL dt$
+- Where $U$ is the integrand of the LP value function (utility of holding/exiting at state $L$)
+
+**(b) (5 pts)** Show that the planner's first-order condition differs from the decentralized agent's by an additional term capturing the externality:
+$$\frac{\partial U}{\partial u}\bigg|_\text{centralized} = \frac{\partial U}{\partial u}\bigg|_\text{decentralized} + \text{externality term}$$
+
+**(c) (2 pts)** Quantify $\Delta W$ at calibrated parameters. Use the rough magnitude argument from Session 24 to confirm $\Delta W \approx 2.3\%$/yr.
+
+**Solution outline:**
+
+(a) Planner's problem: $\max_{u(\cdot, \cdot)} \int_0^T \int U(L, \mu_t, u(L, \mu_t)) p(L, t) dL dt$
+
+(b) FOC: in centralized solution, planner internalizes how individual exit decisions affect $\mu$ (via Fokker-Planck dynamics). The externality term is:
+$$\int \frac{\delta U}{\delta \mu} \cdot \nabla \cdot (u \cdot p) \, dL$$
+which captures how individual decisions propagate through population dynamics.
+
+(c) At calibrated $\gamma$ (mean-field coupling strength) and standard variance of $L_t$, the externality contributes approximately $\gamma^2 \cdot \text{Var}(L) / \kappa \approx 2.3\%$/yr in welfare terms. This matches the empirical calibration. Full derivation requires careful tracking of the master equation — see book Section 19.4.
+
+## Question 4: Numerical Welfare Computation (15 points)
+
+Using your MFG iteration from Q2, compute the welfare gap numerically.
+
+**(a) (8 pts)** Compute the decentralized welfare:
+$W_d = \frac{1}{N} \sum_i V_i^d$ where $V_i^d$ is each LP's value under decentralized equilibrium.
+
+**(b) (5 pts)** Compute the centralized welfare under the planner's optimal policy (you'll need to derive or stipulate the planner's policy — for simplicity, use the policy that maximizes aggregate value).
+
+**(c) (2 pts)** Compute $\Delta W = W_c - W_d$. Report as a percentage of $W_d$. Compare to the theoretical 2.3%/yr.
+
+## Question 5: Heterogeneous Beta Extension (20 points)
+
+The standard GE-LAV uses a representative LP. Extend to heterogeneous LPs with different liquidity betas.
+
+**(a) (10 pts)** Set up the heterogeneous-LP model:
+- LP types $i \in \{1, ..., K\}$ with shares $w_i$ in the population
+- Each type has liquidity beta $\beta_i$ to aggregate $L_t$
+- LP-specific dynamics: $dL_t^i = \kappa(\bar{L} - L_t^i) dt + \sigma_L (\beta_i \cdot dW_t + \tilde{W}_t^i)$
+- Aggregate $L_t = \sum w_i L_t^i$
+
+Derive the new MFG fixed-point structure.
+
+**(b) (5 pts)** Implement the heterogeneous-MFG fixed-point iteration. Use $K = 3$ types: high-$\beta$ (1.5), medium-$\beta$ (1.0), low-$\beta$ (0.5) with shares $0.3, 0.5, 0.2$.
+
+**(c) (5 pts)** Compare the heterogeneous equilibrium to the homogeneous case from Q2. Where does heterogeneity matter most?
+
+**Solution outline:**
+
+(a) Each LP type solves its own HJB conditional on the aggregate. The fixed-point is on the joint distribution $(L^1, ..., L^K)$. Stability condition extends naturally.
+
+(b) Implementation: triple the state dimension; iterate.
+
+(c) Heterogeneity matters most in:
+- Tail behavior (high-$\beta$ LPs drive aggregate behavior in stress)
+- Cross-section of welfare effects (high-$\beta$ LPs bear larger welfare losses)
+- Pigouvian tax design (tax should be type-dependent)
+
+## Question 6: Research Discussion (10 points)
+
+Identify two research papers (real or hypothetical) that would build on the material in Sessions 11-15. For each:
+
+- Cite the specific concept being extended
+- Describe the methodology
+- Predict the result and its implication
+
+Graded for research-orientation and rigor.
+
+------------------------------------------------------------------------
+
+[← Track 2 PS1](track2-ps1.qmd) | [Track 2 PS3 →](track2-ps3.qmd)

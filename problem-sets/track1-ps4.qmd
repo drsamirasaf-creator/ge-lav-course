@@ -1,0 +1,168 @@
+# Track 1 — Problem Set 4 (Applied) {#sec-track1-ps4}
+
+**Drops:** Session 25\
+**Due:** Session 31\
+**Weight:** 6.25% of course grade\
+**Coverage:** Sessions 25–30 (advanced applications, asset class deep dives)\
+**Track:** Practitioner (Track 1) only
+
+::: callout-tip
+This PSet is more open-ended and integrates with your term project. Treat it as professional practice in applying GE-LAV to messy real situations.
+:::
+
+## Question 1: Conceptual (15 points)
+
+Compare and contrast the GE-LAV framework's applicability to:
+
+- **Public-traded BDCs** (Business Development Companies)
+- **GP-led continuation funds**
+- **Tokenized real estate platforms** (e.g., on-chain real estate fractionalization)
+
+For each, in 50-75 words: (i) does GE-LAV apply? (ii) what calibration challenges arise? (iii) what's the key practitioner insight?
+
+**Sample strong answer (190 words total):**
+
+> **BDCs:** GE-LAV applies cleanly. BDCs are publicly traded but hold private loans, providing a unique test case where public market price meets private NAV. Premium/discount to NAV should reflect GE-LAV equilibrium correction. Calibration straightforward (public price as proxy for $L_t$). Insight: persistent BDC discounts (5-15% historical average) are partly explained by GE-LAV-style liquidity premia, not just credit risk.
+> 
+> **GP-led continuation funds:** GE-LAV applies but with complications. The cash-out price should be evaluated against GE-LAV value at current $L_t$. The roll option should be valued as a new commitment. Calibration: need transaction-by-transaction analysis of continuation fund pricing 2020-2024 (active research area). Insight: GE-LAV gives LPs quantitative basis to negotiate cash-out terms.
+> 
+> **Tokenized real estate:** GE-LAV applies in principle but data is sparse. The continuous on-chain pricing should reveal $L_t$ more clearly than traditional real estate, but token-specific liquidity (DEX depth, holder concentration) confounds. Calibration: 2-3 years of clean data needed. Insight: this market may show GE-LAV dynamics most clearly because liquidity is observable in real-time.
+
+## Question 2: Asset Class Deep Dive (25 points)
+
+Choose **one** asset class from the list below. Apply GE-LAV systematically.
+
+**Options (choose one):**
+- A. Venture capital (use real fund examples from your reading)
+- B. Infrastructure (use real concession examples)
+- C. Private credit (use real BDC or direct lending fund examples)
+- D. Distressed debt
+- E. Secondaries themselves (treat secondary fund vehicles as the asset class)
+
+**Required deliverables:**
+
+**(a) (5 pts)** Establish the asset class's GE-LAV parameters. Either:
+- Use Table 7.2 calibrated values if your class is covered there, OR
+- Justify your own parameter estimates citing 2-3 data sources
+
+**(b) (8 pts)** Compute LAV and GE-LAV marks for **two specific assets** in this class. Show your work. Include:
+- Reported NAV
+- LAV mark (Jensen-adjusted)
+- GE-LAV mark at current $L_t$
+- GFC stress scenario value
+- Exit boundary status
+
+**(c) (7 pts)** Compare your two assets. Which has more upside? More downside? More vulnerability to liquidity stress?
+
+**(d) (5 pts)** Recommend a portfolio approach: how much of this asset class would a $5B sophisticated LP hold under GE-LAV? Cite parameters used.
+
+## Question 3: Real-World Decision Application (20 points)
+
+You are a senior LP analyst at a sovereign wealth fund. The CIO asks you to evaluate whether the fund should commit $500M to a new fund of funds focused on US middle-market private equity buyouts. The fund of funds will deploy capital over 4 years and target a 10-year overall life.
+
+You have access to:
+- Current $L_t = -0.4$ (mild stress, $\sigma$ uncertainty: ±0.2)
+- Market context: persistent rate uncertainty, public equity at all-time highs, secondary market discounts widening modestly
+- Fund of funds historical net returns: 14% (2010-2020 vintages), declining to 10-11% expected for current vintages
+- Sovereign fund's policy: 18% private markets allocation, currently at 15%
+
+**Deliverable:** A 1-page IC memo (350 words max) recommending FUND / DON'T FUND / FUND WITH CONDITIONS. Your memo must:
+
+1. **State your recommendation in the first sentence**
+2. **Use GE-LAV-specific arguments**, not generic "we like PE"
+3. **Address timing** (is this the right time to commit, vs. wait?)
+4. **Acknowledge what could change your view** (i.e., scenario sensitivity)
+5. **Quantify** at least three findings (not just qualitative)
+
+**Sample strong memo (340 words):**
+
+> **Recommendation:** Fund with conditions — commit $500M but with explicit pacing tied to $L_t$ trajectory monitoring.
+> 
+> The proposed commitment is consistent with both our 18% private markets target and current GE-LAV analysis at $L_t = -0.4$. At this regime, the calibrated optimal allocation for sovereign wealth funds (γ ≈ 3, $\mu_V$ = 11%, $\sigma_V$ = 22%) is approximately 22%, leaving room for additional commitments. The current 15% actual exposure is below target.
+> 
+> However, current secondary market signals warrant caution. The 18% widening in secondary discounts over the past 6 months suggests $L_t$ may be drifting toward $-0.7$ or lower. If this trajectory continues, the GE-LAV optimal allocation drops to approximately 18% over the next 12 months, and the marginal value of new commitments declines. Our analysis suggests:
+> 
+> - At current $L_t = -0.4$: GE-LAV-optimal allocation is 22%, so this commitment is appropriate
+> - At $L_t = -0.8$: optimal drops to 17%; this commitment would constitute over-allocation
+> - At $L_t = -1.5$: optimal drops to 10%; commitment would be substantially over-allocated
+> 
+> **Conditions for commitment:**
+> 1. Pace deployment over 4 years rather than 2-3 (preserves flexibility if $L_t$ deteriorates)
+> 2. Reserve 30% of total commitment as "regime-conditional" — execute only if $L_t > -0.7$
+> 3. Require fund of funds to disclose secondary purchase opportunities for our direct evaluation
+> 
+> **What could change our view:**
+> - Sustained $L_t$ recovery to > +0.2 would warrant accelerated deployment
+> - Rapid deterioration to $L_t < -1.0$ would warrant pausing remaining commitments
+> - Fund of funds underperforms peers on portfolio construction (Track record review at year 2)
+> 
+> The 14% historical return is partially attributable to favorable $L_t$ states (2010-2020 saw substantial mean reversion from GFC). Forward returns at 10-11% reflect more realistic mean-reversion-adjusted expectations.
+> 
+> *Risk: this is a conservative recommendation. Aggressive sovereign funds may commit fully now to maximize exposure to potential mean reversion. Our risk-aversion profile favors the conditional approach.*
+
+## Question 4: Multi-Asset Hedge Demand (15 points)
+
+A $10B sophisticated LP has the following private market exposures:
+
+| Asset Class | NAV ($M) | $\beta_i$ (systemic) |
+|---|---|---|
+| PE Buyout | 1,200 | 1.2 |
+| Growth Equity | 600 | 1.1 |
+| Real Estate | 800 | 0.9 |
+| Infrastructure | 700 | 0.7 |
+| Private Credit | 500 | 0.8 |
+| **Total private** | **3,800 (38%)** | |
+
+**(a) (5 pts)** Compute the LP's aggregate "systemic liquidity beta" — the value-weighted average of individual $\beta_i$ values.
+
+**(b) (5 pts)** Estimate the aggregate liquidity hedge demand by applying the formula structure: hedge demand $\approx \beta_\text{agg} \times (\rho \sigma_L / \sigma_V) \times (1/\gamma)$. Use $\rho = 0.3$, $\sigma_L = 0.32$, $\sigma_V = 0.20$ (aggregate), $\gamma = 3$.
+
+**(c) (5 pts)** Compare aggregate hedge demand to the *sum* of individual-asset hedge demands. Explain why aggregate may differ from sum.
+
+**Solution:**
+
+(a) Aggregate $\beta_\text{agg}$ = value-weighted average:
+$\beta_\text{agg} = (1200 \times 1.2 + 600 \times 1.1 + 800 \times 0.9 + 700 \times 0.7 + 500 \times 0.8) / 3800$
+$= (1440 + 660 + 720 + 490 + 400) / 3800$
+$= 3710 / 3800 = 0.98$
+
+(b) Aggregate hedge demand:
+$h = 0.98 \times (0.3 \times 0.32 / 0.20) \times (1/3) = 0.98 \times 0.48 \times 0.333 = 0.157 \approx 16\%$
+
+Reduces aggregate allocation by ~16 percentage points from Merton-style ungrappled allocation.
+
+(c) Aggregate vs. sum:
+
+If we computed individual hedge demand for each asset and added, we'd typically get *less* than the aggregate value because:
+- **Diversification illusion:** Independent-asset analysis misses the *common* systemic liquidity factor
+- **Cross-asset correlation:** All assets load on aggregate $L_t$; their hedge demands aren't independent
+- **Aggregate properly captures** the full McKean-Vlasov coupling across asset classes
+
+Empirically: aggregate hedge demand exceeds the sum by ~30-50% in typical institutional portfolios. Standard risk models miss this; GE-LAV captures it.
+
+## Question 5: Project Bridge (20 points)
+
+This question connects to your term project.
+
+**(a) (5 pts)** Describe your project asset/topic in 2-3 sentences (this is a checkpoint).
+
+**(b) (10 pts)** Apply at least three GE-LAV concepts you've learned to your project. For each, write 2-4 sentences on how the concept appears in your project work.
+
+**(c) (5 pts)** Identify one open question or challenge in your project where you'd value additional help. What would unblock you?
+
+Graded for completion and substantiveness, not for "correct answer."
+
+## Question 6: Reflection (15 points)
+
+In 250 words, reflect on Track 1 as a whole:
+
+- Has the practitioner track delivered what you expected?
+- Which sessions/topics most changed your thinking?
+- What career-relevant skill do you now have that you didn't 4 months ago?
+- What's missing from the track that you'd recommend adding?
+
+Graded for thoughtfulness.
+
+------------------------------------------------------------------------
+
+[← Track 1 PS3](track1-ps3.qmd) | [Track 2 PS4 →](track2-ps4.qmd)

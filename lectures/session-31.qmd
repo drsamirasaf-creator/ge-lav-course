@@ -1,0 +1,242 @@
+# Session 31: Research Frontiers · Course Synthesis {#sec-session-31}
+
+| | |
+|---|---|
+| **Unit** | 5 — Split Track (final session before reunification) |
+| **Book Chapter** | 21 (Future Research Directions) |
+| **Track 1 source** | Class 26 (Research Frontiers) + Classes 28-29 (advanced) |
+| **Track 2 source** | Class 26 + Classes 28, 29 (Neural SDE, Network) |
+| **Slides needed** | T1: ~5 new + ~9 from Class 26; T2: ~5 new + ~14 from Classes 26, 28, 29 |
+| **Assessment milestone** | **PS4 due (start of class)** |
+
+::: callout-important
+## PS4 due today
+
+Submit PS4 (track-specific) at the start of class. Late penalty applies per syllabus.
+:::
+
+---
+
+## Both Tracks: Course Synthesis (Common 30 Minutes)
+
+Tracks meet together for the first 30 minutes for course synthesis, then split for track-specific frontier discussion.
+
+### Common Synthesis Slide Briefs
+
+**Slide 31.1 — Title**
+
+- **Title:** "Research Frontiers and Course Synthesis"
+- **Subtitle:** "Where the framework goes next · What you've built"
+- **Speaker notes:** Final substantive session. Help students see the arc.
+
+**Slide 31.2 — What You've Built (Course Arc)**
+
+- **Title:** "The 32-session arc, summarized"
+- **Visual:** Timeline showing all 32 sessions with milestone markers
+- **Five units:**
+  - Unit 1 (Sessions 1–5): Why DCF fails ✓
+  - Unit 2 (Sessions 6–10): Measurement + theory ✓
+  - Unit 3 (Sessions 11–18): Decision + application ✓
+  - Unit 4 (Sessions 19–24): Math intuition bridges ✓
+  - Unit 5 (Sessions 25–31): Split track ✓
+- **Capstone (Session 32):** Project presentations
+- **Speaker notes:** Show progression. Students should feel pride.
+
+**Slide 31.3 — Key Takeaways for Both Tracks**
+
+- **Title:** "What every student should walk away with"
+- **Conceptual:**
+  - DCF systematically misvalues private market assets
+  - Liquidity is stochastic and collectively determined
+  - Jensen bias is real and computable
+  - The McKean-Vlasov externality creates ~2.3%/yr welfare loss
+- **Practical:**
+  - GE-LAV provides valuation, exit, portfolio, regulatory tools
+  - Asset class differences matter (PE, VC, infrastructure, credit)
+  - Cross-asset hedge demand is large in stress
+- **Strategic:**
+  - The valuation hierarchy DCF ⊊ LAV ⊊ GE-LAV is provably strict
+  - Adoption will happen gradually
+  - Track 1 students will work *with* this framework; Track 2 students will *extend* it
+
+**Slide 31.4 — The Most Important Numbers**
+
+- **Title:** "Numbers worth memorizing"
+- **OU calibration:** $\kappa = 0.45$/yr, $\sigma_L = 0.32$, $\bar{L} = 1.0$
+- **Jensen bias 5/10/15/20 yr:** 0.8%/1.7%/2.5%/3.6% (affine approx) or 2.0%/6.2%/11.6%/15.0% (closed-form)
+- **Crisis amplification:** 4.31×
+- **Welfare gap:** ~2.3%/yr
+- **Hedge demand at normal:** ~8 percentage points
+- **Speaker notes:** Concrete numbers. Students should know these on exit.
+
+---
+
+## Track 1: Practitioner Frontiers (45 Additional Minutes)
+
+### Track 1 Learning Objectives
+
+By end of Track 1 session, Track 1 students will be able to:
+
+1. **Identify** the most promising practitioner applications of GE-LAV expected over next 5 years.
+2. **Discuss** the institutional adoption barriers and how they may be overcome.
+3. **Recognize** the open practitioner questions (regime detection, multi-asset extensions, calibration improvements).
+
+### Track 1 Slide Briefs
+
+**Slide T1-31.1 — Adoption Trajectory**
+
+- **Title:** "How GE-LAV will be adopted"
+- **Phase 1 (next 1–2 years):** Academic adoption and citation
+- **Phase 2 (3–5 years):** Voluntary adoption by sophisticated LPs (pensions, sovereign wealth funds)
+- **Phase 3 (5–10 years):** Regulatory inclusion (Solvency II review cycles, IPEV updates)
+- **Phase 4 (10+ years):** Standard methodology, replacing DCF as default
+- **Speaker notes:** Realistic timeline. Not overnight; not never.
+
+**Slide T1-31.2 — Open Practitioner Questions**
+
+- **Title:** "What practitioners need next"
+- **Real-time regime detection:**
+  - When has the calibration changed? Is the current $L_t$ stable or transient?
+  - Statistical tools for regime identification needed
+- **Multi-asset extensions:**
+  - GE-LAV calibrated independently per asset class
+  - Cross-asset coupling needs more empirical work
+- **Synthetic exposures:**
+  - GP-led continuation funds, NAV loans, structured secondaries
+  - GE-LAV applies in principle; need clean implementations
+- **Speaker notes:** These are research projects students can do post-course.
+
+**Slide T1-31.3 — Career Implications**
+
+- **Title:** "Where this knowledge fits in your career"
+- **For LP allocators:**
+  - Defensible methodology for IC decisions
+  - Better stress testing
+  - Tactical allocation framework
+- **For GPs:**
+  - Better valuation methodology
+  - LP relationship management
+  - Continuation fund pricing
+- **For consultants and advisors:**
+  - Differentiated analytical capability
+  - Regulatory advisory work
+- **For regulators:**
+  - Quantitative basis for stress testing
+  - Pigouvian-style policy proposals
+- **Speaker notes:** Direct career relevance. Students from each path should see themselves.
+
+### Track 1 Existing Slides to Reuse
+
+From Class 26 (Research Frontiers & Course Synthesis) — 9 slides
+- Adoption pathway
+- Open practitioner questions
+
+---
+
+## Track 2: Research Frontiers (45 Additional Minutes)
+
+### Track 2 Learning Objectives
+
+By end of Track 2 session, Track 2 students will be able to:
+
+1. **Identify** the most promising theoretical extensions of GE-LAV (jumps, multi-asset, neural SDE).
+2. **Articulate** open research questions in MFG theory applied to private markets.
+3. **Recognize** the connection between GE-LAV and adjacent research areas (systemic risk, optimal execution, central clearing).
+
+### Track 2 Slide Briefs
+
+**Slide T2-31.1 — Theoretical Extensions**
+
+- **Title:** "Where GE-LAV theory is incomplete"
+- **Jump-diffusion extension:**
+  - Compound Poisson jumps in $L_t$ (Lévy OU)
+  - Book Ch. 13 sketches; full theory still developing
+- **Multi-asset GE-LAV:**
+  - Coupled mean-field equilibria across asset classes
+  - Open: existence theorem for the multi-asset system
+- **Neural SDE calibration:**
+  - Data-driven parameter estimation using neural networks
+  - Class 29 covers; more research needed
+- **Speaker notes:** Each of these is a thesis chapter or research paper opportunity.
+
+**Slide T2-31.2 — Open Research Questions**
+
+- **Title:** "What's not yet known"
+- **Quantitative open questions:**
+  - Stability boundaries (when does $\kappa > \gamma$ fail in practice?)
+  - Rate of convergence for finite-N MFG
+  - Robust calibration under regime uncertainty
+- **Methodological open questions:**
+  - When to use master equation vs. simulations
+  - High-dimensional generalizations
+- **Empirical open questions:**
+  - Test the Pigouvian tax welfare gap empirically
+  - Cross-validate calibration on subsamples
+
+**Slide T2-31.3 — Connections to Adjacent Fields**
+
+- **Title:** "GE-LAV in the broader research landscape"
+- **Systemic risk literature:**
+  - GE-LAV provides an asset-pricing companion to Acemoglu et al. network models
+- **Optimal execution:**
+  - Similar fixed-point structure (impact depends on flow, flow depends on impact)
+  - Adapt MFG techniques across both areas
+- **Central clearing literature:**
+  - GE-LAV-style Pigouvian instruments analog to default fund / margin requirements
+- **Climate finance:**
+  - Long-duration risk pricing; transition risk dynamics
+- **Speaker notes:** Place GE-LAV in the research ecosystem. Students should see it as one node in a broader network.
+
+**Slide T2-31.4 — Career Implications for Researchers**
+
+- **Title:** "Where this matters for research careers"
+- **PhD students:**
+  - Thesis topics in MFG, private market valuation, systemic risk
+  - Connection to leading research (Carmona, Delarue, Lasry, Lions)
+- **Academic finance:**
+  - Empirical papers on the Jensen bias, welfare gap
+  - Theoretical papers on extensions
+- **Quant researchers:**
+  - Implementation of master equation
+  - Calibration techniques
+- **Speaker notes:** Connect to active research conversations.
+
+### Track 2 Existing Slides to Reuse
+
+From Class 26 + Classes 28-29 (Neural SDE + Network):
+- 14 slides on theoretical frontiers
+- Advanced empirical/numerical techniques
+
+---
+
+## Both Tracks: Pre-Session 32 Preparation
+
+### What's Due Session 32
+
+- **Final paper:** 20 pages excluding references and appendices
+- **Project presentation:** 20 min + 5 min Q&A
+- **Submit:** Both via course site by start of Session 32
+
+### Last-Minute Project Preparation
+
+- **Re-read your draft:** Address every peer review comment
+- **Sleep before the presentation:** Prepared and rested beats stressed and over-prepared
+- **Bring backup:** Print slides AND have them on a USB; technology fails
+- **Time yourself:** 20 minutes is *fast*; rehearse exactly to time
+
+### Session 32 Logistics
+
+- **Location:** [TBD] — confirm room assignment via course site
+- **Order:** Random selection on day of session
+- **Q&A:** 5 minutes — every Q&A is graded
+- **After all presentations:** Brief course synthesis and farewell
+
+### Office Hours
+
+- **This week:** Extended office hours available
+- **Schedule via course site calendar**
+- **Limit:** 30 minutes per student to allow access for everyone
+
+------------------------------------------------------------------------
+
+[← Session 30](session-30.qmd) | [Schedule](../schedule.qmd) | [Next: Session 32 →](session-32.qmd)

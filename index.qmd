@@ -1,0 +1,94 @@
+
+
+## The General Equilibrium Theory of Private Capital Valuation
+
+**Graduate Finance Course · Spring 2027 · 32 Sessions · 3 Credit Hours**
+
+*Samir Asaf, PhD, CFA, CMA, CTP, CM&AA*\
+*Senior Partner, Regent Financial LLC, New York*\
+
+------------------------------------------------------------------------
+
+## Why This Course Exists
+
+The most dangerous phrase in finance is: *"assume the liquidity premium is constant."* It is not a simplification — it is a mistake with large, measurable, and correctable consequences for managing trillions in institutional capital.
+
+This course teaches the GE-LAV® framework — the first continuous-time general equilibrium model of liquidity pricing in private markets. Students will learn why conventional Discounted Cash Flow (DCF) analysis structurally misvalues private assets, what a correct theory must deliver, and how to implement liquidity-adjusted valuation across private equity, infrastructure, private credit, and real estate.
+
+## What You Will Build
+
+By the end of the course, every student will have:
+
+- A working command of the GE-LAV® valuation hierarchy (DCF ⊊ LAV ⊊ GE-LAV)
+- The ability to identify and quantify the Jensen convexity bias in real private-market portfolios
+- A complete liquidity-adjusted valuation of a real private market asset of their choice (the term project)
+- Familiarity with the secondary market evidence that exposes the liquidity illusion
+- Working knowledge of the GE-LAV® computational platform
+
+**Track 2 students will additionally:**
+
+- Derive the optimal exit boundary from first principles using stochastic control
+- Prove the existence of a mean-field equilibrium under McKean-Vlasov dynamics
+- Calibrate the Ornstein-Uhlenbeck liquidity process to empirical data
+- Implement the Pigouvian exit tax under stress scenarios
+
+## Two-Track Design
+
+This course recognizes that graduate finance students arrive with different mathematical backgrounds and different career trajectories. Rather than teaching to the lowest common denominator (which would frustrate quantitative students) or the highest (which would exclude practitioner-oriented students), the course is structured as **two parallel tracks merging into a common core**.
+
+| | Track 1 (Practitioner) | Track 2 (Researcher) |
+|---|---|---|
+| Sessions 1–24 | Common core: 24 sessions identical for both tracks |
+| Sessions 25–31 | Applied case workshops | Full mathematical derivations |
+| Session 32 | Project presentations (both tracks present) |
+| Math required | Asset pricing, basic calculus | Stochastic calculus, measure theory |
+| Problem sets | 4 applied (real data) | 4 mathematical (proofs + numerics) |
+| Best for | MBA / MSF / applied master's students | MFE / quant master's / PhD-track students |
+
+See [Tracks](tracks.qmd) for full declaration policy and decision guidance.
+
+## Course Structure at a Glance
+
+- **Unit 1 (Sessions 1–5):** Why private market valuation is broken — DCF failures, the liquidity illusion, term structure
+- **Unit 2 (Sessions 6–10):** Measurement and theory — IRR/PME, what a correct theory must deliver, midterm
+- **Unit 3 (Sessions 11–18):** Exit timing, portfolio construction, regulation, implementation
+- **Unit 4 (Sessions 19–24):** Math intuition bridges — OU, HJB, MFG, GE, Jensen, Pigouvian (concepts, not proofs)
+- **Unit 5 (Sessions 25–31):** **Split track** — applied vs. mathematical deep dives
+- **Capstone (Session 32):** Project presentations
+
+See the [full 32-session schedule](schedule.qmd).
+
+## Assessments
+
+| Component | Weight |
+|---|---|
+| Midterm exam (Session 10) | 20% |
+| 4 problem sets (track-differentiated) | 25% |
+| Term project (proposal + draft + presentation) | 50% |
+| Class participation | 5% |
+
+**There is no final exam.** Session 32 is reserved for project presentations.
+
+See the [project specification](project/project-specification.qmd), [midterm blueprint](exams/midterm-blueprint.qmd), and [problem sets overview](problem-sets/psets-overview.qmd) for details.
+
+## Primary Text
+
+Asaf, S. (2026). *Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation.* Oxford University Press / Regent Financial LLC, New York. 421 pp.
+
+The book is structured in two parts that mirror the course's two tracks:
+
+- **Part 1 (Chapters 1–9): The Practitioner's Guide** — required for all students
+- **Part 2 (Chapters 10–20): The Researcher's Framework** — required for Track 2; recommended optional for Track 1
+- **Chapter 21:** Future research directions
+
+## Instructor
+
+**Samir Asaf** is Senior Partner at Regent Financial, a private markets advisory firm in New York. He holds a PhD in Finance, an MSc (Economics) from LSE, a PGDip in Mathematical Economics from Birkbeck, and a BSc (Economics) from Boston College. He is a CFA, CMA, CTP, CM&AA, and Chartered Director (FIoD, UK).
+
+His research explores stochastic control, McKean-Vlasov mean-field games, and their application to private markets. The GE-LAV® framework introduced in the primary text is his main contribution to financial economics. He has advised leading institutional investors and fund managers on private equity, infrastructure, private credit, and cross-border M&A across North America, Europe, Asia-Pacific, and the Middle East.
+
+His earlier work, *Executive Corporate Finance: The Business of Enhancing Shareholder Value* (Prentice Hall, 2004), has been adopted worldwide for MBA and executive education programs.
+
+------------------------------------------------------------------------
+
+*This course website is built with [Quarto](https://quarto.org) and is the canonical source for syllabus, schedule, lecture notes, problem sets, and the term project. All updates appear here first.*

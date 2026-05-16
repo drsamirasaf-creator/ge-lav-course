@@ -1,0 +1,234 @@
+# Session 27: Split Track — Infrastructure Case / Fokker-Planck & Master Equation {#sec-session-27}
+
+| | |
+|---|---|
+| **Unit** | 5 — Split Track |
+| **Track 1 source** | Class 22 (Infrastructure: The 57% Illusion) |
+| **Track 2 source** | Class 6 (Fokker-Planck Equations) |
+
+---
+
+## Track 1: Infrastructure Case — "The 57% Illusion"
+
+### Track 1 Learning Objectives
+
+By the end of this session, Track 1 students will be able to:
+
+1. **Apply** GE-LAV to a 20+ year infrastructure asset (longest duration in private markets).
+2. **Identify** why long-duration assets carry the largest accumulated Jensen bias.
+3. **Compute** the "57% illusion" — the gap between DCF and GE-LAV for stressed infrastructure positions.
+4. **Translate** GE-LAV findings into pension fund and insurance regulatory language.
+5. **Connect** infrastructure valuation errors to systemic financial stability concerns.
+
+### Track 1 Pre-Class Assignment
+
+- **Read:** Book Chapter 22 case (or Class 22 slides if available)
+- **Optional:** Global Infrastructure Hub report on private infrastructure valuation
+
+### Track 1 In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:10 | Why infrastructure is special: duration + cash flow stability | Lecture |
+| 0:10–0:25 | The "57% illusion" decomposed | Lecture |
+| 0:25–0:55 | Lab: value a real infrastructure asset (Indianapolis Toll Road or comparable) | Group work |
+| 0:55–1:15 | Group recommendations + regulatory implications | Presentations |
+
+### Track 1 Slide Briefs (New Slides Needed)
+
+**Slide T1-27.1 — Infrastructure: The Longest Horizon Asset**
+
+- **Title:** "Why infrastructure breaks DCF the hardest"
+- **Three features:**
+  - **Horizon:** 20-50 years (PPPs sometimes 99 years)
+  - **Cash flow stability:** Contracted revenues (tolls, regulated rates) → low operational volatility
+  - **Liquidity sensitivity:** Long-duration asset; tiny premium changes have huge value effects
+- **Result:** Infrastructure has *the largest* Jensen bias and *the largest* equilibrium correction in stressed regimes
+- **Speaker notes:** Frame the asset class. Most students won't have valued infrastructure deeply.
+
+**Slide T1-27.2 — The 57% Illusion (The Master Number)**
+
+- **Title:** "$1B infrastructure: DCF says $1B, GE-LAV at GFC says $430M"
+- **Decomposition:**
+  - DCF mark: $1.000B (constant 7% rate, 30-year asset)
+  - LAV mark (normal): $1.108B (Jensen bias 10.8% for 30 yr)
+  - GE-LAV mark (normal): $1.000B (small equilibrium correction)
+  - **GE-LAV mark (GFC depth): $0.430B (57% gap to DCF)**
+- **Why so extreme:**
+  - 30-year duration amplifies discount rate changes
+  - At GFC depth, equilibrium rate ~32% vs. DCF 7%
+  - $(1.07/1.32)^{30} \approx 0.43$
+- **Speaker notes:** This is the *single most powerful number* for the regulatory case. Cite this routinely.
+
+**Slide T1-27.3 — Implications for Pension Funds**
+
+- **Title:** "What this means for your pension fund"
+- **Standard pension fund infrastructure portfolio:**
+  - ~10% allocation to infrastructure
+  - Duration: 15-25 years average
+  - Reported NAVs: smooth, stable
+- **Under GE-LAV:**
+  - In stressed regime, reported NAVs overstate true value by 30-57%
+  - Hedge demand calls for ~3-5 percentage points lower allocation
+  - Stress test exposes 40-60% downside (vs. 25% under standard methodology)
+- **Speaker notes:** Connect to specific public pension funds (CalPERS, CalSTRS, Oregon, ABP) — all heavily exposed to infrastructure.
+
+**Slide T1-27.4 — Insurance Implications**
+
+- **Title:** "Insurance regulatory implications"
+- **Solvency II treatment:**
+  - Long-duration infrastructure: capital charge 25-39%
+  - Matched against long-term liabilities (annuities, life)
+  - Conventional wisdom: "good match" between asset and liability duration
+- **GE-LAV finding:**
+  - Asset side has hidden stress exposure (the 57% illusion)
+  - Liability side does not adjust during liquidity stress
+  - Match is *worse* than reported
+- **Speaker notes:** This is a *regulatory* angle. The Solvency II review process in EU is the relevant policy channel.
+
+**Slide T1-27.5 — Lab Setup**
+
+- **Title:** "Lab: value the Indianapolis Toll Road"
+- **Setup:**
+  - 75-year concession (acquired 2006 for $3.85B)
+  - Annual toll revenues ~$200M, growing 2%/yr
+  - LP investor: ITR Concession Co (Macquarie, etc.)
+  - Question: what's it worth today under DCF vs. GE-LAV? Where would secondaries clear?
+- **Group output:**
+  - DCF baseline
+  - GE-LAV at normal liquidity
+  - GE-LAV at GFC-depth stress
+  - "If you had to sell today, what's your reservation price?"
+- **Speaker notes:** Real asset. Real numbers. Tangible.
+
+### Track 1 Existing Slides to Reuse
+
+From Class 22 (Infrastructure: The 57% Illusion) — 13 slides:
+- The headline "57%" chart
+- Infrastructure duration analysis
+- Specific case studies (Indianapolis Toll Road, Chicago Skyway, etc.)
+- Regulatory implications
+
+Use largely as-is.
+
+---
+
+## Track 2: Fokker-Planck & Master Equation Derivations
+
+### Track 2 Learning Objectives
+
+By the end of this session, Track 2 students will be able to:
+
+1. **Derive the Fokker-Planck equation** from the SDE via Chapman-Kolmogorov.
+2. **Prove well-posedness** of the GE-LAV Fokker-Planck (Theorem 14.2).
+3. **State and apply the master equation** for value functions on Wasserstein space (Theorem 15.1).
+4. **Implement** a Fokker-Planck solver for the GE-LAV liquidity state.
+5. **Verify numerical convergence** of the FP solution to the analytical stationary distribution.
+
+### Track 2 Pre-Class Assignment
+
+- **Read:** Book Chapters 14, 15 in full (with proofs)
+- **Pre-read:** Pavliotis, *Stochastic Processes and Applications*, Chapters 4–5; or Risken, *The Fokker-Planck Equation*, Chapter 4
+
+### Track 2 In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:15 | Derivation of FP from Chapman-Kolmogorov | Lecture + board |
+| 0:15–0:35 | Well-posedness (existence + uniqueness): Theorem 14.2 | Lecture |
+| 0:35–0:55 | The master equation on Wasserstein space | Lecture |
+| 0:55–1:10 | Numerical FP solver | Code walkthrough |
+| 1:10–1:15 | Verification: numerical → analytical stationary | Discussion |
+
+### Track 2 Slide Briefs (New Slides Needed)
+
+**Slide T2-27.1 — Derivation: Fokker-Planck from Chapman-Kolmogorov**
+
+- **Title:** "Deriving FP from first principles"
+- **Step 1:** Chapman-Kolmogorov equation:
+  - $p(x, t+\Delta t) = \int p(x, t+\Delta t | y, t) \cdot p(y, t) dy$
+- **Step 2:** Transition kernel for $dX = f dt + g dW$ at small $\Delta t$:
+  - $p(x, t+\Delta t | y, t) \approx \dfrac{1}{\sqrt{2\pi g^2 \Delta t}} \exp\left(-\dfrac{(x - y - f \Delta t)^2}{2 g^2 \Delta t}\right)$
+- **Step 3:** Taylor expand $p(y, t)$ around $y = x$:
+  - $p(y, t) = p(x, t) + (y-x) p_x(x, t) + \frac{1}{2}(y-x)^2 p_{xx}(x, t) + O((y-x)^3)$
+- **Step 4:** Substitute, integrate, take $\Delta t \to 0$:
+  - $\dfrac{\partial p}{\partial t} = -\dfrac{\partial}{\partial x}[f p] + \dfrac{1}{2}\dfrac{\partial^2}{\partial x^2}[g^2 p]$
+- **Speaker notes:** Walk through each step. This is the *fundamental* derivation. Students should be able to reproduce.
+
+**Slide T2-27.2 — Well-Posedness (Theorem 14.2)**
+
+- **Title:** "Well-posedness of the GE-LAV Fokker-Planck"
+- **Theorem 14.2:** For the GE-LAV FP equation with calibrated drift and diffusion:
+  - **Existence:** A weak solution $p(L, t)$ exists for all $T > 0$
+  - **Uniqueness:** The solution is unique in $L^2([0, T] \times \mathbb{R})$
+  - **Regularity:** $p$ is smooth in the interior; satisfies $C^\infty$
+- **Proof sketch:**
+  - Hörmander's hypoellipticity theorem (sufficient regularity from nondegenerate diffusion)
+  - $L^2$ energy estimates for uniqueness
+  - Maximum principle for boundedness
+- **Speaker notes:** State the theorem rigorously. Sketch the structure of the proof. Refer to book for full argument.
+
+**Slide T2-27.3 — Stationary Distribution Derivation**
+
+- **Title:** "Stationary density of OU"
+- **Setup:** Set $\partial p / \partial t = 0$ in the FP equation:
+  - $0 = -\kappa \dfrac{d}{dL}[(\bar{L} - L) p_\infty(L)] + \dfrac{\sigma_L^2}{2} \dfrac{d^2}{dL^2} p_\infty(L)$
+- **Solve via integrating factor:**
+  - Multiply by $\exp(\kappa(L - \bar{L})^2 / \sigma_L^2)$
+  - Get $\dfrac{d}{dL}[$ flux $] = 0$
+  - Therefore flux $= 0$ (since density decays at $\pm\infty$)
+  - Setting flux to zero: $-\kappa(\bar{L} - L) p + \frac{\sigma_L^2}{2} p' = 0$
+- **Solve ODE:** $p_\infty(L) = C \exp(-\kappa(L - \bar{L})^2 / \sigma_L^2)$
+- **Normalize:** $C = \sqrt{2\kappa / (\pi \sigma_L^2)}$, giving Gaussian with mean $\bar{L}$, variance $\sigma_L^2/(2\kappa)$
+- **Speaker notes:** This is the derivation Track 1 students saw the result of in Session 4. Now Track 2 sees the derivation.
+
+**Slide T2-27.4 — The Master Equation on Wasserstein Space**
+
+- **Title:** "Master equation: HJB for MFG value functions"
+- **Setting:**
+  - Value function $V(L, t, \mu)$ where $\mu$ is the population distribution
+  - $\mu$ lives in Wasserstein space $\mathcal{P}_2(\mathbb{R})$
+- **Master equation (informally):**
+  - $\dfrac{\partial V}{\partial t} + \mathcal{L} V - r(L) V + \mathcal{H}(V_\mu) + C = 0$
+- **Where:**
+  - $\mathcal{L}V$ = standard HJB operator on $L$
+  - $V_\mu = \delta V / \delta \mu$ = Wasserstein gradient
+  - $\mathcal{H}(V_\mu)$ = Hamiltonian coupling individual to population
+- **Speaker notes:** This is the most abstract slide of the session. Don't expect deep mastery — just recognition that the master equation exists and is solvable in principle.
+
+**Slide T2-27.5 — Numerical FP Solver**
+
+- **Title:** "Implementing the FP solver"
+- **Pseudocode:**
+  ```
+  Initialize: p_0(L_i) = delta at L_initial
+  For each time step:
+    Apply finite-difference discretization
+    Use Crank-Nicolson for stability
+    Enforce boundary conditions: p → 0 at |L| → ∞
+    Normalize: sum to 1
+  Output: p(L, t) for all t
+  ```
+- **Convergence check:** As $t \to T$ large, numerical $p(L, T) \to$ analytical stationary
+- **Performance:** ~seconds for full GE-LAV time series
+- **Speaker notes:** Provide complete pseudocode. Students should be able to implement in <100 lines of Python.
+
+### Track 2 Existing Slides to Reuse
+
+From Class 6 (Fokker-Planck Equations) — 16 slides:
+- FP derivation and applications
+- OU stationary distribution
+- Numerical methods
+- Connection to backward equations
+
+Use directly.
+
+### Track 2 Discussion Questions
+
+1. The FP derivation assumes the transition density is Gaussian at small $\Delta t$. This holds for Itô SDEs with smooth coefficients. What if there are jumps (Lévy processes)? How does the FP change?
+2. The master equation is on Wasserstein space — an infinite-dimensional manifold. Numerically, we discretize $\mu$ on a grid. What's the discretization error? When does this matter?
+3. The well-posedness theorem requires nondegeneracy ($\sigma_L > 0$). What happens if $\sigma_L = 0$ (deterministic OU)? Does the framework break down?
+
+------------------------------------------------------------------------
+
+[← Session 26](session-26.qmd) | [Schedule](../schedule.qmd) | [Next: Session 28 →](session-28.qmd)

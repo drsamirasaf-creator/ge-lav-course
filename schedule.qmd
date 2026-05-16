@@ -1,0 +1,140 @@
+# 32-Session Schedule {#sec-schedule}
+
+This page lists all 32 sessions with topic, book chapter, slide source, and assessment milestones. For full lecture notes on each session, click the session link.
+
+## Architecture Summary
+
+- **Sessions 1–24:** Common core (all students attend identical sessions)
+- **Sessions 25–31:** Split track (Track 1 = applied workshops, Track 2 = mathematical derivations)
+- **Session 32:** Capstone — project presentations (both tracks present)
+
+## Unit Structure
+
+| Unit | Sessions | Topic | Book Chapters |
+|---|---|---|---|
+| **1: Why DCF Fails** | 1–5 | Diagnosis, illusion, term structure | Ch. 1–3 |
+| **2: Measurement & Theory** | 6–10 | IRR/PME, correct theory, midterm | Ch. 4–5 |
+| **3: Decision & Application** | 11–18 | Exit timing, portfolio, regulation, implementation | Ch. 6–9 |
+| **4: Math Bridges** | 19–24 | OU, HJB, MFG, GE, Jensen, Pigouvian (intuition) | Ch. 10–20 (selected) |
+| **5: Split Track** | 25–31 | Applied workshops (T1) / Math derivations (T2) | Ch. 6–20 |
+| **Capstone** | 32 | Project presentations | — |
+
+## Full 32-Session Schedule
+
+### Unit 1: Why Private Market Valuation Is Broken (Sessions 1–5)
+
+| # | Topic | Chapter | Slides | Notes |
+|---|---|---|---|---|
+| [1](lectures/session-01.qmd) | Course intro · Why DCF fails · Valuation hierarchy preview | Ch. 1 | New (60%) + reuse from Class 9 (40%) | **PS1 drops** |
+| [2](lectures/session-02.qmd) | Three structural failures · LA-CAPM | Ch. 1.5–1.7 | New + reuse from Class 9 | |
+| [3](lectures/session-03.qmd) | The liquidity illusion · Secondary market evidence | Ch. 2 | New + reuse from Class 21–22 | |
+| [4](lectures/session-04.qmd) | OU process for liquidity (intuition only) | Ch. 2.8–2.9 | Adapt Class 5 (strip derivations) | |
+| [5](lectures/session-05.qmd) | Term structure of private capital returns | Ch. 3 | All new | **Track declaration deadline** |
+
+### Unit 2: Measurement and Theory (Sessions 6–10)
+
+| # | Topic | Chapter | Slides | Notes |
+|---|---|---|---|---|
+| [6](lectures/session-06.qmd) | IRR: definition, limitations, biases | Ch. 4.2–4.4 | All new | |
+| [7](lectures/session-07.qmd) | PME: correct and incorrect implementations · LA-IRR · LA-PME | Ch. 4.5–4.9 | All new | |
+| [8](lectures/session-08.qmd) | What a correct theory must deliver · 5-result preview | Ch. 5 | All new | **PS1 due** |
+| [9](lectures/session-09.qmd) | Midterm review · Q&A · synthesis of Sessions 1–8 | Ch. 1–5 | All new (review slides) | |
+| [10](lectures/session-10.qmd) | **MIDTERM EXAM** | Ch. 1–5 | — | **Midterm** |
+
+### Unit 3: Decision and Application (Sessions 11–18)
+
+| # | Topic | Chapter | Slides | Notes |
+|---|---|---|---|---|
+| [11](lectures/session-11.qmd) | Exit timing — the trapped investor problem | Ch. 6.1–6.4 | Reuse Class 13 (PE decomp) + new | |
+| [12](lectures/session-12.qmd) | The exit boundary L\*(t) — numerical examples, intuition | Ch. 6.5–6.7 | Reuse Class 13 + new | |
+| [13](lectures/session-13.qmd) | Liquidity traps · Historical performance of GE-LAV exit rule | Ch. 6.7–6.10 | Reuse Class 13 + new | |
+| [14](lectures/session-14.qmd) | Portfolio construction · Liquidity hedge demand | Ch. 7.1–7.3 | Reuse Class 24 (Portfolio Construction) | **Project proposal due** |
+| [15](lectures/session-15.qmd) | Pacing · Tactical allocation · Stress scenarios | Ch. 7.4–7.6 | Reuse Class 24 + new | |
+| [16](lectures/session-16.qmd) | Regulatory implications: Solvency II, AIFMD, FSB · Crisis dynamics | Ch. 8 | Reuse Class 19 (GFC) + new | **PS2 due** |
+| [17](lectures/session-17.qmd) | GE-LAV platform — architecture, data, calibration workflow | Ch. 9.1–9.5 | Reuse Class 10, 12, 25 | |
+| [18](lectures/session-18.qmd) | Platform demo: live walkthrough · validation against stress episodes | Ch. 9.6–9.10 | Reuse Class 10, 12, 25 + new | |
+
+### Unit 4: Math Intuition Bridges (Sessions 19–24)
+
+These sessions teach the conceptual content of Part 2 of the book — what the math *means* and *does*, without the full derivations. Track 2 students will revisit this content with full proofs in Sessions 25–31.
+
+| # | Topic | Chapter | Slides | Notes |
+|---|---|---|---|---|
+| [19](lectures/session-19.qmd) | Brownian motion, Itô, the OU process (concepts only) | Ch. 10, 12 | All new (intuition-stripped from Classes 2–5) | |
+| [20](lectures/session-20.qmd) | Stochastic control, HJB (concepts) — what optimal stopping means | Ch. 11 | All new (intuition from Class 7) | |
+| [21](lectures/session-21.qmd) | Mean-field games — what collective interaction does to pricing | Ch. 13 | All new (intuition from Class 8) | |
+| [22](lectures/session-22.qmd) | Fokker-Planck, master equation — distributions over time | Ch. 14, 15 | All new (intuition from Class 6) | |
+| [23](lectures/session-23.qmd) | The LAV operator · GE equilibrium · market clearing | Ch. 16, 17 | New + Class 17 (market clearing) | |
+| [24](lectures/session-24.qmd) | Jensen bias · Pigouvian tax · welfare gap (results, not proofs) | Ch. 18, 19 | New + Class 11/16/18/20 (intuition extracts) | **PS3 due** |
+
+### Unit 5: Split Track (Sessions 25–31)
+
+Track 1 (Practitioner) and Track 2 (Researcher) diverge. Both tracks meet at the same scheduled time but in different rooms (or different breakout rooms in synchronous online format).
+
+| # | Track 1: Applied Workshop | Track 2: Mathematical Derivation |
+|---|---|---|
+| [25](lectures/session-25.qmd) | **PE buyout case workshop** — apply GE-LAV to a Bain Capital fund. Reuse Class 21 | **Full HJB derivation** — stochastic control, smooth pasting, optimal stopping proofs. Reuse Classes 7 & 14 |
+| [26](lectures/session-26.qmd) | **VC + secondaries valuation lab** — apply to a real VC secondary. Reuse Class 27 (Multi-Asset) | **McKean-Vlasov MFG proofs** — propagation of chaos, fixed-point existence, stability conditions. Reuse Class 8 & 15 |
+| [27](lectures/session-27.qmd) | **Infrastructure case** — the 57% illusion (Class 22). Reuse Class 22 | **Fokker-Planck & master equation** — well-posedness, Wasserstein space. Reuse Class 6 |
+| [28](lectures/session-28.qmd) | **Private credit case** — spread decomposition (Class 23). Reuse Class 23 | **GE equilibrium existence** — market clearing proof, Schauder fixed point. Reuse Class 17 |
+| [29](lectures/session-29.qmd) | **Digital assets / climate risk hybrid case** — GE-LAV applied to crypto and 50-year infra. Reuse Classes 30, 31 | **Jensen bias proof + Pigouvian welfare derivation** — full theorems. Reuse Classes 11, 18, 20 |
+| [30](lectures/session-30.qmd) | **Project draft workshop** — peer review, feedback, refinement | **Valuation hierarchy proof + project draft workshop** — DCF ⊊ LAV ⊊ GE-LAV strict nesting proof |
+| [31](lectures/session-31.qmd) | **Future research · open practitioner questions** — Class 26 + Class 28-29 hybrid | **Future research · open theoretical questions** — Class 26 + neural SDE (Class 29) for advanced students | **PS4 due** |
+
+### Capstone (Session 32)
+
+| # | Topic | Notes |
+|---|---|---|
+| [32](lectures/session-32.qmd) | **Project presentations** — both tracks, 20 min presentation + 5 min Q&A each | **Project final due** |
+
+## Slide Reuse Heat Map
+
+Of the 485 existing slides in your 6 PPTX files:
+
+| Reuse pattern | Count | Where they go |
+|---|---|---|
+| Direct reuse (minimal adaptation) | ~190 slides | Sessions 11–18, 25–31, 32 |
+| Conceptual adaptation (strip math) | ~80 slides | Sessions 4, 19–24 |
+| Track 2 deep dive (full math) | ~140 slides | Sessions 25–31 Track 2 |
+| Appendix / reference only | ~75 slides | Appendix A (Math Foundations) |
+
+**New slides needed:** approximately 200–280 slides, primarily for Sessions 1–3, 5–10, and 19–24. Slide content briefs for these new slides are provided in the [slide-briefs](../slide-briefs/) folder, one per session.
+
+## Visual Timeline
+
+```{mermaid}
+gantt
+    title GE-LAV Course Timeline (16 weeks, 32 sessions)
+    dateFormat YYYY-MM-DD
+    axisFormat %b %d
+
+    section Unit 1
+    Sessions 1-5 (Why DCF Fails)          :u1, 2027-01-19, 2w
+
+    section Unit 2
+    Sessions 6-9 (Measurement)            :u2a, 2027-02-02, 11d
+    Midterm (Session 10)                  :milestone, m1, 2027-02-12, 0d
+
+    section Unit 3
+    Sessions 11-18 (Decision & App)       :u3, 2027-02-16, 4w
+    Project Proposal Due                  :milestone, m2, 2027-03-05, 0d
+    PS2 Due                               :milestone, m3, 2027-03-09, 0d
+
+    section Unit 4
+    Sessions 19-24 (Math Bridges)         :u4, 2027-03-16, 3w
+    PS3 Due                               :milestone, m4, 2027-04-06, 0d
+
+    section Unit 5
+    Sessions 25-31 (Split Track)          :u5, 2027-04-08, 4w
+    Project Draft Due                     :milestone, m5, 2027-04-29, 0d
+    PS4 Due                               :milestone, m6, 2027-05-04, 0d
+
+    section Capstone
+    Session 32 (Presentations)            :u6, 2027-05-06, 1d
+```
+
+*Dates above are illustrative; actual dates will be set per the university's Spring 2027 academic calendar.*
+
+------------------------------------------------------------------------
+
+[Next: Tracks →](tracks.qmd)

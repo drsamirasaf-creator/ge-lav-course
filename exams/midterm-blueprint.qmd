@@ -1,0 +1,161 @@
+# Midterm Exam Blueprint {#sec-midterm}
+
+The midterm exam is held in **Session 10**, is **identical for both tracks**, and is worth **20% of the course grade**.
+
+## Format
+
+- **Duration:** 75 minutes
+- **Location:** [TBD]
+- **Open/closed:** Closed-book, closed-laptop
+- **Permitted aids:** One 8.5×11" double-sided **handwritten** formula sheet (no typed sheets; no photocopies)
+- **Calculators:** Non-programmable scientific calculators permitted; no phones, no graphing calculators with internet
+- **Honor code:** University standard
+
+## Coverage
+
+The midterm covers **Sessions 1–9 (book Chapters 1–5)**:
+
+| Unit | Sessions | Book Chapters | Weight on Exam |
+|---|---|---|---|
+| Why DCF Fails | 1–5 | Ch. 1–3 | 50% |
+| Measurement & Theory | 6–9 | Ch. 4–5 | 50% |
+
+**Specifically out of scope (not on midterm):**
+
+- Exit timing and the trapped investor (Ch. 6)
+- Portfolio construction (Ch. 7)
+- Regulatory implications (Ch. 8)
+- GE-LAV platform implementation (Ch. 9)
+- All Part 2 math content (Ch. 10–20)
+
+## Topic Weighting
+
+| Topic | Approximate % of exam |
+|---|---|
+| The three structural failures of DCF | 12% |
+| Valuation hierarchy (DCF ⊊ LAV ⊊ GE-LAV) | 8% |
+| Secondary market evidence and the liquidity illusion | 10% |
+| OU process — intuition, parameters, what it captures | 10% |
+| Term structure of private capital returns | 10% |
+| IRR — definition, two biases, when it fails | 12% |
+| PME — Kaplan-Schoar vs. Long-Nickels vs. Direct Alpha | 8% |
+| LA-IRR and LA-PME — what they fix | 8% |
+| Jensen convexity bias — intuition and magnitude | 12% |
+| Five requirements of a correct valuation theory (Ch. 5) | 10% |
+
+## Question Types
+
+The exam contains four question types:
+
+| Type | Count | Points each | Total |
+|---|---|---|---|
+| Multiple choice / short answer | 8 | 3 | 24 |
+| Quantitative problems | 4 | 9 | 36 |
+| Conceptual short essays (200 words) | 2 | 10 | 20 |
+| Integrative case analysis | 1 | 20 | 20 |
+| **Total** | **15** | | **100** |
+
+## Sample Questions
+
+### Sample Multiple Choice (3 points)
+
+> Q. The Jensen convexity bias arises because:
+>
+> (a) IRR is mathematically equivalent to a constant discount rate
+> (b) The expected value of a nonlinear function of liquidity differs from the function evaluated at the expected liquidity
+> (c) Secondary market discounts are mean-reverting
+> (d) The OU process has fat tails
+>
+> **Correct answer: (b)**
+
+### Sample Short Answer (3 points)
+
+> Q. State the GE-LAV stationary distribution of the liquidity state L under the OU calibration κ = 0.45, σ = 0.32, L̄ = 1.0. Show units.
+>
+> **Expected answer:** L_∞ ~ N(L̄, σ²/(2κ)) = N(1.0, 0.1138). Variance is dimensionless; mean is in units of the liquidity index.
+
+### Sample Quantitative Problem (9 points)
+
+> Q. An infrastructure asset has a 10-year hold horizon. The OU process for its liquidity state is calibrated to κ = 0.30, σ = 0.28, L̄ = 1.00, with current state L_0 = 0.85 (slightly stressed). The DCF risk-free rate is 4.5%, the equity risk premium is 6%, the beta is 0.7, and the constant illiquidity premium assumed by the fund is 3%.
+>
+> (a) Compute the DCF discount rate. (2 pts)
+>
+> (b) Estimate the LAV-adjusted discount rate using the linear approximation r_LAV(L) ≈ r_DCF + α·(1 − L). Assume α = 0.04. (3 pts)
+>
+> (c) Approximately what is the Jensen bias contribution to the LAV vs. DCF valuation gap over a 10-year horizon, using the affine bias formula B(T) = A·T + C, with A = 1.4% per year and C = 0.5%? (2 pts)
+>
+> (d) Comment briefly on which channel (level vs. convexity) dominates the gap in this case. (2 pts)
+>
+> **Solution sketch:**
+> (a) r_DCF = 4.5% + 0.7·6% + 3% = 11.7%
+> (b) r_LAV(0.85) ≈ 11.7% + 0.04·(1 − 0.85) = 11.7% + 0.6% = 12.3%
+> (c) B(10) = 1.4%·10 + 0.5% = 14.5%
+> (d) The Jensen bias (convexity channel, 14.5%) dominates the level adjustment (0.6%). This is typical for long-horizon assets where the OU process has time to generate path-dependent valuation.
+
+### Sample Conceptual Essay (10 points)
+
+> Q. Explain in 200 words why the standard PME (Public Market Equivalent) methodology systematically misvalues private market performance when liquidity premia vary over time. In your answer, distinguish between Kaplan-Schoar PME and Long-Nickels PME, identify which is more vulnerable to the liquidity illusion, and propose what LA-PME does differently.
+>
+> **Marking guide:**
+> - 2 pts: Correctly characterize PME as comparing private-market cash flows against discounted public benchmark cash flows
+> - 2 pts: Identify that PME embeds a *constant* discount assumption that mirrors the constant-rate DCF problem
+> - 2 pts: Distinguish Kaplan-Schoar (ratio of FVs) from Long-Nickels (ICM with reinvestment)
+> - 2 pts: Argue that Long-Nickels is somewhat more vulnerable because it amplifies timing distortions
+> - 2 pts: Explain that LA-PME uses a stochastic discount path L_t-conditional rather than a constant public-benchmark return
+
+### Sample Integrative Case (20 points)
+
+> **Case: Trapped LP in a 2007-vintage Buyout Fund**
+>
+> An LP in a 2007-vintage US buyout fund holds an interest with NAV of $50M. The fund is approaching year 10 of a 10+2 structure. The GP has indicated they will request an extension; the LP is unsure whether to consent or to exit via the secondary market.
+>
+> Current observed conditions (Q4 2025):
+>
+> - Secondary market quote: −15% to NAV (so $42.5M cash today)
+> - Estimated time to natural liquidation if extension is granted: 2 more years
+> - Liquidity state L_t (from secondary market spreads): 0.82 (stressed but not crisis)
+> - OU parameters: κ = 0.40, σ = 0.30, L̄ = 1.0
+> - Expected residual NAV growth (gross, under GP plan): 6% per year over 2 years
+>
+> Answer the following:
+>
+> (a) **(6 pts)** Using DCF reasoning with a 12% discount rate, what is the LP's expected present value if they hold to liquidation? Should they accept the −15% secondary offer or hold?
+>
+> (b) **(6 pts)** Using the LAV adjustment with α = 0.04 (so r_LAV(0.82) ≈ 12% + 0.04·0.18 = 12.7%), how does your conclusion in (a) change? Show your work.
+>
+> (c) **(4 pts)** Identify which channel (level vs. convexity) is doing the most work in shifting your conclusion. Quantify roughly.
+>
+> (d) **(4 pts)** Discuss in 1–2 paragraphs what additional GE-LAV considerations (exit boundary, externality, regime dependence) the LP should think about that DCF alone does not capture. You do not need to compute these — just explain why they matter.
+
+## Studying for the Midterm
+
+**Best preparation strategy:**
+
+1. **Re-read book Chapters 1–5 carefully.** The exam tracks the book; if you understand the book, you can pass the exam.
+
+2. **Work all PS1 problems** — even ones not yet graded. PS1 is designed to be a study aid for the midterm.
+
+3. **Practice with the sample questions above** under exam conditions (75 minutes, closed book, formula sheet only).
+
+4. **Make your formula sheet now**, not the night before. The act of compressing the course onto one page is itself a study technique. Recommended formulas to include: OU process equation and stationary distribution; standard DCF and LAV discount rate forms; the affine Jensen bias formula B(T) = A·T + C; PME definitions (Kaplan-Schoar, Long-Nickels); the five requirements from Ch. 5.
+
+5. **Attend Session 9 (Midterm Review).** Bring questions.
+
+**What NOT to spend time on:**
+
+- Memorizing proofs (no proofs on the midterm)
+- Memorizing platform UI (platform comes after the midterm)
+- Part 2 math content (out of scope)
+- Specific calibration numbers from the book (you'll be given parameters)
+
+## Logistics
+
+- Bring: pencil, pen, eraser, calculator, formula sheet, ID
+- Arrive 10 minutes early
+- No phones at the desk — power off and stowed
+- Bathroom breaks permitted; one at a time
+- Submit formula sheet with exam (it does not affect your grade — this is honor-code documentation)
+
+------------------------------------------------------------------------
+
+[Next: Problem Sets Overview →](../problem-sets/psets-overview.qmd)

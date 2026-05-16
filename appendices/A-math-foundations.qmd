@@ -1,0 +1,416 @@
+# Appendix A: Mathematical Foundations {#sec-appendix-a}
+
+This appendix collects the mathematical prerequisites and intermediate results needed for the course. It is organized by mathematical area, not by session. Use it as a reference; consult specific sections as needed.
+
+**Notation conventions:**
+- $\mathbb{R}$ denotes the real numbers; $\mathbb{R}^n$ the $n$-dimensional Euclidean space
+- $\mathbb{N} = \{0, 1, 2, ...\}$ denotes the non-negative integers
+- $\mathbb{P}$ denotes a probability measure; $E[\cdot]$ denotes expectation under $\mathbb{P}$
+- $\mathcal{N}(\mu, \sigma^2)$ denotes the normal distribution with mean $\mu$ and variance $\sigma^2$
+- $W_t$ denotes a standard Brownian motion
+
+---
+
+## A.1 Probability Theory Essentials
+
+### A.1.1 Random Variables and Distributions
+
+A **random variable** $X$ is a measurable function from a probability space $(\Omega, \mathcal{F}, \mathbb{P})$ to $\mathbb{R}$.
+
+**Expectation:** $E[X] = \int_\Omega X(\omega) d\mathbb{P}(\omega)$
+
+**Variance:** $\text{Var}(X) = E[(X - E[X])^2] = E[X^2] - (E[X])^2$
+
+**Conditional expectation:** $E[X | \mathcal{G}]$ for $\sigma$-algebra $\mathcal{G} \subseteq \mathcal{F}$. The conditional expectation is itself a random variable, measurable with respect to $\mathcal{G}$.
+
+**Key property (tower):** $E[E[X | \mathcal{G}]] = E[X]$
+
+### A.1.2 The Normal Distribution
+
+If $X \sim \mathcal{N}(\mu, \sigma^2)$:
+
+- Density: $f_X(x) = \dfrac{1}{\sigma\sqrt{2\pi}} \exp\left(-\dfrac{(x-\mu)^2}{2\sigma^2}\right)$
+- Mean: $\mu$; Variance: $\sigma^2$
+- Moment generating function: $M_X(t) = e^{\mu t + \sigma^2 t^2/2}$
+- Standardization: $Z = (X - \mu)/\sigma \sim \mathcal{N}(0, 1)$
+
+**Important moments:**
+
+| Moment | Value |
+|---|---|
+| $E[X]$ | $\mu$ |
+| $\text{Var}(X)$ | $\sigma^2$ |
+| $E[(X - \mu)^3]$ | 0 (symmetry) |
+| $E[(X - \mu)^4]$ | $3\sigma^4$ |
+
+### A.1.3 Jensen's Inequality (Foundational for GE-LAV)
+
+**Statement:** For a convex function $f: \mathbb{R} \to \mathbb{R}$ and any random variable $X$ with finite expectation:
+$$f(E[X]) \leq E[f(X)]$$
+with strict inequality when $f$ is strictly convex and $X$ is non-degenerate.
+
+**For concave $f$:** the inequality reverses: $f(E[X]) \geq E[f(X)]$.
+
+**Proof sketch (convex case):**
+By the supporting hyperplane property, for any $x_0$: $f(x) \geq f(x_0) + f'(x_0)(x - x_0)$. Take $x_0 = E[X]$ and expectations of both sides:
+$E[f(X)] \geq f(E[X]) + f'(E[X]) \cdot E[X - E[X]] = f(E[X])$. ∎
+
+**Application to GE-LAV:** The discount factor $f(L) = e^{-r(L)T}$ is convex in $L$ when $r(L)$ is appropriately convex. This produces the systematic *upward* Jensen bias in LAV vs. DCF.
+
+### A.1.4 Conditional Expectation Properties
+
+For random variables $X, Y$:
+
+- **Linearity:** $E[aX + bY | \mathcal{G}] = aE[X | \mathcal{G}] + bE[Y | \mathcal{G}]$
+- **Pull-out:** If $Z$ is $\mathcal{G}$-measurable: $E[ZX | \mathcal{G}] = Z E[X | \mathcal{G}]$
+- **Tower property:** $E[E[X | \mathcal{G}]] = E[X]$
+- **Independence:** If $X$ independent of $\mathcal{G}$: $E[X | \mathcal{G}] = E[X]$
+
+---
+
+## A.2 Stochastic Processes
+
+### A.2.1 Definition and Classification
+
+A **stochastic process** $(X_t)_{t \in T}$ is a collection of random variables indexed by time. Common index sets: $T = \mathbb{N}$ (discrete time) or $T = [0, \infty)$ (continuous time).
+
+**Classification by state space:**
+- Discrete state: e.g., Markov chains on $\{0, 1, 2, ...\}$
+- Continuous state: e.g., Brownian motion, OU process
+
+**Classification by index set:**
+- Discrete time: $(X_n)_{n \in \mathbb{N}}$
+- Continuous time: $(X_t)_{t \geq 0}$
+
+### A.2.2 Markov Property
+
+A process $(X_t)$ has the **Markov property** if, for all $s < t$:
+$$\mathbb{P}(X_t \in A | \mathcal{F}_s) = \mathbb{P}(X_t \in A | X_s)$$
+where $\mathcal{F}_s$ is the natural filtration.
+
+In words: "future depends on past only through the present." All the SDE-based processes in this course (Brownian motion, OU, GE-LAV state) are Markov.
+
+### A.2.3 Random Walks (Discrete-Time Building Block)
+
+A **simple random walk** $(S_n)_{n=0,1,2,...}$:
+- $S_0 = 0$
+- $S_n = X_1 + X_2 + ... + X_n$
+- $X_i$ i.i.d. with $\mathbb{P}(X_i = +1) = \mathbb{P}(X_i = -1) = 1/2$
+
+Properties:
+- $E[S_n] = 0$
+- $\text{Var}(S_n) = n$ (variance grows linearly with time)
+- Recurrent in 1D, 2D; transient in 3D+
+
+**Scaling limit:** As $n \to \infty$ with appropriate scaling, the random walk converges to **Brownian motion** (Donsker's theorem).
+
+---
+
+## A.3 Brownian Motion
+
+### A.3.1 Definition
+
+A stochastic process $W_t$ is a **standard Brownian motion** if:
+
+1. $W_0 = 0$
+2. Paths $t \mapsto W_t$ are continuous almost surely
+3. Increments are independent: for $s < t$, $W_t - W_s$ is independent of $\mathcal{F}_s$
+4. Increments are normally distributed: $W_t - W_s \sim \mathcal{N}(0, t - s)$
+
+### A.3.2 Key Properties
+
+**Martingale property:** $E[W_t | \mathcal{F}_s] = W_s$ for $s \leq t$.
+
+**Quadratic variation:** $[W, W]_t = t$ — Brownian motion accumulates quadratic variation at unit rate.
+
+**Self-similarity (scaling):** For any $c > 0$, the process $(c^{-1/2} W_{ct})$ has the same law as $(W_t)$.
+
+**Non-differentiability:** Almost surely, $W_t$ is nowhere differentiable.
+
+**Time-reversal:** The process $(W_T - W_{T-t})_{0 \leq t \leq T}$ has the same law as $(W_t)_{0 \leq t \leq T}$ for any $T > 0$.
+
+### A.3.3 Multidimensional Brownian Motion
+
+$d$-dimensional standard Brownian motion: $W_t = (W_t^1, W_t^2, ..., W_t^d)$ where each $W_t^i$ is an independent 1D standard Brownian motion.
+
+Cross-covariance: $\text{Cov}(W_t^i, W_t^j) = t \cdot \delta_{ij}$ (Kronecker delta).
+
+---
+
+## A.4 Itô Calculus
+
+### A.4.1 Stochastic Integral
+
+For an $\mathcal{F}_t$-adapted process $f(t, \omega)$ satisfying $\int_0^T E[f(t, \omega)^2] dt < \infty$, the **Itô integral**:
+$$\int_0^T f(t, \omega) dW_t$$
+is well-defined as the $L^2$ limit of step-function approximations.
+
+**Key property (Itô isometry):**
+$$E\left[\left(\int_0^T f dW_t\right)^2\right] = \int_0^T E[f^2] dt$$
+
+This is the *square* of the standard $L^2$ norm of $f$ — the foundation for many calculations.
+
+### A.4.2 Itô SDEs
+
+A stochastic differential equation in Itô form:
+$$dX_t = \mu(X_t, t) dt + \sigma(X_t, t) dW_t$$
+with initial condition $X_0$, has a unique strong solution under standard conditions:
+- $\mu, \sigma$ Lipschitz continuous
+- $\mu, \sigma$ have linear growth bound
+
+### A.4.3 Itô's Lemma (Chain Rule)
+
+For a smooth function $f: \mathbb{R} \to \mathbb{R}$ and an Itô process $X_t$:
+$$df(X_t) = f'(X_t) dX_t + \frac{1}{2} f''(X_t) \sigma^2(X_t, t) dt$$
+
+**The Itô correction** $\frac{1}{2} f''(X_t) \sigma^2 dt$ is what distinguishes stochastic calculus from ordinary calculus. It is the second-order Taylor term that becomes first-order because $(dW_t)^2 \to dt$ at order 1.
+
+**Multivariate version:** For $f: \mathbb{R}^d \to \mathbb{R}$:
+$$df(X_t) = \sum_i \partial_i f(X_t) dX_t^i + \frac{1}{2} \sum_{i,j} \partial_{ij} f(X_t) [dX^i, dX^j]_t$$
+where $[dX^i, dX^j]_t = (\sigma\sigma^T)_{ij}(X_t, t) dt$.
+
+### A.4.4 Connection to Jensen's Inequality
+
+Apply Itô's lemma to $f(X) = e^{-rX}$ with $r > 0$ (convex function):
+- $f'(X) = -r e^{-rX}$
+- $f''(X) = r^2 e^{-rX}$
+
+If $X$ is constant (zero drift, zero diffusion): no correction. If $X$ is stochastic: $E[f(X_T)] > f(E[X_T])$ by Jensen, with magnitude $\frac{r^2}{2} \text{Var}(X_T)$ to leading order.
+
+**This is exactly the Jensen bias mechanism** that makes $V^{LAV} > V^{DCF}$ when $r(L)$ is convex in $L$ and $L$ is stochastic.
+
+---
+
+## A.5 Ornstein-Uhlenbeck Process
+
+### A.5.1 Definition
+
+The OU process is the Itô SDE:
+$$dL_t = \kappa(\bar{L} - L_t) dt + \sigma dW_t$$
+with parameters $\kappa > 0$ (mean reversion speed), $\bar{L}$ (long-run mean), $\sigma > 0$ (volatility).
+
+### A.5.2 Closed-Form Solution
+
+Using the integrating factor $e^{\kappa t}$:
+$$L_t = e^{-\kappa t} L_0 + \bar{L}(1 - e^{-\kappa t}) + \sigma \int_0^t e^{-\kappa(t-s)} dW_s$$
+
+The integral is Gaussian (linear in $dW$), so $L_t$ given $L_0$ is Gaussian.
+
+**Conditional distribution:**
+$$L_t | L_0 \sim \mathcal{N}\left(\bar{L} + (L_0 - \bar{L})e^{-\kappa t}, \frac{\sigma^2}{2\kappa}(1 - e^{-2\kappa t})\right)$$
+
+### A.5.3 Stationary Distribution
+
+As $t \to \infty$, the OU distribution converges:
+$$L_\infty \sim \mathcal{N}\left(\bar{L}, \frac{\sigma^2}{2\kappa}\right)$$
+
+This is the **invariant distribution** of the OU process — independent of starting point $L_0$.
+
+### A.5.4 Calibrated Parameters (GE-LAV)
+
+| Parameter | Value | Interpretation |
+|---|---|---|
+| $\kappa$ | 0.45/yr | Mean reversion speed |
+| $\sigma$ | 0.32 | Volatility coefficient |
+| $\bar{L}$ | 1.0 (or 0.0 depending on normalization) | Long-run mean |
+| $\text{Var}(L_\infty)$ | 0.1138 | Stationary variance |
+| Std$(L_\infty)$ | 0.337 | Stationary standard deviation |
+| Half-life | 1.54 years | $\ln(2)/\kappa$ |
+
+---
+
+## A.6 Variational Inequalities and Free Boundaries
+
+### A.6.1 The American Option Analogue
+
+The GE-LAV exit problem is an *optimal stopping* problem. The value function satisfies:
+$$\min\left\{ -\mathcal{L}V + rV - C, \quad V - G \right\} = 0$$
+
+where:
+- $\mathcal{L}$ is the HJB operator (drift + diffusion + time)
+- $G(L)$ is the exit payoff
+- The first argument is the continuation condition
+- The second argument is the exercise condition
+
+This is mathematically identical to American option pricing.
+
+### A.6.2 Smooth Pasting
+
+At the free boundary $L^*(t)$:
+1. **Value match:** $V(L^*, t) = G(L^*)$
+2. **Smooth pasting:** $\partial_L V(L^*, t) = G'(L^*)$
+
+These two conditions uniquely determine $L^*(t)$.
+
+### A.6.3 Numerical Methods
+
+For the GE-LAV exit problem:
+- **Discretize the state space:** $L \in [-3, 3]$ on a 200-point grid
+- **Discretize time:** Backward induction from $t = T$ to $t = 0$
+- **At each step:** Solve the HJB PDE assuming continuation, then take maximum with exit payoff
+- **Output:** The exit boundary $L^*(t)$ emerges from the switching surface
+
+---
+
+## A.7 Convex Analysis Essentials
+
+### A.7.1 Convex Functions
+
+A function $f: \mathbb{R} \to \mathbb{R}$ is **convex** if:
+$$f(\lambda x + (1-\lambda) y) \leq \lambda f(x) + (1-\lambda) f(y)$$
+for all $x, y \in \mathbb{R}$ and $\lambda \in [0, 1]$.
+
+**Strict convexity:** Inequality is strict whenever $x \neq y$.
+
+**Equivalent for twice-differentiable $f$:** $f''(x) \geq 0$ for all $x$ (strictly convex if $f''(x) > 0$).
+
+### A.7.2 Convexity in GE-LAV
+
+The premium function $\pi(L) = \pi_0 - \pi_1 L + \pi_2 L^2$ with $\pi_2 > 0$ is **strictly convex**.
+
+The discount factor $e^{-r(L)T}$ as a function of $L$ is convex (since composition of convex with affine of $L$ is convex; with $r(L)$ convex, even more curvature).
+
+This convexity is the *source* of the Jensen bias in private market valuation.
+
+---
+
+## A.8 Game Theory: Nash Equilibrium and Mean-Field
+
+### A.8.1 Nash Equilibrium
+
+A **Nash equilibrium** for a game with $N$ players is a profile $(s_1^*, ..., s_N^*)$ such that:
+$$U_i(s_i^*, s_{-i}^*) \geq U_i(s_i, s_{-i}^*) \quad \forall s_i, \forall i$$
+
+Each player's strategy is a best response given others' strategies; mutually consistent.
+
+**Existence (Nash 1950):** Every finite game has at least one Nash equilibrium in mixed strategies. For games with continuous strategies, additional regularity needed.
+
+### A.8.2 Mean-Field Approximation
+
+When $N$ is large, tracking individual strategies is intractable. Replace with the *distribution* of strategies across the population:
+$$\mu_t = \text{distribution of } (s_t^i) \text{ across } i$$
+
+Each player reacts to $\mu_t$ rather than to individual others. As $N \to \infty$, this becomes exact (propagation of chaos).
+
+### A.8.3 Fixed-Point Structure
+
+A **mean-field equilibrium** is a distribution $\mu^*$ such that:
+1. Each player's optimal strategy, given $\mu^*$, is $s^*(\mu^*)$
+2. The aggregate distribution of $s^*(\mu^*)$ across the population equals $\mu^*$
+
+This is a fixed point: $\mu^* = \Phi(\mu^*)$ where $\Phi$ is the mapping from population state to individual best response back to aggregate.
+
+**Existence:** Schauder fixed-point theorem (for compact convex sets in topological vector spaces).
+
+**Uniqueness:** Banach fixed-point theorem under contraction (stability condition).
+
+---
+
+## A.9 Optimization and Lagrange Methods
+
+### A.9.1 Unconstrained Optimization
+
+For smooth $f: \mathbb{R}^n \to \mathbb{R}$, an interior critical point satisfies $\nabla f = 0$.
+
+Second-order condition: Hessian $\nabla^2 f$ positive (negative) definite for local minimum (maximum).
+
+### A.9.2 Constrained Optimization
+
+For $\max f(x)$ subject to $g(x) = 0$:
+**Lagrangian:** $L(x, \lambda) = f(x) - \lambda g(x)$
+
+First-order conditions: $\nabla_x L = 0$, $\nabla_\lambda L = 0$ (i.e., $g(x) = 0$).
+
+### A.9.3 Variational Methods
+
+For functionals $J[u] = \int F(u, u', t) dt$, the Euler-Lagrange equation:
+$$\frac{\partial F}{\partial u} - \frac{d}{dt}\frac{\partial F}{\partial u'} = 0$$
+
+The HJB equation arises from applying variational methods to the value function in optimal control.
+
+---
+
+## A.10 Quick Reference Formulas
+
+### A.10.1 OU Calibration
+
+At canonical values $\kappa = 0.45$, $\sigma = 0.32$:
+- Stationary variance: $0.1138$
+- Stationary std: $0.337$
+- Half-life: $1.54$ yr
+- $1 - e^{-\kappa t}$ at $t = 5$: $0.895$
+- $1 - e^{-2\kappa t}$ at $t = 5$: $0.989$
+
+### A.10.2 Jensen Bias
+
+- Affine approximation: $B(T) = A \cdot T + C$ with $A \approx 0.16-0.18\%$/yr by asset class
+- Closed-form: $B(T) = (\pi_2/2) \Pi_{liq}(T)$ where $\Pi_{liq}(T) = \sigma^2[T - (1-e^{-2\kappa T})/(2\kappa)]$
+- At calibrated $\pi_2 = 0.021$: $B(5) \approx 0.4\%$, $B(15) \approx 1.5\%$, $B(20) \approx 2.0\%$
+
+### A.10.3 Effective Rate
+
+- DCF rate: typically constant at $r_f + \beta \cdot ERP + \pi_0 \approx 7.5\%$
+- LAV rate: path-dependent at $r(L_t) = r_f + \pi(L_t)$
+- GE-LAV rate: $r_{GE}(L, \mu) = r(L) + \text{equilibrium uplift}$
+- At GFC depth ($L = -1.5$): $r_{GE} \approx 32\%$ vs. DCF $7.5\%$ → 4.31× amplification
+
+### A.10.4 Welfare
+
+- Welfare gap: $\Delta W \approx 2.3\%$/yr
+- Aggregate: $\$13T \times 2.3\% = \$300B/$yr
+- Pigouvian tax at GFC depth: $\tau^* \approx 7\%$ on secondary transactions
+
+---
+
+## A.11 Mathematical Maturity Required for Each Track
+
+### Track 1 (Practitioner)
+
+Required:
+- Probability theory through expectations and variances (A.1)
+- Comfortable with the normal distribution (A.1.2)
+- Aware of Jensen's inequality and its direction (A.1.3, A.7)
+- Basic familiarity with stochastic processes as concepts (A.2)
+
+Recommended but not required:
+- Recognition of SDE notation
+- Awareness of HJB equation as a concept (not derivation)
+- Comfort reading mathematical statements in lectures
+
+### Track 2 (Researcher)
+
+Required (in addition to Track 1):
+- Itô calculus, including Itô's lemma derivation (A.4)
+- OU process derivation and properties (A.5)
+- Variational inequalities and free boundary problems (A.6)
+- Convex analysis (A.7)
+- Game theory and mean-field methods (A.8)
+
+Helpful:
+- Functional analysis (Hilbert spaces, weak topologies)
+- Numerical analysis (finite differences, iterative methods)
+- Measure theory (Lebesgue integration, Radon-Nikodym)
+
+---
+
+## A.12 Suggested Self-Diagnostic
+
+Before the course (or by Session 4 at the latest), confirm understanding of:
+
+**For Track 1:**
+- [ ] Can you state Jensen's inequality and identify whether $E[X^2] \geq (E[X])^2$ is consistent with it?
+- [ ] If $X \sim \mathcal{N}(0, 1)$, what is $\mathbb{P}(X > 1.96)$? Approximately?
+- [ ] If a random variable has mean 0 and variance 9, what is its standard deviation?
+- [ ] What is a Markov chain, informally?
+
+**For Track 2:**
+- [ ] Can you derive Itô's lemma from a Taylor expansion?
+- [ ] Can you compute $E\left[\int_0^t e^{-\kappa(t-s)} dW_s\right]$ using the Itô isometry?
+- [ ] Can you state the HJB equation for a generic control problem?
+- [ ] What is a fixed-point theorem? Name one.
+
+If you cannot answer the Track 1 questions, the practitioner track will be challenging — additional preparation recommended. If you cannot answer the Track 2 questions, the researcher track will be very challenging — strongly recommend remediation first.
+
+---
+
+[← Reading List](B-reading-list.qmd) | [Course Home](../index.qmd)

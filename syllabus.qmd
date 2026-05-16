@@ -1,0 +1,231 @@
+# Syllabus {#sec-syllabus}
+
+## Course Information
+
+| | |
+|---|---|
+| **Course Title** | Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation |
+| **Course Code** | FIN [TBD] (graduate elective) |
+| **Term** | Spring 2027 |
+| **Credit Hours** | 3 |
+| **Sessions** | 32 sessions × 75 minutes (16 weeks × 2 sessions/week) |
+| **Format** | In-person with synchronous online option |
+| **Instructor** | Samir Asaf, PhD, CFA, CMA, CTP, CM&AA |
+| **Office Hours** | [Day, time] · Office: [TBD] · or by appointment |
+| **TA** | [TBD] |
+| **Email** | drsamirasaf\@gmail.com |
+| **Course site** | [course URL] |
+
+## Course Description
+
+This course teaches the GE-LAV® framework — a continuous-time general equilibrium model of liquidity-adjusted valuation in private capital markets. Students learn why conventional Discounted Cash Flow (DCF) methodology, IRR, and Public Market Equivalent (PME) systematically misvalue private assets when liquidity premia are stochastic and collectively determined.
+
+The course covers the full valuation hierarchy DCF ⊊ LAV ⊊ GE-LAV, with applications to private equity, venture capital, infrastructure, private credit, and real estate. Students will use the GE-LAV® computational platform (liquidityillusion.com) to calibrate and apply the model to real private market data.
+
+The course is offered in two parallel tracks: a Practitioner track (Track 1) and a Researcher track (Track 2). The two tracks share a 24-session common core and diverge for sessions 25–31 before reunifying at session 32 for project presentations.
+
+## Prerequisites
+
+**For both tracks:**
+
+- Graduate-level Corporate Finance or Asset Pricing
+- Comfort with discounted cash flow analysis, NPV, IRR, and CAPM
+- Working knowledge of Excel or Python for financial modeling
+- Basic probability and statistics (random variables, expectation, variance, normal distribution)
+
+**Additional for Track 2 only:**
+
+- Stochastic processes or stochastic calculus (one course)
+- Measure-theoretic probability OR willingness to do supplementary reading from the course appendix during Sessions 1–4
+
+If you are uncertain whether your background qualifies you for Track 2, contact the instructor before the second week of class. Track selection is final after Session 5.
+
+## Learning Objectives
+
+By the end of this course, students will be able to:
+
+### Common Learning Objectives (Both Tracks)
+
+1. **Diagnose** the three structural failures of DCF in private market valuation and quantify their magnitude using secondary market evidence.
+2. **Explain** the Jensen convexity bias and compute its magnitude for a given asset class, horizon, and liquidity state.
+3. **Identify** when an investor should hold, sell, or delay exit from an illiquid position using the GE-LAV exit boundary.
+4. **Construct** a liquidity-adjusted portfolio that accounts for hedge demand against aggregate liquidity shocks.
+5. **Evaluate** the regulatory implications of liquidity-adjusted valuation for Solvency II, AIFMD, IFRS 13, and Basel III.
+6. **Apply** the GE-LAV® platform to calibrate model parameters and produce valuations for real private market assets.
+7. **Critique** standard performance metrics (IRR, PME) and propose liquidity-adjusted alternatives (LA-IRR, LA-PME).
+8. **Communicate** GE-LAV results to non-technical audiences (investment committees, boards, regulators).
+
+### Track 2 Additional Learning Objectives
+
+T2.1. **Derive** the Hamilton-Jacobi-Bellman equation for the LP's optimal stopping problem and identify the smooth pasting condition at the exit boundary.
+
+T2.2. **Prove** the existence and uniqueness of a McKean-Vlasov mean-field equilibrium under the GE-LAV stability condition.
+
+T2.3. **Solve** the Fokker-Planck equation for the stationary distribution of the Ornstein-Uhlenbeck liquidity process.
+
+T2.4. **Implement** numerical solution of the HJB master equation on Wasserstein space.
+
+T2.5. **Calibrate** the GE-LAV stochastic parameters to empirical secondary market data using maximum likelihood estimation.
+
+T2.6. **Derive** the Pigouvian exit tax that implements the constrained social optimum.
+
+## Primary Text
+
+Asaf, S. (2026). *Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation.* Oxford University Press / Regent Financial LLC. ISBN 9798881716103. **Required.**
+
+The book is structured for both audiences:
+
+- **Part 1 (Chapters 1–9):** The Practitioner's Guide — required for both tracks
+- **Part 2 (Chapters 10–20):** The Researcher's Framework — required for Track 2; recommended optional for Track 1
+- **Chapter 21:** Future research directions
+
+## Supplementary Readings
+
+A full reading list appears in [Appendix B](../appendices/B-reading-list.qmd). Selected supplementary readings include:
+
+**For practitioner context:**
+
+- Stulz, R. M. (2007). Hedge funds: Past, present, and future. *Journal of Economic Perspectives.*
+- Phalippou, L. (2020). *Private Equity Laid Bare.* The Enterprising Investor.
+- IPEV Valuation Guidelines (2022). International Private Equity and Venture Capital Valuation Guidelines.
+
+**For mathematical context (Track 2):**
+
+- Shreve, S. (2004). *Stochastic Calculus for Finance II.* Springer.
+- Karatzas, I. and Shreve, S. (1991). *Brownian Motion and Stochastic Calculus.* Springer.
+- Carmona, R. and Delarue, F. (2018). *Probabilistic Theory of Mean-Field Games.* Springer.
+
+## Assessments and Grading
+
+| Component | Weight | Track 1 | Track 2 |
+|---|---|---|---|
+| Midterm exam (Session 10) | 20% | Same exam | Same exam |
+| Problem sets (4) | 25% | Applied | Mathematical |
+| Term project — proposal (Session 14) | 5% | | |
+| Term project — draft (Session 30) | 15% | | |
+| Term project — presentation (Session 32) | 30% | | |
+| Class participation | 5% | | |
+| **Total** | **100%** | | |
+
+### Grading Scale
+
+| Letter | Percentage | GPA |
+|---|---|---|
+| A | 93–100 | 4.0 |
+| A− | 90–92 | 3.7 |
+| B+ | 87–89 | 3.3 |
+| B | 83–86 | 3.0 |
+| B− | 80–82 | 2.7 |
+| C+ | 77–79 | 2.3 |
+| C | 73–76 | 2.0 |
+| C− | 70–72 | 1.7 |
+| D | 60–69 | 1.0 |
+| F | < 60 | 0.0 |
+
+### Midterm Exam
+
+The midterm exam is held in **Session 10** and covers Sessions 1–9 (book chapters 1–4 and selected concepts from chapter 5). The exam is identical for both tracks. The midterm is **closed-book, 75 minutes, with one 8.5×11" double-sided handwritten formula sheet permitted**. See [midterm blueprint](../exams/midterm-blueprint.qmd) for topic weighting and sample questions.
+
+### Problem Sets
+
+Four problem sets total, **track-differentiated**:
+
+- **Track 1 PSets:** Applied work using the GE-LAV® platform and real private market data (secondary market discount series, fund cash flows, PE database).
+- **Track 2 PSets:** Mathematical derivations, proofs, and numerical implementations.
+
+| PSet | Drops | Due | Topics |
+|---|---|---|---|
+| PS1 | Session 1 | Session 8 | Diagnosis, OU process, secondary market evidence |
+| PS2 | Session 9 | Session 16 | Exit timing, portfolio construction, regulation |
+| PS3 | Session 17 | Session 24 | Math bridges + Jensen bias + Pigouvian |
+| PS4 | Session 25 | Session 31 | Advanced applications (track-specific) |
+
+### Term Project (50% of grade)
+
+The term project is the integrative deliverable of the course. Students apply the full GE-LAV framework to a **real private-market asset of their choosing** (a specific PE fund, VC secondary, infrastructure asset, private credit deal, or real estate position).
+
+**Track 1 projects** emphasize empirical implementation, regulatory analysis, and investment committee communication.
+
+**Track 2 projects** emphasize theoretical extension, novel calibration, or mathematical analysis of a specific GE-LAV result.
+
+See the [full project specification and rubric](../project/project-specification.qmd).
+
+**Project milestones:**
+
+- **Session 14 — Proposal due (5%):** 2-page proposal, asset selection, data plan, methodology outline
+- **Session 30 — Draft due (15%):** 15-page draft paper with preliminary results
+- **Session 32 — Presentation (30%):** 20-minute presentation + 5-minute Q&A
+
+### Class Participation (5%)
+
+Participation is graded based on substantive contribution to in-class discussion, not mere attendance. Quality matters more than quantity. Students who join via synchronous online attendance are evaluated identically.
+
+## Course Policies
+
+### Attendance
+
+Attendance is expected at every session. Students missing more than 4 sessions without documented cause forfeit participation credit. Sessions are recorded and posted to the course site within 24 hours.
+
+### Late Work
+
+- Problem sets: 10% penalty per 24-hour period late, up to 72 hours. No credit after 72 hours.
+- Project proposal: No late submissions; missed proposals receive 0.
+- Project draft: 24-hour grace period without penalty; thereafter as PSets.
+- Project presentation: Slot is fixed; missed presentations receive 0 unless documented emergency.
+
+### Academic Integrity
+
+All submitted work must be your own. Collaboration on problem sets is permitted in groups of up to 3, but each student must write and submit their own solutions. Collaboration must be disclosed at the top of the submitted PSet. The term project is **individual work only** — no group projects.
+
+Plagiarism, fabrication of results, and unauthorized collaboration are violations of the university's academic integrity policy and will result in a grade of F for the course and referral to the academic conduct office.
+
+### Use of AI Tools
+
+This course adopts the following AI use policy:
+
+- **Permitted with disclosure:** Using LLMs (ChatGPT, Claude, Gemini, etc.) for brainstorming, explanation of concepts, code debugging, and writing feedback. You must disclose AI use in submitted work with a brief note describing how AI was used.
+- **Permitted with care:** Using the GE-LAV® platform's AI features (calibration suggestions, scenario generation). The platform is designed for this; use it freely.
+- **Not permitted:** Submitting AI-generated work as your own. Specifically: AI-drafted problem set solutions, AI-written project sections, AI-generated proofs.
+- **For the term project:** AI may be used as a research and writing aid. You must (a) understand every word, equation, and result in your submission; (b) be prepared to defend any part of your project orally during the presentation; (c) disclose AI use in a methodology note.
+
+**Bright-line test:** If you cannot explain or reproduce a portion of your submission without AI assistance, that portion was not your work, and submitting it is an integrity violation. The Q&A at the project presentation is designed to test this.
+
+### Accessibility
+
+Students with documented disabilities should contact the Disability Services office and notify the instructor by Session 3. Reasonable accommodations will be provided.
+
+### Religious Observance and Personal Emergencies
+
+Notify the instructor as early as possible if you anticipate missing a session for religious observance, family emergency, or medical reasons. Reasonable accommodations will be made for the midterm, PSet deadlines, and project milestones with appropriate documentation.
+
+### Diversity and Inclusion
+
+This course welcomes students of all backgrounds, identities, and perspectives. Disagreement on substantive academic content is encouraged; disrespectful or discriminatory behavior is not tolerated.
+
+## Office Hours and Communication
+
+- **Office hours:** [Day, time], in-person and synchronous online via [platform]
+- **Email response time:** 24 hours on weekdays, 48 hours on weekends
+- **For urgent matters:** Course site message board (TA monitors during the week)
+- **For project guidance:** Schedule a 1:1 meeting through the course calendar; do not save substantive project questions for office hours alone
+
+## Important Dates
+
+| Event | Session | Date |
+|---|---|---|
+| Course begins | 1 | [Date] |
+| Track declaration deadline | end of 5 | [Date] |
+| PS1 due | 8 | [Date] |
+| Midterm | 10 | [Date] |
+| Project proposal due | 14 | [Date] |
+| PS2 due | 16 | [Date] |
+| PS3 due | 24 | [Date] |
+| Split track begins | 25 | [Date] |
+| Project draft due | 30 | [Date] |
+| PS4 due | 31 | [Date] |
+| Project presentations | 32 | [Date] |
+| Final grades posted | | [Date] |
+
+------------------------------------------------------------------------
+
+*This syllabus may be updated during the semester. All material changes will be announced in class and posted on the course site. Continued enrollment after Session 2 constitutes acceptance of the syllabus terms.*

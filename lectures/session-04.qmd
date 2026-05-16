@@ -1,0 +1,230 @@
+# Session 4: The OU Process for Liquidity (Intuition Only) {#sec-session-04}
+
+| | |
+|---|---|
+| **Unit** | 1 — Why DCF Fails |
+| **Book Chapter** | 2 (sections 2.8–2.9) |
+| **Slide source** | Adapted from existing Class 5 (stripped of full derivation) + new intuition slides |
+| **Slides needed** | ~10 new + adapt 6–8 slides from Class 5 |
+| **Track** | Common core (both tracks) — **TRACK DIAGNOSTIC SESSION** |
+
+::: callout-important
+## Track Diagnostic
+
+This session is deliberately positioned as a self-test for track selection. The OU process is taught at the **intuition level only** — no derivations, no proofs, no measure theory. Students who find this content easy and want more depth are Track 2 candidates. Students who find this content appropriate and don't want proofs are Track 1 candidates.
+
+The full mathematical derivation of the OU process appears in **Session 25 (Track 2 only)**, drawing on the original Class 5 slides.
+:::
+
+## Learning Objectives
+
+By the end of this session, students will be able to:
+
+1. **Describe** an Ornstein-Uhlenbeck process in plain English and write its SDE form.
+2. **Identify** the three OU parameters $\kappa$, $\bar{L}$, $\sigma$ and explain what each controls economically.
+3. **Compute** the OU stationary distribution given the parameters.
+4. **Simulate** an OU path in their head (or on paper) using the discretized recursion.
+5. **Connect** OU dynamics to interest rate models (Vasicek) and to mean-reverting volatility.
+6. **Assess their own readiness** for Track 2 based on comfort with this material.
+
+## Pre-Class Assignment
+
+- **Read:** Book Chapter 2, sections 2.8–2.9 (~12 pages)
+- **Watch:** 8-minute video introducing mean reversion (link on course site)
+- **Optional (Track 2 candidates):** Skim Karatzas-Shreve Section 5.6 (Ornstein-Uhlenbeck process)
+
+## In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:05 | Recap Session 3 · Why we need a process model | Lecture |
+| 0:05–0:20 | What is a stochastic process? (intuition: BM, random walk) | Lecture |
+| 0:20–0:40 | The OU process: SDE form, what each parameter does | Lecture + live simulation demo |
+| 0:40–0:55 | Stationary distribution and what it tells us | Lecture |
+| 0:55–1:05 | Connection to Vasicek and other mean-reverting models | Lecture |
+| 1:05–1:15 | Self-diagnostic for track selection | Activity |
+
+## Slide Content Briefs (New Slides Needed)
+
+### Slide 4.1 — Title
+
+- **Title:** "The Ornstein-Uhlenbeck Process for Liquidity"
+- **Subtitle:** "Intuition only — the math itself is in Session 25 (Track 2)"
+- **Note:** "If today feels easy and you want more depth, consider Track 2"
+
+### Slide 4.2 — Why We Need a Process Model
+
+- **Title:** "What we have, what we need"
+- **What we have (from Session 3):**
+  - Time series of secondary discounts 2003–2024
+  - Implied liquidity state $L_t$ at quarterly frequency
+  - Four regimes with distinct statistical character
+- **What we need:**
+  - A *model* of how $L_t$ evolves
+  - Closed-form properties (mean, variance, distribution)
+  - Ability to forecast and price
+- **Speaker notes:** Without a process model, we can describe the past but cannot value future cash flows.
+
+### Slide 4.3 — Three Properties Our Model Must Have
+
+- **Title:** "What properties does $L_t$ have?"
+- **Empirical properties (from data):**
+  1. **Mean reversion** — discounts widen in crises but return toward a long-run average
+  2. **Stochastic shocks** — period-to-period changes are partly random
+  3. **Bounded variance** — $L_t$ doesn't drift indefinitely; the unconditional distribution has finite variance
+- **Speaker notes:** These three properties together rule out Brownian motion (which has unbounded variance) and rule in mean-reverting processes.
+
+### Slide 4.4 — Introducing the OU Process
+
+- **Title:** "The Ornstein-Uhlenbeck process"
+- **SDE form (large, centered):** $dL_t = \kappa(\bar{L} - L_t)\,dt + \sigma\,dW_t$
+- **Verbal translation:** "$L_t$ tends to revert toward $\bar{L}$ at speed $\kappa$, with random shocks of magnitude $\sigma$"
+- **History:** "Originally derived by Ornstein and Uhlenbeck in 1930 to model the velocity of a particle undergoing Brownian motion in a viscous fluid. Same math applies to mean-reverting financial variables."
+- **Speaker notes:** Don't over-explain notation. Students will get used to it through repetition. The verbal translation is more important than the symbols.
+
+### Slide 4.5 — What Each Parameter Does ($\kappa$)
+
+- **Title:** "$\kappa$ controls mean reversion *speed*"
+- **Visual:** Three OU paths overlaid:
+  - Low $\kappa$ (= 0.1): slow return to mean, looks almost like a random walk
+  - Calibrated $\kappa$ (= 0.45): moderate return, typical of liquidity data
+  - High $\kappa$ (= 2.0): fast return, looks like noise around mean
+- **Half-life formula:** "Half-life = $\ln(2)/\kappa$"
+  - $\kappa = 0.1$ → half-life 6.9 years
+  - $\kappa = 0.45$ → half-life 1.5 years (matches data)
+  - $\kappa = 2.0$ → half-life 0.35 years
+- **Speaker notes:** Connect to a familiar concept: radioactive decay. Same math. Half-life is the time to revert halfway to mean.
+
+### Slide 4.6 — What Each Parameter Does ($\bar{L}$, $\sigma$)
+
+- **Title:** "$\bar{L}$ and $\sigma$"
+- **$\bar{L}$ (long-run mean):**
+  - The value $L_t$ reverts *toward*
+  - In the GE-LAV calibration, $\bar{L} = 1.0$ by normalization
+  - Economic meaning: the "normal" liquidity state
+- **$\sigma$ (volatility / diffusion coefficient):**
+  - Controls the *size of random shocks*
+  - Calibrated $\sigma = 0.32$
+  - Higher $\sigma$ → more dispersion around mean
+- **Visual:** Two paths overlaid with different $\sigma$ values
+- **Speaker notes:** Students sometimes confuse $\sigma$ (diffusion) with stationary std (which is different). Set that up for the next slide.
+
+### Slide 4.7 — Stationary Distribution
+
+- **Title:** "Where does $L_t$ end up in the long run?"
+- **Result (boxed):** $L_\infty \sim \mathcal{N}\left(\bar{L}, \dfrac{\sigma^2}{2\kappa}\right)$
+- **Calibrated values:**
+  - Mean: $\bar{L} = 1.0$
+  - Variance: $\sigma^2/(2\kappa) = 0.32^2 / 0.90 = 0.1138$
+  - Standard deviation: $\sqrt{0.1138} = 0.337$
+- **Visual:** Histogram of OU path values over a long simulation, overlaid with Gaussian density
+- **Speaker notes:** This is the *only* result this lecture proves (informally). Track 2 students will see the full derivation via Fokker-Planck in Session 27.
+
+### Slide 4.8 — What "Stationary" Means
+
+- **Title:** "Stationary = unconditional distribution"
+- **Bullets:**
+  - If you pick a random year far in the future, the distribution of $L_t$ in that year is $\mathcal{N}(1.0, 0.1138)$
+  - The *transition density* (where will I be next year given where I am now) is different — it's a function of current state
+  - As $t \to \infty$, transition density → stationary density
+- **Connection to data:** "The empirical histogram of $L_t$ across 2003–2024 is approximately consistent with this stationary density — modulo regime changes."
+- **Speaker notes:** Avoid the word "ergodic" unless asked. Just say "in the long run, OU forgets where it started."
+
+### Slide 4.9 — Path Simulation (Discrete Recursion)
+
+- **Title:** "How to simulate an OU path"
+- **Discretization:** Using small time step $\Delta t$ (e.g., 1 month = 1/12 year):
+  - $L_{t+\Delta t} = L_t + \kappa(\bar{L} - L_t)\Delta t + \sigma \sqrt{\Delta t} \cdot Z$
+  - where $Z \sim \mathcal{N}(0, 1)$ is a random draw
+- **Live demo:** In Excel or Python, simulate 100 paths and show their distribution
+- **Speaker notes:** This is genuinely useful for students even at intuition level. They should be able to do this in Excel. Track 1 students will need it for PS1.
+
+### Slide 4.10 — Connection to Vasicek (For Students Who Know Rate Models)
+
+- **Title:** "If you've seen Vasicek, you've seen OU"
+- **Vasicek interest rate model:** $dr_t = a(b - r_t)\,dt + \sigma\,dW_t$
+- **GE-LAV liquidity model:** $dL_t = \kappa(\bar{L} - L_t)\,dt + \sigma\,dW_t$
+- **Same equation.** Only the variable interpretation differs:
+  - Vasicek: $r_t$ is the short interest rate
+  - GE-LAV: $L_t$ is the liquidity state
+- **Other examples:** Hull-White (interest rates), Heston (volatility), commodity convenience yield models
+- **Speaker notes:** This slide helps students with prior fixed income or derivatives knowledge plug into the framework quickly.
+
+### Slide 4.11 — What OU Cannot Do
+
+- **Title:** "Limitations of pure OU"
+- **Bullets:**
+  - **No jumps:** OU paths are continuous; real liquidity has discrete shocks (March 2020, GFC)
+  - **No fat tails:** Stationary distribution is Gaussian; real data has more extreme observations
+  - **No regime switching:** Single $\kappa$, $\bar{L}$, $\sigma$ across all conditions
+- **Resolution in GE-LAV:** "Chapter 13 of the book extends OU to jump-diffusion. We adopt that for advanced work in Session 28+."
+- **Speaker notes:** Honesty about model limitations. Students will appreciate that you're not selling them perfection.
+
+### Slide 4.12 — Track Self-Diagnostic
+
+- **Title:** "How did today feel?"
+- **Three columns:**
+  - **"Felt easy, I wanted more":** Likely Track 2 candidate. Read Karatzas-Shreve Ch. 5 by Session 5
+  - **"Felt right, comfortable level":** Likely Track 1 — focus on application
+  - **"Felt hard but I got through":** Stay on Track 1. Session 25 math depth would be a stretch
+- **Speaker notes:** Use the last 10 minutes for this. Have students fill out a brief course form indicating their preliminary track choice and any questions they have about the math.
+
+## Existing Slides to Reuse from Class 5
+
+From Deck 1, Class 5 "The Ornstein-Uhlenbeck Process: Complete Derivation" — pull approximately 6–8 slides, **with substantial editing**:
+
+- Slide showing OU SDE with parameter labels (keep)
+- Slide showing simulated paths (keep)
+- Slide showing stationary distribution result (keep — but **strip the derivation**)
+- Slide showing calibration numbers ($\kappa = 0.45$, etc.) (keep)
+- Slide showing connection to Vasicek (keep)
+- **Strip out:** Stochastic differential proofs, Itô formula applications, Riccati-style derivations — all of that goes to Session 25 (Track 2)
+
+**Adaptation summary:** Take the Class 5 slides, remove every proof step, replace with intuition annotations and visuals. Reduce ~19 slides to ~10 usable in Session 4.
+
+## Discussion Questions
+
+1. The OU process is Gaussian (stationary distribution is normal). The empirical secondary market discount data has fat tails (more extreme observations than Gaussian predicts). How much does this limitation matter for valuation?
+2. The half-life of liquidity shocks is ~18 months at $\kappa = 0.45$. What's the implication for an LP who plans to exit in 12 months vs. 36 months?
+3. Vasicek (1977) introduced the OU process to model interest rates. Why did it take ~50 years for the same framework to be applied to liquidity in private markets?
+
+## Worked Example: OU Path Simulation in Plain English
+
+**Setup:** Start at $L_0 = 0.85$ (slightly stressed, like Q3 2024). Use $\kappa = 0.45$, $\bar{L} = 1.0$, $\sigma = 0.32$. Simulate quarterly ($\Delta t = 0.25$).
+
+**Step 1 (next quarter):** Mean reversion pulls toward 1.0:
+- Drift contribution: $0.45 \times (1.0 - 0.85) \times 0.25 = 0.017$
+- Random shock: $\sigma \sqrt{\Delta t} \cdot Z = 0.32 \times 0.5 \times Z = 0.16 Z$
+- If $Z = +1$ (one std above): $L_{0.25} = 0.85 + 0.017 + 0.16 = 1.03$
+- If $Z = -1$: $L_{0.25} = 0.85 + 0.017 - 0.16 = 0.71$
+- If $Z = 0$: $L_{0.25} = 0.867$
+
+**Step 2 (second quarter):** Repeat. Now starting from a new value.
+
+**Step 3 (long-run):** After many quarters, the distribution of $L_t$ converges to $\mathcal{N}(1.0, 0.1138)$ regardless of starting point.
+
+**Teaching note:** Have students do one step by hand. This grounds the abstract math in arithmetic they can do in 90 seconds.
+
+## Common Student Confusions (Instructor Notes)
+
+- **"Why is the stationary variance $\sigma^2/(2\kappa)$ and not just $\sigma^2$?"** Because mean reversion *fights* the random shocks. Faster reversion (larger $\kappa$) means smaller stationary variance. This is the most-asked question of the session.
+- **"How do you actually calibrate $\kappa$, $\bar{L}$, $\sigma$ from data?"** Tease the answer: it's maximum likelihood estimation on the time series. Track 1 sees the recipe in Session 17; Track 2 sees the math in Session 25.
+- **"Is the Gaussian assumption realistic?"** No — empirical data has fatter tails. Jump-diffusion extension (Ch 13) handles this. For valuation purposes, the bias from Gaussianity is small except in extreme regimes.
+- **"Does $L_t$ stay positive?"** No — under OU, $L_t$ can go negative. In the model, $L_t = 0$ represents the long-run mean liquidity (by normalization), and negative values represent stressed regimes. This is just notational; it's not a constraint violation.
+
+## What to Expect Next Session
+
+Session 5 covers the **term structure of private capital returns** — how the OU dynamics interact with investment horizon to produce horizon-dependent valuation effects. Key topics:
+
+- The empirical term structure of PE returns by vintage and asset class
+- How Jensen bias grows with $T$
+- Why long-horizon assets (infrastructure, core real estate) are *most* affected by the liquidity illusion
+- DLOM (Discount for Lack of Marketability) vs. GE-LAV — comparing methodologies
+
+**Reading:** Book Chapter 3, all sections (~25 pages).
+
+**Track declaration:** End of Session 5 is the track selection deadline. If you're undecided, schedule a 15-min meeting with me this week.
+
+------------------------------------------------------------------------
+
+[← Session 3](session-03.qmd) | [Schedule](../schedule.qmd) | [Next: Session 5 →](session-05.qmd)

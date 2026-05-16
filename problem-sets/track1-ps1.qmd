@@ -1,0 +1,232 @@
+# Track 1 — Problem Set 1 (Applied) {#sec-track1-ps1}
+
+**Drops:** Session 1\
+**Due:** Session 8\
+**Weight:** 6.25% of course grade\
+**Coverage:** Sessions 1–7 (Book Ch. 1–4)\
+**Track:** Practitioner (Track 1) only
+
+::: callout-tip
+## Submission instructions
+
+Submit as a single PDF via course site. Include all spreadsheet/Python computations as a zip file. Cover page must include: name, track (Track 1), collaborators (if any, max 3), AI use disclosure.
+
+Late penalty: 10% per 24-hour period, up to 72 hours. No credit thereafter.
+:::
+
+## Question 1: Conceptual (15 points)
+
+In **no more than 200 words**, explain why the IRR's two structural biases (reinvestment assumption + sign-pattern dependence) make it unsuitable for assessing vintage-year liquidity effects in private equity returns. Your answer should:
+
+- Define both biases precisely
+- Explain how vintage-year liquidity effects (the GE-LAV channel) interact with each bias
+- Identify which bias is more problematic for typical PE buyout cash flow patterns
+- Use 1–2 concrete numerical illustrations
+
+**Grading rubric (15 points):**
+
+- Both biases correctly defined (4 pts)
+- Vintage-year interaction explained (4 pts)
+- Comparative judgment with reasoning (3 pts)
+- Concrete numerical illustration (2 pts)
+- Writing quality and word limit (2 pts)
+
+**Sample strong answer (170 words):**
+
+> IRR's two structural biases — implicit reinvestment at IRR and sign-pattern sensitivity — interact problematically with vintage-year liquidity. The reinvestment assumption is that intermediate distributions are reinvested at the IRR itself; for typical PE buyouts reporting 15-18% IRR, distributions are reinvested at LP-realistic rates of ~7%. This systematically overstates realized return by 2-5 percentage points. Sign-pattern sensitivity becomes problematic with continuation funds and recapitalizations creating intermediate negative cash flows. The interaction with vintage liquidity: a 2009-vintage fund entered at $L_0 \approx -1.5$ generates apparent "alpha" of ~21 percentage points purely from $L_t$ mean reversion, even with no manager skill. IRR cannot distinguish this from value creation. For typical PE buyout patterns (initial calls then mostly-positive distributions), reinvestment bias dominates because cash flow signs are well-behaved. Continuation funds shift the balance — they create mixed signs late in fund life, where sign-pattern bias becomes the binding constraint. Concrete: Vintage 2009 funds report ~20% IRR; LA-IRR adjustment for liquidity-state timing typically reduces this to ~14-16%, a 4-6 percentage point correction.
+
+## Question 2: Applied Core — OU Calibration (20 points)
+
+You have been given a dataset of quarterly secondary market discounts for US PE buyout funds, Q1 2003 through Q4 2024 (88 observations). Download the dataset from the course site (`pset1_secondary_discounts.csv`).
+
+**(a) (8 pts)** Convert the discount series into an implied liquidity state $L_t$ series using the calibrated linear mapping from Book Eq. 2.5: $L_t = 1.0 - 5 \times (\text{discount}/0.50)$. Plot the $L_t$ series and identify the four regimes visually (boom 2003-2007, GFC 2008-2010, normalization 2011-2019, multi-shock 2020-2024).
+
+**(b) (6 pts)** Fit the OU process $dL_t = \kappa(\bar{L} - L_t) dt + \sigma dW_t$ to your $L_t$ series using maximum likelihood estimation. Report:
+- Point estimates $\hat{\kappa}, \hat{\bar{L}}, \hat{\sigma}$
+- 95% confidence intervals using the Hessian-based standard errors
+- The log-likelihood at the optimum
+
+Use Python (`scipy.optimize.minimize`) or R (`stats4::mle`). Include your code as appendix.
+
+**(c) (4 pts)** Compute the implied stationary distribution of $L_t$ under your calibration and overlay it on the histogram of observed $L_t$ values. Comment on the fit — does the OU assumption appear consistent with the data?
+
+**(d) (2 pts)** Compare your calibration to the canonical values from Book Table 9.1 ($\kappa = 0.45$, $\sigma = 0.32$, $\bar{L} = 1.0$). Are your point estimates within the canonical CI? Where do they differ most, and why might this be?
+
+**Solution (instructor reference):**
+
+(a) Python skeleton:
+```python
+import pandas as pd
+import numpy as np
+data = pd.read_csv("pset1_secondary_discounts.csv")
+data['L_t'] = 1.0 - 5 * (data['discount']/0.50)
+# Plot with regime shading
+```
+
+Expected $L_t$ values: range from approximately $-2.5$ (Q1 2009) to $+0.7$ (Q3 2006). Most observations cluster between $-1.0$ and $+0.5$.
+
+(b) Expected MLE results (depend on exact data):
+- $\hat{\kappa} \approx 0.48-0.55$/yr (CI: 0.40-0.60)
+- $\hat{\bar{L}} \approx -0.1$ to $+0.1$ (lower than canonical 1.0 due to normalization differences)
+- $\hat{\sigma} \approx 0.35-0.42$ (higher than canonical 0.32 because sample includes GFC)
+- Log-likelihood typically $\approx -45$ to $-55$
+
+MLE Python code:
+```python
+from scipy.optimize import minimize
+def neg_log_lik(params, L, dt=0.25):
+    kappa, L_bar, sigma = params
+    mu = L[:-1] + kappa*(L_bar - L[:-1])*dt
+    var = sigma**2 * dt
+    diffs = L[1:] - mu
+    log_lik = -0.5 * np.sum(np.log(2*np.pi*var) + diffs**2/var)
+    return -log_lik
+```
+
+(c) Expected fit: reasonably good in the body of the distribution; observable left-tail heaviness (GFC observations) — suggests the pure Gaussian OU misses fat tails. Comment should note this.
+
+(d) Canonical κ = 0.45 likely within student's CI. σ likely higher than canonical because student's sample includes more stress. $\bar{L}$ different because of normalization choice — student's mapping centers on 0, canonical centers on 1.0.
+
+## Question 3: Applied Core — Jensen Bias Computation (15 points)
+
+Using your OU calibration from Question 2 (or canonical values if you couldn't complete Q2), compute the Jensen convexity bias for the following private market positions:
+
+| Asset | Horizon $T$ | Asset Class |
+|---|---|---|
+| A | 5 yr | PE Buyout |
+| B | 10 yr | Growth Equity |
+| C | 15 yr | Real Estate |
+| D | 20 yr | Infrastructure |
+| E | 25 yr | Core Real Estate |
+
+**(a) (6 pts)** Using the affine approximation $B(T) = A \cdot T + C$ with the calibrated $A$ values from Session 5 (PE Buyout: 0.16%/yr; Growth Equity: 0.17%/yr; Real Estate: 0.18%/yr; Infrastructure: 0.18%/yr), compute $B(T)$ for each asset.
+
+**(b) (6 pts)** Using the closed-form Jensen bias from Theorem 18.1: $B(T) = (\pi_2/2) \cdot \Pi_{liq}(T)$ where $\Pi_{liq}(T) = \sigma_L^2 [T - (1-e^{-2\kappa T})/(2\kappa)]$ and $\pi_2 = 0.021$, compute $B(T)$ for each asset using your $\kappa, \sigma_L$ values from Question 2.
+
+**(c) (3 pts)** Compare your results from (a) and (b). For which horizons do they agree? Where do they diverge? Why?
+
+**Solution (using canonical $\kappa = 0.45$, $\sigma_L = 0.32$, $\pi_2 = 0.021$):**
+
+(a) Affine approximation:
+
+| Asset | $T$ | $A$ | $B(T)$ |
+|---|---|---|---|
+| A | 5 | 0.16% | 0.8% |
+| B | 10 | 0.17% | 1.7% |
+| C | 15 | 0.18% | 2.7% |
+| D | 20 | 0.18% | 3.6% |
+| E | 25 | 0.18% | 4.5% |
+
+(b) Closed-form:
+
+Compute $\Pi_{liq}(T) = 0.1024 \cdot [T - (1-e^{-0.9T})/0.9]$:
+
+| $T$ | $1-e^{-0.9T}$ | $\Pi_{liq}(T)$ | $B(T) = 0.0105 \cdot \Pi_{liq}$ |
+|---|---|---|---|
+| 5 | 0.989 | $0.1024 \cdot (5 - 1.099) = 0.400$ | 0.42% |
+| 10 | 0.999 | $0.1024 \cdot (10 - 1.110) = 0.911$ | 0.96% |
+| 15 | ~1.000 | $0.1024 \cdot (15 - 1.111) = 1.422$ | 1.49% |
+| 20 | ~1.000 | $0.1024 \cdot (20 - 1.111) = 1.934$ | 2.03% |
+| 25 | ~1.000 | $0.1024 \cdot (25 - 1.111) = 2.446$ | 2.57% |
+
+(c) Affine approximation gives **higher** values than closed-form. Why: the affine $A$ values are calibrated empirically including the full mean-reversion-bounded variance growth, but the closed-form here uses canonical parameters that may understate the full empirical variance. Both approximate the truth; the divergence reflects calibration uncertainty.
+
+## Question 4: Applied Core — PME Computation (15 points)
+
+A 2018-vintage US PE buyout fund has the following capital flows and S&P 500 levels:
+
+| Year | Call ($M) | Distribution ($M) | S&P 500 (normalized) |
+|---|---|---|---|
+| 2018 | 50 | 0 | 1.00 |
+| 2019 | 30 | 0 | 1.29 |
+| 2020 | 20 | 0 | 1.51 |
+| 2021 | 10 | 5 | 1.94 |
+| 2022 | 0 | 25 | 1.66 |
+| 2023 | 0 | 40 | 2.05 |
+| 2024 | 0 | 65 | 2.45 |
+
+The fund reports a current IRR of 17.5% and is in year 7 of an expected 10-year hold.
+
+**(a) (5 pts)** Compute the Kaplan-Schoar PME against the S&P 500.
+
+**(b) (5 pts)** Compute the Direct Alpha (constant excess discount rate $\alpha$).
+
+**(c) (5 pts)** Using the implied $L_t$ series from your secondary market data (Question 2), estimate the LA-PME for this fund. Approximate the liquidity premium drag at ~3.5%/yr on average. Compare the LA-PME to the KS PME and comment.
+
+**Solution:**
+
+(a) KS PME:
+- Numerator (distributions / benchmark): $5/1.94 + 25/1.66 + 40/2.05 + 65/2.45 = 2.58 + 15.06 + 19.51 + 26.53 = 63.68$
+- Denominator (calls / benchmark): $50/1.00 + 30/1.29 + 20/1.51 + 10/1.94 = 50 + 23.26 + 13.25 + 5.15 = 91.66$
+- **KS PME = 63.68 / 91.66 = 0.695**
+
+This is *less than 1.0*, suggesting the fund has **underperformed** the S&P 500 to date despite reporting 17.5% IRR.
+
+(b) Direct Alpha: Find $\alpha$ solving $\sum_t (D_t - C_t) e^{-\alpha t} / B_t = 0$.
+
+This requires numerical solution. Starting from $\alpha = 0$ (gives the KS-PME-style net result):
+
+Net cash flows scaled by benchmark: $-50/1.00, -30/1.29, -20/1.51, -5/1.94, 25/1.66, 40/2.05, 65/2.45$
+
+At $\alpha = -5\%$: PV of net flows ≈ positive (positive $\alpha$ would discount future distributions more)
+At $\alpha = +2\%$: PV ≈ negative
+**$\alpha \approx -3\%$** by interpolation — meaning the fund underperforms benchmark by about 3 percentage points per year.
+
+(c) LA-PME: Apply 3.5%/yr drag to benchmark. Adjusted benchmark levels:
+
+| Year | $B_t^{LA} = B_t \cdot 1.035^{t}$ |
+|---|---|
+| 2018 | 1.00 |
+| 2019 | 1.29 × 1.035 = 1.34 |
+| 2020 | 1.51 × 1.072 = 1.62 |
+| 2021 | 1.94 × 1.110 = 2.15 |
+| 2022 | 1.66 × 1.148 = 1.91 |
+| 2023 | 2.05 × 1.189 = 2.44 |
+| 2024 | 2.45 × 1.230 = 3.01 |
+
+Recompute KS PME against adjusted benchmark:
+
+- Numerator: $5/2.15 + 25/1.91 + 40/2.44 + 65/3.01 = 2.33 + 13.09 + 16.39 + 21.59 = 53.40$
+- Denominator: $50/1.00 + 30/1.34 + 20/1.62 + 10/2.15 = 50 + 22.39 + 12.35 + 4.65 = 89.39$
+- **LA-PME = 53.40 / 89.39 = 0.597**
+
+LA-PME (0.597) is *lower* than KS PME (0.695). The fund's already-disappointing performance is even more disappointing when properly comparing to a liquidity-adjusted opportunity cost.
+
+**Comment:** This fund reported 17.5% IRR (looks attractive at face value). Standard PME shows underperformance (0.695 < 1.0). LA-PME confirms and amplifies this finding (0.597). The 17.5% IRR captures the volatile S&P 500 returns over 2018-2024 *plus* a healthy illiquidity premium — but on a liquidity-adjusted basis, the fund delivered less than what the LP could have obtained from public markets with a liquid alternative.
+
+## Question 5: Stretch (15 points)
+
+Examine your $L_t$ time series from Question 2. Identify and characterize the **four regimes** the book proposes (boom 2003-2007, GFC 2008-2010, normalization 2011-2019, multi-shock 2020-2024). For each regime:
+
+**(a) (8 pts)** Compute the mean and standard deviation of $L_t$ within the regime.
+
+**(b) (4 pts)** Test (informally) whether the OU dynamics differ across regimes: split your sample by regime and re-estimate $\kappa, \sigma, \bar{L}$ for each. Report findings.
+
+**(c) (3 pts)** Discuss: are the differences across regimes consistent with the book's claim of a single underlying OU process, or do they suggest regime-dependent parameters? What does this imply for the framework?
+
+**Solution outline:**
+
+Expected findings:
+- Boom 2003-2007: mean $L \approx +0.3$, low std ~0.2
+- GFC 2008-2010: mean $L \approx -1.5$, high std ~0.5
+- Normalization 2011-2019: mean $L \approx -0.1$, moderate std ~0.3
+- Multi-shock 2020-2024: mean $L \approx -0.4$, high std ~0.4
+
+Regime-specific $\kappa$ values likely vary 0.3-0.7 — suggests *some* regime dependence in mean reversion speed.
+
+Discussion: The data is plausibly consistent with a *single* OU process with shifting $\bar{L}$ across regimes, OR with regime-dependent $\kappa$. The framework currently uses constant parameters; regime-detection is a research frontier (Session 21 mentioned). This is a known limitation.
+
+## Question 6: Reflection (10 points)
+
+In 200 words, reflect on the following:
+
+- What was the **single most challenging concept** in Sessions 1–7?
+- What was your **strategy** for working through it?
+- How does this concept connect to your **term project** topic?
+- What **additional resource** (book chapter, paper, video, conversation) would have helped you most?
+
+Reflections are graded for **thoughtfulness**, not for content. There's no wrong answer.
+
+------------------------------------------------------------------------
+
+[← Problem Sets Overview](psets-overview.qmd) | [Track 2 PS1 →](track2-ps1.qmd)

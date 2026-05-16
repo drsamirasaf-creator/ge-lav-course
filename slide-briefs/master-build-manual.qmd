@@ -1,0 +1,381 @@
+# Master Slide Build Manual {#sec-slide-build-manual}
+
+This is the consolidated build manual for all new slides required by the Path C course architecture. Use this as the workflow checklist for the slide rebuild phase (estimated 80–120 hours total).
+
+## How to Use This Manual
+
+**Build sequence (recommended):**
+
+1. **Phase 1 (Months 1–2):** Sessions 1–8 (new content, no existing slide infrastructure) — ~116 new slides
+2. **Phase 2 (Month 3):** Sessions 19–24 (math intuition bridges, adapted from existing math slides) — ~84 new slides
+3. **Phase 3 (Month 4):** Adapt Sessions 11–18 (light editing of existing slides for context) — ~38 new slides
+4. **Phase 4 (Month 5):** Sessions 25–32 (split track + capstone, mostly reuse) — ~50 new slides
+
+**Total new slides: ~288. Of these, ~243 are genuinely new content; the rest are adaptations of existing slides.**
+
+**Build rate assumption:** 25–35 minutes per new slide for someone familiar with your visual style. Faster for adaptations (10–15 min per slide).
+
+**Visual style requirements:**
+
+- Match existing 6-deck visual identity (color palette, typography, layout grid)
+- Maintain ", USD" or update footers per delivery school
+- Keep equations rendered consistently (LaTeX or formatted MathType, not images)
+- Preserve the consistent "Class N · Unit X" header style from existing decks
+
+---
+
+## Phase 1: Sessions 1–8 (Mostly New Content, ~116 new slides)
+
+### Session 1: Course Intro · Why DCF Fails (~15 new + 6 adapted = 21 slides)
+
+| # | Title | Type | Content summary | Priority |
+|---|---|---|---|---|
+| 1.1 | Title slide | New | Course title, instructor, school, date | High |
+| 1.2 | Course agenda | New | 5-bullet overview of today | High |
+| 1.3 | The scale of the problem | New | $13T, ~10,000 funds, $2.5T pension allocations | **Highest** |
+| 1.4 | Who cares about this? | New | 4 stakeholder groups (LP/GP/Regulator/Auditor) | High |
+| 1.5 | How DCF is applied | New | Equation + typical buyout discount rate decomposition | **Highest** |
+| 1.6 | Where the illiquidity premium comes from | New | Amihud-Mendelson origin, 3.5% historical avg | High |
+| 1.7 | Secondary market evidence (tease) | New | Time series chart 2003-2024 | **Highest** |
+| 1.8 | The three structural failures (preview) | New | Three columns: stochastic, Jensen, MV | High |
+| 1.9 | The valuation hierarchy | New | DCF ⊊ LAV ⊊ GE-LAV nested diagram | **Highest** |
+| 1.10 | The five main results (preview) | New | Numbered list of results | High |
+| 1.11 | A worked number to anchor the course | New | $103.6M DCF / $30.9M GE-LAV / $73M gap | **Highest** |
+| 1.12 | Course roadmap | New | 32-session timeline visual | Medium |
+| 1.13 | Tracks preview | New | T1 vs T2 comparison table | Medium |
+| 1.14 | Assessment | New | Grade weights pie chart, key dates | Medium |
+| 1.15 | Working agreement: discussion | New | Pair discussion prompts | Low |
+| (6 slides) | Adapted from existing Class 9 | Adapt | PE markets structure, frictions, etc. | High |
+
+**Build estimate: 15 new slides × 30 min + 6 adapted × 15 min = ~9 hours**
+
+### Session 2: Three Structural Failures + LA-CAPM (~12 new slides)
+
+| # | Title | Type | Content summary | Priority |
+|---|---|---|---|---|
+| 2.1 | Title and recap | New | Set up today's focus | Medium |
+| 2.2 | Failure 1: stochastic premium | New | Evidence table of 4 regimes | **Highest** |
+| 2.3 | The OU calibration (numbers) | New | Equation + calibrated parameters | **Highest** |
+| 2.4 | Failure 2: Jensen bias setup | New | Jensen's inequality statement + visual | **Highest** |
+| 2.5 | Why discount factors are convex | New | Math display + plot of $e^{-rT}$ | High |
+| 2.6 | The magnitude of Jensen bias | New | Table by asset class and horizon | **Highest** |
+| 2.7 | Worked example: 20-yr infrastructure | New | $1B fund comparison table | High |
+| 2.8 | Failure 3: McKean-Vlasov setup | New | Thought experiment with 100 pension funds | **Highest** |
+| 2.9 | McKean-Vlasov math preview | New | Side-by-side SDE comparison | High |
+| 2.10 | Why DCF misses this entirely | New | Bullets on partial equilibrium failure | Medium |
+| 2.11 | Three failures together | New | Three-row table with magnitudes | High |
+| 2.12 | Liquidity-Adjusted CAPM | New | Standard CAPM → LA-CAPM transformation | Medium |
+
+**Build estimate: 12 new slides × 30 min = ~6 hours**
+
+### Session 3: Liquidity Illusion · Secondary Markets (~12 new slides)
+
+| # | Title | Type | Content summary | Priority |
+|---|---|---|---|---|
+| 3.1 | Title | New | Subtitle: "Failure 1 examined empirically" | Low |
+| 3.2 | Secondary market structure | New | Sellers/buyers/brokers diagram | High |
+| 3.3 | Market scale | New | $130B+/yr, 1,200 transactions stat callouts | High |
+| 3.4 | The discount-to-NAV ratio | New | Equation + worked example | **Highest** |
+| 3.5 | The four regimes (overview) | New | Time series with regime shading | **Highest** |
+| 3.6 | Regime 1: the boom (2003-2007) | New | Stats for boom regime | High |
+| 3.7 | Regime 2: the crisis (2008-2010) | New | Stats + anecdotes (CalPERS, etc.) | **Highest** |
+| 3.8 | Regime 3: normalization (2011-2019) | New | Stats for normalization | High |
+| 3.9 | Regime 4: multi-shock era (2020-2024) | New | COVID, rates, denominator effects | **Highest** |
+| 3.10 | The liquidity illusion defined | New | Definition + level vs convexity illusion | **Highest** |
+| 3.11 | Level illusion: numerical example | New | 25-yr infrastructure across regimes | High |
+| 3.12 | Implications for portfolio mark-to-market | New | The diversification illusion finding | **Highest** |
+
+**Build estimate: 12 new slides × 30 min = ~6 hours**
+
+### Session 4: OU Process (Intuition Only) (~10 new + 6 adapted)
+
+| # | Title | Type | Content summary | Priority |
+|---|---|---|---|---|
+| 4.1 | Title | New | Note about track diagnostic | Medium |
+| 4.2 | Why we need a process model | New | What we have vs need from session 3 data | Medium |
+| 4.3 | Three required properties | New | Mean reversion, stochastic, bounded variance | High |
+| 4.4 | Introducing the OU process | New | SDE form + verbal translation | **Highest** |
+| 4.5 | What κ does | New | Three paths with different κ values | High |
+| 4.6 | What L̄ and σ do | New | Two parameters explained | High |
+| 4.7 | Stationary distribution | New | Result + calibrated values + histogram | **Highest** |
+| 4.8 | What "stationary" means | New | Unconditional distribution explanation | Medium |
+| 4.9 | Path simulation (discrete recursion) | New | Pseudo-code + Excel demo | High |
+| 4.10 | Connection to Vasicek | New | Side-by-side: Vasicek = OU | Medium |
+| 4.11 | What OU cannot do | New | Limitations (jumps, fat tails, regime) | Medium |
+| 4.12 | Track self-diagnostic | New | Three-column decision aid | High |
+| (6 slides) | Adapted from existing Class 5 | Adapt | Strip derivations, keep intuition | High |
+
+**Build estimate: 10 new × 30 min + 6 adapted × 15 min = ~6.5 hours**
+
+### Session 5: Term Structure of Private Capital Returns (~15 new slides)
+
+| # | Title | Type | Content summary | Priority |
+|---|---|---|---|---|
+| 5.1 | Title | New | Track declaration reminder | Low |
+| 5.2 | What is a term structure | New | Familiar examples (yield curve etc.) | Medium |
+| 5.3 | Empirical term structure: PE by vintage | New | Heatmap of pooled IRR by vintage × time | High |
+| 5.4 | Liquidity risk term structure | New | DCF $\sqrt{T}$ vs GE-LAV shape | **Highest** |
+| 5.5 | Jensen bias formula | New | $B(T) = A \cdot T + C$ with table of A values | **Highest** |
+| 5.6 | Worked: Jensen bias by horizon | New | Table by asset class and horizon | **Highest** |
+| 5.7 | Why long-horizon most affected | New | Three reasons | High |
+| 5.8 | The Lévy extension | New | Jump-diffusion preview | Medium |
+| 5.9 | DLOM: the industry alternative | New | Definition + standard methods | High |
+| 5.10 | DLOM by asset class | New | Table of typical DLOM ranges | Medium |
+| 5.11 | DLOM vs GE-LAV: comparison | New | Side-by-side feature table | **Highest** |
+| 5.12 | DLOM vs GE-LAV: numerical | New | 20-yr infrastructure under three methods | High |
+| 5.13 | Performance measurement implications | New | Tease for sessions 6-7 | Medium |
+| 5.14 | Track declaration | New | Final reminder | High |
+| 5.15 | Where we go from here | New | Sessions 6-8 preview | Low |
+
+**Build estimate: 15 new × 30 min = ~7.5 hours**
+
+### Session 6: IRR · The Internal Rate of Return Problem (~15 new slides)
+
+| # | Title | Type | Content summary | Priority |
+|---|---|---|---|---|
+| 6.1 | Title | New | "The most-used metric in PE is structurally broken" | Low |
+| 6.2 | IRR formally | New | Definition + NPV equation | High |
+| 6.3 | IRR numerical example | New | Clean cash flow example | High |
+| 6.4 | Money-weighted vs time-weighted | New | Two questions, two metrics | **Highest** |
+| 6.5 | Worked: MWR vs TWR difference | New | Two funds, same skill, different IRR | High |
+| 6.6 | Bias 1: reinvestment assumption | New | IRR overstates by 2-5 pp | **Highest** |
+| 6.7 | Bias 2: sign-pattern dependence | New | Multiple IRRs in mixed signs | **Highest** |
+| 6.8 | Multiple IRRs: concrete example | New | Walk through 2-root case | High |
+| 6.9 | IRR under stochastic rates | New | The fundamental breakdown | **Highest** |
+| 6.10 | The constant-rate fallacy | New | Boxed statement + implications | High |
+| 6.11 | Empirical magnitudes | New | 12.5% reported → 7.5-9.5% adjusted | **Highest** |
+| 6.12 | IRR and vintage effects | New | 40-60% explained by vintage | High |
+| 6.13 | IRR and carry: why practitioners defend | New | Political economy | Medium |
+| 6.14 | Three solutions overview | New | Tease for session 7 | Low |
+| 6.15 | Summary: where IRR works / fails | New | When to use vs not | Medium |
+
+**Build estimate: 15 new × 30 min = ~7.5 hours**
+
+### Session 7: PME · LA-IRR · LA-PME (~15 new slides)
+
+| # | Title | Type | Content summary | Priority |
+|---|---|---|---|---|
+| 7.1 | Title | New | "Comparing private to public, correctly" | Low |
+| 7.2 | The PME question | New | What PME tries to answer | High |
+| 7.3 | Kaplan-Schoar PME (definition) | New | Formula + interpretation | **Highest** |
+| 7.4 | Kaplan-Schoar: worked example | New | 10-year PE fund + S&P 500 | **Highest** |
+| 7.5 | Long-Nickels PME (definition) | New | Implicit reinvestment mechanism | High |
+| 7.6 | KS vs LN: when they diverge | New | Subtle differences | Medium |
+| 7.7 | Direct Alpha | New | Gredil-Griffiths-Stucke formulation | High |
+| 7.8 | The constant-rate weakness | New | PME's Achilles heel | **Highest** |
+| 7.9 | LA-IRR: GE-LAV correction | New | Stochastic rate path | **Highest** |
+| 7.10 | LA-PME: GE-LAV correction | New | Liquidity-adjusted benchmark | **Highest** |
+| 7.11 | Comparing LA-PME to standard | New | Worked example: 2010 vintage fund | **Highest** |
+| 7.12 | Vintage-year liquidity effects | New | 2009 vs 2007 comparison | High |
+| 7.13 | Practical: which metric for which purpose | New | Decision table | High |
+| 7.14 | Implementation: where to get data | New | Data sources mapping | Medium |
+| 7.15 | Summary and bridge | New | Tease session 8 | Low |
+
+**Build estimate: 15 new × 30 min = ~7.5 hours**
+
+### Session 8: What a Correct Theory Must Deliver (~12 new slides)
+
+| # | Title | Type | Content summary | Priority |
+|---|---|---|---|---|
+| 8.1 | Title | New | Five requirements | Low |
+| 8.2 | Why a theory, not just better numbers | New | Theory vs ad hoc fixes | High |
+| 8.3 | Requirement 1: stochastic premia | New | Data demands it | High |
+| 8.4 | Requirement 2: heterogeneity | New | Institutional reality | **Highest** |
+| 8.5 | Requirement 3: endogenous clearing | New | Theoretical necessity | **Highest** |
+| 8.6 | Requirement 4: implementability | New | Engineering requirement | High |
+| 8.7 | Requirement 5: welfare and regulatory | New | Social responsibility | **Highest** |
+| 8.8 | Five requirements summarized | New | Poster slide | **Highest** |
+| 8.9 | Evaluating alternatives: comparison table | New | 6 frameworks scored on 5 requirements | **Highest** |
+| 8.10 | GE-LAV at a glance | New | Six components | **Highest** |
+| 8.11 | Five main results restated | New | Numbered with chapter refs | High |
+| 8.12 | Bridge to unit 3 + midterm | New | What comes next | Low |
+
+**Build estimate: 12 new × 30 min = ~6 hours**
+
+**Phase 1 total: ~56 hours for ~106 new slides**
+
+---
+
+## Phase 2: Sessions 19–24 (Math Intuition Bridges, ~84 new slides)
+
+These sessions need careful pedagogical work. Each topic must be teachable to MBA-level students while still preparing Track 2 students for full math in Sessions 25–29.
+
+### Session 19: Brownian Motion · Itô · OU (~15 new slides)
+
+Reuse Classes 2-5 visuals where possible (simulated paths, OU stationary distribution), but new exposition. Key new content:
+
+- 19.1-19.5: Brownian motion concept (visual-first, 4 properties, finance applications)
+- 19.6: Itô SDE general form with Black-Scholes / Vasicek / OU as examples
+- 19.7-19.9: Itô's lemma at intuition level + Jensen connection (the "aha moment")
+- 19.10-19.11: OU as Itô SDE special case + computing $E[L_t]$
+- 19.12: What Itô can't do (jumps, fat tails, memory)
+- 19.13-19.15: Course progression + discussion
+
+**Critical slide: 19.9 (Itô-Jensen connection)** — this is the unifying moment of Unit 4.
+
+**Build estimate: 15 × 35 min = ~9 hours** (the bridges take longer per slide due to pedagogical care)
+
+### Session 20: Stochastic Control · HJB (~15 new slides)
+
+Reuse Class 7 (Stochastic Control) visuals heavily. New content:
+
+- 20.1-20.5: Control problem setup, value function definition, Bellman principle
+- 20.6-20.8: HJB equation derivation (intuitive), what it says in words
+- 20.9-20.10: Application to exit problem, smooth pasting
+- 20.11-20.12: Numerical solution + GE-LAV exit boundary connection
+- 20.13-20.15: Limitations, bridge to MFG
+
+**Build estimate: 15 × 35 min = ~9 hours**
+
+### Session 21: Mean-Field Games (~15 new slides)
+
+The hardest pedagogical session. Reuse Class 8 sparingly (most existing slides are too technical). New content:
+
+- 21.1-21.3: Why MFG, Nash equilibrium limits, mean-field idea
+- 21.4-21.5: McKean-Vlasov SDE + history (Vlasov 1938 → Lasry-Lions 2006)
+- 21.6-21.7: Fixed-point structure + stability condition
+- 21.8-21.9: Collective externality + welfare gap quantification
+- 21.10-21.13: Numerical solution, propagation of chaos, applications
+- 21.14-21.15: Track 1 vs Track 2 takeaways
+
+**Build estimate: 15 × 40 min = ~10 hours** (extra time for pedagogical care)
+
+### Session 22: Fokker-Planck · Master Equation (~12 new slides)
+
+Reuse Class 6 visuals (FP equations, OU stationary). New content emphasizes heat equation analogy and practitioner use cases.
+
+**Build estimate: 12 × 35 min = ~7 hours**
+
+### Session 23: LAV Operator · GE Equilibrium (~12 new slides + ~4 from Class 17)
+
+Synthesis session. New content focuses on bringing all pieces together.
+
+**Build estimate: 12 × 35 min = ~7 hours**
+
+### Session 24: Jensen · Pigouvian · Welfare (~15 new slides + ~10 adapted from Classes 11, 16, 18, 20)
+
+Final synthesis. Heavy adaptation of existing Classes 11, 16, 18, 20 — strip derivations, keep results.
+
+**Build estimate: 15 new × 35 min + 10 adapted × 15 min = ~11 hours**
+
+**Phase 2 total: ~53 hours for ~84 new slides**
+
+---
+
+## Phase 3: Sessions 11–18 (Mostly Adaptation, ~38 new slides)
+
+These sessions reuse Classes 13, 19, 24, 10, 12, 25 substantially. New slides bridge between adapted content.
+
+| Session | New slides | Adapt from |
+|---|---|---|
+| 11: Exit timing | ~5 | Class 13 (PE Decomposition) |
+| 12: Exit boundary L*(t) | ~5 | Class 13 |
+| 13: Liquidity traps · historical | ~5 | Class 13 + new historical cases |
+| 14: Portfolio construction | ~3 | Class 24 |
+| 15: Pacing · tactical | ~5 | Class 24 |
+| 16: Regulatory · crisis dynamics | ~5 | Class 19 |
+| 17: Platform architecture | ~5 | Classes 10, 12, 25 |
+| 18: Platform demo · validation | ~5 | Classes 10, 12, 25 |
+
+**Build estimate: ~38 new × 25 min + ~50 adapted × 10 min = ~24 hours**
+
+---
+
+## Phase 4: Sessions 25–32 (Split Track + Capstone, ~50 new slides)
+
+Heavy reuse from existing decks. New slides primarily bridging adapted content.
+
+### Track 1 New Slides (Sessions 25–29 each have ~3-5 new)
+
+- Session 25 T1: 3 new slides (case introduction + workshop structure + IC memo template)
+- Session 26 T1: 5 new slides (VC vs buyout + secondary specifics + calibration)
+- Session 27 T1: 2 new slides (infrastructure narrative)
+- Session 28 T1: 3 new slides (private credit specifics)
+- Session 29 T1: 5 new slides (digital + climate frontiers)
+
+### Track 2 New Slides (Sessions 25–29 each have ~3-5 new)
+
+- Session 25 T2: 5 new slides (HJB derivation steps)
+- Session 26 T2: 3 new slides (MFG proof setup)
+- Session 27 T2: 3 new slides (FP derivation, well-posedness)
+- Session 28 T2: 3 new slides (GE existence, market clearing)
+- Session 29 T2: 3 new slides (Jensen + welfare + Pigouvian proofs)
+
+### Sessions 30-32
+
+- Session 30: 4 new slides (workshop logistics + valuation hierarchy proof)
+- Session 31: 5 new slides (research frontiers, course synthesis)
+- Session 32: 5 new slides (course conclusion, wrap-up)
+
+**Build estimate: ~50 × 25 min = ~21 hours**
+
+---
+
+## Build Sequence and Tracking
+
+| Phase | Sessions | New slides | Hours | Cumulative |
+|---|---|---|---|---|
+| 1 | 1–8 | 106 | 56 | 56 |
+| 2 | 19–24 | 84 | 53 | 109 |
+| 3 | 11–18 | 38 | 24 | 133 |
+| 4 | 25–32 | 50 | 21 | 154 |
+| **Total** | **All** | **278 new + ~50 adapted** | **~154** | **154 hr** |
+
+Total new + adapted slides: ~328 (matches the slide-reuse-map's estimate).
+
+**Note:** Total of 154 hours assumes a single person experienced with your visual style. With TA assistance (2 people building in parallel), this drops to ~80–100 hours real time.
+
+## Build Logistics
+
+### Required tools
+
+- PowerPoint or Keynote (matching existing deck format)
+- Visual asset library from existing decks (color palette, fonts, chart templates)
+- Reference: book Chapters 1–21 (for accurate quantitative claims)
+- GE-LAV® platform access (for screenshots and demo visuals)
+
+### Quality control
+
+For each completed session deck:
+1. **Review against lecture notes:** Every slide brief should map to a built slide
+2. **Visual consistency check:** Match colors, fonts, layouts to existing decks
+3. **Equation accuracy check:** Cross-reference all formulas with book
+4. **Speaker notes:** Each slide should have notes (from lecture file)
+5. **Test render:** Convert to PDF; check for layout breaks
+
+### Recommended team
+
+- **Slide author:** You (for content authority and book-accuracy)
+- **Slide designer:** TA or designer (for visual polish and consistency)
+- **Reviewer:** Co-instructor or colleague (for pedagogical critique)
+
+### Suggested cadence
+
+If aiming for Spring 2027 (14-month runway):
+
+- **Months 1–4:** Phase 1 (Sessions 1–8) — most critical
+- **Month 5:** Phase 2 (Sessions 19–24) — math bridges
+- **Month 6:** Phase 3 (Sessions 11–18) — mostly adaptation
+- **Months 7–8:** Phase 4 (Sessions 25–32)
+- **Month 9–10:** Internal review, pilot test if possible
+- **Month 11–12:** Revisions based on pilot
+- **Months 13–14:** Final polish, recording prep
+
+---
+
+## Slide-by-Slide Index
+
+For detailed slide content (title, layout, content, speaker notes), see the corresponding session lecture file:
+
+- Session 1: `/lectures/session-01.qmd` (slides 1.1–1.15)
+- Session 2: `/lectures/session-02.qmd` (slides 2.1–2.12)
+- ...
+- Session 32: `/lectures/session-32.qmd` (slides 32.1–32.5)
+
+Each lecture file's "Slide Content Briefs" section contains the full specification for every new slide.
+
+This build manual is the *organizational* document; the lecture files are the *content* documents.
+
+------------------------------------------------------------------------
+
+*Last updated: 2026. Recompute hours estimates as build progresses.*

@@ -1,0 +1,195 @@
+# Session 30: Project Draft Workshop · Valuation Hierarchy Proof (T2) {#sec-session-30}
+
+| | |
+|---|---|
+| **Unit** | 5 — Split Track |
+| **Track 1** | Project draft workshop (no new content) |
+| **Track 2** | Valuation hierarchy proof (Theorem 20.1) + project draft workshop |
+| **Track 2 source** | Class 20 (Pigouvian Tax remainder, hierarchy proof) |
+| **Assessment milestone** | **Project draft due (start of class)** |
+
+::: callout-important
+## Project draft due today
+
+Both tracks submit their 15-page project draft + supporting materials at the start of class. Peer review activity uses these drafts.
+:::
+
+---
+
+## Both Tracks: Project Draft Workshop (60 minutes)
+
+### Workshop Learning Objectives
+
+By the end of this workshop, students will be able to:
+
+1. **Provide structured peer review** on a classmate's GE-LAV project draft.
+2. **Identify common weaknesses** in their own draft based on peer feedback.
+3. **Plan revisions** for the final paper and presentation.
+4. **Practice** delivering the project's "elevator pitch" — the IC summary in 2 minutes.
+
+### Workshop Structure (Both Tracks, Same Activity)
+
+| Time | Activity | Detail |
+|---|---|---|
+| 0:00–0:05 | Logistics: pair assignments, rubric distribution | Lecture |
+| 0:05–0:25 | Reading time: read partner's draft + take notes | Individual |
+| 0:25–0:50 | Peer feedback session (12.5 min each direction) | Pair work |
+| 0:50–1:00 | Wrap-up: list 3 priority revisions for your draft | Individual |
+
+### Peer Review Rubric
+
+Each student provides written feedback to their partner addressing:
+
+**1. Clarity (5 questions, 1-5 scale)**
+- Is the asset/question stated precisely?
+- Is the methodology clear?
+- Are the calibrations documented?
+- Are the results easy to follow?
+- Is the recommendation defensible?
+
+**2. Rigor (5 questions)**
+- Is the GE-LAV implementation correct?
+- Are the comparisons (DCF vs. LAV vs. GE-LAV) accurate?
+- Are sensitivity analyses adequate?
+- Is the data appropriate?
+- For Track 2: are mathematical derivations correct?
+
+**3. Communication (3 questions)**
+- Could you explain this paper to a non-finance friend? Try in 2 sentences.
+- Is the IC-relevance clear?
+- Is the writing professional quality?
+
+**4. Improvement priorities (open)**
+- "The single most important revision before the final paper would be..."
+- "The presentation should emphasize..."
+- "One thing that would *delete* if I had to cut to 12 pages..."
+
+### Workshop Slide Briefs (New Slides Needed)
+
+**Slide 30.1 — Workshop Introduction**
+
+- **Title:** "Project Draft Workshop"
+- **Goals:** Identify weaknesses in your own work via someone else's perspective
+- **Norms:**
+  - Be specific, not vague ("the GE-LAV calculation is unclear at step 3" not "I'm confused")
+  - Be constructive, not destructive
+  - Focus on the work, not the person
+  - Both you and your partner are still learning
+- **Speaker notes:** Set the tone for peer review. Many students are uncomfortable giving direct feedback. Frame as professional courtesy.
+
+**Slide 30.2 — Peer Review Process**
+
+- **Title:** "How the next hour works"
+- **Time blocks:**
+  - 20 min: Read your partner's draft carefully (don't skim)
+  - 25 min: Take turns giving and receiving feedback (12.5 min each)
+  - 10 min: Capture YOUR top 3 revision priorities
+- **Speaker notes:** Discipline the structure. Without time limits, peer review degrades into chat.
+
+**Slide 30.3 — Common Weaknesses to Watch For**
+
+- **Title:** "Common weaknesses across project drafts"
+- **For Track 1 (Practitioner) drafts:**
+  - Asset specification too vague
+  - Calibration parameters unjustified
+  - GE-LAV computation lacks regime variation
+  - Recommendation doesn't connect to the LAV/GE-LAV result
+- **For Track 2 (Researcher) drafts:**
+  - Mathematical claims unproven or under-proven
+  - Numerical implementation lacks convergence diagnostics
+  - Connection to existing literature unclear
+  - Extension proposal too ambitious for paper scope
+- **Speaker notes:** Make these visible. Both tracks share the same pitfalls in slightly different forms.
+
+**Slide 30.4 — What Goes in the Final Paper**
+
+- **Title:** "Revising for the final submission"
+- **Final paper requirements (Session 32):**
+  - 20 pages excluding references and appendices
+  - All revisions from peer feedback addressed
+  - Specific improvements over draft (state them explicitly in a "Revisions" footnote)
+  - Polished writing quality
+  - Reproducible computations
+- **What gets graded:**
+  - 2% improvement over draft
+  - 2% writing quality
+  - 1% final correctness
+- **Speaker notes:** Set clear expectations. The final paper is *not* the draft with minor edits.
+
+---
+
+## Track 2: Valuation Hierarchy Proof (15 additional minutes)
+
+### Track 2 Learning Objectives
+
+By the end of the Track 2 portion, students will additionally be able to:
+
+1. **State and prove Theorem 20.1** (strict valuation hierarchy DCF ⊊ LAV ⊊ GE-LAV).
+2. **Identify Theorem 20.2** (conditions for approximate equality among the hierarchies).
+3. **Compute** the gap between hierarchy levels for arbitrary OU calibrations.
+4. **Discuss** why the strict nesting matters for regulatory and pedagogical purposes.
+
+### Track 2 Slide Briefs
+
+**Slide T2-30.1 — Theorem 20.1: Strict Valuation Hierarchy**
+
+- **Title:** "Theorem 20.1: DCF ⊊ LAV ⊊ GE-LAV"
+- **Statement:** Under positive liquidity volatility ($\sigma_L > 0$) and positive general-equilibrium coupling ($\gamma > 0$):
+  - $V^{DCF}(L, t) \neq V^{LAV}(L, t)$ (strict inequality somewhere on the state space)
+  - $V^{LAV}(L, t) \neq V^{GE-LAV}(L, t)$ (strict inequality)
+- **In words:** The three operators give genuinely different answers when liquidity is stochastic and the externality is present.
+
+**Slide T2-30.2 — Theorem 20.1 Proof Sketch**
+
+- **Title:** "Proof: strict nesting"
+- **Part 1 (DCF ≠ LAV):**
+  - Jensen's inequality applied to $e^{-r(L)T}$: $E[e^{-r(L)T}] > e^{-E[r(L)]T}$
+  - Strict whenever $L$ is non-degenerate (i.e., $\sigma_L > 0$)
+- **Part 2 (LAV ≠ GE-LAV):**
+  - GE-LAV adds the equilibrium uplift to $r(L)$: $r_{GE}(L, \mu) = r(L) + \text{externality}(L, \mu)$
+  - Strict whenever the externality is positive (i.e., $\gamma > 0$)
+- **Combination:** Both inequalities strict → strict nesting holds.
+
+**Slide T2-30.3 — Theorem 20.2: Conditions for Equality**
+
+- **Title:** "When the hierarchies converge"
+- **Statement:** $V^{DCF} = V^{LAV} = V^{GE-LAV}$ in the limit:
+  - As $\sigma_L \to 0$: liquidity is deterministic, no path dependence
+  - As $\gamma \to 0$: no externality, partial equilibrium
+- **Result:** The framework reduces to DCF in the "no-uncertainty, no-coupling" limit.
+- **Speaker notes:** This is the *consistency check*. GE-LAV doesn't conflict with DCF in DCF's domain of validity.
+
+### Track 2 Discussion Questions
+
+1. The strict nesting theorem requires $\sigma_L > 0$ and $\gamma > 0$. What if $\sigma_L > 0$ but $\gamma = 0$? Is LAV strictly necessary then, or does DCF + simple Jensen suffice?
+2. The proof of strict inequality relies on Jensen's inequality applied pointwise. What if some pricing kernel is approximately linear (e.g., very short horizons)? Does the inequality "vanish" in the limit?
+3. Theorem 20.2 (equality conditions) is the "consistency limit." Is there a *third* limit where GE-LAV reduces to something *other than* DCF? Perhaps when the externality dominates?
+
+---
+
+## Both Tracks: Final Reminders
+
+### What's Due When
+
+| Deliverable | Due Date |
+|---|---|
+| Project draft + peer review notes | **Today (Session 30)** |
+| PS4 | Session 31 |
+| Final paper (with revisions) | Session 32 |
+| Project presentation | Session 32 |
+
+### Session 31 Preview
+
+- Both tracks: Final research frontiers + course synthesis
+- PS4 due (track-specific)
+- Final preparation for project presentations
+
+### Session 32 Preview
+
+- Both tracks reunified
+- Project presentations (20 min + 5 min Q&A each)
+- Final wrap-up
+
+------------------------------------------------------------------------
+
+[← Session 29](session-29.qmd) | [Schedule](../schedule.qmd) | [Next: Session 31 →](session-31.qmd)

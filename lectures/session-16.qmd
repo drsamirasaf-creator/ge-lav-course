@@ -1,0 +1,253 @@
+# Session 16: Regulatory Implications · Crisis Dynamics {#sec-session-16}
+
+| | |
+|---|---|
+| **Unit** | 3 — Decision and Application |
+| **Book Chapter** | 8 (all sections) |
+| **Slide source** | Reuse Class 19 (Crisis Dynamics) + ~5 new |
+| **Slides needed** | ~5 new + adapt ~10 from Class 19 |
+| **Track** | Common core (both tracks) |
+| **Assessment milestone** | **PS2 due (start of class)** |
+
+## Learning Objectives
+
+By the end of this session, students will be able to:
+
+1. **Identify the major regulatory frameworks** affecting private market valuation: Solvency II, AIFMD, IFRS 13, Basel III, GASB 72.
+2. **Explain** how each framework currently treats private market valuation and where GE-LAV would change the treatment.
+3. **Apply** the crisis amplification factor (4.31×) and explain what it represents.
+4. **Discuss** the Financial Stability Board (FSB) concerns about private markets and how GE-LAV addresses them.
+5. **Connect** correct private market valuation to systemic financial stability — and articulate why this is a regulator-relevant issue, not just an LP-level concern.
+
+## Pre-Class Assignment
+
+- **Submit:** PS2 (due at start of class)
+- **Read:** Book Chapter 8, all sections (~15 pages)
+
+## In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:05 | PS2 collection · Why regulation matters | Lecture |
+| 0:05–0:25 | Solvency II — current treatment + GE-LAV alternative | Lecture |
+| 0:25–0:40 | AIFMD, IFRS 13, Basel III — survey | Lecture |
+| 0:40–0:55 | Crisis amplification mechanics — the 4.31× factor | Lecture + chart |
+| 0:55–1:10 | Systemic implications: FSB concerns | Lecture |
+| 1:10–1:15 | Discussion: should GE-LAV be mandatory? | Discussion |
+
+## Slide Content Briefs (New Slides Needed)
+
+### Slide 16.1 — Title
+
+- **Title:** "Regulatory Implications · Crisis Dynamics"
+- **Tag line:** "When LP-level valuation errors become systemic risk"
+- **Speaker notes:** Today is the policy session. Connect what we've learned to who regulates it and why they should care.
+
+### Slide 16.2 — Why Regulation Cares About Valuation
+
+- **Title:** "Private market valuation as a systemic issue"
+- **Three reasons:**
+  1. **Capital adequacy:** Banks, insurers, pension funds hold private assets. Wrong valuations → wrong capital charges → wrong risk capacity
+  2. **Liquidity stress propagation:** If $13T of private assets is mispriced, forced sales during stress amplify and propagate
+  3. **Run-equivalence:** In open-end private market vehicles (newer in Europe), wrong NAVs create run incentives
+- **Speaker notes:** Frame regulation broadly. This isn't just about whether one pension fund overstates returns.
+
+### Slide 16.3 — Solvency II Current Treatment
+
+- **Title:** "Solvency II and private market valuation"
+- **Current Solvency II treatment of private assets:**
+  - Insurers report private market assets at fair value (typically DCF-based NAV)
+  - Solvency Capital Requirement (SCR) computed against the NAV
+  - "Look-through" allowed for some funds (treats fund as the underlying assets for SCR)
+  - Stress factor for type 2 equity (private equity): 49% capital charge
+- **Where GE-LAV changes things:**
+  - LAV-adjusted NAV typically *lower* than DCF NAV (after Jensen + GE corrections)
+  - Lower NAV → lower SCR (insurer holds less capital against)
+  - BUT — GE-LAV stress mark is *much lower* than current stress floor → higher *stressed* SCR
+- **Net effect:** GE-LAV adoption would *reduce* current SCR but *raise* stress-scenario capital
+- **Speaker notes:** This is counterintuitive. Many practitioners expect GE-LAV to increase capital requirements always. Actually it's regime-dependent.
+
+### Slide 16.4 — GE-LAV vs. Solvency II Stress Factor (Class 19 reuse)
+
+- **Title:** "Comparing stress factors"
+- **Table (from Class 19):**
+
+| Asset Class | Solvency II Stress | GE-LAV GFC-Depth Stress |
+|---|---|---|
+| Private equity | -49% | -65% to -70% |
+| Infrastructure | -25-39% | -55% to -60% |
+| Real estate | -25% | -45% to -50% |
+| Private credit | -38% | -40% to -45% |
+
+- **Implication:** "Solvency II stress factors *understate* the GFC-depth loss for most private asset classes"
+- **Speaker notes:** This is the regulator-relevant comparison. Solvency II was calibrated against post-GFC data with smoothed NAVs. GE-LAV using secondary market evidence gives a different (worse) stress picture.
+
+### Slide 16.5 — AIFMD: The European Fund Regulation
+
+- **Title:** "AIFMD and the open-end question"
+- **AIFMD basics:**
+  - Regulates EU alternative investment fund managers (AIFMs)
+  - Requires fair value of assets for NAV reporting
+  - Liquidity stress testing required for open-end vehicles
+- **The open-end private market problem:**
+  - LTAFs (Long-Term Asset Funds) in UK
+  - ELTIFs (European Long-Term Investment Funds)
+  - Allow retail / smaller investor access to private markets
+  - **Daily / monthly NAV but illiquid underlying**
+- **Run equivalence:**
+  - If NAV is stale and one investor exits at NAV, other investors are diluted
+  - Creates run incentive: "Sell before others realize NAV is overstated"
+  - GE-LAV-correct NAV would close this gap
+- **Speaker notes:** This is *the* new regulatory frontier for private markets. ELTIFs are scaling rapidly; the run risk is real.
+
+### Slide 16.6 — IFRS 13, GASB 72, Basel III — Survey
+
+- **Title:** "Other regulatory regimes"
+- **IFRS 13 (international accounting):**
+  - Defines fair value as exit price (could be GE-LAV equilibrium price)
+  - Three-level hierarchy: Level 3 covers most private market assets
+  - Currently allows DCF; GE-LAV would qualify as a Level 3 technique
+- **GASB 72 (US public sector accounting):**
+  - Similar to IFRS 13 for governmental pension funds and other public entities
+  - Same flexibility re: methodology
+- **Basel III (banking):**
+  - Banks hold private market exposure mostly through fund commitments
+  - Risk weights based on look-through or asset class defaults
+  - GE-LAV could update look-through risk weights with regime-conditional terms
+- **Speaker notes:** No regulatory regime currently *requires* GE-LAV. None *prohibits* it. The question is whether adoption is voluntary or mandated.
+
+### Slide 16.7 — Crisis Amplification: The 4.31× Factor
+
+- **Title:** "The crisis amplification factor"
+- **Setup:**
+  - At normal liquidity ($L = 0$): equilibrium rate $r_\text{GE-LAV} \approx 7.5\%$ (close to DCF)
+  - At GFC depth ($L = -1.5$): equilibrium rate $r_\text{GE-LAV} \approx 32.3\%$
+  - **Amplification factor: 32.3 / 7.5 = 4.31×**
+- **Why so amplified:**
+  - McKean-Vlasov collective action: when everyone wants to exit, premium rises sharply
+  - Convex effect: the premium function $\pi(L) = \pi_0 - \pi_1 L + \pi_2 L^2$ has positive convexity in deep stress
+  - $\pi(L = -1.5) = 0.045 + 0.025 \times 1.5 + 0.021 \times 2.25 = 0.045 + 0.0375 + 0.047 = 0.13$ ≈ 13% premium alone
+- **Speaker notes:** This 4.31× is the *systemic* concern. Private market valuations don't just fall in crisis; they fall non-linearly.
+
+### Slide 16.8 — Crisis Dynamics: From LP Decision to Systemic Impact
+
+- **Title:** "How LP-level decisions become systemic"
+- **Mechanism (sequential):**
+  1. Public markets fall → denominator effect → LPs over-allocated to PE
+  2. Some LPs sell secondaries to rebalance
+  3. Secondary discounts widen
+  4. Wider discounts signal stress to GP-led continuation funds (priced off secondaries)
+  5. Stress propagates to *all* private asset class valuations (multi-asset hedge demand)
+  6. Insurance and pension capital tied up in private markets becomes mismeasured
+  7. Forced sales accelerate; the system clears at extreme discounts
+- **Without GE-LAV:** Steps 5–7 invisible to regulators looking at smoothed NAVs
+- **With GE-LAV:** Steps 5–7 visible quarterly via secondary market signal
+- **Speaker notes:** This is the systemic risk story. Make it concrete.
+
+### Slide 16.9 — Financial Stability Board (FSB) Concerns
+
+- **Title:** "What the FSB is watching"
+- **FSB priorities re: private markets:**
+  - **Leverage in private markets** (NAV loans, fund-level leverage, GP leverage)
+  - **Valuation transparency** (NAVs not stress-tested)
+  - **Interconnectedness with banking and insurance**
+  - **Retail/semi-retail access** (run-equivalence in open-end funds)
+- **GE-LAV's role:**
+  - Provides a *quantitative* framework for the second and fourth concerns
+  - Could become regulatory standard for stress testing
+  - Pigouvian exit tax addresses the first concern indirectly (raises cost of crisis sales)
+- **Speaker notes:** The FSB has been writing reports on this. GE-LAV is positioned to be cited.
+
+### Slide 16.10 — Should GE-LAV Be Mandatory?
+
+- **Title:** "The mandate question"
+- **Arguments for mandatory adoption:**
+  - Eliminates the practitioner consensus trap (book Ch. 1.4)
+  - Aligns NAVs with economic reality
+  - Reduces systemic risk via better stress testing
+  - Pigouvian instruments require regulatory backing
+- **Arguments against:**
+  - Premature standardization could lock in flaws
+  - Burden on smaller GPs
+  - Cross-border coordination problem
+  - Existing regulatory structures already costly to change
+- **Realistic path:**
+  - Voluntary adoption by sophisticated LPs first
+  - Solvency II disclosure requirement (not capital charge) next
+  - Eventual mandate in 2030s, possibly
+- **Speaker notes:** Honest assessment. Mandates are politically hard. Adoption likely comes from LP demand, not regulator mandate.
+
+## Existing Slides to Reuse from Class 19 (Crisis Dynamics)
+
+From Deck 4, Class 19 ("Crisis Dynamics and GFC Amplification"), pull approximately 10 slides:
+
+- The 4.31× amplification factor chart
+- GFC stress propagation diagram
+- Pigouvian tax preview (full Session 24)
+- Solvency II stress comparison
+- Historical crisis case studies
+- The systemic risk channel
+- Welfare gap visualization
+- Multi-asset stress correlation
+
+**Adaptation:** Class 19 is well-aligned. Use substantially as-is.
+
+## Discussion Questions
+
+1. The 2024 SEC private fund advisor rule increased disclosure requirements for private market funds. Is this a step toward GE-LAV adoption, or orthogonal to it? What additional disclosure would GE-LAV require?
+2. If GE-LAV's crisis amplification factor (4.31×) is correct, the 2008 PE losses were partly *unmeasurable* under DCF accounting. Should historical PE returns be retroactively restated? What are the institutional barriers?
+3. The Pigouvian exit tax (~6-8% at GFC depth) would have generated $5-15B in 2008. Where should that revenue go — back to the affected fund, the SIPC equivalent, the general fund? Who decides?
+
+## Worked Numerical Example: Solvency II Capital Charge
+
+**Scenario:** A European insurer (Allianz-style) holds €5B in private equity (single-fund concentration). Need to compute SCR under three approaches.
+
+**Approach 1: Standard Solvency II**
+- Type 2 equity (private) stress factor: -49%
+- SCR = €5B × 49% = €2.45B
+- **Capital charge: €2.45B**
+
+**Approach 2: GE-LAV at normal liquidity**
+- LAV-adjusted NAV: €5B × (1 + 1.7% Jensen) = €5.085B (mild increase)
+- GE-LAV equilibrium rate at $L = 0$: ~8.5% (vs. DCF 7.5%, so ~5% adjustment)
+- Adjusted NAV: ~€4.75B (after equilibrium correction)
+- SCR using same 49% on adjusted NAV: €2.33B
+- **Capital charge: €2.33B** (slight reduction)
+
+**Approach 3: GE-LAV stress test (GFC depth)**
+- GE-LAV value at $L = -1.5$: €5B × (1 - 0.70) = €1.5B
+- The stress drawdown to €1.5B exceeds Solvency II's 49% stress floor
+- **Stress-scenario capital required: €5B - €1.5B = €3.5B** (significantly more than Solvency II)
+
+**Comparison:**
+| Approach | Capital Charge |
+|---|---|
+| Solvency II standard | €2.45B |
+| GE-LAV normal | €2.33B |
+| GE-LAV stressed | €3.50B |
+
+**Interpretation:** GE-LAV would reduce normal-state capital requirement by ~€120M, BUT under stress requires €1.05B more capital than Solvency II. Net effect depends on stress probability weighting.
+
+**Teaching note:** This is the *actual* policy debate. Lower normal-state burden + higher stress capacity = better aligned with risk. But it's a redistribution of the capital burden in time, not a reduction.
+
+## Common Student Confusions (Instructor Notes)
+
+- **"Won't GE-LAV always increase capital requirements? That's not politically viable."** No — it can decrease them in normal regimes. The increase comes only in stressed regimes. Net effect depends on probability-weighted aggregate.
+- **"Doesn't Solvency II already do stress testing?"** Yes — Pillar 2 (ORSA). But it uses static stress factors, not regime-conditional ones. GE-LAV would refine this.
+- **"How would auditors verify GE-LAV calibration?"** Same way they verify any Level 3 valuation — review of methodology, parameters, and back-testing. The GE-LAV platform is designed to be audit-friendly.
+- **"Is the Pigouvian tax practical politically?"** Hard. But Tobin tax discussions for currencies set the precedent. Could be implemented as a stamp duty rather than a tax.
+
+## What to Expect Next Session
+
+Session 17 begins the **implementation and platform** topic (book Ch. 9). We'll dive into how GE-LAV is operationalized:
+
+- The GE-LAV® platform architecture
+- Data inputs and calibration workflow
+- The valuation pipeline: from raw data to portfolio diagnostics
+- Validation against historical stress episodes
+
+**Reading:** Book Chapter 9, sections 9.1–9.5 (~12 pages).
+
+------------------------------------------------------------------------
+
+[← Session 15](session-15.qmd) | [Schedule](../schedule.qmd) | [Next: Session 17 →](session-17.qmd)

@@ -1,0 +1,224 @@
+# Session 22: Fokker-Planck · Master Equation (Concepts Only) {#sec-session-22}
+
+| | |
+|---|---|
+| **Unit** | 4 — Math Intuition Bridges |
+| **Book Chapters** | 14, 15 (concepts only — full derivation in Session 27 Track 2) |
+| **Slide source** | All new — adapted from Class 6 with derivations stripped |
+| **Slides needed** | ~12 new |
+| **Track** | Common core (both tracks) |
+
+## Learning Objectives
+
+By the end of this session, students will be able to:
+
+1. **State what the Fokker-Planck equation does** — describe how a probability distribution evolves over time under SDE dynamics.
+2. **Recognize the Fokker-Planck for the OU process** and identify its three terms (drift transport, diffusion spreading, mean-reverting concentration).
+3. **State what the master equation does** — describe how the value function of an MFG evolves on the space of distributions.
+4. **Connect** Fokker-Planck to the well-known heat equation as a familiar analogue.
+5. **Identify** when computing distributions matters (regulatory stress testing, portfolio diagnostics) vs. when individual states suffice (single-asset valuation).
+
+## Pre-Class Assignment
+
+- **Read:** Book Chapters 14, 15 (concepts only — skim equations)
+
+## In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:05 | Recap Sessions 19–21 · Today: tracking distributions | Lecture |
+| 0:05–0:25 | The Fokker-Planck equation | Lecture + visual |
+| 0:25–0:45 | Applying Fokker-Planck to the GE-LAV OU process | Lecture |
+| 0:45–1:05 | The master equation — value functions on distribution spaces | Lecture |
+| 1:05–1:15 | Why this matters for practitioners | Discussion |
+
+## Slide Content Briefs (All New Slides)
+
+### Slide 22.1 — Title
+
+- **Title:** "Fokker-Planck · The Master Equation"
+- **Subtitle:** "Tracking how distributions evolve · Concepts only · Track 2 derivation in Session 27"
+- **Speaker notes:** Two equations, both about distributions. Today is the *bookkeeping* layer of MFG.
+
+### Slide 22.2 — Why Distributions Matter
+
+- **Title:** "Why we need to track distributions"
+- **Recall from Session 21:**
+  - MFG equilibrium requires the *population distribution* $\mu_t$ of liquidity states
+  - Each LP reacts to $\mu_t$
+  - $\mu_t$ is determined by all LPs' decisions
+- **Today's question:** "How does $\mu_t$ evolve over time, given the LPs are all doing OU dynamics + optimal exit?"
+- **Answer:** The Fokker-Planck equation tells us.
+- **Speaker notes:** Frame today as computational machinery for what Session 21 set up conceptually.
+
+### Slide 22.3 — Fokker-Planck: Concept
+
+- **Title:** "The Fokker-Planck equation, intuitively"
+- **What it does:**
+  - Tells us how the probability density $p(L, t)$ evolves over time
+  - Given an SDE for individual $L_t$, derive the PDE for the *density* of many $L_t$ paths
+- **General form (for SDE $dX_t = \mu(X) dt + \sigma(X) dW_t$):**
+  - $\dfrac{\partial p}{\partial t} = -\dfrac{\partial}{\partial x}[\mu(x) p] + \dfrac{1}{2} \dfrac{\partial^2}{\partial x^2}[\sigma^2(x) p]$
+- **Two terms:**
+  - **Drift transport:** $-\partial_x [\mu \cdot p]$ — probability mass moves with drift
+  - **Diffusion spreading:** $\frac{1}{2} \partial_{xx} [\sigma^2 \cdot p]$ — Brownian motion spreads the mass
+- **Speaker notes:** This is mathematically intimidating but conceptually simple. Walk through term by term.
+
+### Slide 22.4 — Connection to the Heat Equation
+
+- **Title:** "Fokker-Planck is just a more general heat equation"
+- **Heat equation (everyone has seen):** $\dfrac{\partial u}{\partial t} = D \dfrac{\partial^2 u}{\partial x^2}$ — heat diffuses
+- **Pure diffusion Fokker-Planck (no drift):** $\dfrac{\partial p}{\partial t} = \dfrac{\sigma^2}{2} \dfrac{\partial^2 p}{\partial x^2}$ — same form!
+- **With drift:** Fokker-Planck adds the transport term, making it an *advection-diffusion equation*
+- **Bottom-line:** "If you understand how heat spreads in a metal bar, you understand the diffusion part of Fokker-Planck. Add a wind that blows the heat around, and you have Fokker-Planck."
+- **Speaker notes:** Use the heat analogy heavily. Students typically *do* have intuition for heat equations from physics or PDEs class.
+
+### Slide 22.5 — Fokker-Planck for the OU Process (Visual)
+
+- **Title:** "OU Fokker-Planck: visual"
+- **Visual:** Three panels showing $p(L, t)$ at $t = 0, 1, 5$ years
+  - $t = 0$: delta function at $L_0 = -1$ (initial stressed state)
+  - $t = 1$: shifted toward $\bar{L}$, broadened by diffusion
+  - $t = 5$: nearly Gaussian centered at 0.9 (close to $\bar{L} = 1$), width close to stationary
+- **Caption:** "Initial point distribution → drift toward mean + diffusion → eventually Gaussian stationary"
+- **Speaker notes:** Show the *dynamics* visually. This is the most useful visual of Unit 4.
+
+### Slide 22.6 — Fokker-Planck for OU: The Equation
+
+- **Title:** "Writing it down (for OU specifically)"
+- **OU SDE:** $dL_t = \kappa(\bar{L} - L_t) dt + \sigma_L dW_t$
+- **Plug into general Fokker-Planck:**
+  - Drift: $\mu(L) = \kappa(\bar{L} - L)$
+  - Diffusion: $\sigma^2(L) = \sigma_L^2$
+  - Result: $\dfrac{\partial p}{\partial t} = -\kappa \dfrac{\partial}{\partial L}[(\bar{L} - L) p] + \dfrac{\sigma_L^2}{2} \dfrac{\partial^2 p}{\partial L^2}$
+- **Stationary condition:** Set $\partial p / \partial t = 0$
+- **Resulting ODE for stationary density** can be solved → Gaussian with mean $\bar{L}$, variance $\sigma_L^2/(2\kappa)$
+- **Speaker notes:** Don't derive in detail. Show the form; reference Session 4 for the result.
+
+### Slide 22.7 — What Fokker-Planck Tells the Practitioner
+
+- **Title:** "Why this matters for practitioners"
+- **Use case 1: Stress testing**
+  - "What's the probability the entire LP population is in stress 5 years from now?"
+  - Answer: integrate $p(L, t = 5)$ over $L < -1$
+- **Use case 2: Regulatory portfolio analysis**
+  - "What's the *distribution* of capital adequacy outcomes across an insurer's PE portfolio?"
+  - Answer: apply Fokker-Planck per-position, aggregate
+- **Use case 3: Welfare analysis**
+  - "What's the expected welfare loss from the MFG externality?"
+  - Answer: integrate $\Delta W$ against the distribution of $L$ states
+- **Bottom-line:** "Fokker-Planck is the *measurement* tool. Anytime you need 'what fraction of the population is X', you use it."
+- **Speaker notes:** Connect to practitioner use cases. Most practitioners don't need to *solve* Fokker-Planck; they need to *understand* what its outputs mean.
+
+### Slide 22.8 — The Master Equation: A Step Up
+
+- **Title:** "The master equation — when value functions live on distribution spaces"
+- **Recap:**
+  - Standard HJB: $V(L, t)$ — value at state $L$ and time $t$
+  - For MFG: value also depends on the *population distribution* $\mu$
+  - $V(L, t, \mu)$ — value at individual state $L$, time $t$, and population state $\mu$
+- **The master equation:** A PDE on this enlarged space
+- **Wasserstein space:** "The space of probability distributions, equipped with a notion of distance. Master equation lives here."
+- **Why we need it:** Single-asset HJB ignores population effects. Master equation captures them.
+- **Speaker notes:** This is where the math gets genuinely abstract. Be honest: most students won't internalize this. The point is to know it exists.
+
+### Slide 22.9 — Master Equation in Concept
+
+- **Title:** "What the master equation says"
+- **In one sentence:** "The value function on the joint (state, time, distribution) space satisfies a PDE that combines individual HJB + Fokker-Planck dynamics for the distribution."
+- **Structurally:**
+  - One time derivative: $\partial V / \partial t$
+  - One state-space derivative (like standard HJB): $\partial V / \partial L$
+  - One "distribution derivative" (technically: Wasserstein gradient): $\delta V / \delta \mu$
+- **Plain English:** "Total value evolves in three dimensions: time, your state, and the population state."
+- **Speaker notes:** Honest about the abstraction. Don't pretend it's easy. Just establish it exists.
+
+### Slide 22.10 — Master Equation in GE-LAV
+
+- **Title:** "What the master equation computes in GE-LAV"
+- **The output:**
+  - Value of any LP position as a function of $(L, t, \mu)$
+  - Equilibrium liquidity premium $\lambda^*(L, t, \mu)$
+  - Optimal exit boundary $L^*(t, \mu)$ as a function of population state
+- **In words:** "The master equation gives you the *complete* GE-LAV result: every value, every premium, every threshold, at every population state."
+- **Computational cost:**
+  - For 1D state + distribution: numerically tractable on a laptop (seconds-minutes)
+  - For higher dimensions: needs more sophisticated methods
+- **Speaker notes:** This is the *engine* underneath the GE-LAV® platform. Practitioners get the outputs; the master equation is what produced them.
+
+### Slide 22.11 — When Computing Distributions Matters
+
+- **Title:** "When you need Fokker-Planck and master equation outputs"
+- **You need distribution-level analysis when:**
+  - Stress testing a portfolio (what fraction of positions cross the exit boundary in scenario X?)
+  - Computing welfare effects (aggregate cost vs. benefit)
+  - Designing Pigouvian taxes (tax depends on population state, not just individual)
+  - Regulatory diagnostics across an industry
+- **You don't need it when:**
+  - Valuing a single asset under known conditions (HJB alone)
+  - Standard back-testing
+  - Simple exit boundary lookup
+- **Speaker notes:** Help students *triage* — they don't need all the math all the time.
+
+### Slide 22.12 — Synthesis of Sessions 19–22
+
+- **Title:** "Where we are"
+- **Built so far:**
+  - **Session 19:** Stochastic processes (Brownian, Itô, OU)
+  - **Session 20:** Optimal control (HJB)
+  - **Session 21:** Mean-field games (McKean-Vlasov)
+  - **Session 22:** Distribution dynamics (Fokker-Planck, master equation)
+- **Coming:**
+  - **Session 23:** The LAV operator and GE equilibrium pricing (synthesis)
+  - **Session 24:** Jensen bias, Pigouvian tax, welfare (results)
+- **Speaker notes:** Encourage students. The hard sessions are behind. Sessions 23–24 wrap up the conceptual core.
+
+## Discussion Questions
+
+1. The Fokker-Planck equation is mathematically equivalent to a generalized heat equation. Does that connection give you confidence in the framework, or does it suggest the framework is just "thermodynamics applied to finance"? How are the two domains structurally similar / different?
+2. The master equation operates on the space of probability distributions (Wasserstein space). This is abstract. What's the *practical* consequence of "values live on distribution spaces"?
+3. Computing the master equation requires substantial numerical infrastructure. Is this a barrier to GE-LAV adoption, or does the platform's existence eliminate the barrier for practitioners?
+
+## Worked Example: Fokker-Planck Stress Test
+
+**Setup:** A regulator wants to know: starting from current conditions ($L_0 = -0.5$ for all LPs), what's the probability that aggregate PE liquidity is *worse* than current ($L_t < -0.5$) at $t = 2$ years?
+
+**Step 1: Solve OU Fokker-Planck**
+
+Using OU calibration ($\kappa = 0.45$, $\sigma_L = 0.32$, $\bar{L} = 1.0$):
+
+Conditional density at $t = 2$:
+- Mean: $\bar{L} + (L_0 - \bar{L}) e^{-\kappa t} = 1.0 + (-1.5) \cdot e^{-0.9} = 1.0 + (-1.5)(0.407) = 0.39$
+- Variance: $\frac{\sigma_L^2}{2\kappa}(1 - e^{-2\kappa t}) = 0.1138 \cdot (1 - e^{-1.8}) = 0.1138 \cdot 0.835 = 0.0950$
+- Standard deviation: 0.308
+
+**Step 2: Compute probability**
+
+$P(L_2 < -0.5 | L_0 = -0.5) = \Phi\left(\dfrac{-0.5 - 0.39}{0.308}\right) = \Phi(-2.89) \approx 0.19\%$
+
+**Interpretation:** "Less than 0.2% probability that aggregate liquidity will be worse than current conditions 2 years from now."
+
+**Note:** This is a *single-LP* mean-reversion forecast. The MFG externality could amplify in extreme cases — but at $L = -0.5$ we're in the stable regime, so the single-LP Fokker-Planck is a good approximation.
+
+**Teaching note:** This is exactly the kind of analysis the GE-LAV platform produces for stress testing.
+
+## Common Student Confusions (Instructor Notes)
+
+- **"Why is Fokker-Planck not in the standard finance curriculum?"** It is in PhD finance. MBA and master's curricula focus on Black-Scholes-style problem-solving, which uses the *related* Kolmogorov backward equation (for pricing) more than Fokker-Planck (for densities). Both are forms of the same math.
+- **"Is the master equation just a fancy form of Fokker-Planck?"** No — it's structurally different. Fokker-Planck governs how the *distribution* evolves. Master equation governs how the *value function on the distribution* evolves. Different objects.
+- **"Wasserstein space — is that important?"** Mathematically yes (it's the right space for distributions with finite second moments). Practically, students don't need to manipulate it directly. The platform abstracts it away.
+- **"Can I do GE-LAV without solving Fokker-Planck?"** Yes for single-asset use cases. No for stress testing, welfare analysis, or Pigouvian tax design.
+
+## What to Expect Next Session
+
+Session 23 synthesizes everything from Sessions 19–22 into the **LAV operator** (book Ch. 16) and the **GE equilibrium** (book Ch. 17). We'll see:
+
+- The Liquidity-Adjusted Valuation operator: how a single asset's value depends on the entire $L_t$ path
+- General equilibrium pricing: the fixed-point that determines $\lambda^*$
+- Market clearing in the GE-LAV framework
+
+**Reading:** Book Chapters 16, 17 (concepts).
+
+------------------------------------------------------------------------
+
+[← Session 21](session-21.qmd) | [Schedule](../schedule.qmd) | [Next: Session 23 →](session-22.qmd)

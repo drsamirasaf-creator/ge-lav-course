@@ -1,0 +1,174 @@
+# Track 1 — Problem Set 2 (Applied) {#sec-track1-ps2}
+
+**Drops:** Session 9\
+**Due:** Session 16\
+**Weight:** 6.25% of course grade\
+**Coverage:** Sessions 11–15 (Book Ch. 6–7, parts of Ch. 8)\
+**Track:** Practitioner (Track 1) only
+
+## Question 1: Conceptual (15 points)
+
+In **no more than 200 words**, explain why the *liquidity hedge demand* in the GE-LAV portfolio framework is generally negative for typical institutional LPs. Your answer should:
+
+- Define the hedge demand term mathematically (formula)
+- Identify which calibrated parameters drive its sign and magnitude
+- Explain the economic intuition for why the sign is negative under typical conditions
+- Discuss when the sign might *flip* (i.e., when liquidity hedge demand could be positive)
+
+**Sample strong answer (180 words):**
+
+> The liquidity hedge demand in GE-LAV is the term $-(\rho \sigma_L / \sigma_V)(\partial_L f / (\gamma f))$ from the optimal allocation formula. Its sign depends on $\rho$, the correlation between PE returns and changes in the liquidity state $L_t$. Empirically $\rho \approx 0.30 > 0$: when liquidity worsens (i.e., $L_t$ declines), PE returns fall. This creates an unhedged risk that rational LPs partially avoid by reducing allocation. The magnitude depends on the volatility ratio $\sigma_L / \sigma_V$ (how much liquidity moves relative to PE returns) and on $\gamma$ (risk aversion — more risk-averse LPs hedge more). At calibrated parameters, the hedge demand is approximately 8 percentage points reduction from Merton at normal liquidity, widening to 20+ pp at GFC depth. The sign flips if $\rho < 0$ — which is empirically rare for PE but could conceivably hold for certain niche private credit strategies where defaults rise during boom liquidity (e.g., subprime cycles). For typical institutional portfolios in PE, infrastructure, and standard private credit, the hedge demand is consistently negative.
+
+## Question 2: Exit Boundary Application (25 points)
+
+You are an analyst at a $2B family office. The office holds the following PE positions:
+
+| Position | Vintage | NAV ($M) | Remaining Years | Asset Class |
+|---|---|---|---|---|
+| Fund Alpha | 2018 | 75 | 4 | PE Buyout |
+| Fund Beta | 2020 | 120 | 6 | Growth Equity |
+| Fund Gamma | 2016 | 90 | 1 | PE Buyout |
+| Fund Delta | 2021 | 50 | 8 | Infrastructure |
+
+Current market conditions: estimated $L_t = -0.7$ (moderate stress; secondary market discounts averaging 18% for PE).
+
+**(a) (10 pts)** For each position, look up the exit boundary $L^*(T-t)$ for the appropriate asset class from Session 12's calibrated values. Determine the GE-LAV exit recommendation (HOLD or EXIT).
+
+**(b) (10 pts)** Suppose the family office needs $150M of cash within 6 months to fund a new committed investment. Recommend which positions to exit (or partially exit) to raise the cash, prioritizing by GE-LAV decision logic. Justify your selection.
+
+**(c) (5 pts)** Suppose conditions deteriorate to $L_t = -1.4$ (GFC-style) over the next year. Re-run the exit analysis for each position. Which recommendations change?
+
+**Solution outline:**
+
+(a) Exit boundary values (PE Buyout reference values):
+
+| Position | Remaining | Asset Class | $L^*$ | Current $L = -0.7$ | Decision |
+|---|---|---|---|---|---|
+| Alpha | 4 yr | PE Buyout | -1.2 | $-0.7 > -1.2$ | HOLD |
+| Beta | 6 yr | Growth Equity | -1.3 | $-0.7 > -1.3$ | HOLD |
+| Gamma | 1 yr | PE Buyout | -0.5 | $-0.7 < -0.5$ | **EXIT** |
+| Delta | 8 yr | Infrastructure | -1.6 | $-0.7 > -1.6$ | HOLD |
+
+Fund Gamma triggers exit (short remaining horizon, current state below boundary).
+
+(b) Cash raise: $150M needed.
+
+- **Fund Gamma:** Exit recommendation triggered anyway → Sell. At 18% discount: $90M × (1-0.18) = $73.8M cash.
+- Remaining need: $150M - $73.8M = $76.2M
+- For HOLD-recommended positions, prefer partial exit of positions with **least Jensen bias accumulation** (i.e., shortest remaining horizon among the HOLDs) — Fund Alpha.
+- Sell ~$93M of Fund Alpha NAV → $93M × 0.82 = $76.3M cash
+- **Total raised: $73.8M + $76.3M = $150.1M ≈ $150M needed**
+
+Note: Even with the partial Alpha exit, the family office takes a measurable haircut (~$33M total vs. NAV). Better alternatives if available: NAV loan secured by Beta or Delta (long-horizon, high-quality), public market sales, or new commitment delay.
+
+(c) At $L = -1.4$:
+
+| Position | $L^*$ | Decision Changes |
+|---|---|---|
+| Alpha (4 yr, Buyout) | -1.2 | NEW: EXIT (was HOLD) |
+| Beta (6 yr, Growth) | -1.3 | NEW: EXIT (was HOLD) |
+| Gamma (1 yr) | -0.5 | Still EXIT |
+| Delta (8 yr, Infra) | -1.6 | STILL HOLD (long horizon) |
+
+In deep stress, three of four positions trigger exit. But: secondary discounts will be much wider (~35-40%), so exiting destroys substantial value. Recommendation in this scenario: explore NAV loans or partial exits before forced sales; preserve Infrastructure (long horizon Jensen recovery).
+
+## Question 3: Portfolio Construction (20 points)
+
+A pension fund has the following parameters: $\gamma = 4$ (more risk-averse than typical), $\mu_V = 11\%$ (expected PE return), $r_f = 4\%$, $\sigma_V = 24\%$ (PE return volatility), and current $L_t = -0.3$.
+
+**(a) (5 pts)** Compute the Merton allocation $w_\text{Merton}$.
+
+**(b) (5 pts)** Compute the adjusted Merton allocation accounting for the equilibrium liquidity premium $\lambda^* \approx 4.5\%$.
+
+**(c) (5 pts)** Compute the liquidity hedge demand using $\rho = 0.30$, $\sigma_L = 0.32$, $\sigma_V = 0.24$. Use the simplified approximation from Session 14.
+
+**(d) (5 pts)** State the GE-LAV-optimal allocation. Compare to the typical pension fund target of 10-15% PE. Is this pension fund under- or over-allocated? By how much?
+
+**Solution:**
+
+(a) $w_\text{Merton} = (0.11 - 0.04) / (4 \times 0.24^2) = 0.07 / 0.2304 = 30.4\%$
+
+(b) Adjusted: $w_\text{Adj} = (0.11 - 0.04 - 0.045) / (4 \times 0.0576) = 0.025 / 0.2304 = 10.9\%$
+
+(c) Hedge demand ≈ $(\rho \sigma_L / \sigma_V) \cdot (1/\gamma)$ at first order ≈ $(0.30 \times 0.32 / 0.24) \cdot (1/4) = 0.40 \cdot 0.25 = 10.0\%$
+
+(d) GE-LAV optimal = $10.9\% - 10.0\% = 0.9\%$ — essentially zero!
+
+This is striking: with $\gamma = 4$ and current mild stress, GE-LAV says this fund should hold *almost no PE*. Comparing to typical 10-15% PE allocation: this pension fund is **substantially over-allocated** by ~10-14 percentage points.
+
+Important caveat: this calculation uses simplified approximations. The full HJB-derived optimal at $L = -0.3$ would be around 15-20% (not zero) because the simple linear formulas above overstate the hedge demand penalty in moderate-stress regimes. The full GE-LAV chart shows hedge demand widening sharply only below $L = -1$.
+
+**Bottom line:** Sensitivity to $\gamma$ matters. At $\gamma = 3$, allocation is closer to 20-25%; at $\gamma = 4$, much lower. Pension funds with higher risk aversion (defined-benefit plans nearing closure) should hold less PE than typical advice suggests.
+
+## Question 4: Regulatory Implications (15 points)
+
+A European insurer (Solvency II regulated) holds €5B in private equity. The insurer's actuarial liability profile is long-duration (>20 years), and standard Solvency II treatment imposes a 49% stress factor on Type 2 equities (private).
+
+**(a) (5 pts)** Compute the standard Solvency Capital Requirement (SCR) for this PE portfolio.
+
+**(b) (5 pts)** Using GE-LAV with $L_t = -1.5$ (GFC-depth stress), estimate the GE-LAV value of the portfolio at stress. What's the implied stress loss (vs. current NAV)?
+
+**(c) (5 pts)** Compare the GE-LAV stress loss to the Solvency II SCR. Which is larger? What does this imply for the insurer's actual capital adequacy?
+
+**Solution:**
+
+(a) Standard SCR = €5B × 49% = **€2.45B**
+
+(b) At $L = -1.5$:
+- GE-LAV equilibrium rate $r_{GE} \approx 32.3\%$ (from Session 16)
+- DCF rate $\approx 7.5\%$
+- Effective discount differential: $(1.323/1.075)^7 \approx 2.0$ at typical 7-year hold
+- GE-LAV value ≈ €5B / 2.0 ≈ €2.5B
+- Stress loss = €5B - €2.5B = **€2.5B**
+
+(c) Compare: GE-LAV stress loss (€2.5B) is roughly *equal* to Solvency II SCR (€2.45B) in this case. But — and this is the key insight — the comparison varies by asset duration:
+
+- For shorter-duration PE (5 yr), GE-LAV stress loss may be smaller than SCR (Solvency II conservative)
+- For longer-duration assets (20-25 yr infrastructure), GE-LAV stress loss can be 60-70% — far exceeding Solvency II's 49% factor (Solvency II under-conservative)
+
+**Implication:** Solvency II's static 49% factor is calibrated against an average portfolio. For insurers with significant long-duration private exposure, the *actual* capital adequacy is worse than reported under Solvency II. GE-LAV-based stress testing would reveal this gap.
+
+## Question 5: Stretch (15 points)
+
+Consider the role of GP-led continuation funds in modern private market practice.
+
+**(a) (8 pts)** Describe how the GE-LAV exit boundary applies to a GP-led continuation fund offer:
+- The GP offers existing LPs the option to (i) cash out at a stated price, or (ii) roll into a new continuation vehicle
+- How should an LP use the GE-LAV framework to evaluate both options?
+
+**(b) (7 pts)** Critique: GPs typically prefer the continuation fund option (preserves AUM, defers underperformance crystallization). LPs may face implicit pressure to "go along." Does GE-LAV-based analysis empower LPs to push back? If yes, how? If no, why not?
+
+**Solution outline:**
+
+(a) Apply GE-LAV to both options:
+- **Cash-out option:** Treat as exit transaction at the offered price. Compare offered price to GE-LAV equilibrium value at current $L_t$ and exit boundary recommendation.
+- **Roll option:** Treat as a new commitment to a new fund at NAV. Compare expected GE-LAV return to alternative uses of that capital.
+
+If cash-out price < GE-LAV value: the GP is underpaying → roll if you can; otherwise demand a higher price.
+If roll terms expensive: cash-out, but only if GE-LAV value > cash-out price.
+
+(b) Yes, GE-LAV empowers LPs because:
+- Provides defensible methodology for quantifying the "fair" cash-out price
+- Anchors LP negotiation in math rather than vague feelings
+- Documents reasoning to the LP's own IC
+
+But limitations:
+- LP-GP power asymmetries persist (GPs have information advantages)
+- Continuation fund offers often packaged with implicit promises about future commitments
+- LP staff may not have GE-LAV-trained analysts
+
+Realistic conclusion: GE-LAV is a *tool* in the LP toolkit. Not a panacea, but a meaningful improvement on the status quo of vague "fairness" arguments.
+
+## Question 6: Reflection (10 points)
+
+In 200 words, reflect on:
+
+- How has the framework changed your view of private market investing?
+- What's one practitioner application you can imagine in your future career?
+- What additional research/learning would strengthen your application of the framework?
+
+Graded on thoughtfulness, not specific content.
+
+------------------------------------------------------------------------
+
+[← Track 1 PS1](track1-ps1.qmd) | [Track 2 PS2 →](track2-ps2.qmd)

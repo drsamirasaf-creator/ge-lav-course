@@ -1,0 +1,213 @@
+# Session 15: Pacing · Tactical Allocation · Stress Scenarios {#sec-session-15}
+
+| | |
+|---|---|
+| **Unit** | 3 — Decision and Application |
+| **Book Chapter** | 7 (sections 7.4–7.6) |
+| **Slide source** | Reuse Class 24 remainder + ~5 new |
+| **Slides needed** | ~5 new + adapt ~5 from Class 24 |
+| **Track** | Common core (both tracks) |
+
+## Learning Objectives
+
+By the end of this session, students will be able to:
+
+1. **Define the pacing problem** — maintaining target allocation given irregular GP capital calls and distributions.
+2. **Distinguish strategic from tactical** private market allocation decisions.
+3. **Apply** the GE-LAV regime-conditional pacing framework: increase/maintain/reduce commitments by liquidity regime.
+4. **Compute** stress-scenario allocations for key episodes (GFC depth, COVID, 2022 rate shock).
+5. **Recognize** the multi-asset extension and why aggregate liquidity risk exceeds the sum of asset-class risks.
+
+## Pre-Class Assignment
+
+- **Read:** Book Chapter 7, sections 7.4–7.6 (~10 pages)
+
+## In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:05 | Recap Session 14 · Today: dynamics + multi-asset | Lecture |
+| 0:05–0:20 | The pacing problem | Lecture |
+| 0:20–0:40 | Regime-conditional pacing | Lecture + table |
+| 0:40–0:55 | Stress scenarios | Lecture + worked scenarios |
+| 0:55–1:10 | Multi-asset GE-LAV — systemic liquidity beta | Lecture |
+| 1:10–1:15 | Discussion: portfolio diagnosis exercise | Activity |
+
+## Slide Content Briefs (New Slides Needed)
+
+### Slide 15.1 — Title
+
+- **Title:** "Pacing · Tactical Allocation · Stress Scenarios"
+- **Tag line:** "Operationalizing the GE-LAV portfolio framework"
+- **Speaker notes:** Today is the *how to actually do it* session. Strategic allocation (Session 14) tells you the target; today tells you how to get there and what to do under stress.
+
+### Slide 15.2 — The Pacing Problem
+
+- **Title:** "Maintaining target allocation: harder than it looks"
+- **The challenge:**
+  - Commit to a PE fund today; capital calls trickle in over 3-5 years
+  - Distributions come back unpredictably starting year 4-5
+  - Public market positions also move (denominator effect)
+  - Net result: actual PE allocation drifts substantially from target
+- **Pacing tools:**
+  - **Forward commitment pacing:** Schedule new commitments to maintain target as old funds wind down
+  - **Tactical rebalancing:** Sell secondaries / pause commitments when allocation drifts above target
+  - **Liquidity buffer:** Hold cash reserves to handle unexpected capital calls without forced public market sales
+- **Speaker notes:** Pacing is operationally critical. Many LPs spend more time on pacing than on manager selection.
+
+### Slide 15.3 — Standard vs. GE-LAV Pacing
+
+- **Title:** "Two approaches to pacing"
+- **Standard pacing (industry practice):**
+  - Constant annual commitment based on long-run target
+  - Adjust mechanically for denominator effect
+  - No explicit liquidity-state consideration
+- **GE-LAV regime-conditional pacing:**
+  - Pace based on current liquidity state $L_t$ AND allocation drift
+  - More aggressive in boom regimes (capacity is cheap)
+  - Defensive in stress regimes (preserve liquidity, capture distressed opportunities)
+- **Speaker notes:** Standard practice ignores half the information. GE-LAV uses both portfolio state and market state.
+
+### Slide 15.4 — Regime-Conditional Pacing Framework (Class 24 reuse)
+
+- **Title:** "Commitment pacing by liquidity regime"
+- **Table:**
+
+| Regime | $L_t$ range | Action | Commitment level |
+|---|---|---|---|
+| Boom | $L > +0.5$ | Increase | 1.3× steady-state |
+| Normal | $-0.5 < L < +0.5$ | Maintain | 1.0× steady-state |
+| Stress | $-1.0 < L < -0.5$ | Pause new; hold | 0.5× steady-state |
+| Deep stress | $L < -1.0$ | Opportunistic secondaries; pause primaries | 0.7× (secondaries-weighted) |
+
+- **Speaker notes:** This is operational. Allocators can implement this. Note that deep stress *increases* via secondaries — you're a buyer when prices are low.
+
+### Slide 15.5 — Stress Scenario Analysis (New Slide)
+
+- **Title:** "Calibrated stress scenarios"
+- **Three scenarios:**
+
+| Scenario | $L_t$ Path | Duration | NAV Impact |
+|---|---|---|---|
+| GFC-depth (2008) | -2.0 over 6 months, recovery in 24 months | 30 months | -35% to -50% |
+| COVID-style | -1.0 over 1 month, recovery in 6 months | 7 months | -15% to -25% |
+| Rate shock (2022) | -0.8 sustained for 24+ months | 24+ months | -15% to -20% |
+
+- **What stress testing reveals:**
+  - GFC: severe but recoverable for long-horizon LPs
+  - COVID: brief; minimal impact for any non-forced-sellers
+  - Rate shock: *persistent* — tests mean-reversion assumption
+- **Speaker notes:** These are the *three regimes you should plan for*. GE-LAV can stress against each.
+
+### Slide 15.6 — Stress Test Output: Portfolio Diagnostics
+
+- **Title:** "Running a portfolio through the stress test"
+- **For each position:**
+  - Current NAV
+  - GE-LAV value at current regime
+  - GE-LAV value at GFC depth
+  - GE-LAV value at COVID-style scenario
+  - GE-LAV value at rate-shock scenario
+  - Exit recommendation under each scenario
+- **Output:** Three rebalanced portfolios for three regimes — your contingency plans
+- **Speaker notes:** The point isn't to *be* in stress; it's to *know* what you'd do if stress happened.
+
+### Slide 15.7 — Multi-Asset GE-LAV: Systemic Liquidity Beta
+
+- **Title:** "Why aggregate liquidity risk > sum of asset risks"
+- **The setup:**
+  - PE, infrastructure, private credit all have their own $L_t$ dynamics
+  - BUT they all load on a common *aggregate* liquidity factor $L_\text{sys,t}$
+  - Define systemic beta: $\beta_i = \dfrac{\text{Cov}(dL_{i,t}, dL_\text{sys,t})}{\text{Var}(dL_\text{sys,t})}$
+- **Empirical pattern:**
+  - PE buyout: $\beta_i = 1.2$ (most sensitive to aggregate liquidity)
+  - Growth equity: $\beta_i = 1.1$
+  - Real estate: $\beta_i = 0.9$
+  - Infrastructure: $\beta_i = 0.7$
+  - Private credit: $\beta_i = 0.8$
+- **Implication:** "During systemic stress (2008), all of these decline simultaneously. Diversification across private asset classes is illusory."
+- **Speaker notes:** This is a critical risk management insight. LPs who hold "diversified" private market portfolios often face *correlated* liquidity risk.
+
+### Slide 15.8 — The Diversification Illusion in Private Markets
+
+- **Title:** "Why 'diversification across alternatives' isn't"
+- **Setup:** "An LP holds 15% PE, 10% private credit, 8% infrastructure, 5% real estate = 38% in 'diversified' private markets"
+- **Apparent diversification:** Correlation of *reported NAVs*: 0.3-0.5 → looks diversified
+- **GE-LAV reality:** Correlation of *liquidity-adjusted* values during stress: 0.8-0.9 → highly concentrated
+- **Reason:** All asset classes load on the same $L_\text{sys,t}$; smoothed NAVs hide this
+- **Multi-asset hedge demand at GFC depth:** Total private allocation drops to ~12-15% (vs. 38% target)
+- **Speaker notes:** This is *the* multi-asset risk management lesson. The illusion of diversification is the largest blind spot in institutional private market portfolios.
+
+## Existing Slides to Reuse from Class 24
+
+Continue from Session 14's reuse of Class 24. Additional 5 slides:
+
+- Stress scenario calibration table (Table 7.1 from book)
+- Calibrated GE-LAV parameters by asset class (Table 7.2)
+- Multi-asset systemic beta table
+- Regime-conditional pacing framework (Table 7.3)
+- Visual showing diversification illusion
+
+## Discussion Questions
+
+1. CalPERS, Yale, and your school's endowment all have stated PE targets between 10% and 30%. Apply the multi-asset framework: are these "PE targets" actually private-markets-totals targets when you include private credit, infrastructure, real estate? How does that change the over-allocation analysis?
+2. The 2008 stress test reveals that aggregate private market exposure can fall 40-50%. Does that mean LPs should hold a cash buffer of ~$0.50 per $1 of private markets exposure? What does GE-LAV actually recommend?
+3. The pacing framework recommends *increasing* commitments in deep stress (via secondaries). Most institutions do the opposite — they cut commitments in crises. Why does the framework recommend the contrarian approach, and why don't institutions follow it?
+
+## Worked Numerical Example: Pacing Through a Stress Scenario
+
+**Scenario:** A $10B pension fund with target allocation of 15% PE ($1.5B). Current state: late 2023, allocation is 18% ($1.8B) due to public market gains. Liquidity state $L_t \approx -0.7$ (mild stress). Future calendar of commitments and distributions known approximately.
+
+**Step 1: Identify the regime**
+
+$L_t = -0.7$ → Stress regime (between $-1.0$ and $-0.5$)
+
+GE-LAV pacing recommendation: **Pause new commitments; hold existing**
+
+**Step 2: Determine target trajectory**
+
+If commitments paused, expected drawdown from natural fund maturities:
+- 2024: $200M distributions in, $0 new commitments → allocation drops to ~17%
+- 2025: $300M distributions in, $0 new → ~15.5%
+- 2026: Reach target 15% if conditions normalize
+
+**Step 3: Stress test**
+
+If GFC-style scenario hits in 2024:
+- NAV impact: -35% on PE → allocation appears to fall to ~12% (mechanically)
+- But liquidity-adjusted value is even lower
+- Forced rebalancing into PE? Or wait for recovery?
+
+**GE-LAV recommendation:** Pause primary commitments; allocate to **secondaries** at distressed pricing (would *increase* PE exposure but at favorable entry $L_t$)
+
+**Step 4: Pivot in different scenarios**
+
+- **If stress deepens (L → -1.5):** Deep-stress regime → opportunistic secondaries, ~0.7× steady-state pacing
+- **If stress eases (L → 0):** Normal regime → resume primary commitments at steady-state pace
+- **If rate-shock persists 2+ years:** Recalibrate; possibly accept that target should drop given persistent stress
+
+**Teaching note:** This is *adaptive* allocation management. Most pension funds operate on fixed pacing schedules. GE-LAV is more responsive.
+
+## Common Student Confusions (Instructor Notes)
+
+- **"Why would I increase secondaries when everyone else is selling?"** Because everyone selling is the *reason* the discount is wide. Buying at the wide discount is the GE-LAV-optimal contrarian play.
+- **"Doesn't this require predicting recovery? Isn't that hard?"** Yes, prediction is hard. But OU mean reversion is a *property of the data*, not a prediction — over enough time, $L_t$ returns to $\bar{L}$. The exit boundary uses this property without requiring point forecasts.
+- **"What if my IPS doesn't allow secondary purchases?"** Then your IPS reflects an obsolete framework. Bringing this to the IC for IPS amendment is one career-relevant action a GE-LAV-trained allocator can take.
+- **"How is multi-asset hedge different from CAPM beta?"** CAPM beta is *return* covariance with market. Multi-asset hedge here is *liquidity state* covariance with aggregate liquidity. Different math, different implications.
+
+## What to Expect Next Session
+
+Session 16 covers **regulatory implications and crisis dynamics** — book Chapter 8. We'll examine:
+
+- How GE-LAV interacts with Solvency II, AIFMD, IFRS 13, Basel III, GASB 72
+- Crisis amplification mechanics (the 4.31× factor)
+- Financial Stability Board concerns about private markets
+- Why correct private market valuation has *systemic* implications
+
+**PS2 is due at start of Session 16.** Work through it this week — Track 1 PS2 includes a portfolio exercise using today's material.
+
+**Reading:** Book Chapter 8, all sections (~15 pages).
+
+------------------------------------------------------------------------
+
+[← Session 14](session-14.qmd) | [Schedule](../schedule.qmd) | [Next: Session 16 →](session-16.qmd)

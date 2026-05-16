@@ -1,0 +1,88 @@
+# Track Declaration {#sec-tracks}
+
+This course is offered in two tracks. **All students attend the same 24 common-core sessions (Sessions 1–24).** From Session 25 onward, students separate into Track 1 (Practitioner) or Track 2 (Researcher). Both tracks reunite at Session 32 for project presentations.
+
+## Track at a Glance
+
+|  | Track 1: Practitioner | Track 2: Researcher |
+|----|----|----|
+| **Best fit for** | MBA, MSF (applied), MS Finance, professionals returning to school | MFE, MS Quantitative Finance, MS Financial Mathematics, PhD-track |
+| **Math prerequisite** | Asset pricing + basic calculus | Stochastic calculus + measure-theoretic probability |
+| **Sessions 25–31** | Applied case workshops with real data | Full mathematical derivations and proofs |
+| **Problem sets** | Empirical, platform-based (real fund data) | Mathematical (proofs + numerical implementation) |
+| **Project orientation** | Apply GE-LAV to a real asset, present to a hypothetical IC | Extend the theory, novel calibration, or mathematical critique |
+| **Career trajectory** | LP allocator, GP investment professional, fund consultant, regulator | Quant researcher, academic, PhD applicant, model validation, central bank research |
+
+## Why Two Tracks?
+
+This course covers material at two very different levels of mathematical sophistication. The book itself is structured for two audiences: Part 1 (Chapters 1–9) is the Practitioner's Guide, requiring no advanced math. Part 2 (Chapters 10–20) is the Researcher's Framework, requiring stochastic calculus and measure theory.
+
+Forcing all students into one track has two failure modes:
+
+- **Lowest-common-denominator track:** Teaches only Part 1. MFE/PhD students are bored and don't get the math they need. The course feels too easy for them.
+- **Highest-common-denominator track:** Teaches both parts at full rigor. MBA/MSF students cannot follow the math and either drop the course or memorize without understanding.
+
+The two-track design solves this by **sharing a common 24-session core** (which covers Part 1 plus the *intuition* of Part 2 results) and then **diverging for 7 sessions** during which Track 1 students do applied workshops and Track 2 students do the math.
+
+## How to Decide
+
+### Choose Track 1 (Practitioner) if you:
+
+- Plan a career as an LP allocator, GP investment professional, fund consultant, advisor, or regulator
+- Want to use GE-LAV in real investment work, not extend the theory
+- Have strong asset pricing and applied finance background, but limited or no stochastic calculus
+- Are more excited by "how do I apply this to a real fund?" than "how do I prove this theorem?"
+- Want to spend more time on PE, VC, infrastructure, and private credit case work
+
+### Choose Track 2 (Researcher) if you:
+
+- Plan a career as a quant researcher, academic, PhD candidate, or model validator
+- Have completed (or are currently taking) graduate-level stochastic processes / stochastic calculus
+- Are comfortable with measure-theoretic probability (σ-algebras, filtrations, Radon-Nikodym derivatives)
+- Want to engage with the full math of GE-LAV — HJB equations, McKean-Vlasov SDEs, mean-field games
+- May want to extend or critique the GE-LAV framework for a thesis, dissertation, or research paper
+
+### Still unsure?
+
+The first 4 sessions are designed to help you decide. **Session 4 (OU Process Intuition)** is a deliberate diagnostic — if the OU process feels challenging at the intuition level, you should probably take Track 1. If you find yourself wanting *more* math depth than Session 4 provides, Track 2 is for you.
+
+You may also schedule a 15-minute meeting with the instructor between Session 2 and Session 5 to discuss your background and goals.
+
+## Declaration Policy
+
+**Declaration deadline: end of Session 5.**
+
+Track choice is made via the course site form. After the deadline, track changes require instructor approval and are granted only in exceptional cases (e.g., the student took a stochastic processes course in parallel that wasn't on their transcript when they enrolled).
+
+**Default track:** If you do not declare by the deadline, you are assigned to Track 1 (Practitioner). This protects students who underestimate the math requirement.
+
+## What Stays the Same Across Tracks
+
+- All 24 common-core sessions (Sessions 1–24)
+- The midterm exam (Session 10) — identical for both tracks
+- The book reading schedule for Part 1 (Ch 1–9)
+- The lecture recordings — both tracks can watch each other's sessions afterward
+- The term project structure — both tracks complete the same 3 milestones (proposal, draft, presentation)
+- Office hours and TA support
+- Class participation expectations
+
+## What Differs Across Tracks
+
+- **Sessions 25–31:** Different content in parallel (Track 1 in one room, Track 2 in another)
+- **Problem sets:** Same drop dates, different question content
+- **Book reading:** Part 2 (Ch 10–20) is required for Track 2 and recommended-optional for Track 1
+- **Project rubric weighting:** Slightly different emphasis (applied implementation vs. theoretical depth) — see [project specification](../project/project-specification.qmd)
+
+## Cross-Track Audit Policy
+
+Students enrolled in one track may **audit** sessions from the other track for free (synchronously online or asynchronously via recordings). Some Track 1 students will want to watch the Session 25 HJB derivation lecture even if they're not assessed on it; some Track 2 students will benefit from watching the Session 25 PE buyout case workshop. **This is encouraged.**
+
+You may also choose to do the other track's problem sets for your own learning (not for credit). The instructor will provide solutions to both PSet streams.
+
+## Two-Track Honor System
+
+The course depends on students self-selecting honestly. Choosing Track 1 when your background can handle Track 2 means you'll get an easier course (and a likely higher grade), but you'll miss the math that makes GE-LAV intellectually distinctive. Choosing Track 2 when you don't have the math prep means you'll struggle through proofs without genuine understanding, and your project quality will suffer. Choose honestly.
+
+------------------------------------------------------------------------
+
+[Next: Slide Reuse Map →](slide-reuse-map.qmd)

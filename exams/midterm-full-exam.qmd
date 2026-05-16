@@ -1,0 +1,230 @@
+# Midterm Exam {#sec-midterm-full-exam}
+
+**Date:** Session 10\
+**Duration:** 75 minutes\
+**Format:** Closed-book; one 8.5×11" handwritten, double-sided formula sheet permitted\
+**Coverage:** Sessions 1–9 (Book Chapters 1–5)\
+**Weight:** 20% of course grade
+
+::: callout-important
+## Instructions
+
+- Write all answers on the exam booklet (or provided paper)
+- Show your work on quantitative problems for partial credit
+- Time suggested per section is approximate; allocate time as needed
+- Print your name and ID on every page
+- Calculator: non-programmable scientific only
+- No phones, smartwatches, or other electronics
+
+**Question structure:**
+- Part A: 8 multiple choice / short answer (24 points, ~15 min)
+- Part B: 4 quantitative problems (36 points, ~25 min)
+- Part C: 2 conceptual essays (20 points, ~15 min)
+- Part D: 1 integrative case (20 points, ~20 min)
+- **Total: 100 points / 75 minutes**
+
+**For instructor use:** Answer key in [midterm-answer-key.qmd](midterm-answer-key.qmd). Use the provided rubric for partial credit.
+:::
+
+------------------------------------------------------------------------
+
+## Part A: Multiple Choice / Short Answer (24 points, ~15 minutes)
+
+Each question worth 3 points. Choose the *best* answer or provide a brief answer as indicated.
+
+### Question A1 (3 pts)
+
+The OU stationary distribution variance is given by:
+
+A. $\sigma^2 / \kappa$\
+B. $\sigma^2 / (2\kappa)$\
+C. $\kappa / (2\sigma^2)$\
+D. $2\sigma^2 / \kappa$\
+E. $\sigma^2 \cdot 2\kappa$
+
+### Question A2 (3 pts)
+
+At calibrated parameters ($\kappa = 0.45$/yr, $\sigma = 0.32$, $\bar{L} = 1.0$), the OU half-life is approximately:
+
+A. 0.5 years\
+B. 1.0 years\
+C. 1.5 years\
+D. 2.2 years\
+E. 5.0 years
+
+### Question A3 (3 pts)
+
+Which of the following is **NOT** one of the three structural failures of DCF identified in Session 2?
+
+A. Stochastic illiquidity premium\
+B. Jensen convexity bias\
+C. McKean-Vlasov externality\
+D. Adverse selection between GPs and LPs\
+E. All four are failures DCF misses
+
+### Question A4 (3 pts)
+
+The Kaplan-Schoar PME is best described as:
+
+A. The IRR of a PE fund minus the IRR of the S&P 500\
+B. The ratio of distributions to capital calls, both discounted by the S&P 500 returns\
+C. The Jensen-adjusted IRR for the PE fund\
+D. The fund's terminal value divided by the S&P 500 terminal value\
+E. The implied excess discount rate that makes net cash flows sum to zero
+
+### Question A5 (3 pts)
+
+**Short answer:** In one sentence, define the *Jensen convexity bias* for private market valuation.
+
+### Question A6 (3 pts)
+
+The Long-Nickels PME differs from Kaplan-Schoar PME primarily because:
+
+A. Long-Nickels uses CAPM-adjusted discount rates\
+B. Long-Nickels reinvests intermediate distributions at the benchmark return\
+C. Long-Nickels uses Sharpe ratios instead of returns\
+D. Long-Nickels is calibrated against private benchmarks instead of public\
+E. There is no meaningful difference
+
+### Question A7 (3 pts)
+
+**Short answer:** Name the four regimes of the secondary market identified in Sessions 1-3, with approximate dates for each.
+
+### Question A8 (3 pts)
+
+The fifth requirement for a correct private capital pricing theory (from Session 8) is that it must:
+
+A. Use Monte Carlo simulation\
+B. Be calibrated against secondary market data\
+C. Have welfare and regulatory implications\
+D. Match Yale endowment historical returns\
+E. Be derived from the Capital Asset Pricing Model
+
+------------------------------------------------------------------------
+
+## Part B: Quantitative Problems (36 points, ~25 minutes)
+
+Each question worth 9 points. Show all work for full partial credit.
+
+### Question B1: OU Stationary Distribution (9 pts)
+
+Given OU parameters $\kappa = 0.40$/yr, $\sigma = 0.30$, $\bar{L} = 0.0$:
+
+**(a) (4 pts)** Compute the stationary mean and variance of $L_t$. State the full stationary distribution.
+
+**(b) (3 pts)** What is the half-life of liquidity shocks under these parameters?
+
+**(c) (2 pts)** Approximately what fraction of time is $L_t$ within ±1 standard deviation of its mean?
+
+### Question B2: Jensen Bias by Horizon (9 pts)
+
+Using the affine approximation $B(T) = A \cdot T + C$ with $A = 0.17\%$/yr and $C = 0$:
+
+**(a) (3 pts)** Compute the Jensen bias for a 12-year private credit position.
+
+**(b) (3 pts)** A $250M growth equity asset with 10-year remaining horizon: compute the dollar Jensen bias and the LAV value.
+
+**(c) (3 pts)** Explain in 2-3 sentences why Jensen bias is always positive (the direction of the bias).
+
+### Question B3: PME Computation (9 pts)
+
+A 5-year PE fund has the following cash flows and benchmark levels:
+
+| Year | Call ($M) | Distribution ($M) | Benchmark |
+|---|---|---|---|
+| 1 | 40 | 0 | 1.00 |
+| 2 | 0 | 0 | 1.10 |
+| 3 | 0 | 15 | 1.18 |
+| 4 | 0 | 25 | 1.30 |
+| 5 | 0 | 30 | 1.40 |
+
+Compute the Kaplan-Schoar PME against this benchmark. Round to two decimal places.
+
+### Question B4: OU Conditional Forecast (9 pts)
+
+Starting from $L_0 = -1.0$ (stress), with $\kappa = 0.45$/yr, $\sigma = 0.32$, $\bar{L} = 1.0$:
+
+**(a) (4 pts)** Compute $E[L_t | L_0]$ for $t = 1, 2, 5, 10$ years.
+
+**(b) (3 pts)** Compute $\text{Var}[L_t | L_0]$ for the same $t$ values.
+
+**(c) (2 pts)** At what time horizon does $L_t$ effectively reach its long-run mean (within 0.1 of $\bar{L}$)?
+
+------------------------------------------------------------------------
+
+## Part C: Conceptual Essays (20 points, ~15 minutes)
+
+Two essays. Each worth 10 points. Approximately 150-200 words each.
+
+### Question C1: Why DCF Fails (10 pts)
+
+In 150-200 words, explain to a sophisticated but non-specialist audience (e.g., an IC member at a mid-sized pension fund) **why discounted cash flow valuation systematically misvalues private market assets**.
+
+Your essay should:
+- Cite both empirical evidence (secondary market data) and theoretical reasoning (Jensen convexity)
+- Mention at least one specific number (e.g., the magnitude of Jensen bias for typical horizons)
+- Conclude with a "bottom line" sentence on what the implication is for the IC
+
+### Question C2: The McKean-Vlasov Externality (10 pts)
+
+In 150-200 words, explain **why individual LP exit decisions create an externality for the broader market** — and why this externality justifies state-contingent policy intervention.
+
+Your essay should:
+- Describe the externality mechanism in plain language
+- Cite the aggregate magnitude (~2.3%/yr welfare loss, or ~$300B/year)
+- Mention the Pigouvian-style policy response
+- Acknowledge implementation challenges
+
+------------------------------------------------------------------------
+
+## Part D: Integrative Case (20 points, ~20 minutes)
+
+### Question D1: The 2007-Vintage Trapped LP
+
+**Setup:**
+
+In early 2009, you are an analyst at a state pension fund that committed $200M to a 2007-vintage PE buyout fund. The position has:
+
+- **Current reported NAV:** $145M (the fund has marked down following the financial crisis)
+- **Remaining contractual hold:** 5 years
+- **Vintage characteristics:** Fund was deployed during 2007-2009, when $L_t$ approximated $+0.5 \to -2.0$ across the deployment period
+- **Current $L_t$:** $-1.8$ (deep GFC stress; secondary market discounts ~45%)
+- **Current secondary bid:** $80M (45% discount to NAV)
+- **Pension fund context:** Need to demonstrate liquidity discipline to board following recent public market drawdown
+
+Your task: Provide a recommendation on whether to hold or sell at the current secondary bid, with full GE-LAV-style analysis.
+
+**Required deliverables (20 points total):**
+
+**(a) (6 pts) DCF analysis (pre-GE-LAV):**
+
+What does a standard DCF analysis suggest for this position? Compute approximate hold-value using a 12% discount rate. State your assumptions clearly.
+
+**(b) (6 pts) LAV adjustment:**
+
+Compute the Jensen bias for a 5-year buyout position. Estimate the LAV value (DCF + Jensen). Show your computation.
+
+**(c) (4 pts) GE-LAV qualitative discussion:**
+
+Discuss qualitatively (no formal computation needed): how would the GE-LAV equilibrium correction affect your valuation at the current deep-stress regime? What direction is the correction? Approximate magnitude?
+
+**(d) (4 pts) Recommendation:**
+
+Synthesize: hold or sell? Defend your recommendation. Acknowledge the board's pressure for liquidity discipline but rely on quantitative analysis. 5 sentence maximum.
+
+------------------------------------------------------------------------
+
+## End of Exam
+
+Verify:
+- [ ] Name on every page
+- [ ] All multiple-choice marked clearly
+- [ ] Work shown on quantitative problems
+- [ ] Essays addressed all sub-parts
+- [ ] Integrative case answered all four sub-parts
+
+Submit your exam and formula sheet to the proctor before leaving.
+
+------------------------------------------------------------------------
+
+[← Midterm Blueprint](midterm-blueprint.qmd) | [Midterm Answer Key →](midterm-answer-key.qmd)

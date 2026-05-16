@@ -1,0 +1,242 @@
+# Session 26: Split Track — VC & Secondaries / McKean-Vlasov MFG Proofs {#sec-session-26}
+
+| | |
+|---|---|
+| **Unit** | 5 — Split Track |
+| **Track 1 source** | Class 27 (Multi-Asset, adapted for VC) + new |
+| **Track 2 source** | Classes 8 (McKean-Vlasov) + 15 (MFG Fixed Point) |
+| **Slides needed** | T1: ~5 new + ~10 from Class 27; T2: ~3 new + ~30 from Classes 8 + 15 |
+
+---
+
+## Track 1: VC + Secondaries Valuation Lab
+
+### Track 1 Learning Objectives
+
+By the end of this session, Track 1 students will be able to:
+
+1. **Apply** GE-LAV to a venture capital fund position (different cash flow profile from buyout).
+2. **Adjust** the calibration for asset classes with thinner secondary market data.
+3. **Value a specific VC secondary** opportunity using GE-LAV.
+4. **Distinguish** LP-led from GP-led secondary structures and apply GE-LAV to each.
+5. **Communicate** findings to a hypothetical VC GP and IC.
+
+### Track 1 Pre-Class Assignment
+
+- **Read:** VC secondary case (distributed); skim recent Lazard or Evercore VC secondary report
+- **Try:** Platform exercise on a sample VC position
+
+### Track 1 In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:10 | VC vs. buyout: cash flow profile differences | Lecture |
+| 0:10–0:25 | Calibrating GE-LAV for VC (parameter adjustments) | Lecture + worked example |
+| 0:25–0:50 | Lab: value a real VC secondary opportunity | Group work |
+| 0:50–1:05 | LP-led vs. GP-led secondaries | Lecture + discussion |
+| 1:05–1:15 | Group recommendations + synthesis | Presentations |
+
+### Track 1 Slide Briefs (New Slides Needed)
+
+**Slide T1-26.1 — VC vs. Buyout: Different Cash Flow Profiles**
+
+- **Title:** "VC: longer J-curve, larger tail risk"
+- **Comparison:**
+  - **Buyout:** Capital deployed in years 1-3, distributions start years 4-5, terminal exit year 7-8
+  - **VC:** Capital deployed in years 1-4, very few distributions until years 6-7, terminal events highly bimodal (some IPOs, many writedowns)
+- **GE-LAV implications:**
+  - Longer effective duration → larger Jensen bias accumulation
+  - Tail risk demands wider hedge demand
+  - Secondary market thinner; less data for calibration
+- **Speaker notes:** Set up why VC is *not* just "buyout with bigger volatility." Different problem.
+
+**Slide T1-26.2 — VC Secondary Market Specifics**
+
+- **Title:** "VC secondaries: thin, idiosyncratic, growing"
+- **Structure:**
+  - Smaller than PE secondary market (~$20B/yr vs. $130B for PE)
+  - More direct (less broker-mediated)
+  - More structured deals (strip sales, NAV financings, GP-leds dominating)
+- **Calibration challenges:**
+  - Limited public price discovery
+  - Discounts often estimated indirectly via comparables
+  - Implied $L_t$ noisier than for PE
+- **Speaker notes:** Be honest about data limitations. Calibration confidence intervals are wider for VC.
+
+**Slide T1-26.3 — Calibrated VC Parameters**
+
+- **Title:** "VC asset class calibration"
+- **Parameters (vs. PE buyout):**
+
+| Parameter | PE Buyout | VC |
+|---|---|---|
+| $\beta_i$ (systemic) | 1.2 | 1.1 |
+| $\sigma_V$ | 0.25 | 0.45 |
+| $\rho$ (corr with $L$) | 0.30 | 0.20 |
+| Hedge demand at $L=0$ | 8% | 4% |
+| Jensen bias slope (T=10) | 0.17% | 0.18% |
+
+- **Insight:** "VC has higher idiosyncratic volatility but lower correlation with aggregate liquidity → smaller proportional hedge demand"
+- **Speaker notes:** Counterintuitive result. Students often think VC is "riskier all around." It is — but the *liquidity* dimension is less correlated.
+
+**Slide T1-26.4 — LP-Led vs. GP-Led Secondaries**
+
+- **Title:** "Two transaction types, two GE-LAV applications"
+- **LP-led:**
+  - Single LP exits position via secondary sale
+  - GE-LAV: standard valuation + exit boundary check
+- **GP-led (continuation funds):**
+  - GP rolls portfolio company into new vehicle
+  - Existing LPs choose: cash out at offered price OR roll into new fund
+  - GE-LAV evaluates: is the "cash out" price the right GE-LAV value? Is the "roll" priced as a new commitment at fair value?
+- **Common pitfall:**
+  - GP-led terms often anchored on DCF-style valuations
+  - GE-LAV may say "cash out" is too low *or* "roll" terms are too expensive
+- **Speaker notes:** GP-leds are the fastest-growing segment. Students entering the industry will face these.
+
+**Slide T1-26.5 — Workshop Setup**
+
+- **Title:** "Lab: a real GP-led decision"
+- **The case:**
+  - VC fund vintage 2017, currently 7 years in
+  - GP proposes continuation fund for the top 5 portfolio companies
+  - Existing LPs offered: $850M cash for $1B NAV (15% discount) OR roll into new 4-year fund at same NAV
+  - Your job: GE-LAV-evaluate both options
+- **Group output:**
+  - GE-LAV value of "cash out" option
+  - GE-LAV value of "roll" option (treating as new commitment)
+  - Recommendation with rationale
+- **Speaker notes:** This is meaty. Groups will need most of class time.
+
+### Track 1 Existing Slides to Reuse
+
+From Class 27 (Multi-Asset GE-LAV) — adapt for VC:
+- Multi-asset calibration tables
+- Cross-asset correlation matrix
+- Combined hedge demand visualization
+
+Adapt by emphasizing VC vs. PE buyout differences rather than the full multi-asset treatment (which gets its own session in Session 27).
+
+---
+
+## Track 2: McKean-Vlasov Mean-Field Game Proofs
+
+### Track 2 Learning Objectives
+
+By the end of this session, Track 2 students will be able to:
+
+1. **State and prove the propagation of chaos** for the GE-LAV mean-field system (Theorem 13.4).
+2. **Derive the Schauder fixed-point existence argument** for MFG equilibrium (Theorem 13.2).
+3. **State and verify the stability condition** $\kappa > \gamma$ for uniqueness (Theorem 13.3).
+4. **Implement** an MFG fixed-point iteration numerically.
+5. **Discuss** the limits of the framework: when stability fails, what happens.
+
+### Track 2 Pre-Class Assignment
+
+- **Read:** Book Chapter 13 in full, including all proofs
+- **Pre-read:** Carmona & Delarue, *Probabilistic Theory of Mean-Field Games*, Chapter 1 — at least sections 1.1–1.3
+
+### Track 2 In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:10 | Setup: the GE-LAV McKean-Vlasov SDE | Lecture |
+| 0:10–0:30 | Propagation of chaos: statement + proof sketch | Lecture |
+| 0:30–0:50 | Schauder fixed-point: existence of MFG equilibrium | Lecture |
+| 0:50–1:05 | Stability condition and uniqueness | Lecture |
+| 1:05–1:15 | Numerical MFG iteration | Code walkthrough |
+
+### Track 2 Slide Briefs (New Slides Needed)
+
+**Slide T2-26.1 — The McKean-Vlasov SDE for GE-LAV**
+
+- **Title:** "The McKean-Vlasov system, formally"
+- **Individual SDE:**
+  - $dL_t^i = \kappa(\bar{L} - L_t^i) dt + \gamma \int \phi(L_t^i, l) \mu_t(dl) dt + \sigma_L dW_t^i$
+- **Where:**
+  - $\mu_t$ = distribution of $L_t^j$ across the population
+  - $\phi(L, l)$ = pairwise interaction kernel
+  - $\gamma$ = coupling strength
+- **Self-consistency:**
+  - $\mu_t = $ Law $(L_t^i)$ for representative $i$
+  - This is the *fixed-point* requirement
+- **Speaker notes:** Formal statement. Don't dwell on the kernel form; refer to book for specifics.
+
+**Slide T2-26.2 — Propagation of Chaos: Theorem 13.4**
+
+- **Title:** "Propagation of chaos for GE-LAV"
+- **Theorem statement:** Let $L_t^{1,N}, ..., L_t^{N,N}$ be the $N$-particle system. As $N \to \infty$:
+  - $\sup_{t \leq T} E\left[ \dfrac{1}{N}\sum_{i=1}^N \delta_{L_t^{i,N}} - \mu_t \right]_{W_1} \leq \dfrac{C}{\sqrt{N}}$
+  - where $W_1$ is the 1-Wasserstein distance
+- **Proof sketch:**
+  - Construct coupling between particle system and MV limit
+  - Use Lipschitz properties of $\phi$ + Grönwall inequality
+  - Apply standard rates for empirical measure convergence
+- **Implications:**
+  - At $N = 100$: error ~10%
+  - At $N = 10,000$: error <1%
+  - Private markets have $N \approx 10,000$ → mean-field is a *very good* approximation
+- **Speaker notes:** State the theorem; sketch the proof. Don't do every step. Refer to Sznitman (1991) for the canonical argument.
+
+**Slide T2-26.3 — Schauder Fixed-Point and Existence (Theorem 13.2)**
+
+- **Title:** "Existence of MFG equilibrium"
+- **The fixed-point map** $\Phi: \mathcal{M} \to \mathcal{M}$:
+  - Take $\mu \in \mathcal{M}$ (set of measures with finite second moment)
+  - Solve HJB given $\mu$: get optimal policy $u^*_\mu$
+  - Solve Fokker-Planck under $u^*_\mu$: get new measure $\Phi(\mu)$
+  - Fixed point: $\mu = \Phi(\mu)$
+- **Schauder's argument:**
+  - $\mathcal{M}$ is convex, closed under Wasserstein topology
+  - $\Phi$ is continuous (HJB and FP both stable in measure)
+  - $\Phi$ is compact (uniform bounds on moments)
+  - Therefore $\Phi$ has a fixed point in $\mathcal{M}$
+- **Speaker notes:** This is the *existence* argument. State carefully. Full proof in book Section 13.3.
+
+**Slide T2-26.4 — Stability Condition and Uniqueness (Theorem 13.3)**
+
+- **Title:** "When the equilibrium is unique"
+- **Stability condition:** $\kappa > \gamma \cdot \text{Lip}(\phi)$
+- **Calibrated values:**
+  - $\kappa = 0.45$
+  - $\gamma \cdot \text{Lip}(\phi) \approx 0.1$ (well below $\kappa$)
+  - Stability: comfortable
+- **Theorem 13.3 (uniqueness):** Under the stability condition, the MFG fixed point is unique
+- **Proof sketch:**
+  - Contraction argument on $\Phi$: $W_1(\Phi(\mu_1), \Phi(\mu_2)) \leq \rho \cdot W_1(\mu_1, \mu_2)$ for some $\rho < 1$
+  - Banach fixed-point theorem gives uniqueness
+- **When stability fails:**
+  - $\gamma \cdot \text{Lip}(\phi) > \kappa$: multiple equilibria possible
+  - Market can "tip" between equilibria (analogous to bank runs)
+  - This is a research frontier; GE-LAV's basic calibration assumes stability
+- **Speaker notes:** Honest about limits. Stable regime is empirically supported.
+
+### Track 2 Existing Slides to Reuse
+
+From Class 8 (McKean-Vlasov MFG) — 15 slides:
+- MV SDE setup and motivation
+- Propagation of chaos heuristics
+- The fixed-point structure
+
+From Class 15 (Mean-Field Equilibrium Fixed Point) — 18 slides:
+- Numerical fixed-point iteration
+- Convergence diagnostics
+- Application to GE-LAV calibration
+
+These slides directly support the proof material.
+
+### Track 2 Discussion Questions
+
+1. The propagation of chaos rate is $1/\sqrt{N}$. At $N = 10,000$, error is ~1%. But private markets have *concentration* (a few mega-LPs hold most of the AUM). Does that violate the i.i.d. assumption? How would you account for concentration?
+2. The stability condition $\kappa > \gamma$ is satisfied empirically. But in a hypothetical "panic" scenario, could the system enter an unstable regime? What would the off-equilibrium dynamics look like?
+3. The MFG framework assumes Markov dynamics. Real markets have memory (regret, anchoring). How would non-Markov extensions change the proofs?
+
+---
+
+## Both Tracks: Cross-Audit
+
+Students in either track may audit the other track's session via recording. Track 1 students benefit from hearing the MFG existence proof (it explains *why* GE-LAV works); Track 2 students benefit from the applied VC case (it grounds the math).
+
+------------------------------------------------------------------------
+
+[← Session 25](session-25.qmd) | [Schedule](../schedule.qmd) | [Next: Session 27 →](session-27.qmd)

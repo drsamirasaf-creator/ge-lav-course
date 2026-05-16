@@ -1,0 +1,178 @@
+# Track 2 — Problem Set 3 (Researcher) {#sec-track2-ps3}
+
+**Drops:** Session 17\
+**Due:** Session 24\
+**Weight:** 6.25% of course grade\
+**Coverage:** Sessions 17–23 with math depth\
+**Track:** Researcher (Track 2) only
+
+## Question 1: LAV Operator Path Dependence (25 points)
+
+The LAV operator is:
+$$V^{LAV}(L_0, T) = E\left[\int_0^T C_t \exp\left(-\int_0^t r(L_s) ds\right) dt \,\bigg|\, L_0\right]$$
+
+**(a) (10 pts)** Prove that $V^{LAV}$ is **strictly path-dependent**: it depends on the joint distribution of $(L_s)_{s \in [0,t]}$ for each $t$, not just the terminal $L_t$.
+
+Specifically, show that two paths $(L_s^A)$ and $(L_s^B)$ with $L_0^A = L_0^B$ and $L_t^A = L_t^B$ for all $t$ (same marginals) but different *joint* distributions yield different $V^{LAV}$.
+
+**(b) (8 pts)** Show that the LAV operator reduces to DCF in the deterministic limit:
+$$V^{LAV} \to V^{DCF} \text{ as } \sigma \to 0$$
+
+Quantify the rate of convergence: how fast does the LAV-DCF gap close as $\sigma \to 0$?
+
+**(c) (7 pts)** Derive the Jensen inequality bound:
+$$V^{LAV}(L_0, T) > V^{DCF}(L_0, T) \text{ when } r(L) \text{ is strictly convex in } L$$
+
+**Solution:**
+
+(a) The non-trivial path dependence arises from the *order* in which $L_s$ visits different values. Consider two paths:
+- **Path A:** Spends time in low-$L$ regions (high discount rate) early, recovers later
+- **Path B:** Spends time in high-$L$ regions early, declines to low-$L$ later
+
+Both can have the same marginal at each $t$ if appropriately constructed, but the *cumulative discount factor* $\exp(-\int r ds)$ depends on the *trajectory*. Path A discounts heavily early when cash flows are large; Path B discounts heavily late when cash flows have already accumulated. The integral $\int C_t \exp(-\int_0^t r(L_s) ds) dt$ differs.
+
+Formal argument: Consider $f(t) = E[C_t \exp(-\int_0^t r(L_s) ds)]$. This integral depends on $\text{Cov}(r(L_s), r(L_u))$ for $s, u \leq t$, which is determined by the *joint* distribution of $(L_s, L_u)$, not just marginals. ∎
+
+(b) As $\sigma \to 0$: the OU process becomes deterministic with $L_t = \bar{L} + (L_0 - \bar{L}) e^{-\kappa t}$. Then $r(L_t)$ is deterministic, and:
+$$V^{LAV} \to V^{DCF}(\bar{r}, T) \text{ where } \bar{r} = \frac{1}{T}\int_0^T r(L_t) dt$$
+
+Rate of convergence: by Itô's lemma applied to $\exp(-\int r ds)$, the LAV-DCF gap scales as $O(\sigma^2)$. Specifically:
+$$V^{LAV} - V^{DCF} \approx \frac{\sigma^2}{2} \int_0^T \int_0^t \text{(autocorrelation terms)} ds\, dt \cdot V^{DCF}$$
+
+quadratic in $\sigma$ → as $\sigma \to 0$, gap shrinks as $\sigma^2$.
+
+(c) Jensen inequality for $f(L) = \exp(-r(L) T)$ when $r$ is convex in $L$:
+- $r$ convex → $-r$ concave → $\exp(-rT)$ is...?
+
+Actually, the direct application: if $r(L)$ is convex in $L$, then $-r(L)T$ is concave, and $\exp(\cdot)$ is convex, so the composition $\exp(-r(L)T)$ is *convex* (composition of convex function with concave is generally not monotone — be careful).
+
+More directly, use Itô-Taylor on the discount factor:
+$E[e^{-\int r(L_s) ds}] = e^{-\int r(\bar{L}) ds} \cdot E[\exp(-\int [r(L_s) - r(\bar{L})] ds)]$
+
+Apply Jensen to the second factor (exp is convex), giving:
+$E[\exp(-X)] \geq \exp(-E[X])$ where $X = \int [r(L_s) - r(\bar{L})] ds$
+
+The bound is *strict* when $r$ is *not* affine in $L$. Convex $r$ → strict bound → $V^{LAV} > V^{DCF}$. ∎
+
+## Question 2: Finite-N MFG Approximation (20 points)
+
+Propagation of chaos says the empirical distribution of $N$ LPs converges to the MFG limit at rate $1/\sqrt{N}$. Quantify this precisely.
+
+**(a) (10 pts)** State and prove (or sketch the proof of) the propagation-of-chaos theorem for the GE-LAV McKean-Vlasov system:
+
+**Theorem:** Let $(L_t^{i,N})_{i=1,...,N}$ be the $N$-particle system. Let $\bar{L}_t^i$ be the MFG limit. Under standard regularity conditions:
+$$\sup_{t \leq T} E\left[ \frac{1}{N} \sum_{i=1}^N |L_t^{i,N} - \bar{L}_t^i|^2 \right] \leq \frac{C}{N}$$
+
+**Proof structure:**
+1. Coupling between particle system and MFG limit
+2. Application of Itô's lemma to $|L_t^{i,N} - \bar{L}_t^i|^2$
+3. Use Lipschitz property of drift in $\mu$ via Wasserstein distance
+4. Apply Grönwall inequality
+
+**(b) (5 pts)** Numerical verification: simulate $N$-particle systems for $N = 10, 100, 1000, 10000$. Estimate empirical Wasserstein distance to the MFG limit. Plot the rate vs. $1/\sqrt{N}$.
+
+**(c) (5 pts)** Discuss: empirically, private markets have $N \approx 10,000$ LPs. What does this imply for MFG approximation error in real-world GE-LAV applications?
+
+**Solution outline:**
+
+(a) Sketch:
+- Coupling: synchronize $W_t^i$ across particle and MFG systems
+- Itô: $d|L_t^{i,N} - \bar{L}_t^i|^2 = 2(L_t^{i,N} - \bar{L}_t^i)(dL_t^{i,N} - d\bar{L}_t^i) + (d ...)^2$
+- The drift difference involves the empirical measure vs. MFG measure: bounded by Wasserstein distance
+- Wasserstein: $W_2(\mu^N, \mu) \leq C/\sqrt{N}$ for empirical measures with finite second moment
+- Grönwall: integrate the inequality to bound the joint expectation
+
+This is the canonical Sznitman (1991) argument; details in Carmona & Delarue Ch. 1.
+
+(b) Expected numerical result: empirical error $\propto 1/\sqrt{N}$, with constant depending on time horizon $T$ and coupling strength.
+
+| $N$ | $E[\|L^N - \bar{L}\|]$ | Theoretical $1/\sqrt{N}$ |
+|---|---|---|
+| 10 | ~0.35 | 0.316 |
+| 100 | ~0.10 | 0.10 |
+| 1,000 | ~0.032 | 0.032 |
+| 10,000 | ~0.010 | 0.010 |
+
+Linear in log-log plot.
+
+(c) At $N = 10,000$: approximation error <1%. **Conclusion:** Mean-field approximation is essentially exact for practical GE-LAV applications. The framework's validity is not threatened by finite-N effects.
+
+## Question 3: Pigouvian Tax Derivation (25 points)
+
+Derive the optimal Pigouvian exit tax from the centralized planner's problem.
+
+**(a) (10 pts)** Set up the social welfare maximization:
+$$\max_{u} \int_0^T \int_L \mathcal{U}(L, u, \mu_t) dL \, dt$$
+subject to:
+- $L_t$ dynamics (McKean-Vlasov SDE)
+- $u(L, t)$ = exit policy (control)
+- $\mu_t$ = endogenous population distribution
+
+Write the planner's HJB equation. Identify the term that distinguishes it from the decentralized HJB.
+
+**(b) (10 pts)** Derive the Pigouvian tax $\tau^*(L, \mu)$ that, when added to the LP's private problem, replicates the planner's optimal policy:
+$$\tau^*(L, \mu) = \frac{\text{social marginal cost}}{\text{value at exit}}$$
+
+Express in terms of model primitives.
+
+**(c) (5 pts)** Evaluate $\tau^*(L, \mu)$ at calibrated parameters for $L \in \{-1.5, -1.0, -0.5, 0\}$. Compare to the table from Session 24.
+
+**Solution outline:**
+
+(a) Planner's HJB:
+$$\partial_t W + \mathcal{L}^\mu W - r W + C + \mathcal{H}_\text{planner}(W, W_\mu) = 0$$
+
+The extra term $\mathcal{H}_\text{planner}$ captures the planner's internalization of $\mu$ dynamics — specifically, the Wasserstein derivative $W_\mu$ contributes a term not present in the decentralized HJB.
+
+(b) The Pigouvian tax equals the *marginal externality*:
+$$\tau^*(L, \mu) = \frac{\partial W^*}{\partial \mu_{exit}} \cdot \frac{1}{V_{exit}}$$
+
+In terms of primitives, this involves the equilibrium liquidity premium derivative with respect to $\mu$, and the calibrated coupling strength.
+
+(c) Expected values (matching Session 24 table):
+
+| $L$ | $\tau^*$ |
+|---|---|
+| 0 | 0% |
+| -0.5 | 1.5% |
+| -1.0 | 3.5% |
+| -1.5 | 7.0% |
+
+## Question 4: Numerical Pigouvian Tax Implementation (15 points)
+
+Compute the Pigouvian tax numerically using your MFG solver from PS2.
+
+**(a) (8 pts)** Modify the MFG iteration to include the tax: each LP's optimal exit policy now accounts for $\tau^*(L_t, \mu_t)$ as a transaction cost.
+
+**(b) (5 pts)** Run two scenarios:
+- Decentralized (no tax)
+- Centralized via Pigouvian tax
+
+Compute welfare for each. Verify the gap closes to <0.5%/yr.
+
+**(c) (2 pts)** Discuss: how robust is the welfare-closure to imperfect tax calibration? Stress test with $\tau^*$ scaled by 0.5× and 2×.
+
+## Question 5: Master Equation Discretization (15 points)
+
+The master equation lives on Wasserstein space $\mathcal{P}_2$ (infinite-dimensional).
+
+**(a) (10 pts)** Propose a finite-dimensional approximation of the master equation. Specifically:
+- Parameterize $\mu$ via its first $K$ moments (or by a $K$-point discretization)
+- Approximate the Wasserstein derivative $\delta W / \delta \mu$
+- Write the finite-dimensional analog of the master equation
+
+**(b) (5 pts)** Implement for $K = 3$ (mean, variance, skewness) or $K = 5$ (5-point discretization). Compare convergence to your particle-based MFG solver from PS2.
+
+## Question 6: Research Reflection (10 points)
+
+In 300 words, identify three open research questions you've encountered in PS3:
+
+- One purely mathematical question (proof, theorem, or technique)
+- One numerical/computational question
+- One empirical/policy question
+
+For each, sketch how you'd approach it as a PhD student.
+
+------------------------------------------------------------------------
+
+[← Track 2 PS2](track2-ps2.qmd) | [Track 2 PS4 →](track2-ps4.qmd)

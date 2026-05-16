@@ -1,0 +1,192 @@
+# Session 17: The GE-LAV® Platform — Architecture, Data, Calibration {#sec-session-17}
+
+| | |
+|---|---|
+| **Unit** | 3 — Decision and Application |
+| **Book Chapter** | 9 (sections 9.1–9.5) |
+| **Slide source** | Reuse Classes 10, 12, 25 (partial) + ~5 new |
+| **Slides needed** | ~5 new + adapt ~10 from existing |
+| **Track** | Common core (both tracks) |
+| **Assessment milestone** | **PS3 drops at end of class** |
+
+## Learning Objectives
+
+By the end of this session, students will be able to:
+
+1. **Describe** the GE-LAV® platform's architecture: data ingestion, calibration engine, valuation pipeline, output formats.
+2. **Identify** the data inputs required: secondary market discounts, fund cash flows, public benchmarks, asset-class parameters.
+3. **Run** the calibration workflow for the OU process and the quadratic premium function on a small sample dataset.
+4. **Interpret** platform outputs: LAV mark, GE-LAV mark, exit boundary recommendation, stress scenario values, Pigouvian tax recommendation.
+5. **Evaluate** the platform against alternative implementation strategies (closed-form formulas, custom code, spreadsheet-only).
+
+## Pre-Class Assignment
+
+- **Read:** Book Chapter 9, sections 9.1–9.5 (~12 pages)
+- **Register:** Course site provides platform access credentials. Log in before class.
+- **Optional:** Skim Table 9.1 (full parameter listing) — you'll reference it in PS3
+
+## In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:05 | Recap Unit 3 so far · Today: how to *actually do it* | Lecture |
+| 0:05–0:25 | Platform architecture overview | Lecture |
+| 0:25–0:45 | Data inputs and calibration workflow | Lecture + demo |
+| 0:45–1:00 | Output interpretation | Lecture + walk-through |
+| 1:00–1:15 | Alternative implementations · PS3 introduction | Lecture |
+
+## Slide Content Briefs (New Slides Needed)
+
+### Slide 17.1 — Title
+
+- **Title:** "The GE-LAV® Platform"
+- **Tag line:** "From theory to operational tool"
+- **Speaker notes:** Today is the operational session. Less theory, more hands-on.
+
+### Slide 17.2 — Platform Architecture (New Slide)
+
+- **Title:** "Platform architecture in five layers"
+- **Layer-by-layer (vertical stack diagram):**
+  1. **Data ingestion:** Preqin / Setter / proprietary feeds → standardized formats
+  2. **Calibration engine:** MLE on OU process; non-linear regression on premium function
+  3. **Valuation engine:** LAV operator + GE equilibrium solver
+  4. **Diagnostic engine:** Exit boundary, hedge demand, Pigouvian tax computation
+  5. **Output formats:** Dashboards, CSVs, API for downstream systems
+- **Speaker notes:** Architecture is straightforward. Don't over-engineer the explanation.
+
+### Slide 17.3 — Required Inputs
+
+- **Title:** "What data the platform needs"
+- **Required inputs:**
+  - **Time series of secondary market discounts** (quarterly, minimum 5 years)
+  - **Fund cash flow series** (calls + distributions, monthly resolution)
+  - **Public benchmark return series** (for PME calculations)
+  - **Asset-class identifier** (PE/VC/Infra/PC/RE)
+  - **Investor risk aversion $\gamma$** (for portfolio output)
+- **Data sources mapping:**
+  - Preqin / Setter / Cliffwater for secondary data
+  - PitchBook / Burgiss / fund LP statements for cash flows
+  - Bloomberg / FactSet for public benchmarks
+- **Speaker notes:** Most institutional LPs already have these data feeds. Integration is the operational lift.
+
+### Slide 17.4 — Calibration Workflow (New Slide)
+
+- **Title:** "Calibration in three steps"
+- **Step 1: OU calibration**
+  - Maximum likelihood on secondary discount → $L_t$ time series
+  - Output: $\hat{\kappa}, \hat{\bar{L}}, \hat{\sigma}$ with confidence intervals
+- **Step 2: Premium function calibration**
+  - Non-linear regression of implied premium on $L_t$
+  - Output: $\hat{\pi}_0, \hat{\pi}_1, \hat{\pi}_2$
+- **Step 3: Cross-asset calibration**
+  - Systemic betas $\beta_i$ for each asset class
+  - Cross-asset correlation matrix
+- **Calibrated values (default):**
+  - $\hat{\kappa} = 0.45$/yr (CI: 0.38, 0.52)
+  - $\hat{\sigma} = 0.32$ (CI: 0.28, 0.36)
+  - $\hat{\bar{L}} = 1.0$ (normalized)
+  - $\hat{\pi}_0 = 0.045$, $\hat{\pi}_1 = 0.025$, $\hat{\pi}_2 = 0.021$
+- **Speaker notes:** Calibration runs nightly on updated data. Users typically don't recalibrate manually.
+
+### Slide 17.5 — Live Demo Setup (New Slide)
+
+- **Title:** "Live demo: valuing a real PE fund position"
+- **Setup:**
+  - Asset: Hypothetical mid-cap PE buyout fund, 2018 vintage
+  - Reported NAV: $50M
+  - Cash flow history: 7 years of calls and distributions
+  - Estimated $L_t$: -0.5 (mild stress, current conditions)
+- **What the platform produces:**
+  - LAV mark: $50.85M (1.7% Jensen bias positive)
+  - GE-LAV mark (current state): $48.3M (equilibrium correction)
+  - Exit boundary recommendation: HOLD (5-yr horizon, $L^* = -1.2$)
+  - Stress (GFC scenario): $19.5M (61% downside)
+  - Pigouvian tax if exit: 4.2% (would deduct from secondary proceeds)
+- **Speaker notes:** Walk through this live during class. Don't just describe it.
+
+## Existing Slides to Reuse
+
+### From Class 10 (Calibrating GE-LAV v2.5)
+
+- 4 slides showing the OU calibration pipeline
+- 3 slides showing parameter table and confidence intervals
+- 2 slides showing back-test against historical data
+
+### From Class 12 (Quadratic Liquidity Premium Calibration)
+
+- 3 slides showing the premium function fit
+- 2 slides showing regime-dependent residuals
+
+### From Class 25 (Empirical Testing Pipeline)
+
+- 3 slides showing the full data → result pipeline
+
+**Adaptation:** Most can be used as-is. Focus on showing students *how the platform works* rather than the underlying math (which Track 2 will see in Session 25).
+
+## Discussion Questions
+
+1. The platform requires quarterly secondary market data. Some asset classes (private credit, smaller infrastructure deals) have thinner secondary market data than PE buyout. How should the platform handle data-sparse asset classes?
+2. The default calibration uses 22 years of secondary data (2003–2024). Should crisis periods (2008–2010, 2020) be weighted differently than normal periods in the calibration? Why or why not?
+3. If a sophisticated LP wanted to build their own implementation in Python, what's the minimum viable pipeline? Could it be done in <500 lines of code?
+
+## Worked Example: Calibration on Sample Data
+
+**Setup:** Suppose you have 20 quarterly observations of secondary discounts:
+
+```
+Q1: 8%, Q2: 6%, Q3: 9%, Q4: 12%, Q5: 18%, Q6: 25%, Q7: 32%, Q8: 28%,
+Q9: 22%, Q10: 15%, Q11: 10%, Q12: 8%, Q13: 7%, Q14: 9%, Q15: 11%,
+Q16: 14%, Q17: 12%, Q18: 9%, Q19: 7%, Q20: 8%
+```
+
+**Step 1: Convert to $L_t$ series**
+
+Using linear discount-to-L mapping (book Eq. 2.5): $L_t = 1.0 - 5 \times (\text{discount}/0.50)$
+
+Yields: $L_t$ ranges from −1.2 (Q7) to +0.5 (Q19) over 20 quarters.
+
+**Step 2: MLE for OU parameters**
+
+OU log-likelihood (Euler discretization):
+$\ell(\kappa, \bar{L}, \sigma) = -\dfrac{1}{2} \sum_{t=2}^{T} \left[ \log(2\pi\sigma^2 \Delta t) + \dfrac{(L_t - L_{t-1} - \kappa(\bar{L} - L_{t-1})\Delta t)^2}{\sigma^2 \Delta t} \right]$
+
+Maximize numerically. Output:
+- $\hat{\kappa} = 0.52$/yr
+- $\hat{\bar{L}} = -0.05$ (close to 0 — sample is just noisy around 0)
+- $\hat{\sigma} = 0.41$
+
+**Step 3: Compare to canonical calibration**
+
+| Parameter | Sample MLE | Canonical |
+|---|---|---|
+| $\kappa$ | 0.52 | 0.45 |
+| $\bar{L}$ | -0.05 | 1.0 (different normalization) |
+| $\sigma$ | 0.41 | 0.32 |
+
+**Differences:** Higher $\sigma$ likely because sample includes 2008–2010 stress. Reasonable agreement otherwise.
+
+**Teaching note:** Calibration is sample-sensitive. Long histories matter. Confidence intervals matter. Don't trust a single point estimate.
+
+## Common Student Confusions (Instructor Notes)
+
+- **"Why does the platform charge a subscription? Isn't this academic?"** Platform development is real engineering. Subscription supports ongoing data feeds, regulatory updates, calibration refresh, infrastructure. Academic license available for students.
+- **"Can I export my data?"** Yes — all outputs available as CSV, JSON, or API. No vendor lock-in.
+- **"What if I disagree with the calibration?"** Run your own. Override default parameters in the platform UI. Document the rationale in your IPS or board materials.
+- **"How does the platform handle data privacy?"** Data is encrypted in transit and at rest. Single-tenant for institutional clients. No cross-client data sharing.
+
+## What to Expect Next Session
+
+Session 18 is a **deep platform demo + validation** session. We'll:
+
+- Run a complete portfolio valuation end-to-end
+- Validate platform outputs against the GFC, COVID, 2022 historical episodes
+- See where the platform's predictions matched and where they diverged
+- Discuss limitations and known gaps
+
+**PS3 drops today.** Both tracks. Due Session 24. The Track 1 PS3 uses the platform extensively. Get familiar with the UI this week.
+
+**Reading:** Book Chapter 9, sections 9.6–9.10 (~10 pages).
+
+------------------------------------------------------------------------
+
+[← Session 16](session-16.qmd) | [Schedule](../schedule.qmd) | [Next: Session 18 →](session-18.qmd)

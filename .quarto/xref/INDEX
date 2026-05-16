@@ -1,0 +1,131 @@
+{
+  "index.qmd": {
+    "index.html": "ea9dab11"
+  },
+  "syllabus.qmd": {
+    "syllabus.html": "b70b7c87"
+  },
+  "schedule.qmd": {
+    "schedule.html": "ae85d4ca"
+  },
+  "tracks.qmd": {
+    "tracks.html": "2d447f4d"
+  },
+  "slide-reuse-map.qmd": {
+    "slide-reuse-map.html": "15232fcd"
+  },
+  "project/project-specification.qmd": {
+    "project-specification.html": "69085111"
+  },
+  "exams/midterm-blueprint.qmd": {
+    "midterm-blueprint.html": "d644a8ff"
+  },
+  "problem-sets/psets-overview.qmd": {
+    "psets-overview.html": "5bbccd5e"
+  },
+  "lectures/session-01.qmd": {
+    "session-01.html": "8a3c8e78"
+  },
+  "lectures/session-02.qmd": {
+    "session-02.html": "32ef8c83"
+  },
+  "lectures/session-03.qmd": {
+    "session-03.html": "756fb65e"
+  },
+  "lectures/session-04.qmd": {
+    "session-04.html": "072e3c5b"
+  },
+  "lectures/session-05.qmd": {
+    "session-05.html": "82b1c39d"
+  },
+  "lectures/session-06.qmd": {
+    "session-06.html": "1397d5df"
+  },
+  "lectures/session-07.qmd": {
+    "session-07.html": "055d03db"
+  },
+  "lectures/session-08.qmd": {
+    "session-08.html": "97b9d20c"
+  },
+  "lectures/session-09.qmd": {
+    "session-09.html": "ff774b39"
+  },
+  "lectures/session-10.qmd": {
+    "session-10.html": "8bb266a1"
+  },
+  "lectures/session-11.qmd": {
+    "session-11.html": "ddd47b8e"
+  },
+  "lectures/session-12.qmd": {
+    "session-12.html": "31f33941"
+  },
+  "lectures/session-13.qmd": {
+    "session-13.html": "3006a05f"
+  },
+  "lectures/session-14.qmd": {
+    "session-14.html": "d033d265"
+  },
+  "lectures/session-15.qmd": {
+    "session-15.html": "a0e634dc"
+  },
+  "lectures/session-16.qmd": {
+    "session-16.html": "3d0ecc75"
+  },
+  "lectures/session-17.qmd": {
+    "session-17.html": "8bf0f59e"
+  },
+  "lectures/session-18.qmd": {
+    "session-18.html": "7c55f0fa"
+  },
+  "lectures/session-19.qmd": {
+    "session-19.html": "6204531d"
+  },
+  "lectures/session-20.qmd": {
+    "session-20.html": "8cfad9b0"
+  },
+  "lectures/session-21.qmd": {
+    "session-21.html": "0a60b3bc"
+  },
+  "lectures/session-22.qmd": {
+    "session-22.html": "0618f2b4"
+  },
+  "lectures/session-23.qmd": {
+    "session-23.html": "10dcd5ea"
+  },
+  "lectures/session-24.qmd": {
+    "session-24.html": "dd1c9848"
+  },
+  "lectures/session-25.qmd": {
+    "session-25.html": "2f09d275"
+  },
+  "lectures/session-26.qmd": {
+    "session-26.html": "32a8b908"
+  },
+  "lectures/session-27.qmd": {
+    "session-27.html": "183a9c3b"
+  },
+  "lectures/session-28.qmd": {
+    "session-28.html": "31591181"
+  },
+  "lectures/session-29.qmd": {
+    "session-29.html": "f205a4e9"
+  },
+  "lectures/session-30.qmd": {
+    "session-30.html": "615395f5"
+  },
+  "lectures/session-31.qmd": {
+    "session-31.html": "bad2ec6d"
+  },
+  "lectures/session-32.qmd": {
+    "session-32.html": "dff66f99"
+  },
+  "appendices/A-math-foundations.qmd": {
+    "A-math-foundations.html": "dd65fb32"
+  },
+  "appendices/B-reading-list.qmd": {
+    "B-reading-list.html": "81782952"
+  },
+  "references.qmd": {
+    "references.html": "f54ee0c0"
+  }
+}

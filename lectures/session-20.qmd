@@ -1,0 +1,267 @@
+# Session 20: Stochastic Control · HJB Equation (Concepts Only) {#sec-session-20}
+
+| | |
+|---|---|
+| **Unit** | 4 — Math Intuition Bridges |
+| **Book Chapter** | 11 (concepts only — full derivation in Session 25 Track 2) |
+| **Slide source** | All new — adapted from Class 7 with derivations stripped |
+| **Slides needed** | ~15 new |
+| **Track** | Common core (both tracks) |
+
+## Learning Objectives
+
+By the end of this session, students will be able to:
+
+1. **State the optimal control problem** in plain language — what is being optimized, over what choices, subject to what constraints.
+2. **Articulate the dynamic programming principle** (Bellman's logic) and why it works.
+3. **Describe what the HJB equation is** — a PDE that the value function must satisfy — without solving it.
+4. **Apply the HJB intuition** to the LP exit timing problem from Sessions 11–13.
+5. **Identify the smooth pasting condition** as the boundary condition that determines the optimal exit threshold.
+
+## Pre-Class Assignment
+
+- **Read:** Book Chapter 11 (read for concepts; skim proofs)
+
+## In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:05 | Recap Session 19 · Today: optimal decisions under uncertainty | Lecture |
+| 0:05–0:20 | The control problem — what we're solving for | Lecture |
+| 0:20–0:35 | Dynamic programming and the value function | Lecture + intuitive proof sketch |
+| 0:35–0:55 | The HJB equation — what it says and what it doesn't | Lecture |
+| 0:55–1:10 | Smooth pasting and the exit boundary | Lecture (revisit Session 12 with new lens) |
+| 1:10–1:15 | Bridge to Session 21 (mean-field games) | Lecture |
+
+## Slide Content Briefs (All New Slides)
+
+### Slide 20.1 — Title
+
+- **Title:** "Stochastic Control and the HJB Equation"
+- **Subtitle:** "How GE-LAV computes the optimal exit boundary · Concepts only · Track 2 derivation in Session 25"
+- **Speaker notes:** Session 19 was about *describing* stochastic processes. Today is about *making optimal decisions* under stochastic uncertainty.
+
+### Slide 20.2 — The Optimal Control Problem
+
+- **Title:** "What stochastic control solves"
+- **The setup:**
+  - System evolves stochastically: $dX_t = \mu(X_t, u_t) dt + \sigma(X_t, u_t) dW_t$
+  - At every time $t$, choose action $u_t$
+  - Receive running reward $f(X_t, u_t)$ over time
+  - At terminal time $T$, receive terminal reward $g(X_T)$
+- **Goal:** Choose action sequence to maximize expected total reward
+  - $V(x, t) = \max_{u} E\left[\int_t^T f(X_s, u_s) ds + g(X_T) \,\big|\, X_t = x\right]$
+- **Speaker notes:** This abstract framework is what the LP exit decision is doing. Make the connection explicit.
+
+### Slide 20.3 — Examples of Stochastic Control
+
+- **Title:** "Stochastic control is everywhere"
+- **Examples in finance:**
+  - **Merton portfolio:** Choose allocation $u_t$ to maximize expected utility of terminal wealth
+  - **Black-Scholes:** Choose hedging strategy to replicate option payoff
+  - **GE-LAV exit:** Choose exit time to maximize expected discounted value
+  - **Optimal execution:** Choose trading rate to minimize impact cost
+- **Examples outside finance:**
+  - **Inventory management:** Choose ordering to minimize total cost
+  - **Renewable energy:** Choose battery dispatch to maximize revenue
+  - **Aerospace:** Trajectory optimization for spacecraft
+- **Speaker notes:** Show breadth. Same math, many domains.
+
+### Slide 20.4 — The Value Function
+
+- **Title:** "The value function $V(x, t)$"
+- **Definition:** "Maximum expected reward attainable starting from state $x$ at time $t$, under the optimal policy"
+- **Why we want this:**
+  - Knowing $V$ tells us the *value* of being in state $x$
+  - Differentiating $V$ tells us the *optimal action*
+  - $V$ summarizes all future decisions in a single function
+- **Key property:**
+  - $V$ depends only on *current state* — past doesn't matter (Markov property)
+  - This is why dynamic programming works
+- **Speaker notes:** Establish $V$ as the central object. Everything else is computing it.
+
+### Slide 20.5 — Dynamic Programming (Bellman's Insight)
+
+- **Title:** "Bellman's principle of optimality"
+- **The insight (paraphrased):** "An optimal policy has the property that whatever the initial state and initial decision, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision."
+- **In formula:** $V(x, t) = \max_u \left[ f(x, u) \Delta t + E[V(X_{t+\Delta t}, t+\Delta t) | X_t = x, u_t = u] \right]$
+- **Translation:** "Best total = best current + best continuation"
+- **Why it matters:** Reduces a problem of "choosing infinite future actions" to a problem of "choosing one action and trusting the value function"
+- **Speaker notes:** Bellman's name and idea is worth establishing. Many students have heard "dynamic programming" without knowing where it came from.
+
+### Slide 20.6 — From Bellman to HJB
+
+- **Title:** "From discrete to continuous: the HJB equation"
+- **Bellman's equation (discrete time):** $V(x, t) = \max_u [f \Delta t + E[V(X_{t+\Delta t})] ]$
+- **Take $\Delta t \to 0$ and apply Itô's lemma to $E[V(X_{t+\Delta t})]$:**
+  - The result is a partial differential equation (PDE) for $V(x, t)$
+- **The Hamilton-Jacobi-Bellman (HJB) equation:**
+  - $\dfrac{\partial V}{\partial t} + \max_u \left[ f(x, u) + \mu(x, u) \dfrac{\partial V}{\partial x} + \dfrac{1}{2} \sigma^2(x, u) \dfrac{\partial^2 V}{\partial x^2} \right] = 0$
+- **What this says:**
+  - The first term is time-decay of value
+  - The bracketed max is the *Hamiltonian* — a function of current state and action
+  - The whole equation must hold at every $(x, t)$
+- **Speaker notes:** Don't dwell on the formula. Walk through it term by term — drift effect, diffusion effect, time decay, action choice. Track 2 students will see derivation; Track 1 students need the *shape* only.
+
+### Slide 20.7 — The HJB in Words
+
+- **Title:** "What the HJB equation says, in words"
+- **Plain English:** "At every state and time, the *time decay* of value equals the *expected change* in value due to drift and diffusion, plus the *maximum gain* obtainable from the current action."
+- **In a sentence:** "Value evolves consistently with the optimal action."
+- **Mathematical interpretation:**
+  - It's a *constraint* on the value function — not a closed-form solution
+  - Solving it (analytically or numerically) gives $V$ and simultaneously the optimal action $u^*(x, t)$
+- **Speaker notes:** Students will not need to solve HJB equations. They need to know: "There's a PDE the value function satisfies, and solving it gives both value and policy."
+
+### Slide 20.8 — Solving HJB Numerically
+
+- **Title:** "How HJB is solved in practice"
+- **Methods:**
+  - **Finite differences** (most common for low-dimensional state spaces, like GE-LAV)
+  - **Spectral methods** (for very smooth problems)
+  - **Machine learning approximation** (recent trend; neural networks for high-dimensional state)
+- **For GE-LAV exit problem:**
+  - State space: $(L, t)$ — 2-dimensional
+  - Standard finite-difference grid
+  - Solution time: seconds on a laptop
+- **Speaker notes:** Demystify. HJB is solvable. The platform does this routinely.
+
+### Slide 20.9 — Application: The LP Exit Problem (Revisited)
+
+- **Title:** "Revisiting the LP exit problem from Sessions 11–13"
+- **The control problem (now formalized):**
+  - State: $L_t$ (liquidity state)
+  - Action: continue holding OR exit (binary)
+  - Payoff from exiting at time $t$: $P_\text{secondary}(L_t)$
+  - Payoff from continuing: expected future distributions discounted at $r(L)$
+- **HJB equation here is an *obstacle problem*:**
+  - $V$ must satisfy the PDE in the "continuation region"
+  - $V$ equals the exit payoff in the "stopping region"
+  - $V$ matches smoothly at the boundary between regions
+- **Speaker notes:** Connect to Sessions 11–13. They've seen the *result* (exit boundary); now they see the *math* that produced it.
+
+### Slide 20.10 — Smooth Pasting (Properly Now)
+
+- **Title:** "The smooth pasting condition"
+- **Setup:** At the exit boundary $L^*(t)$:
+  - **Value match:** $V(L^*, t) = P_\text{secondary}(L^*)$ — values equal
+  - **Smooth pasting:** $\dfrac{\partial V}{\partial L}\Big|_{L^*} = \dfrac{dP_\text{secondary}}{dL}\Big|_{L^*}$ — slopes equal
+- **Why slopes must match:** "If the value function 'kinked' at the boundary, you could improve by moving the boundary."
+- **Visual:** Two curves meeting tangentially (the canonical free-boundary picture)
+- **Speaker notes:** This is the *mathematical* characterization of the boundary. Session 12's exit boundary chart is the output of smooth pasting.
+
+### Slide 20.11 — Numerical Output
+
+- **Title:** "What you get from solving HJB"
+- **Two outputs:**
+  - **Value function $V(L, t)$:** The maximum expected discounted value from state $(L, t)$
+  - **Optimal policy $u^*(L, t)$:** The optimal action at each $(L, t)$
+- **For exit problem:**
+  - Value function gives the *hold value* (and equals exit payoff in stopping region)
+  - Policy is binary: HOLD if $L > L^*(t)$, EXIT otherwise
+  - The boundary $L^*(t)$ is implicitly defined by smooth pasting
+- **Connecting back:** "Sessions 11–13 showed the $L^*(t)$ chart. That chart is the *output* of the HJB solution."
+- **Speaker notes:** Close the loop. Students should see today's math as the *machinery* underlying earlier results.
+
+### Slide 20.12 — HJB Beyond Exit Timing
+
+- **Title:** "HJB is everywhere in GE-LAV"
+- **Other applications in the framework:**
+  - **Portfolio allocation:** HJB determines the optimal $w^*(L, t)$ — the curve we saw in Session 14
+  - **Pacing decisions:** HJB on a multi-dimensional state including unfunded commitments
+  - **Optimal Pigouvian tax:** Inverse HJB — what tax achieves the welfare-maximum?
+- **GE-LAV uses HJB at every decision layer.** This isn't just one application — it's the *engine* of the optimal-decision side of the framework.
+- **Speaker notes:** Plant the seed that we'll see HJB again. Session 25 (Track 2) derives the GE-LAV HJB from scratch; Track 1 PSets ask intuition questions about HJB outputs.
+
+### Slide 20.13 — Limitations of HJB Approach
+
+- **Title:** "When HJB doesn't work"
+- **Three challenges:**
+  1. **Curse of dimensionality:** State space dimension matters. 2D (GE-LAV exit) is easy. 10+ dimensions becomes hard.
+  2. **Non-Markovian dynamics:** HJB assumes Markov property. Memory effects break the standard formulation.
+  3. **Discontinuous policies:** Smooth pasting requires some regularity. If exit payoffs are jumpy, complications arise.
+- **GE-LAV is well-suited:** Low-dimensional state $(L_t)$, OU process is Markovian, exit payoff is smooth.
+- **Speaker notes:** Honest about scope. The framework works precisely because the GE-LAV problem fits HJB's assumptions.
+
+### Slide 20.14 — Bridge to Mean-Field Games
+
+- **Title:** "Where we go next: when *everyone* is solving HJB"
+- **The HJB so far:**
+  - Single LP solving its own optimal exit problem
+  - Taking the market (secondary discounts) as given
+- **The McKean-Vlasov twist:**
+  - Many LPs all solving their own exit problems simultaneously
+  - Their *collective* exit decisions move the secondary market
+  - Each LP's optimal decision depends on what other LPs decide
+- **This is mean-field games (MFG):** Session 21 covers this concept.
+- **Speaker notes:** Tease Session 21. The framework gets richer when we add the collective layer.
+
+### Slide 20.15 — Summary
+
+- **Title:** "Today in one sentence"
+- **Statement:** "Stochastic control formalizes the LP's decision problem; the HJB equation is the consistency requirement on the value function; smooth pasting is the boundary condition that determines the exit threshold."
+- **You can now:**
+  - Read $L^*(t)$ charts knowing where they come from
+  - Discuss the framework's *decision* layer with rigor
+  - Recognize HJB applications in other areas of finance
+- **Speaker notes:** Reinforce the conceptual progression: process → control → equilibrium.
+
+## Discussion Questions
+
+1. The HJB equation is a PDE. Most LPs don't solve PDEs. Is the framework's reliance on this math a barrier to adoption? How can it be mitigated?
+2. Real LPs face liquidity, regulatory, tax, and behavioral constraints in addition to the value-maximization problem. How does HJB extend to handle these?
+3. The smooth pasting condition assumes the exit payoff is smooth. What if the secondary market has discrete pricing tiers (e.g., -5%, -10%, -15% bid levels) creating jumps? Does the boundary still exist?
+
+## Worked Example: Sketch of the GE-LAV HJB
+
+**The GE-LAV exit problem in HJB form:**
+
+State: $L_t$. Time horizon: $[0, T]$. Liquidity dynamics: $dL_t = \kappa(\bar{L} - L_t) dt + \sigma_L dW_t$.
+
+**Value function:** $V(L, t)$ = expected discounted hold value from $(L, t)$.
+
+**HJB equation (continuation region $L > L^*(t)$):**
+
+$\dfrac{\partial V}{\partial t} + \kappa(\bar{L} - L) \dfrac{\partial V}{\partial L} + \dfrac{1}{2} \sigma_L^2 \dfrac{\partial^2 V}{\partial L^2} - r(L) V + C(L, t) = 0$
+
+Where $C(L, t)$ is the expected cash flow rate from the position.
+
+**Terminal condition:** $V(L, T) = $ terminal payoff (final distribution).
+
+**Boundary conditions at the free boundary $L^*(t)$:**
+- $V(L^*, t) = P_\text{secondary}(L^*)$ (value match)
+- $\dfrac{\partial V}{\partial L}\Big|_{L^*} = \dfrac{dP_\text{secondary}}{dL}\Big|_{L^*}$ (smooth pasting)
+
+**Numerical solution:**
+
+Discretize $L$ on a grid, $t$ on a time-step grid. Back-step from $t = T$ to $t = 0$ using finite differences. At each step:
+- Compute $V$ assuming continuation
+- Compare to $P_\text{secondary}(L)$
+- Take maximum (American option style)
+- Record the boundary where the max switches
+
+**Output:** The $L^*(t)$ chart from Session 12.
+
+**Teaching note:** Don't expect students to do this calculation. The point is to *see* that the exit boundary comes from a well-defined PDE.
+
+## Common Student Confusions (Instructor Notes)
+
+- **"Why does the HJB require both value match and smooth pasting? Isn't one enough?"** Value match locates a candidate boundary. Smooth pasting picks the optimal boundary among candidates. Without smooth pasting, you could "improve" by moving the boundary.
+- **"What if I'm not maximizing utility — I just want to minimize tail risk?"** HJB still applies. Replace "expected reward" with whatever objective. The math is identical.
+- **"Curse of dimensionality sounds bad. Does GE-LAV scale to portfolios?"** Single-asset GE-LAV is 2D ($L, t$). Multi-asset GE-LAV is higher-dimensional. Approximations and decomposition tricks are needed. Active research area.
+- **"Why is the HJB called *Hamilton*-Jacobi-Bellman?"** Hamilton: classical mechanics (1830s). Jacobi: PDE theory. Bellman: dynamic programming (1950s). Three independent developments converged on the same math.
+
+## What to Expect Next Session
+
+Session 21 covers **mean-field games (MFG)** — the framework for when many agents are each solving their own HJB and influencing the aggregate state. This is the *general equilibrium* layer of GE-LAV.
+
+Key concepts:
+- McKean-Vlasov SDEs (the OU process when drift depends on the population distribution)
+- The fixed-point structure of MFG equilibrium
+- The collective externality and why it matters for private market valuation
+
+**Reading:** Book Chapter 13 (concepts only).
+
+------------------------------------------------------------------------
+
+[← Session 19](session-19.qmd) | [Schedule](../schedule.qmd) | [Next: Session 21 →](session-21.qmd)

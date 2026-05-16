@@ -1,0 +1,270 @@
+# Session 23: The LAV Operator · GE Equilibrium · Market Clearing {#sec-session-23}
+
+| | |
+|---|---|
+| **Unit** | 4 — Math Intuition Bridges |
+| **Book Chapters** | 16, 17 (concepts only — full derivation in Session 28 Track 2) |
+| **Slide source** | All new + Class 17 (intuition extract) |
+| **Slides needed** | ~12 new |
+| **Track** | Common core (both tracks) |
+
+## Learning Objectives
+
+By the end of this session, students will be able to:
+
+1. **State the LAV operator** in plain language — how a single asset's value depends on the entire $L_t$ path.
+2. **Distinguish** the LAV operator from a standard DCF operator (constant rate) and from a simple Jensen-corrected operator.
+3. **Articulate** what "GE equilibrium" means in the GE-LAV framework: the simultaneous determination of $\lambda^*$ and individual decisions.
+4. **Describe market clearing** in the secondary market: how the equilibrium price reflects the marginal investor's required premium.
+5. **Identify the valuation hierarchy** mathematically: DCF ⊊ LAV ⊊ GE-LAV as nested operators.
+
+## Pre-Class Assignment
+
+- **Read:** Book Chapters 16, 17 (concepts only)
+
+## In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:05 | Synthesis: 19-22 → today's payoff | Lecture |
+| 0:05–0:25 | The LAV operator | Lecture |
+| 0:25–0:45 | GE equilibrium and market clearing | Lecture |
+| 0:45–1:00 | The valuation hierarchy DCF ⊊ LAV ⊊ GE-LAV | Lecture |
+| 1:00–1:15 | What this means for practice + Q&A | Discussion |
+
+## Slide Content Briefs (New Slides Needed)
+
+### Slide 23.1 — Title
+
+- **Title:** "The LAV Operator · GE Equilibrium · Market Clearing"
+- **Subtitle:** "Where the conceptual framework comes together · Track 2 derivation in Session 28"
+- **Speaker notes:** Today is synthesis. Students should leave able to articulate the *whole framework* in conceptual terms.
+
+### Slide 23.2 — Where We Are
+
+- **Title:** "Putting it together"
+- **Building blocks (from Sessions 19–22):**
+  - **Stochastic process:** $L_t$ follows OU dynamics
+  - **Optimal control:** HJB gives individual exit decisions
+  - **Mean-field games:** Population coupling via McKean-Vlasov
+  - **Distribution dynamics:** Fokker-Planck and master equation track the population
+- **Today:** Combine these to compute *valuations* (LAV operator) and *equilibrium prices* (GE-LAV)
+- **Speaker notes:** Show the synthesis arc visually. Each piece was needed.
+
+### Slide 23.3 — The LAV Operator (Definition)
+
+- **Title:** "The Liquidity-Adjusted Valuation operator"
+- **Formal definition (boxed):**
+  - $V_0^{LAV} = E^Q\left[ \int_0^T C_t \cdot \exp\left(-\int_0^t r(L_s) ds\right) dt \right]$
+- **What this says:**
+  - **$C_t$:** Expected cash flows from the asset
+  - **$r(L_s)$:** Discount rate at time $s$, dependent on liquidity state
+  - **$\int_0^t r(L_s) ds$:** Cumulative discount factor along the *path* of $L$
+  - **$\exp(-\cdot)$:** Discount factor applied to cash flow
+  - **$E^Q$:** Expectation under risk-neutral measure
+- **Plain English:** "Discount each cash flow by the *path-integrated* discount rate, then take the expectation across all possible paths."
+- **Speaker notes:** This is the *operational* formula behind LAV. Track 2 will derive its properties in Session 28; Track 1 needs the structure.
+
+### Slide 23.4 — How LAV Differs from DCF
+
+- **Title:** "LAV vs. DCF: side-by-side"
+- **DCF:** $V_0^{DCF} = \sum_{t=0}^T \dfrac{C_t}{(1+r)^t}$ — constant $r$
+- **LAV:** $V_0^{LAV} = E^Q[\int_0^T C_t e^{-\int_0^t r(L_s) ds} dt]$ — path-dependent $r(L_s)$
+- **Key differences:**
+  - **Path dependence:** LAV depends on the *full path* of $L_t$, not just current value
+  - **Expectation operator:** LAV integrates across the distribution of paths
+  - **Convexity correction built-in:** Jensen bias is naturally produced
+- **Bottom-line:** "LAV is the *honest* generalization of DCF when discount rates are stochastic."
+- **Speaker notes:** This is the slide that students should memorize. The LAV/DCF distinction is the conceptual heart of the framework.
+
+### Slide 23.5 — LAV Properties
+
+- **Title:** "Key properties of LAV (proofs in Track 2, Session 28)"
+- **Property 1: Strict path dependence**
+  - $V^{LAV}$ depends on the full path of $L_t$, not just the terminal value
+  - Theorem 16.1 in book — formal statement
+- **Property 2: Positive Jensen bias for convex $r(L)$**
+  - $V^{LAV} > V^{DCF}$ whenever $r(L)$ is convex in $L$
+  - This is *always* true for the calibrated quadratic premium $\pi(L)$
+- **Property 3: Reduction to DCF under deterministic $L$**
+  - If $L_t$ is constant, LAV = DCF
+  - This is the limiting case
+- **Speaker notes:** These properties are what make the framework rigorous. State them; don't prove.
+
+### Slide 23.6 — GE Equilibrium (Setup)
+
+- **Title:** "From LAV to GE-LAV: adding market clearing"
+- **The setup:**
+  - LAV uses an *exogenous* discount rate function $r(L)$
+  - In *general equilibrium*, $r(L)$ is *endogenous* — determined by the market
+  - Each LP wants a premium based on their needs; the market clears at the *marginal* LP's required premium
+- **The fixed point:**
+  - Population distribution $\mu_t$ → equilibrium premium $\lambda^*$ → LP decisions → new $\mu_t$
+  - GE-LAV equilibrium: this loop is closed; $\mu_t$ is consistent with $\lambda^*$
+- **Speaker notes:** Connect to Session 21's MFG fixed-point structure. Same idea, applied to pricing.
+
+### Slide 23.7 — Market Clearing
+
+- **Title:** "How the secondary market clears"
+- **The clearing condition:**
+  - At each $L_t$, sellers (LPs wanting to exit at current premium) = buyers (LPs willing to buy at current premium)
+  - The equilibrium premium $\lambda^*(L_t, \mu_t)$ is the value that clears
+- **Calibrated structure:**
+  - At normal $L$: $\lambda^* \approx \pi_0 = 4.5\%$ (close to long-run mean)
+  - At GFC $L \approx -1.5$: $\lambda^* \approx 13\%$ (much wider due to externality)
+- **Visual:** Supply and demand curves intersecting at $\lambda^*$, with both shifting as $L$ changes
+- **Speaker notes:** Demonstrate how the equilibrium price emerges. This is standard microeconomics applied to the secondary market.
+
+### Slide 23.8 — GE-LAV Operator
+
+- **Title:** "The GE-LAV operator"
+- **Formal definition:**
+  - $V_0^{GE-LAV} = E^Q\left[ \int_0^T C_t \cdot \exp\left(-\int_0^t r_{GE}(L_s, \mu_s) ds\right) dt \right]$
+- **The new ingredient:** $r_{GE}(L, \mu) = r_f + \beta \cdot \text{ERP} + \lambda^*(L, \mu)$
+- **Where $\lambda^*(L, \mu)$ is the equilibrium premium** — depends on *both* the individual state $L$ and the population state $\mu$
+- **Key property (proved in Session 28):**
+  - In *deep stress regimes*, $\lambda^*(L, \mu) \gg \pi(L)$ — the equilibrium premium exceeds the partial-equilibrium premium
+  - This is the *McKean-Vlasov externality* manifested in pricing
+- **Speaker notes:** GE-LAV is LAV with one additional ingredient. Make sure students see the layering.
+
+### Slide 23.9 — The Crisis Amplification, Quantified
+
+- **Title:** "Where the 4.31× amplification comes from"
+- **At normal liquidity ($L = 0$):**
+  - $r_{GE-LAV}(0, \mu_\text{normal}) \approx 7.5\%$ (close to DCF rate)
+- **At GFC depth ($L = -1.5$):**
+  - Partial equilibrium premium: $\pi(-1.5) \approx 13\%$
+  - **GE-LAV equilibrium premium:** $\lambda^*(-1.5, \mu_\text{stressed}) \approx 28\%$ (much higher due to coordinated stress)
+  - Total $r_{GE-LAV}$: ~32.3% (vs. DCF 7.5%)
+- **Amplification:** $32.3 / 7.5 = 4.31×$
+- **Decomposition:**
+  - **Part 1:** ~5% from LAV path correction (Jensen bias)
+  - **Part 2:** ~20% from GE equilibrium uplift (McKean-Vlasov externality)
+- **Speaker notes:** This is *the* number from Session 16 (Crisis Dynamics). Now students see where it mathematically comes from.
+
+### Slide 23.10 — The Valuation Hierarchy (Mathematically)
+
+- **Title:** "DCF ⊊ LAV ⊊ GE-LAV: strict nesting"
+- **Statement (theorem 20.1 in book):**
+  - $V^{DCF} \leq V^{LAV} \leq V^{GE-LAV}$ in normal conditions
+  - Inequalities can reverse in deep stress (GE-LAV can be much lower than DCF when externality dominates)
+  - Equality conditions:
+    - $V^{DCF} = V^{LAV}$ iff $L_t$ is deterministic
+    - $V^{LAV} = V^{GE-LAV}$ iff there is no MFG externality ($\gamma \to 0$)
+- **In words:** "Each level of the hierarchy is a *strict generalization* of the previous. The simpler operator is a special case."
+- **Speaker notes:** This is the *theorem* of the framework. State the result; don't prove. Track 2 derives in Session 28+.
+
+### Slide 23.11 — What This Means for Practitioners
+
+- **Title:** "Practitioner takeaways"
+- **For valuation:**
+  - Default to GE-LAV in stressed regimes; LAV in normal; DCF only when state is known deterministic
+- **For portfolio construction:**
+  - The GE-LAV operator accounts for the *systematic* effect of stress on private market values
+  - Multi-asset hedge demand correctly aggregates this across positions
+- **For risk management:**
+  - The amplification factor is the appropriate stress scenario, not the partial-equilibrium estimate
+- **For regulation:**
+  - Solvency II and Basel III stress factors should be calibrated against GE-LAV magnitudes
+- **Speaker notes:** Connect math to practice.
+
+### Slide 23.12 — Bridge to Session 24
+
+- **Title:** "What we still need"
+- **Today:** LAV operator, GE equilibrium pricing, valuation hierarchy
+- **Session 24 (final synthesis):**
+  - The Jensen convexity bias as a closed-form result
+  - The Pigouvian exit tax as the corrective instrument
+  - Welfare analysis: what does the externality cost in aggregate?
+  - The full results menu for practitioners
+- **Speaker notes:** Last bridge session is Session 24. We're almost through Unit 4.
+
+## Existing Slides to Reuse from Class 17
+
+From Deck 4, Class 17 ("General Equilibrium: Market Clearing and Endogenous Pricing"), pull approximately 4 slides covering:
+
+- The market clearing diagram (supply / demand)
+- The fixed-point structure visualized
+- A table showing $\lambda^*$ values at different liquidity states
+- A comparison of partial vs. general equilibrium pricing
+
+**Adaptation:** These slides are conceptually appropriate. Use mostly as-is.
+
+## Discussion Questions
+
+1. The valuation hierarchy DCF ⊊ LAV ⊊ GE-LAV implies that DCF is a *special case* of GE-LAV (vanishing liquidity volatility) and LAV is a *special case* of GE-LAV (vanishing MFG coupling). Does this nesting make the framework "obviously correct," or does it just mean GE-LAV has more parameters to fit?
+2. The 4.31× amplification factor decomposes into ~5% LAV path correction + ~20% GE externality uplift. Which decomposition piece is more important for regulators? For practitioners managing portfolios?
+3. The GE equilibrium requires solving a fixed-point problem (HJB + Fokker-Planck + market clearing). What's the practical implication if the fixed-point has multiple solutions (e.g., in extreme stress when stability condition fails)?
+
+## Worked Example: Computing LAV vs. GE-LAV vs. DCF for One Asset
+
+**Setup:** 10-year PE buyout fund. Annual cash flow stream: $\$10M$/year. Current liquidity state $L_0 = -0.5$.
+
+**Step 1: DCF**
+
+Using constant rate $r_{DCF} = 12\%$:
+
+$V^{DCF} = \sum_{t=1}^{10} \dfrac{10}{1.12^t} = 56.5M$
+
+**Step 2: LAV (path-dependent, partial equilibrium)**
+
+Need to integrate $E[\exp(-\int_0^t r(L_s) ds)]$ over the OU path distribution.
+
+At calibrated parameters and starting state $L_0 = -0.5$:
+
+- Expected path of $L_s$: mean reverts from -0.5 toward 1.0 over time
+- Expected $\pi(L_s)$: starts at $\pi(-0.5) = 0.058$, decreases to $\pi(1.0) = 0.041$ at long horizon
+- Effective average $r(L)$ over 10 years: approximately 7.5% + 0.045 = $11.5%$
+- Including Jensen correction: approximately 0.7%
+
+$V^{LAV} \approx \sum_{t=1}^{10} \dfrac{10}{1.115^t} \cdot (1 + 0.7\%) \approx 58.2M$
+
+**Step 3: GE-LAV (full equilibrium)**
+
+At normal liquidity, equilibrium premium ≈ partial equilibrium premium. So GE-LAV ≈ LAV at $L_0 = -0.5$.
+
+$V^{GE-LAV} \approx 58.0M$
+
+**Step 4: Now stress the scenario**
+
+Suppose we evaluate at $L_0 = -1.5$ (GFC conditions):
+
+- DCF (using same fixed rate): still $56.5M (DCF is regime-blind)
+- LAV (partial eq): premium higher, $V^{LAV} \approx 38M$
+- **GE-LAV (full eq):** equilibrium premium amplifies, $V^{GE-LAV} \approx 22M$
+
+**Comparison at GFC depth:**
+
+| Method | Value | Gap from DCF |
+|---|---|---|
+| DCF | $56.5M | — |
+| LAV | $38M | -33% |
+| GE-LAV | $22M | -61% |
+
+**Interpretation:** "DCF says $56.5M regardless. LAV says $38M because the path-corrected discount rate is higher. GE-LAV says $22M because the *equilibrium* premium amplifies under collective stress. The 4.31× amplification factor shows up in this comparison."
+
+**Teaching note:** This is the *quantitative* manifestation of the framework's hierarchy. Make sure students see the dollar magnitudes.
+
+## Common Student Confusions (Instructor Notes)
+
+- **"Why does GE-LAV give a *lower* value than DCF? Shouldn't a more sophisticated model give a *higher* value (more nuanced)?"** GE-LAV is more nuanced; it gives a *more accurate* value. In stress, the correct value is lower. The framework is right.
+- **"If DCF systematically overprices in stress and underprices normally (via Jensen bias), the average should be wash, right?"** Not quite. Asymmetric distribution of stress (rare but large) means DCF on average overstates value in expectation. Stafford (2022) makes this argument empirically.
+- **"What if I have empirical $L_t$ data? Should I compute LAV directly from the data, or use the parametric GE-LAV?"** Both. Parametric provides robust forecasting; empirical provides validation. Best practice uses both.
+- **"Is GE-LAV the 'final' framework, or will something supersede it?"** GE-LAV is the first framework that satisfies the five requirements (Session 8). Extensions (jumps, regime shifts) are research frontiers. The *structure* of GE-LAV is likely durable; specific calibrations will evolve.
+
+## What to Expect Next Session
+
+Session 24 is the **synthesis session** of Unit 4. We cover:
+
+- The Jensen convexity bias as a closed-form result (Theorem 18.1)
+- The Pigouvian exit tax as a welfare-maximizing instrument (Theorem 19.1)
+- Quantitative welfare analysis (~2.3%/yr)
+- The complete "GE-LAV in one slide" picture
+
+**PS3 due Session 24.** Both tracks. Track 1 includes intuition questions on Sessions 19–23; Track 2 includes mathematical work.
+
+**Reading:** Book Chapters 18, 19 (concepts).
+
+------------------------------------------------------------------------
+
+[← Session 22](session-22.qmd) | [Schedule](../schedule.qmd) | [Next: Session 24 →](session-24.qmd)

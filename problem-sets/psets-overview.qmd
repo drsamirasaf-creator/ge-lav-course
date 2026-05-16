@@ -1,0 +1,144 @@
+# Problem Sets Overview {#sec-psets}
+
+This course assigns **four problem sets**, each worth **6.25% of your grade (25% total)**. Problem sets are **track-differentiated** — Track 1 students submit applied/empirical work; Track 2 students submit mathematical work. Same due dates, same topical coverage; different question content.
+
+## PSet Schedule
+
+| PSet | Drops | Due | Sessions Covered | Topics |
+|---|---|---|---|---|
+| **PS1** | Session 1 | Session 8 | 1–7 | Diagnosis · OU · Term structure · IRR/PME |
+| **PS2** | Session 9 | Session 16 | 11–15 | Exit timing · Portfolio · Regulatory |
+| **PS3** | Session 17 | Session 24 | 17–23 | Platform · Math intuition · Jensen · Pigouvian |
+| **PS4** | Session 25 | Session 31 | 25–30 | Track-specific advanced topics |
+
+## Submission
+
+- Submitted via course site as a **single PDF**
+- Supporting files (Excel, Python notebooks, R scripts) submitted as a zip
+- Cover page must include: name, track, collaborators (if any, max 3), AI use disclosure
+- Late penalty: 10% per 24-hour period, up to 72 hours; no credit thereafter
+
+## Collaboration Policy
+
+- Permitted: groups of up to 3 students discussing approach and method
+- **Each student must independently write and submit their own solutions** — no shared documents, no copy-paste between submissions
+- Disclose collaborators on cover page
+- Track 1 and Track 2 students may discuss general concepts but not specific problem solutions (since the questions differ)
+
+## PSet Structure Standards
+
+Every PSet contains:
+
+- **Conceptual question (15%)** — Test understanding of recent lecture material with no math required
+- **Applied / mathematical core (60%)** — The substantive work for the PSet, track-differentiated
+- **Stretch question (15%)** — Designed to be genuinely challenging; partial credit available
+- **Reflection (10%)** — 200-word reflection: What did you learn? Where did you get stuck? How does this connect to your project?
+
+## Sample PSet (Brief Sketches)
+
+### PS1 — Track 1 (Applied)
+
+1. **Conceptual (15 pts):** Explain in 200 words why the IRR's two biases (reinvestment assumption + sign-pattern dependence) make it unsuitable for assessing vintage-year liquidity effects.
+
+2. **Applied core (60 pts):**
+   - (20) Using the provided dataset of Preqin secondary market discounts (2003–2024), compute the implied liquidity state L_t for each quarter using the linear discount-to-L mapping from Ch. 2.
+   - (20) Fit the OU process (κ, σ, L̄) to your computed L_t series using MLE. Report your point estimates with 95% confidence intervals. Compare to the book's calibration.
+   - (20) Compute the Jensen bias B(T) for T = 5 and T = 10 using your calibration. Comment on the difference vs. the book's calibration.
+
+3. **Stretch (15 pts):** Identify and characterize the four "regimes" of the secondary market discount series (2003–2024). Are they consistent with the book's regime classification? Where do they differ?
+
+4. **Reflection (10 pts):** As specified above.
+
+### PS1 — Track 2 (Mathematical)
+
+1. **Conceptual (15 pts):** Explain in 200 words why the Jensen convexity bias must be strictly positive whenever the discount factor is a strictly convex function of the liquidity state.
+
+2. **Mathematical core (60 pts):**
+   - (15) Derive the stationary distribution of the OU process dL_t = κ(L̄ − L_t)dt + σ dW_t from first principles using the Fokker-Planck equation. Show your work.
+   - (15) Prove that E[L_t] → L̄ as t → ∞ and Var[L_t] → σ²/(2κ) regardless of L_0.
+   - (15) Derive the conditional moments E[L_t | L_0] and Var[L_t | L_0]. State the result and prove it.
+   - (15) Using your derivation, prove that the Jensen bias B(T) under a quadratic discount rate r(L) = r̄ + α(1−L) + β(1−L)² is affine in T: B(T) = A·T + C. Identify A and C explicitly.
+
+3. **Stretch (15 pts):** Extend the OU process to a jump-diffusion with compensated Poisson jumps. Derive the new stationary distribution. Under what conditions does it remain Gaussian?
+
+4. **Reflection (10 pts):** As specified above.
+
+## PS2, PS3, PS4 — Topic Outlines
+
+Full question sets will be released at PSet drop. Outlines below.
+
+### PS2 (Sessions 11–15)
+
+**Track 1 topics:**
+
+- Exit boundary computation for a real PE fund position
+- Portfolio construction with hedge demand — applied to a $1B endowment allocation
+- Regulatory case: compute the Solvency II SCR for a real insurance company's private market portfolio under both standard and LA approaches
+
+**Track 2 topics:**
+
+- Numerical solution of the HJB equation for h(L) using finite differences
+- Mean-field equilibrium fixed-point iteration — implement and verify convergence
+- Welfare gap derivation under heterogeneous beta
+
+### PS3 (Sessions 17–23)
+
+**Track 1 topics:**
+
+- Full GE-LAV platform pipeline: take a real fund, calibrate, value, stress-test
+- Conceptual: explain the Pigouvian tax to a non-economist (writing exercise)
+- Apply LA-IRR and LA-PME to a real fund and compare to standard metrics
+
+**Track 2 topics:**
+
+- Prove a property of the LAV operator (e.g., path-dependence)
+- McKean-Vlasov mean-field game — finite-N approximation and rate of convergence
+- Derive the Pigouvian tax formula explicitly from the welfare-gap analysis
+
+### PS4 (Sessions 25–30)
+
+**Track 1 topics:**
+
+- Multi-asset GE-LAV applied to a real diversified private market portfolio
+- Stress scenario analysis: 2008 crisis, 2020 COVID, hypothetical 2030 climate event
+- Communication exercise: 1-page IC memo summarizing GE-LAV vs. DCF for a specific deal
+
+**Track 2 topics:**
+
+- Network topology with heterogeneous β — analytical and numerical
+- Neural SDE calibration to GE-LAV — implement and benchmark
+- Extension proposal: a 5-page research note on a novel GE-LAV extension
+
+## Grading Rubric (Common Across PSets)
+
+| Score range | Meaning |
+|---|---|
+| 90–100% | Excellent work — correct, well-explained, with insight beyond the minimum |
+| 80–89% | Solid work — correct conclusions; some minor errors or missing detail |
+| 70–79% | Acceptable work — main results obtained; some confusion in derivation or interpretation |
+| 60–69% | Weak work — partial credit for effort and partial correctness |
+| Below 60% | Insufficient — significant misunderstanding or incomplete submission |
+
+**For mathematical work (Track 2):** Show your steps. Final answer only earns ~40% credit even if correct.
+
+**For applied work (Track 1):** Document your assumptions, your data, and your calculations. Final number only earns ~40% credit.
+
+## AI Use Policy for PSets
+
+See the [syllabus AI policy](../syllabus.qmd#use-of-ai-tools). For PSets specifically:
+
+- **Permitted:** Using AI to explain concepts, debug code, suggest derivation strategies, check intermediate steps
+- **Required:** You must understand and be able to defend every step of your submission
+- **Disclosure:** Brief note on cover page describing how AI was used (e.g., "Used Claude to debug Python code in Q2; verified all derivations independently")
+
+**Forbidden:** Submitting AI-generated solutions verbatim. The PSets are designed so that AI alone cannot produce a correct submission — most questions require your specific dataset, your specific calibration, or your specific interpretation.
+
+## Solutions Release
+
+- Solutions are released **48 hours after the deadline** on the course site
+- Both tracks' solutions are released to all students (encouraging cross-track learning)
+- Solutions explain not just the answer but also *common errors* and *good vs. bad approaches*
+
+------------------------------------------------------------------------
+
+[Next: Session 1 →](../lectures/session-01.qmd)

@@ -1,0 +1,144 @@
+# Track 2 — Problem Set 4 (Researcher) {#sec-track2-ps4}
+
+**Drops:** Session 25\
+**Due:** Session 31\
+**Weight:** 6.25% of course grade\
+**Coverage:** Advanced topics including extensions to standard GE-LAV\
+**Track:** Researcher (Track 2) only
+
+::: callout-tip
+This PSet emphasizes research extension. Questions are deliberately open-ended; quality of approach matters more than reaching the "right" answer.
+:::
+
+## Question 1: Network-Topology Extension (25 points)
+
+The standard GE-LAV assumes mean-field coupling (each LP reacts to the *aggregate* distribution). Real markets have **network structure**: LPs interact more strongly with some counterparties than others (e.g., funds of funds, secondary brokers, GP relationships).
+
+**(a) (10 pts)** Extend the McKean-Vlasov SDE to a network setting:
+$$dL_t^i = \kappa(\bar{L} - L_t^i) dt + \gamma \sum_{j} A_{ij} \phi(L_t^i, L_t^j) dt + \sigma_L dW_t^i$$
+where $A = (A_{ij})$ is a network adjacency matrix.
+
+- Derive the conditions under which the network MFG limit (as $N \to \infty$, $A_{ij}$ scaled appropriately) equals the standard MFG.
+- Identify when the network structure matters (different from mean-field).
+
+**(b) (10 pts)** Calibrate the network on hypothetical LP data: assume 100 LPs with a stylized network (10 hubs, 90 connected to specific hubs). Implement:
+- $A_{ij} = 1$ if $i, j$ share a hub, else 0
+- Estimate the welfare gap under network vs. mean-field MFG
+
+**(c) (5 pts)** Discuss: under what network topologies is the welfare gap (i) smaller, (ii) larger than the mean-field benchmark?
+
+**Solution outline:**
+
+(a) Conditions for mean-field equivalence:
+- Network density: average degree → ∞ as $N \to ∞$
+- Symmetry: $A_{ij}$ same distribution across pairs
+- Erdős-Rényi-like random graphs satisfy these
+
+When network matters:
+- Hub-and-spoke: hubs dominate behavior
+- Power-law degrees: tail behavior different
+- Bipartite: separates LP types from intermediaries
+
+(b) Implementation: extend MFG iteration to track per-LP dynamics on the network. Welfare gap typically larger by 10-30% in concentrated networks (more coordination failure).
+
+(c) Topology effects:
+- Star (one hub, all others): smaller gap (hub coordinates)
+- Complete graph: equals mean-field
+- Sparse random: smaller gap (less coupling)
+- Power-law: larger gap (concentration without coordination)
+
+## Question 2: Neural SDE Calibration (25 points)
+
+Instead of OU with parametric drift, parameterize the drift as a neural network.
+
+**(a) (10 pts)** Set up the neural SDE:
+$$dL_t = f_\theta(L_t, t) dt + \sigma dW_t$$
+where $f_\theta$ is a neural network with parameters $\theta$ trained on data.
+
+Specify:
+- Architecture (recommend small MLP: 2-3 hidden layers, 32-64 units)
+- Loss function (likelihood-based or moment-matching)
+- Training procedure
+
+**(b) (10 pts)** Implement and train on the secondary discount data from PS1. Compare to standard OU calibration:
+- In-sample fit: which is better?
+- Out-of-sample prediction: which generalizes?
+- Interpretability: which is more useful for practitioners?
+
+**(c) (5 pts)** Discuss: when does neural SDE calibration justify the additional complexity? When should one stick with parametric OU?
+
+**Solution outline:**
+
+(a) Architecture and loss: standard PyTorch implementation using `torch.nn.Module`. Loss: NLL under Euler discretization.
+
+(b) Expected findings:
+- In-sample: neural SDE fits better (more parameters)
+- Out-of-sample: neural SDE may *overfit*; OU often robust
+- Interpretability: OU has 3 parameters with clear meanings; neural SDE is black box
+
+(c) Justification for neural SDE:
+- Large samples (N > 10,000 observations)
+- Reasonable suspicion of regime-dependent drift
+- Computational resources permit overfitting management
+
+Stick with OU:
+- Small samples
+- Need for interpretability (regulatory contexts)
+- Computational constraints
+
+## Question 3: Jump Detection in Real Data (15 points)
+
+Real liquidity has jumps. Detect them in your dataset.
+
+**(a) (5 pts)** Implement a jump detection algorithm: identify $L_t$ observations where $|L_t - L_{t-1}|$ exceeds 3 standard deviations of historical first differences.
+
+**(b) (5 pts)** Cross-reference detected jumps with known market events (Lehman 9/15/2008, COVID 3/12/2020, etc.). Compute precision/recall.
+
+**(c) (5 pts)** Re-calibrate the jump-diffusion OU with detected jumps included. Compare Jensen bias to pure-diffusion case.
+
+## Question 4: Research Extension Proposal (25 points)
+
+Propose a substantive research extension to the GE-LAV framework. Submit:
+
+**(a) (5 pts) Title and abstract** (250 words): A complete research project proposal title and abstract.
+
+**(b) (10 pts) Literature review** (500 words): Place the project in the context of existing literature. Cite 5-10 papers.
+
+**(c) (5 pts) Methodology** (500 words): What math, data, and computational approach will you use?
+
+**(d) (5 pts) Expected results** (250 words): What do you anticipate finding?
+
+**Suggested extension directions:**
+
+1. Multi-asset GE-LAV existence theorem (current framework calibrated separately per asset class)
+2. GE-LAV under regime-switching $\bar{L}$ (post-2022 rate environment may have shifted the long-run mean)
+3. GE-LAV with heterogeneous time horizons (current framework assumes all LPs have same $T$)
+4. Behavioral GE-LAV (relax rational-agent assumption)
+5. Climate-extended GE-LAV (50-100 year horizons, transition risk)
+6. GE-LAV with information asymmetry (GPs know more than LPs about portfolio company state)
+7. Pigouvian tax design with imperfect information (regulator doesn't know $L_t$ exactly)
+
+**Grading:**
+
+- Originality (5 pts)
+- Feasibility (5 pts)
+- Connection to literature (5 pts)
+- Quality of writing (5 pts)
+- Quantitative grounding (5 pts)
+
+This question is *not* about the final paper — it's about demonstrating ability to identify and articulate a research problem.
+
+## Question 5: Course Synthesis Reflection (10 points)
+
+In 400 words, reflect on Track 2:
+
+- Which session's mathematical content was most generative for your thinking?
+- Did the rigor of Sessions 25-29 deliver what you expected? What was missing?
+- Has the experience changed your view on doing research in this area?
+- What's your ideal next step (PhD program, industry quant role, applied research, etc.)?
+
+Graded for thoughtfulness and research-orientation.
+
+------------------------------------------------------------------------
+
+[← Track 2 PS3](track2-ps3.qmd) | [Schedule](../schedule.qmd)

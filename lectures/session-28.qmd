@@ -1,0 +1,231 @@
+# Session 28: Split Track — Private Credit Case / GE Equilibrium Existence {#sec-session-28}
+
+| | |
+|---|---|
+| **Unit** | 5 — Split Track |
+| **Track 1 source** | Class 23 (Private Credit Spread Decomposition) |
+| **Track 2 source** | Class 17 (GE Market Clearing) |
+
+---
+
+## Track 1: Private Credit Case Workshop
+
+### Track 1 Learning Objectives
+
+By the end of this session, Track 1 students will be able to:
+
+1. **Apply** GE-LAV to a private credit / direct lending position.
+2. **Decompose** private credit spreads into credit risk, illiquidity premium, and complexity premium components.
+3. **Distinguish** GE-LAV for credit vs. equity strategies (cash flow profile, default risk interaction).
+4. **Compute** liquidity-adjusted spread expectations for a direct lending strategy.
+5. **Evaluate** a real BDC (business development company) or middle-market direct lending fund.
+
+### Track 1 Pre-Class Assignment
+
+- **Read:** Recent BDC quarterly report or direct lending fund presentation
+- **Watch:** 10-min video on private credit market structure (link on course site)
+
+### Track 1 In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:10 | Private credit vs. PE: structural differences | Lecture |
+| 0:10–0:30 | Decomposing private credit spreads | Lecture + worked example |
+| 0:30–0:55 | Lab: value a BDC or middle-market direct lending position | Group work |
+| 0:55–1:15 | Group recommendations + risk implications | Presentations |
+
+### Track 1 Slide Briefs (New Slides Needed)
+
+**Slide T1-28.1 — Private Credit: Different Risk Profile**
+
+- **Title:** "Private credit is debt, not equity"
+- **Key differences from PE buyout:**
+  - **Senior in capital structure:** Lower expected return, lower variance
+  - **Shorter duration:** Most direct lending is 3-7 years
+  - **Credit risk:** Default + recovery rather than equity participation
+  - **Floating rate:** Most direct lending pays SOFR + spread
+- **GE-LAV implications:**
+  - Smaller hedge demand (less correlation with aggregate liquidity)
+  - Smaller Jensen bias (shorter duration)
+  - But: in stress, credit and liquidity premia *interact* (credit spreads widen when liquidity stresses)
+- **Speaker notes:** Students often think credit is "PE without the equity story." It's structurally different. Establish that.
+
+**Slide T1-28.2 — Decomposing Private Credit Spreads**
+
+- **Title:** "What's in a 700 bps spread?"
+- **Typical direct lending spread:** 5-8% above SOFR
+- **Decomposition:**
+  - **Credit risk:** 200-400 bps (expected losses + idiosyncratic risk premium)
+  - **Illiquidity premium:** 100-300 bps (GE-LAV territory)
+  - **Complexity premium:** 50-100 bps (origination + monitoring costs)
+  - **Total:** 350-800 bps
+- **GE-LAV contribution:** Quantifies the illiquidity component stochastically
+- **Speaker notes:** Spreads are *not* pure credit risk. Many investors don't decompose carefully.
+
+**Slide T1-28.3 — Private Credit Sharpe Ratio Illusion**
+
+- **Title:** "Private credit's worst-in-class Sharpe penalty"
+- **Recall Session 7's slide:** Private credit Sharpe ratio drops 84% under liquidity adjustment (highest of any private asset class)
+- **Why:**
+  - High *conventional* Sharpe (~0.5) → looks attractive
+  - But low return volatility *and* high illiquidity premium = denominator vastly understates true risk
+  - Adjusted Sharpe (~0.08) reveals private credit may *not* be the "safe income" alternative many believe
+- **Implication:** "Private credit allocations sized on Sharpe-based optimization are likely substantially over-sized"
+- **Speaker notes:** This is a *career-relevant* finding. Many institutions have piled into private credit. The framework says they may be over-exposed.
+
+**Slide T1-28.4 — Lab Setup: BDC Valuation**
+
+- **Title:** "Lab: a real BDC valuation"
+- **Setup:**
+  - Choose a publicly-traded BDC (ARCC, MAIN, ORCC, or similar)
+  - Public market price: known (one number)
+  - NAV: reported quarterly
+  - Question: Is the public market premium/discount to NAV consistent with GE-LAV?
+- **Group output:**
+  - Estimate the "fair" NAV under GE-LAV
+  - Compare to reported NAV (typically equals book value of loans)
+  - Compare to public market price
+  - Identify any arbitrage opportunity or risk signal
+- **Speaker notes:** BDCs offer a *unique* test: they're publicly traded but hold private assets. The discount/premium structure is rich data.
+
+**Slide T1-28.5 — Cross-Asset Risk: Credit + Liquidity Interaction**
+
+- **Title:** "When credit and liquidity stress together"
+- **Setup:** 2008-2010 GFC and 2020 COVID both saw simultaneous credit + liquidity stress
+- **In private credit:**
+  - Default rates spiked
+  - Secondary discounts widened
+  - Recovery rates fell
+  - All three correlated → much worse outcome than independence assumption
+- **GE-LAV captures this:**
+  - Cross-asset $\beta$s in the multi-asset framework
+  - Stress test for joint credit+liquidity events
+  - More conservative capital recommendations
+- **Speaker notes:** This is *why* the integrated framework matters. Independent risk models miss the correlations.
+
+### Track 1 Existing Slides to Reuse
+
+From Class 23 (Private Credit Spread Decomposition) — 12 slides:
+- Private credit market structure
+- Spread decomposition methodology
+- BDC analysis tools
+- Default + liquidity interaction
+
+Use largely as-is.
+
+---
+
+## Track 2: GE Equilibrium Existence Proof
+
+### Track 2 Learning Objectives
+
+By the end of this session, Track 2 students will be able to:
+
+1. **State and prove the existence of GE-LAV competitive equilibrium** (Theorem 17.4).
+2. **Apply Schauder's fixed-point theorem** to the market-clearing map.
+3. **Identify the market clearing condition** mathematically: aggregate supply = aggregate demand for liquidity.
+4. **Distinguish** partial equilibrium (LAV) from general equilibrium (GE-LAV) at the level of the underlying math.
+5. **Connect** the existence proof to the calibrated parameter regime where uniqueness holds.
+
+### Track 2 Pre-Class Assignment
+
+- **Read:** Book Chapter 17 in full (with all proofs)
+- **Pre-read:** Mas-Colell, *The Theory of General Economic Equilibrium*, Chapters 4-5
+
+### Track 2 In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:10 | Recap: from MFG to GE | Lecture |
+| 0:10–0:30 | The GE-LAV equilibrium definition | Lecture |
+| 0:30–0:50 | Existence proof via Schauder | Lecture + board |
+| 0:50–1:05 | Uniqueness under stability | Lecture |
+| 1:05–1:15 | Numerical verification | Discussion |
+
+### Track 2 Slide Briefs (New Slides Needed)
+
+**Slide T2-28.1 — GE-LAV Equilibrium: Definition**
+
+- **Title:** "GE-LAV competitive equilibrium"
+- **Definition:** An equilibrium is a tuple $(\mu^*_t, \lambda^*(L, \mu^*), u^*(L, \mu^*))$ such that:
+  1. **Individual optimality:** $u^*(L, \mu^*)$ solves the HJB given $\lambda^*$
+  2. **Market clearing:** $\lambda^*(L, \mu^*)$ is the unique premium for which aggregate exit flows balance (sellers = buyers)
+  3. **Distributional consistency:** $\mu^*_t$ is the law of $L_t$ under dynamics induced by $u^*$
+- **In one sentence:** "Everyone's optimal decisions, given the equilibrium premium, generate the distribution that produces that premium."
+- **Speaker notes:** Set up the formal equilibrium notion. The three conditions are mutually self-consistent.
+
+**Slide T2-28.2 — Existence Theorem 17.4**
+
+- **Title:** "Theorem 17.4: existence of GE-LAV equilibrium"
+- **Statement:** Under standard regularity conditions on $\phi$, $r(L)$, and $C(L, t)$:
+  - There exists at least one GE-LAV competitive equilibrium tuple $(\mu^*, \lambda^*, u^*)$
+  - Equilibrium is unique under the stability condition $\kappa > \gamma \cdot \text{Lip}(\phi)$
+- **Proof outline:**
+  - Define an equilibrium map $\Psi: \mathcal{M} \to \mathcal{M}$:
+    - $\Psi(\mu)$ = the new measure induced by optimal individual decisions
+  - Show $\Psi$ is continuous and compact on $\mathcal{M}$
+  - Apply Schauder's fixed-point theorem
+- **Speaker notes:** State the theorem; sketch the structure. Full proof in book Section 17.4.
+
+**Slide T2-28.3 — Schauder Fixed-Point Argument (Detail)**
+
+- **Title:** "Schauder applied to the equilibrium map"
+- **The setup:**
+  - $\mathcal{M}$ = closed, bounded, convex subset of $\mathcal{P}_2(\mathbb{R})$ (probability measures with finite second moment)
+  - $\Psi$ continuous (HJB and market clearing both stable in measure)
+  - $\Psi$ compact (uniform bounds on second moments)
+- **The conclusion:** $\Psi$ has a fixed point in $\mathcal{M}$
+- **Why Schauder, not Brouwer?**
+  - Brouwer requires finite dimension
+  - $\mathcal{M}$ is infinite-dimensional
+  - Schauder is the appropriate generalization
+- **Speaker notes:** Tie to functional analysis. Most Track 2 students have seen Schauder in PDE classes.
+
+**Slide T2-28.4 — Market Clearing as Fixed Point**
+
+- **Title:** "Market clearing: a fixed point on $\lambda$"
+- **For given $\mu$, $\lambda^*$ satisfies:**
+  - Aggregate exit flow at premium $\lambda^*$ = Aggregate buy flow at premium $\lambda^*$
+- **Concrete form:**
+  - $\sum_i [u^*_i(L_i, \mu, \lambda^*) \cdot \text{notional}_i] = 0$
+- **Where:**
+  - $u^*_i = 1$ if LP $i$ exits at premium $\lambda^*$, else 0
+  - $\text{notional}_i$ = LP $i$'s position size
+- **Iteration:** Bisection on $\lambda^*$ until aggregate flow ≈ 0
+- **Speaker notes:** Make the market clearing concrete. It's just supply = demand at the right price.
+
+**Slide T2-28.5 — Connection to Numerical Algorithm**
+
+- **Title:** "From proof to platform"
+- **The existence proof guarantees the algorithm converges**:
+  - Start with guess $\mu^{(0)}$
+  - Solve HJB → get $u^{*(0)}$
+  - Solve FP → get $\mu^{(1)}$
+  - Iterate: $\mu^{(0)} \to \mu^{(1)} \to \mu^{(2)} \to ...$
+- **Under stability condition:**
+  - Iteration converges to the unique fixed point
+  - GE-LAV platform implements this
+- **Computational cost:**
+  - Typically 10-20 iterations
+  - Total time: seconds to minutes
+- **Speaker notes:** The platform's algorithm is *based* on the existence theorem. Theory → practice.
+
+### Track 2 Existing Slides to Reuse
+
+From Class 17 (GE Market Clearing & Endogenous Pricing) — 14 slides:
+- Market clearing diagrams
+- Equilibrium existence sketches
+- Numerical examples of $\lambda^*$ computation
+- Comparison with partial equilibrium
+
+Use largely as-is.
+
+### Track 2 Discussion Questions
+
+1. The existence proof requires that $\Psi$ is *continuous* on $\mathcal{M}$. What kind of discontinuity could break this? When would discontinuity be economically realistic (e.g., regulatory thresholds, IPS triggers)?
+2. Under the stability condition $\kappa > \gamma \cdot \text{Lip}(\phi)$, uniqueness holds. If the condition fails *temporarily* during a stress event but is restored as conditions normalize, what does the system look like during the failure period?
+3. The market clearing condition treats sellers and buyers symmetrically. In real markets, intermediaries (brokers) take spread. How would the proof change if we added market makers?
+
+------------------------------------------------------------------------
+
+[← Session 27](session-27.qmd) | [Schedule](../schedule.qmd) | [Next: Session 29 →](session-29.qmd)

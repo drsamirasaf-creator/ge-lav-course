@@ -1,0 +1,157 @@
+# Slide Reuse Map {#sec-slide-reuse}
+
+This page documents how your existing 485 slides (across 6 PPTX files, originally architected as a math-first course) are redeployed across the 32 sessions of the Path C two-track architecture.
+
+## Summary
+
+| Total existing slides | 485 |
+|---|---|
+| Direct reuse (minimal adaptation) | ~190 (39%) |
+| Conceptual adaptation (strip math/derivations) | ~80 (16%) |
+| Track 2 deep dive (full math, original form) | ~140 (29%) |
+| Appendix / reference only | ~75 (15%) |
+| **New slides to create** | **~200–280** |
+| **Estimated build time for new slides** | **80–120 hours** |
+
+## Mapping by Existing Class
+
+The table below maps each existing class (Classes 1–32 as currently designed) to its new home in the Path C architecture.
+
+| Existing Class | Existing Title | Slides | New Home | Reuse Type |
+|---|---|---|---|---|
+| Class 1 | Probability Spaces & Measure Theory | 20 | Appendix A · Track 2 prep for S25 | Reference |
+| Class 2 | Stochastic Processes & Brownian Motion | 20 | Appendix A · Track 2 prep for S25 | Reference |
+| Class 3 | Itô's Lemma | 19 | Appendix A · Track 2 prep for S25 | Reference |
+| Class 4 | SDEs / Girsanov | 19 | Appendix A · Track 2 prep for S25 | Reference |
+| Class 5 | OU Process Complete Derivation | 19 | Session 4 (intuition extract) + Track 2 S25 (full) | Split |
+| Class 6 | Fokker-Planck Equations | 16 | Session 22 (intuition) + Track 2 S27 (full) | Split |
+| Class 7 | Stochastic Control & HJB | 15 | Session 20 (intuition) + Track 2 S25 (full) | Split |
+| Class 8 | McKean-Vlasov MFG | 15 | Session 21 (intuition) + Track 2 S26 (full) | Split |
+| Class 9 | PC Markets: Scale, Structure, Frictions | 14 | Sessions 1–2 (heavy reuse) | Direct |
+| Class 10 | Calibrating GE-LAV v2.5 | 15 | Sessions 17–18 (platform implementation) | Direct |
+| Class 11 | Jensen Bias Four-Channel Derivation | 20 | Session 24 (intuition) + Track 2 S29 (full proof) | Split |
+| Class 12 | Quadratic Liquidity Premium Calibration | 16 | Sessions 17–18 | Direct |
+| Class 13 | PE Return Decomposition (5-component) | 14 | Sessions 11–13 (exit timing block) | Direct |
+| Class 14 | HJB Numerical h(L) | 15 | Track 2 S25 (full) | Direct |
+| Class 15 | Mean-Field Equilibrium Fixed Point | 18 | Track 2 S26 (full) | Direct |
+| Class 16 | Empirical Validation of Jensen Bias | 15 | Session 24 (common core) | Direct |
+| Class 17 | GE Market Clearing & Endogenous Pricing | 14 | Session 23 (intuition) + Track 2 S28 (full) | Split |
+| Class 18 | Welfare Analysis / PE Externality | 13 | Session 24 + Track 2 S29 (full derivation) | Split |
+| Class 19 | Crisis Dynamics & GFC Amplification | 14 | Session 16 (regulatory + crisis) | Direct |
+| Class 20 | Pigouvian Tax Design | 15 | Session 24 (intuition) + Track 2 S29 (full) | Split |
+| Class 21 | PE Buyout Full GE-LAV Valuation | 13 | Track 1 S25 (PE workshop) | Direct |
+| Class 22 | Infrastructure: The 57% Illusion | 13 | Track 1 S27 (Infra case) | Direct |
+| Class 23 | Private Credit Spread Decomposition | 12 | Track 1 S28 (Private credit case) | Direct |
+| Class 24 | Portfolio Construction with GE-LAV | 13 | Sessions 14–15 (Ch 7 common core) | Direct |
+| Class 25 | Empirical Testing Pipeline | 12 | Sessions 17–18 (platform + validation) | Direct |
+| Class 26 | Research Frontiers & Course Synthesis | 14 | Session 31 (both tracks) | Direct |
+| Class 27 | Multi-Asset GE-LAV | 13 | Track 1 S26 (VC + secondaries adaptation) | Direct |
+| Class 28 | Network Topology & β Heterogeneity | 11 | Track 2 S30 (advanced) | Direct |
+| Class 29 | Neural SDE Calibration | 12 | Track 2 S30 (advanced) | Direct |
+| Class 30 | GE-LAV & Digital Asset Markets | 11 | Track 1 S29 (hybrid case) | Direct |
+| Class 31 | Climate Risk & Long-Duration Assets | 12 | Track 1 S29 (hybrid case) | Direct |
+| Class 32 | Final Exam Review & Synthesis | 17 | Session 32 (project presentations) — content largely discarded since no final | Discard most |
+
+## Mapping by New Session
+
+Reverse view — for each new session, what existing slides feed it and what is new.
+
+### Sessions 1–10 (Mostly New)
+
+| New Session | Topic | Source Slides | New Slides Needed |
+|---|---|---|---|
+| 1 | Course intro · DCF fails | Class 9 (selected) | ~15 |
+| 2 | Three structural failures · LA-CAPM | Class 9 (remainder) | ~12 |
+| 3 | Liquidity illusion · Secondary markets | Class 21–22 (excerpts) | ~12 |
+| 4 | OU process for liquidity (intuition) | Class 5 (intuition-stripped) | ~10 |
+| 5 | Term structure of private capital | None | ~15 |
+| 6 | IRR: definition, biases | None | ~15 |
+| 7 | PME · LA-IRR · LA-PME | None | ~15 |
+| 8 | What a correct theory must deliver | None | ~12 |
+| 9 | Midterm review | None | ~10 |
+| 10 | MIDTERM EXAM | — | — |
+| **Subtotal** | | **~50 slides reused** | **~116 new** |
+
+### Sessions 11–18 (Mostly Reuse — Sweet Spot)
+
+| New Session | Topic | Source Slides | New Slides Needed |
+|---|---|---|---|
+| 11 | Exit timing — trapped investor | Class 13 (partial) | ~5 |
+| 12 | Exit boundary L\*(t) numerical | Class 13 (partial) | ~5 |
+| 13 | Liquidity traps · Historical performance | Class 13 (remainder) | ~5 |
+| 14 | Portfolio construction | Class 24 (partial) | ~3 |
+| 15 | Pacing · Tactical allocation | Class 24 (remainder) | ~5 |
+| 16 | Regulatory · Crisis dynamics | Class 19 | ~5 |
+| 17 | GE-LAV platform — architecture | Classes 10, 12, 25 (partial) | ~5 |
+| 18 | Platform demo · validation | Classes 10, 12, 25 (remainder) | ~5 |
+| **Subtotal** | | **~85 slides reused** | **~38 new** |
+
+### Sessions 19–24 (Math Intuition Bridges — Mostly New)
+
+| New Session | Topic | Source Slides | New Slides Needed |
+|---|---|---|---|
+| 19 | BM · Itô · OU (concepts) | Classes 2–5 (heavy stripping) | ~15 |
+| 20 | Stochastic control · HJB (concepts) | Class 7 (intuition extract) | ~15 |
+| 21 | Mean-field games (concepts) | Class 8 (intuition extract) | ~15 |
+| 22 | Fokker-Planck · master equation | Class 6 (intuition extract) | ~12 |
+| 23 | LAV operator · GE clearing | Class 17 (intuition extract) | ~12 |
+| 24 | Jensen · Pigouvian · welfare | Classes 11, 16, 18, 20 (intuition) | ~15 |
+| **Subtotal** | | **~30 slides reused** | **~84 new** |
+
+### Sessions 25–31 (Split Track — Mostly Reuse)
+
+| New Session | Track 1 Source | Track 2 Source | New Slides Needed |
+|---|---|---|---|
+| 25 T1 | Class 21 (PE buyout) | — | ~3 |
+| 25 T2 | — | Classes 7, 14 (HJB full) | ~5 |
+| 26 T1 | Class 27 (Multi-asset, adapt for VC) | — | ~5 |
+| 26 T2 | — | Classes 8, 15 (MFG full) | ~3 |
+| 27 T1 | Class 22 (Infrastructure) | — | ~2 |
+| 27 T2 | — | Class 6 (Fokker-Planck full) | ~3 |
+| 28 T1 | Class 23 (Private credit) | — | ~3 |
+| 28 T2 | — | Class 17 (GE full) | ~3 |
+| 29 T1 | Classes 30, 31 (Digital + Climate) | — | ~5 |
+| 29 T2 | — | Classes 11, 18, 20 (Jensen + Pigouvian full) | ~3 |
+| 30 T1 | None | None | Workshop format ~5 |
+| 30 T2 | — | None | Workshop format ~5 |
+| 31 | Class 26 (Research frontiers) | Class 26 + Classes 28, 29 (advanced) | ~5 |
+| **Subtotal** | | | **~50 new** |
+
+### Session 32 (Capstone)
+
+| New Session | Topic | Source | New |
+|---|---|---|---|
+| 32 | Project presentations | None — Class 32's "Final Review" content largely discarded | ~5 (intro frame) |
+
+## Total Count
+
+| Category | Slides |
+|---|---|
+| Existing slides directly reused (minimal adaptation) | ~165 |
+| Existing slides reused with conceptual adaptation | ~80 |
+| Existing slides reused in Track 2 (original form) | ~140 |
+| Existing slides moved to Appendix A | ~75 (Classes 1–4) |
+| Existing slides discarded | ~25 (mostly Class 32) |
+| **New slides needed** | **~243** |
+
+## What Gets Built When
+
+For a Spring 2027 delivery with 14 months of runway, suggested build sequence:
+
+| Month | Build target | Hours estimate |
+|---|---|---|
+| 1–2 | Sessions 1–8 new content (all of Unit 1 + most of Unit 2) | 40 hr |
+| 3 | Sessions 19–24 math intuition bridges | 30 hr |
+| 4 | Adapt Sessions 11–18 (light editing of existing slides) | 10 hr |
+| 5 | Track-specific Session 25–31 prep (mostly reuse) | 15 hr |
+| 6 | Problem set writing (8 PSets) | 20 hr |
+| 7 | Midterm and project rubric refinement | 8 hr |
+| 8–10 | Pilot dry-run + iteration on weak sessions | 20 hr |
+| 11–14 | Polish, recording prep, platform integration | 15 hr |
+| **Total** | | **~158 hr** |
+
+Spread across 14 months at ~3 hr/week, this is realistic alongside your other work.
+
+------------------------------------------------------------------------
+
+[Next: Project Specification →](project/project-specification.qmd)

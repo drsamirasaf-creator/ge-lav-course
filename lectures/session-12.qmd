@@ -1,0 +1,191 @@
+# Session 12: The Exit Boundary $L^*(t)$ — Numerical Examples {#sec-session-12}
+
+| | |
+|---|---|
+| **Unit** | 3 — Decision and Application |
+| **Book Chapter** | 6 (sections 6.5–6.7) |
+| **Slide source** | Reuse from Class 13 + ~5 new |
+| **Slides needed** | ~5 new + adapt ~6 from Class 13 |
+| **Track** | Common core (both tracks) |
+
+## Learning Objectives
+
+By the end of this session, students will be able to:
+
+1. **Read** an exit boundary $L^*(t)$ chart and identify the hold region vs. exit region.
+2. **Explain** why $L^*(t)$ rises as $t \to T$ (the boundary terminal-time effect).
+3. **Compute** the optimal exit decision for a given (current $L$, remaining $T$) pair using the calibrated boundary.
+4. **Identify** how the exit boundary differs across asset classes (PE buyout vs. infrastructure vs. private credit).
+5. **Apply** the exit boundary to one of the major historical episodes (GFC 2009, COVID 2020) and identify what GE-LAV would have recommended.
+
+## Pre-Class Assignment
+
+- **Read:** Book Chapter 6, sections 6.5–6.7 (~8 pages)
+- **Try:** Sketch on paper what you think the exit boundary looks like — does $L^*$ rise or fall as $t$ increases? Why?
+
+## In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:10 | Recap Session 11 · Set up today's numerical work | Lecture |
+| 0:10–0:25 | The exit boundary chart — reading the figure | Lecture |
+| 0:25–0:40 | Why $L^*(t)$ has the shape it does | Lecture + chart deep-dive |
+| 0:40–0:55 | Sensitivity to OU parameters and asset class | Lecture |
+| 0:55–1:10 | Historical application: GFC, COVID, rate shock | Case + discussion |
+| 1:10–1:15 | Worked example: should this LP exit? | Live problem |
+
+## Slide Content Briefs (New Slides Needed)
+
+### Slide 12.1 — Title and Today's Goal
+
+- **Title:** "The Exit Boundary $L^*(t)$ in Practice"
+- **Tag line:** "Yesterday: the structure. Today: the numbers."
+- **Speaker notes:** Today is operational. Students should leave able to look at a position and identify the exit recommendation.
+
+### Slide 12.2 — The Exit Boundary Chart (Anchor Visual)
+
+- **Title:** "The GE-LAV exit boundary"
+- **Visual:** Master chart showing $L^*(t)$ as a function of remaining time-to-maturity $T - t$
+- **Key features to annotate:**
+  - X-axis: years remaining (0 to 15)
+  - Y-axis: critical liquidity state $L^*$
+  - Boundary curve: rises from approximately $L^* = -2.0$ at $T - t = 10$+ years, up to $L^* \approx -0.5$ at $T - t = 1$ year, to $L^* \approx 0$ near maturity
+  - **Hold region:** Above the curve
+  - **Exit region:** Below the curve
+- **Calibrated benchmark numbers (table):**
+
+| Remaining T | $L^*$ |
+|---|---|
+| 10 yr | −1.8 |
+| 7 yr | −1.5 |
+| 5 yr | −1.2 |
+| 3 yr | −0.8 |
+| 1 yr | −0.5 |
+| 0.5 yr | −0.2 |
+
+- **Speaker notes:** This chart is the operational tool. Spend 10+ minutes on it.
+
+### Slide 12.3 — Why $L^*(t)$ Rises as $t \to T$
+
+- **Title:** "The shape of $L^*(t)$, intuitively"
+- **Three reasons:**
+  1. **Less time for mean reversion:** Near maturity, even small stress can't be recovered before forced exit at terminal date
+  2. **Smaller Jensen benefit:** Jensen bias scales with $T$ — less to gain by holding short-term
+  3. **Asymmetric payoff:** Distress risk dominates upside as horizon shrinks
+- **Visual:** Three small annotations on the master chart
+- **Speaker notes:** Connect to Black-Scholes intuition — option time value decays as expiry approaches. Same principle.
+
+### Slide 12.4 — Asset Class Differences
+
+- **Title:** "Exit boundaries vary by asset class"
+- **Table or overlaid chart:**
+
+| Asset Class | $L^*$ at 5 years remaining |
+|---|---|
+| PE Buyout | −1.2 |
+| Growth Equity | −1.1 |
+| Real Estate | −1.4 |
+| Infrastructure | −1.6 |
+| Private Credit | −0.9 |
+
+- **Explanation of pattern:**
+  - **Infrastructure** has the most negative $L^*$ → most willing to hold through stress (long mean-reversion runway, stable cash flows)
+  - **Private credit** has the least negative $L^*$ → quickest to exit (short duration, less Jensen benefit to hold)
+- **Speaker notes:** Asset class matters for the boundary. This is why portfolio-level exit policy needs asset-class differentiation.
+
+### Slide 12.5 — Calibrated Exit Boundary Performance (Class 13 Reuse)
+
+- **Title:** "Historical performance of the GE-LAV exit rule"
+- **Setup:** "If LPs had applied the GE-LAV exit boundary 1990–2024, what would have happened?"
+- **Results table (from Class 13 reuse):**
+
+| Episode | Date | Standard LP Outcome | GE-LAV-Optimal Outcome |
+|---|---|---|---|
+| LTCM | 1998 | −12% capital loss on PE secondaries | Hold; no loss |
+| Dot-com | 2001–2002 | −18% on early VC secondaries | Partial exit @ −0.5σ → −8% |
+| GFC | 2008–2010 | −35% on PE secondaries | Exit signal triggered → 0% to −10% |
+| COVID | 2020 | −15% briefly | Hold; recovered by Q3 |
+| Rate shock | 2022 | −18% PE, −22% RE | Partial exit signal in RE |
+
+- **Speaker notes:** This is one of the most empirically powerful slides in the course. GE-LAV would have improved LP outcomes in 3 of 5 major episodes.
+
+## Existing Slides to Reuse from Class 13
+
+From Deck 3, Class 13 ("PE Return Decomposition: Five-Component Attribution"), pull approximately 6 slides:
+
+- Slide showing the $L^*(t)$ master chart (this is the anchor visual)
+- Slide showing historical performance of the exit rule
+- Slide showing sensitivity to OU parameters (κ, σ variations)
+- Slide showing asset class comparison
+- Slide showing the smooth pasting visual
+- One slide showing a numerical example
+
+**Adaptation:** Class 13 was titled "PE Return Decomposition" but contains substantial exit-boundary content. Repurpose these slides as the bulk of Session 12.
+
+## Discussion Questions
+
+1. CalPERS publicly disclosed 2009 PE secondary sales at 25% discount. Using the exit boundary chart, would GE-LAV have recommended this sale? What information beyond the chart would CalPERS have needed?
+2. The exit boundary $L^* \approx -0.5$ at 1-year horizon. Most fund extensions are 1-2 years. Does the boundary suggest fund extensions should be granted (hold) or refused (force exit)? Why?
+3. If your investment policy statement (IPS) says "no secondary sales except in distress," is that consistent with GE-LAV-optimal behavior? When would it diverge?
+
+## Worked Numerical Example: Should This LP Exit?
+
+**Scenario:** It is Q4 2024. An insurance company holds a 9-year-old infrastructure fund position. Reported NAV = $200M. Position has 4 years remaining until natural liquidation.
+
+**Current conditions:**
+- Estimated $L_t = -0.7$ (moderately stressed; secondary discounts around 18%)
+- Asset class: infrastructure
+- Remaining horizon: 4 years
+- Secondary market bid: 22% discount → $156M cash today
+- Solvency II capital charge if held: increases by ~3% of NAV
+- Solvency II capital charge if sold: decreases by ~5% of NAV (cash is treated favorably)
+
+**Step 1: What does the exit boundary say?**
+
+For infrastructure at 4 years remaining: $L^* \approx -1.5$
+
+Current $L_t = -0.7$ vs. $L^* = -1.5$
+
+**$L_t > L^*$, so the GE-LAV recommendation is HOLD.**
+
+**Step 2: But Solvency II is forcing pressure**
+
+The capital charge differential (3% + 5% = 8% effective swing) creates a regulatory wedge that GE-LAV doesn't directly model. If the insurer would be capital-constrained by holding:
+- Hold cost: 8% of $200M = $16M of capital tied up
+- Sell cost: 22% discount = $44M of value sacrificed
+
+**Net:** Selling sacrifices $44M − $16M = $28M of value vs. holding through.
+
+**Step 3: GE-LAV expected value of holding**
+
+Under OU dynamics, $E[L_{t+4}] = \bar{L} + (L_t - \bar{L}) e^{-4\kappa} = 1.0 + (-0.7 - 1.0) e^{-1.8} = 1.0 + (-1.7)(0.165) = 0.72$
+
+The expected liquidity state in 4 years is +0.72, well above current. The Jensen bias for 4-year infrastructure: $B(4) = 0.18\% \times 4 = 0.72\%$
+
+Expected hold value: $\$200M \times (1 + 0.0072) \approx \$201.4M$, plus mean-reversion gain (state goes from −0.7 to +0.7 generates ~5–8% NAV uplift via lower discount rates).
+
+**Conclusion:** Pure GE-LAV says hold. Hybrid view (GE-LAV + Solvency II): probably still hold, but the case is closer than a non-regulatory LP would face.
+
+**Teaching note:** This is a realistic decision insurance allocators face quarterly. The framework is more useful for *defending* the hold decision to a board than for making a clear binary call.
+
+## Common Student Confusions (Instructor Notes)
+
+- **"The boundary is so deep ($L^* \approx -1.5$). When would anyone actually trigger exit?"** GFC was −2.0+ at peak distress. COVID briefly touched −1.0. Boundary is conservative on purpose — exit is value-destroying unless conditions are extreme.
+- **"What if my secondary market price is below GE-LAV equilibrium?"** Then the secondary market is offering you a *bad* deal, and you should hold. The exit boundary uses the secondary price as the alternative — if that price is too low, the boundary correctly says hold.
+- **"Does the boundary depend on my personal $\gamma$ (risk aversion)?"** Slightly. Higher $\gamma$ → exit more readily (less willing to bear hold risk). But the boundary moves only modestly across reasonable $\gamma$ values.
+- **"What if I disagree with the OU calibration?"** That's the right question. Robustness checks (using bootstrap CI on $\kappa, \sigma, \bar{L}$) show the boundary is robust to ±20% parameter variation. Anything beyond that, recalibrate.
+
+## What to Expect Next Session
+
+Session 13 covers **liquidity traps and the historical performance** of the GE-LAV exit rule across multiple episodes. We'll examine:
+
+- The 2008–2010 GFC in detail (the worst-case test of the framework)
+- COVID 2020 (sharp shock, fast recovery — does GE-LAV handle this?)
+- Rate shock 2022 (slow-burn vs. fast crisis)
+- The Pigouvian exit tax (preview — full treatment Session 24)
+
+**Reading:** Book Chapter 6, sections 6.7–6.10 (~10 pages).
+
+------------------------------------------------------------------------
+
+[← Session 11](session-11.qmd) | [Schedule](../schedule.qmd) | [Next: Session 13 →](session-13.qmd)

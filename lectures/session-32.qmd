@@ -1,0 +1,178 @@
+# Session 32: Capstone — Project Presentations {#sec-session-32}
+
+| | |
+|---|---|
+| **Unit** | Capstone (both tracks reunified) |
+| **Format** | Project presentations + brief course wrap-up |
+| **Slides needed** | ~5 new (course wrap-up) |
+| **Assessment milestone** | **Final paper + presentation due** |
+
+::: callout-important
+## Capstone Session
+
+Both tracks reunite for project presentations. Each student presents for 20 minutes + 5-minute Q&A. The Q&A is graded.
+
+**Order:** Random selection at start of class. Be prepared from the start.
+
+**Final paper:** Submit via course site before your presentation. Final paper graded separately.
+:::
+
+## Session Structure (75 Minutes × Possibly Multiple Class Days)
+
+With 32-session courses typically having 20–30 students, the capstone often spans **2 class meetings** (Session 32 spread across the final week). Coordinate with your TA on scheduling. Assume two 75-minute slots: Session 32-A and Session 32-B.
+
+### Per-Student Time Allocation
+
+| Element | Duration | What happens |
+|---|---|---|
+| Set-up | 1 min | Take seat, audio check, slide load |
+| Presentation | 20 min | Project presentation |
+| Q&A | 5 min | Questions from instructor, TA, fellow students |
+| Transition | 1 min | Wrap up, next student up |
+| **Total per student** | **~27 min** | |
+
+In a 75-minute class, **2–3 presentations** per class period is the realistic cap.
+
+### Total Capstone Time
+
+- 20–30 students × 27 min = ~9–14 hours
+- Across 32-A, 32-B, and possibly designated final exam week sessions
+- Plan accordingly
+
+## Final Course Wrap-Up Slide Briefs
+
+After all presentations conclude, a brief wrap-up session.
+
+### Slide 32.1 — Title
+
+- **Title:** "Course Conclusion"
+- **Tag line:** "What we built. Where it goes."
+- **Speaker notes:** Brief but real closure. Acknowledge what students accomplished.
+
+### Slide 32.2 — Course Synthesis (One-Slide)
+
+- **Title:** "GE-LAV in one slide (revisited)"
+- **Layout:** Same master visual from Session 24
+- **The five main results:**
+  1. Jensen bias (closed-form)
+  2. Optimal exit boundary $L^*(t)$
+  3. Welfare gap (~2.3%/yr)
+  4. Pigouvian exit tax
+  5. Strict valuation hierarchy DCF ⊊ LAV ⊊ GE-LAV
+- **Speaker notes:** Anchor the framework one last time.
+
+### Slide 32.3 — What Each Student Now Knows
+
+- **Title:** "What you can now do"
+- **For Track 1 students:**
+  - Apply GE-LAV to real private market assets
+  - Communicate liquidity-adjusted analysis to IC/board
+  - Distinguish DCF/LAV/GE-LAV in practice
+  - Make informed allocation, exit, and stress test recommendations
+- **For Track 2 students:**
+  - Derive the framework's results from first principles
+  - Implement HJB, FP, MFG numerically
+  - Extend the framework theoretically
+  - Connect to broader MFG/systemic risk research
+
+### Slide 32.4 — How to Use This Knowledge
+
+- **Title:** "Where this knowledge goes"
+- **Professional use cases:**
+  - LP allocation decisions and IPS construction
+  - GP valuation discipline and IC communication
+  - Regulatory and policy work
+  - Consulting / advisory work for institutional investors
+  - PhD research extending the framework
+- **Continuing education:**
+  - GE-LAV platform updates (new asset classes, new calibrations)
+  - Regulatory developments (Solvency II updates, IPEV revisions)
+  - Academic literature on MFG and private market valuation
+- **Speaker notes:** Help students translate course knowledge into career.
+
+### Slide 32.5 — Personal Note
+
+- **Title:** "Thank you"
+- **Brief acknowledgment of the cohort:**
+  - First time teaching this course
+  - Recognition of student engagement
+  - Encouragement to stay in touch (LinkedIn, professional network)
+- **Course evaluation:** Reminder to complete
+- **Speaker notes:** This is the personal moment. Brief but real.
+
+## How the Presentations Are Graded
+
+Each presentation is graded on the criteria from the [project specification](../project/project-specification.qmd):
+
+| Criterion | Weight |
+|---|---|
+| Clarity of motivation and question | 3% |
+| Quality of empirical work and calibration | 5% |
+| Correct application of GE-LAV framework | 6% |
+| Quality of comparison and economic interpretation | 4% |
+| Quality of recommendation/conclusion | 3% |
+| Q&A defense | 4% |
+| **Total presentation** | **25%** |
+
+The final paper adds 5% more:
+
+| Criterion | Weight |
+|---|---|
+| Improvement over draft | 2% |
+| Writing quality and polish | 2% |
+| Final results are correct | 1% |
+| **Total final paper** | **5%** |
+
+Combined: Project = 30% (presentation 25% + final paper 5%) + 15% (proposal 5% + draft 15%) = 50% of course.
+
+## Q&A Guidelines
+
+### For Presenters
+
+- **Anticipate questions:** Re-read your work; what would you ask if you were the instructor?
+- **Be honest about limitations:** Saying "I assumed X; the result would change if Y" beats pretending you handled everything
+- **Defend with reasoning, not certainty:** "My approach was Z because of A and B" is better than "Z is the obvious choice"
+- **Stay calm:** Q&A is meant to test understanding, not to embarrass
+
+### Common Questions (Examples)
+
+- "Why did you choose this specific asset?" → Should align with your motivation slide
+- "How robust is your calibration to parameter variation?" → Should match your sensitivity analysis
+- "Did you consider the McKean-Vlasov externality?" → Critical for stress scenarios
+- "What's the IC-relevant magnitude here?" → Numbers in dollars, not percentages
+- "Why does GE-LAV differ from DCF in this case?" → Channel-specific decomposition expected
+- "Would Track [other] students have approached this differently?" → Cross-track perspective
+
+## Final Logistics
+
+### Submission Checklist (Day of Session 32)
+
+- [ ] Final paper (20 pages + references + appendices) — submitted via course site **before presentation**
+- [ ] Presentation slides — uploaded to course site
+- [ ] Supporting materials (code, spreadsheets, GE-LAV platform exports) — submitted with paper
+- [ ] Course evaluation — completed online
+- [ ] Outstanding office hours feedback — submitted
+
+### After Session 32
+
+- **Final grades:** Posted within 14 days
+- **Re-grade requests:** 7 days from grade posting; submit in writing
+- **Course website remains live:** All materials accessible for at least 1 year
+- **Reference and recommendation requests:** Email instructor; standard 2-week turnaround
+
+## A Final Word
+
+The GE-LAV framework introduced in this course is **new**. The book was published in 2026; the framework has only been in the public discourse for a year. You — as students in the first iterations of this course — are among the earliest to systematically understand and apply this material.
+
+That means **you carry forward responsibility**:
+
+- For Track 1 students: bring intellectual honesty to GE-LAV adoption. Help institutions use it well.
+- For Track 2 students: extend the framework. Test it. Critique it. Make it stronger.
+
+If you find errors, omissions, or improvements in the course or the framework, please share them. The course will be revised; the framework will evolve. Your contribution shapes both.
+
+**Thank you for the semester.**
+
+------------------------------------------------------------------------
+
+[← Session 31](session-31.qmd) | [Schedule](../schedule.qmd) | [Back to Course Home](../index.qmd)

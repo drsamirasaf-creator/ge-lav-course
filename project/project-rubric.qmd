@@ -1,0 +1,308 @@
+# Project Rubric (Detailed) {#sec-project-rubric}
+
+This document provides the detailed grading rubric for the term project, which constitutes **50% of the course grade**. The rubric is structured by the four assessment components and provides specific point allocations within each.
+
+## Component Summary
+
+| Component | Weight | Due |
+|---|---|---|
+| Proposal | 5% | Session 14 |
+| Draft (15 pages) | 15% | Session 30 |
+| Final paper (20 pages) | 5% | Session 32 |
+| Presentation + Q&A | 25% | Session 32 |
+| **Total** | **50%** | |
+
+---
+
+## Component 1: Project Proposal (5 points)
+
+Due: **Start of Session 14**. 2-3 page document.
+
+### Required Elements
+
+| Element | Points | Description |
+|---|---|---|
+| Question clarity | 1.0 | Is the valuation question precisely stated? Specific asset(s)? Specific time frame? |
+| Asset specification | 1.0 | Is the asset identified concretely (fund name, vintage, position size)? |
+| Methodology outline | 1.0 | Are the GE-LAV analysis steps specified (calibration, valuation, comparison)? |
+| Data plan | 1.0 | Are data sources identified? Is access feasible? |
+| Track declaration | 0.5 | Track 1 or Track 2 — confirmed and justified by question type |
+| Feasibility | 0.5 | Is the project completable in the remaining 16 sessions? |
+
+### Grading Detail by Element
+
+**Question clarity (1.0 pts):**
+- 1.0 — Question is one specific, testable statement (e.g., "Is the GE-LAV-adjusted fair value of [Bain Capital Asia X] consistent with the current secondary market bid?")
+- 0.75 — Question is specific but with minor ambiguity
+- 0.5 — Question stated but somewhat vague (e.g., "Apply GE-LAV to PE buyout")
+- 0.0 — No clear question or generic topic
+
+**Asset specification (1.0 pts):**
+- 1.0 — Concrete asset: fund name, vintage, position size, current NAV
+- 0.75 — Asset class + representative example (acceptable for confidentiality)
+- 0.5 — Generic asset description
+- 0.0 — No asset specified
+
+**Methodology outline (1.0 pts):**
+- 1.0 — Clear 5-7 step methodology with GE-LAV components identified
+- 0.5 — Methodology stated but lacks specificity
+- 0.0 — Generic "we'll do analysis"
+
+**Data plan (1.0 pts):**
+- 1.0 — Specific data sources, access path, backup if primary unavailable
+- 0.5 — Data sources named but access uncertain
+- 0.0 — No data plan or unrealistic plan
+
+**Track declaration (0.5 pts):**
+- 0.5 — Track explicitly declared with brief justification
+- 0.0 — Not declared
+
+**Feasibility (0.5 pts):**
+- 0.5 — Scope appropriate; can complete in 16 sessions
+- 0.25 — Scope ambitious; achievable with discipline
+- 0.0 — Scope unrealistic (too narrow or too broad)
+
+### Common Proposal Failures
+
+- **Too vague:** "I'll analyze private equity." → Be specific.
+- **Too ambitious:** "I'll prove a new theorem in MFG theory." → Researcher track is rigorous; PhD-level work is not the standard.
+- **Wrong track:** Practitioner question with mathematical methodology, or vice versa. Check track consistency.
+- **Unavailable data:** "I'll use Vanguard internal data." → Confirm data access before proposing.
+
+---
+
+## Component 2: Project Draft (15 points)
+
+Due: **Start of Session 30**. 15-page document (excluding references and appendices).
+
+### Required Sections
+
+| Section | Points | Page Allocation |
+|---|---|---|
+| Executive summary | 1.0 | 0.5 page |
+| Motivation and question | 2.0 | 1.5 pages |
+| Literature review | 1.5 | 2 pages |
+| Methodology and data | 3.0 | 3 pages |
+| Empirical work / calibration | 3.5 | 4 pages |
+| Results | 3.0 | 3 pages |
+| Discussion and conclusion | 1.0 | 1 page |
+
+### Grading Detail by Section
+
+**Executive summary (1.0 pts):**
+- 1.0 — Self-contained; states question, approach, key result, and implication in <250 words
+- 0.5 — Adequate but doesn't stand alone
+- 0.0 — Missing or pasted from introduction
+
+**Motivation and question (2.0 pts):**
+- 2.0 — Compelling motivation; specific question; connects to broader practitioner/research literature
+- 1.5 — Adequate motivation but generic
+- 1.0 — Question clear but motivation thin
+- 0.5 — Generic statements; no specific motivation
+- 0.0 — Missing
+
+**Literature review (1.5 pts):**
+- 1.5 — Cites 5-10 key papers; situates project; identifies gap project fills
+- 1.0 — Adequate breadth; positioning unclear
+- 0.5 — Cites few papers; positioning absent
+- 0.0 — Missing
+
+**Methodology and data (3.0 pts):**
+- 3.0 — Reproducible methodology; data clearly specified; potential limitations acknowledged
+- 2.0 — Methodology clear but data treatment thin
+- 1.0 — Methodology vague; data poorly characterized
+- 0.0 — Missing
+
+**Empirical work / calibration (3.5 pts):**
+- 3.5 — Rigorous OU calibration; clear chosen parameters; confidence intervals; sensitivity analyses
+- 2.5 — Calibration done; some sensitivity but partial
+- 1.5 — Calibration superficial
+- 0.0 — Missing or not attempted
+
+**Results (3.0 pts):**
+- 3.0 — Clear comparison of DCF/LAV/GE-LAV; quantitative findings reported with magnitudes; visualization helpful
+- 2.0 — Results stated; magnitudes given but interpretation weak
+- 1.0 — Results unclear; magnitudes missing
+- 0.0 — Missing
+
+**Discussion and conclusion (1.0 pts):**
+- 1.0 — Honest discussion of limitations; clear conclusion; specific implications for practice or research
+- 0.5 — Conclusion present but generic
+- 0.0 — Missing
+
+### Track-Specific Expectations
+
+**Track 1 (Practitioner) drafts should emphasize:**
+- Real-world data analysis
+- IC-relevant recommendations
+- Comparison of practitioner methodologies
+- Clear written communication (suitable for board-level reader)
+
+**Track 2 (Researcher) drafts should emphasize:**
+- Mathematical rigor (derivations or proofs)
+- Numerical implementation (with code or pseudocode)
+- Theoretical extension or novel application
+- Connection to academic literature
+
+---
+
+## Component 3: Final Paper (5 points)
+
+Due: **Before presentation in Session 32**. 20 pages (5 additional pages from draft).
+
+### Grading Focus
+
+| Element | Points | Description |
+|---|---|---|
+| Improvement over draft | 2.0 | Are peer review comments addressed? Are issues from draft resolved? |
+| Writing quality | 2.0 | Professional polish; structure; clarity; no typos |
+| Final correctness | 1.0 | Final numerical results verified; methodology corrections applied |
+
+### Grading Detail by Element
+
+**Improvement over draft (2.0 pts):**
+
+Submit a "Revisions" footnote or appendix listing specific changes since the draft. Each substantive revision counts:
+
+- 2.0 — 5+ substantive revisions clearly addressing draft weaknesses
+- 1.5 — 3-4 substantive revisions
+- 1.0 — 1-2 substantive revisions
+- 0.5 — Minimal changes
+- 0.0 — Identical to draft
+
+**Writing quality (2.0 pts):**
+
+- 2.0 — Professional polish; clear structure; appropriate for a journal submission or board presentation
+- 1.5 — Generally clear; minor issues
+- 1.0 — Adequate but unpolished
+- 0.5 — Multiple issues with structure or clarity
+- 0.0 — Substantial rewriting needed
+
+**Final correctness (1.0 pts):**
+
+- 1.0 — All numerical computations correct on re-check; methodology sound
+- 0.5 — Minor errors caught; major issues corrected
+- 0.0 — Substantial errors persist
+
+---
+
+## Component 4: Presentation + Q&A (25 points)
+
+Date: **Session 32** (or final exam slot if scheduled separately).
+
+Format: 20-minute presentation + 5-minute Q&A.
+
+### Grading Categories
+
+| Category | Points | Description |
+|---|---|---|
+| Clarity of motivation and question | 3.0 | Opening 2-3 minutes |
+| Quality of empirical work and calibration | 5.0 | Mid-presentation |
+| Correct application of GE-LAV framework | 6.0 | Throughout |
+| Quality of comparison and economic interpretation | 4.0 | Late presentation |
+| Quality of recommendation/conclusion | 3.0 | Final 2-3 minutes |
+| Q&A defense | 4.0 | 5-minute discussion |
+
+### Grading Detail by Category
+
+**Clarity of motivation and question (3.0 pts):**
+
+- 3.0 — Opening clearly states question, motivates audience interest, frames significance in <3 minutes
+- 2.0 — Adequate motivation; takes too long or unclear
+- 1.0 — Motivation present but weak
+- 0.0 — Missing or confused
+
+**Quality of empirical work and calibration (5.0 pts):**
+
+- 5.0 — Calibration is reproducible; sensitivity analyses presented; potential issues acknowledged
+- 4.0 — Calibration done; some gaps in transparency
+- 3.0 — Calibration done; methodology vague
+- 2.0 — Calibration attempted but flawed
+- 1.0 — Inadequate empirical work
+- 0.0 — Empirical work absent or wrong
+
+**Correct application of GE-LAV framework (6.0 pts):**
+
+- 6.0 — DCF, LAV, GE-LAV correctly distinguished and computed; framework applied consistently
+- 4.5 — Three operators applied but with minor errors
+- 3.0 — One or two operators applied correctly; the third confused
+- 1.5 — Major framework errors or omissions
+- 0.0 — Framework not actually applied
+
+**Quality of comparison and economic interpretation (4.0 pts):**
+
+- 4.0 — Clear comparison with quantitative magnitudes; insightful interpretation of differences
+- 3.0 — Comparison present; interpretation weak
+- 2.0 — Comparison superficial
+- 1.0 — Comparison absent or wrong
+- 0.0 — Not attempted
+
+**Quality of recommendation/conclusion (3.0 pts):**
+
+- 3.0 — Specific, defensible recommendation; acknowledges uncertainty; quantifies implications
+- 2.0 — Recommendation clear but defense thin
+- 1.0 — Recommendation vague
+- 0.0 — Missing
+
+**Q&A defense (4.0 pts):**
+
+- 4.0 — Answers all questions with quantitative reasoning; acknowledges limitations honestly; engages substantive critique
+- 3.0 — Answers most questions adequately; some defensiveness
+- 2.0 — Answers basic questions; struggles with deeper critique
+- 1.0 — Frequent "I don't know" without intellectual engagement
+- 0.0 — Cannot defend the work
+
+### Presentation Format Notes
+
+- **No more than 20 slides** for a 20-minute presentation (1 minute per slide average)
+- **Title slide + outline:** mandatory first two slides
+- **One "headline result" slide:** mandatory — the single most important finding
+- **One sensitivity/limitations slide:** mandatory — honest discussion of weaknesses
+- **One recommendation/conclusion slide:** mandatory — bottom-line statement
+
+### Common Presentation Failures
+
+- **Time mismanagement:** Spending 15 of 20 minutes on background and 2 on results. Reverse the ratio.
+- **Numerical dump:** Reading numbers off a busy slide. Highlight 1-2 key numbers per slide.
+- **Defensive Q&A:** Treating questions as attacks. Treat them as engagement.
+- **Refusing to acknowledge limitations:** Every project has them. Naming them earns more credit than hiding them.
+
+---
+
+## Total Score Computation
+
+```
+Proposal:                    ___ / 5     (Session 14)
+Draft:                       ___ / 15    (Session 30)
+Final paper:                 ___ / 5     (Session 32)
+Presentation + Q&A:          ___ / 25    (Session 32)
+                            ----
+Project total:               ___ / 50    (50% of course grade)
+```
+
+### Project Grade Boundaries
+
+- 45+ (90%+): A (excellent)
+- 40-44 (80-89%): B (strong)
+- 35-39 (70-79%): C (adequate)
+- 30-34 (60-69%): D (significant gaps)
+- <30 (<60%): F (intervention needed)
+
+## Plagiarism and AI Use
+
+The standard course AI use policy applies (see syllabus):
+
+- AI assistance is **permitted** for drafting, debugging, and editing
+- You must **disclose** all AI use in a footnote
+- You must **understand and defend** every claim in your paper, including AI-assisted ones
+- Plagiarism (uncredited use of others' work, AI-generated or otherwise) is grounds for failure
+
+Specifically for the project:
+- Citing GE-LAV-platform outputs: OK, but understand the computation
+- Using AI for code: OK if disclosed and you understand the code
+- Using AI for writing: OK if disclosed and you've verified all factual claims
+- Submitting AI-generated work as your own: NOT OK, will result in failure
+
+---
+
+[← Project Specification](project-specification.qmd) | [Syllabus](../syllabus.qmd)

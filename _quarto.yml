@@ -1,0 +1,132 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation"
+  subtitle: "Graduate Finance Course · 32 Sessions · Spring 2027"
+  author: "Samir Asaf, PhD, CFA, CMA, CTP, CM&AA"
+  date: today
+  description: |
+    Graduate-level course on the GE-LAV® framework for liquidity-adjusted
+    valuation in private capital markets. Two-track design accommodating
+    both practitioner-oriented (Track 1) and research-oriented (Track 2)
+    graduate finance students.
+  favicon: resources/favicon.png
+  search: true
+  repo-url: https://github.com/[your-username]/ge-lav-course
+  repo-actions: [edit, source, issue]
+  page-footer:
+    left: |
+      © 2026 Samir Asaf · GE-LAV® is a registered trademark
+    right: |
+      Built with [Quarto](https://quarto.org)
+
+  chapters:
+    - index.qmd
+    - part: "Course Foundations"
+      chapters:
+        - syllabus.qmd
+        - schedule.qmd
+        - tracks.qmd
+        - slide-reuse-map.qmd
+    - part: "Assessments"
+      chapters:
+        - project/project-specification.qmd
+        - exams/midterm-blueprint.qmd
+        - problem-sets/psets-overview.qmd
+    - part: "Lectures: Common Core (Sessions 1–24)"
+      chapters:
+        - lectures/session-01.qmd
+        - lectures/session-02.qmd
+        - lectures/session-03.qmd
+        - lectures/session-04.qmd
+        - lectures/session-05.qmd
+        - lectures/session-06.qmd
+        - lectures/session-07.qmd
+        - lectures/session-08.qmd
+        - lectures/session-09.qmd
+        - lectures/session-10.qmd
+        - lectures/session-11.qmd
+        - lectures/session-12.qmd
+        - lectures/session-13.qmd
+        - lectures/session-14.qmd
+        - lectures/session-15.qmd
+        - lectures/session-16.qmd
+        - lectures/session-17.qmd
+        - lectures/session-18.qmd
+        - lectures/session-19.qmd
+        - lectures/session-20.qmd
+        - lectures/session-21.qmd
+        - lectures/session-22.qmd
+        - lectures/session-23.qmd
+        - lectures/session-24.qmd
+    - part: "Lectures: Split Track (Sessions 25–31)"
+      chapters:
+        - lectures/session-25.qmd
+        - lectures/session-26.qmd
+        - lectures/session-27.qmd
+        - lectures/session-28.qmd
+        - lectures/session-29.qmd
+        - lectures/session-30.qmd
+        - lectures/session-31.qmd
+    - part: "Capstone"
+      chapters:
+        - lectures/session-32.qmd
+    - part: "Appendices"
+      chapters:
+        - appendices/A-math-foundations.qmd
+        - appendices/B-reading-list.qmd
+
+  references: references.qmd
+
+bibliography: resources/references.bib
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: resources/custom.css
+    code-link: true
+    code-tools: true
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    crossref:
+      chapters: true
+  pdf:
+    documentclass: scrreprt
+    papersize: letter
+    geometry:
+      - margin=1in
+    fontsize: 11pt
+    fig-pos: 'H'
+    keep-tex: false
+    include-in-header:
+      text: |
+        \usepackage{amsmath,amssymb,amsthm}
+        \usepackage{mathtools}
+        \newtheorem{theorem}{Theorem}[chapter]
+        \newtheorem{lemma}[theorem]{Lemma}
+        \newtheorem{proposition}[theorem]{Proposition}
+        \newtheorem{corollary}[theorem]{Corollary}
+        \theoremstyle{definition}
+        \newtheorem{definition}[theorem]{Definition}
+        \newtheorem{example}[theorem]{Example}
+        \theoremstyle{remark}
+        \newtheorem{remark}[theorem]{Remark}
+
+execute:
+  freeze: auto
+  echo: true
+  warning: false
+  message: false
+
+knitr:
+  opts_chunk:
+    fig.width: 7
+    fig.height: 4.5
+    fig.align: center
+    dev: png
+    dpi: 150

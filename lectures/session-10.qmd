@@ -1,0 +1,105 @@
+# Session 10: Midterm Exam {#sec-session-10}
+
+| | |
+|---|---|
+| **Unit** | 2 (assessment) |
+| **Coverage** | Sessions 1–9 (Book Ch. 1–5) |
+| **Format** | Closed-book, 75 minutes, handwritten formula sheet permitted |
+| **Track** | Both tracks take the same exam |
+| **Weight** | 20% of course grade |
+
+::: callout-important
+## This session is the midterm exam, not a lecture.
+
+Students should arrive 10 minutes early, with all materials, ready to begin. See the [midterm blueprint](../exams/midterm-blueprint.qmd) for question structure, topic weighting, and sample questions.
+:::
+
+## Logistics
+
+### What to bring
+
+- Pen and pencil
+- Eraser
+- Non-programmable scientific calculator
+- One 8.5×11" double-sided **handwritten** formula sheet
+- Photo ID
+- Optional: water bottle (no spillable containers near exam papers)
+
+### What not to bring (or to stow before exam)
+
+- Phone (powered off, in bag)
+- Laptop / tablet
+- Programmable or graphing calculator
+- Typed or photocopied formula sheets
+- Books, notes, or printed papers other than the formula sheet
+
+### Timing
+
+| Time | Activity |
+|---|---|
+| 10 min before | Arrive, settle in, formula sheet check |
+| 0:00 | Exam begins — formula sheet and instructions handed out |
+| 0:00–0:75 | 75 minutes to complete exam |
+| 0:75 | Exam ends — all materials submitted including formula sheet |
+| Post-exam | Brief debrief offered as office hours (optional) |
+
+### Question Structure (Reminder)
+
+| Type | Count | Points each | Total | Suggested time |
+|---|---|---|---|---|
+| Multiple choice / short answer | 8 | 3 | 24 | 15 min |
+| Quantitative problems | 4 | 9 | 36 | 25 min |
+| Conceptual short essays | 2 | 10 | 20 | 15 min |
+| Integrative case analysis | 1 | 20 | 20 | 20 min |
+| **Total** | **15** | | **100** | **75 min** |
+
+## During the Exam
+
+### Strategy advice
+
+- **Triage first.** Read all questions before starting. Identify the easiest and start there.
+- **Show your work.** On quantitative problems, partial credit requires visible reasoning. Final answer alone earns ~40% if correct.
+- **Time discipline.** If you've spent 8 minutes on a 9-point quantitative problem, move on. Return if time permits.
+- **Conceptual essays:** Outline before writing. Quality > quantity. A focused 150-word answer beats a sprawling 250-word answer.
+- **Integrative case:** Start with (a). Even partial answers on (b)–(d) earn credit. Don't lose all 20 points by getting stuck on (a).
+
+### If you finish early
+
+- Re-read your answers
+- Double-check arithmetic on quantitative problems
+- Verify essay structure addresses all parts of the question
+- Do not leave early — there is no benefit, and you may catch errors
+
+### If you run out of time
+
+- Outline answers you couldn't complete
+- Even bullet points for an essay earn partial credit
+- Show setup on quantitative problems you didn't finish — the setup is worth points
+
+## Academic Integrity
+
+Standard university academic integrity rules apply. Specifically:
+
+- No looking at other students' papers
+- No communication with other students during the exam
+- No use of phones, smart watches, or any electronic device beyond the calculator
+- No leaving the room with the exam (bathroom breaks permitted with proctor escort)
+
+Violations result in F for the course and referral to the academic conduct office.
+
+## After the Exam
+
+- **Solutions:** Posted to course site 24 hours after the exam window closes
+- **Grades:** Returned within 7 days
+- **Re-grade requests:** Submit in writing within 7 days of grade posting, citing specific question(s) and the basis for re-grade
+- **Office hours:** Standard schedule resumes Session 11; instructor available for exam debriefs
+
+## What to Expect Next Session
+
+Session 11 begins **Unit 3: Decision and Application**. The pivot from "what's wrong with DCF" to "what does GE-LAV deliver." Session 11 introduces the **exit timing problem** — the optimal stopping decision for an LP holding an illiquid asset.
+
+**Reading for Session 11:** Book Chapter 6, sections 6.1–6.4 (~10 pages).
+
+------------------------------------------------------------------------
+
+[← Session 9](session-09.qmd) | [Schedule](../schedule.qmd) | [Next: Session 11 →](session-11.qmd)

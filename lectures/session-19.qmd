@@ -1,0 +1,269 @@
+# Session 19: Brownian Motion · Itô · OU (Concepts Only) {#sec-session-19}
+
+| | |
+|---|---|
+| **Unit** | 4 — Math Intuition Bridges |
+| **Book Chapters** | 10, 12 (concepts only — full derivations in Session 25 Track 2) |
+| **Slide source** | All new — adapted from Classes 2–5 with derivations stripped |
+| **Slides needed** | ~15 new |
+| **Track** | Common core (both tracks) |
+
+::: callout-important
+## Reading Notes for Unit 4 (Sessions 19–24)
+
+This unit teaches the **conceptual content of Part 2 of the book** — what the math *means*, what it *does*, and *why* it works — without proofs or detailed derivations. The goal is for **all students** to leave Unit 4 with a working intuition about the GE-LAV machinery.
+
+**Track 1 students** are assessed only on conceptual understanding. PS3 includes intuition-level questions for Track 1.
+
+**Track 2 students** will revisit each topic in Sessions 25–29 with full mathematical rigor — proofs, derivations, numerical implementations. PS3 for Track 2 includes mathematical work.
+
+If you find Unit 4 too easy, you'll love Sessions 25–29. If you find it too hard, the framework's *applications* (Unit 3 and Session 25+ Track 1) don't require this level of detail.
+:::
+
+## Learning Objectives
+
+By the end of this session, students will be able to:
+
+1. **Explain Brownian motion in plain language** — what it is, why it's the canonical model of randomness in continuous time.
+2. **State the four key properties** of Brownian motion (continuity, independent increments, normal distribution of increments, scale).
+3. **State Itô's lemma conceptually** — the "chain rule" of stochastic calculus — and why it has an extra term compared to ordinary calculus.
+4. **Re-derive (informally) the OU process** as a special case of an Itô SDE with mean-reverting drift.
+5. **Recognize** when Itô calculus is the right tool (continuous random processes) and when it isn't (jumps, discrete states).
+
+## Pre-Class Assignment
+
+- **Read:** Book Chapter 10 sections relevant to Brownian motion and Itô calculus — read for *concepts*, not formulas. Skim the technical derivations.
+- **Watch:** Pre-class video (10 min) explaining Brownian motion intuitively (link on course site)
+
+## In-Class Outline (75 minutes)
+
+| Time | Segment | Format |
+|---|---|---|
+| 0:00–0:10 | Why we need this · Math intuition bridges begin | Lecture |
+| 0:10–0:30 | Brownian motion: the canonical continuous random process | Lecture + simulation |
+| 0:30–0:50 | Itô's lemma: chain rule with a twist | Lecture + visual |
+| 0:50–1:05 | OU as an Itô SDE | Lecture |
+| 1:05–1:15 | What Itô calculus can and can't do | Discussion |
+
+## Slide Content Briefs (All New Slides)
+
+### Slide 19.1 — Title
+
+- **Title:** "Brownian Motion, Itô, and the OU Process"
+- **Subtitle:** "What the math actually does · Concepts only · Full derivations in Session 25 (Track 2)"
+- **Speaker notes:** Set tone immediately. Students should not be afraid of this session — it's deliberately accessible. Track 2 students should know: more rigor coming.
+
+### Slide 19.2 — Why We Need This
+
+- **Title:** "Why we need the math (even at intuition level)"
+- **The motivation:**
+  - Sessions 1–18 introduced GE-LAV's results: Jensen bias, exit boundary, hedge demand, Pigouvian tax
+  - All of these come from a *mathematical framework* — McKean-Vlasov mean-field games + stochastic control + general equilibrium
+  - To trust these results, you need to know *where they come from* (at least conceptually)
+- **What we'll do today:**
+  - Build intuition for Brownian motion and Itô calculus
+  - Understand why the OU process is the right model for liquidity
+  - See how the framework gets started
+- **Speaker notes:** Manage expectations. Today is *bridge-building*, not deep math.
+
+### Slide 19.3 — Brownian Motion: Visual First
+
+- **Title:** "Brownian motion: what it looks like"
+- **Visual:** 5 simulated Brownian motion paths overlaid on the same time axis (0 to 10)
+- **Annotations:**
+  - All start at 0
+  - All wander in different directions
+  - All are continuous (no jumps)
+  - All look "fractal" — zoom in, still random
+- **Speaker notes:** Start with the picture. Words come after.
+
+### Slide 19.4 — Brownian Motion: Four Properties
+
+- **Title:** "Brownian motion: the canonical continuous random process"
+- **Four defining properties:**
+  1. **Starts at zero:** $W_0 = 0$
+  2. **Continuous paths:** No jumps; you can draw the path without lifting the pen
+  3. **Independent increments:** What happens in $[t, t+\Delta]$ is independent of what happened before $t$
+  4. **Normally distributed increments:** $W_{t+\Delta} - W_t \sim \mathcal{N}(0, \Delta)$ — variance scales with time
+- **Origin:** "Discovered by botanist Robert Brown (1827) watching pollen grains in water. Formalized by Wiener (1923)."
+- **Speaker notes:** Connect to physical Brownian motion. Same math.
+
+### Slide 19.5 — Why Brownian Motion for Finance?
+
+- **Title:** "Why Brownian motion is the right model for randomness in finance"
+- **Three reasons:**
+  1. **Many small independent shocks → normal distribution** (Central Limit Theorem)
+  2. **Continuous trading limit:** As $\Delta \to 0$ in discrete random walks, you get Brownian motion
+  3. **Tractability:** Closed-form solutions for many problems
+- **Caveats:**
+  - Real financial returns have fat tails (Brownian motion underestimates extremes)
+  - Real returns have jumps (Brownian motion is purely continuous)
+  - For most pricing problems, Brownian motion is "good enough" as a baseline; corrections handle the rest
+- **Speaker notes:** Honest about limitations. The framework starts here but doesn't stay here.
+
+### Slide 19.6 — Itô SDEs: The Workhorse
+
+- **Title:** "Itô SDEs: stochastic ordinary differential equations"
+- **General form:** $dX_t = \mu(X_t, t)\,dt + \sigma(X_t, t)\,dW_t$
+- **Plain English translation:**
+  - $X_t$ changes over time according to two terms
+  - **Drift term** $\mu(X_t, t)\,dt$: deterministic, like a regular ODE
+  - **Diffusion term** $\sigma(X_t, t)\,dW_t$: random, scaled by Brownian motion increment
+- **Examples in finance:**
+  - **Black-Scholes (geometric BM):** $dS_t = \mu S_t\,dt + \sigma S_t\,dW_t$
+  - **Vasicek (interest rate):** $dr_t = a(b - r_t)\,dt + \sigma\,dW_t$ — mean reversion
+  - **GE-LAV (liquidity):** $dL_t = \kappa(\bar{L} - L_t)\,dt + \sigma_L\,dW_t$ — same as Vasicek!
+- **Speaker notes:** Show students they already know this structure. GE-LAV is *one step* beyond Vasicek.
+
+### Slide 19.7 — Itô's Lemma: The Concept
+
+- **Title:** "Itô's lemma: the chain rule of stochastic calculus"
+- **Ordinary calculus chain rule:** If $f(X_t)$ and $X_t$ varies, then $df = f'(X_t) dX_t$
+- **Itô's lemma:** If $X_t$ is an Itô process and $f$ is a smooth function, then:
+  - $df(X_t) = f'(X_t) dX_t + \frac{1}{2} f''(X_t) \sigma^2(X_t, t) dt$
+  - **Extra term:** $\frac{1}{2} f''(X_t) \sigma^2 dt$ — the Itô correction
+- **Why the extra term:** The Brownian motion increment $dW_t$ has variance $dt$, so $(dW_t)^2 = dt$ at order 1. Squaring matters when $f$ is curved.
+- **Speaker notes:** This is the *one technical concept* of the session. Don't gloss over the Itô correction. Tie back to Jensen's inequality.
+
+### Slide 19.8 — Itô's Lemma in Pictures
+
+- **Title:** "Why the Itô correction term"
+- **Visual:** Two panels side-by-side
+- **Left panel (deterministic):** Smooth function $f(x)$; small change $\Delta x$ → small change $\Delta f = f'(x) \Delta x$. Standard linearization.
+- **Right panel (stochastic):** Same function; random $\Delta x \sim \mathcal{N}(0, \sigma^2 \Delta t)$; expected $\Delta f$ has two terms:
+  - $f'(x) E[\Delta x] = 0$ (Brownian increment has zero mean)
+  - $\frac{1}{2} f''(x) \text{Var}(\Delta x) = \frac{1}{2} f''(x) \sigma^2 \Delta t$
+- **Bottom-line:** "The Itô term is the second-order curvature correction. It's identical in spirit to the Jensen convexity correction we saw in Session 2."
+- **Speaker notes:** Connect to Jensen. This is *the same math* applied differently.
+
+### Slide 19.9 — Itô-Jensen Connection
+
+- **Title:** "The Itô-Jensen connection"
+- **Reminder:** Jensen's inequality says $E[f(X)] > f(E[X])$ when $f$ is strictly convex
+- **Itô's lemma says:** For an Itô process $X_t$, the expected value of $f(X_t)$ has an *extra term* proportional to $f''(X_t) \sigma^2 dt$ — exactly the convexity correction
+- **Bottom-line:** "Jensen bias = integrated Itô correction over the holding period"
+- **In GE-LAV:** "The Jensen bias formula $B(T) = (\pi_2/2) \int_0^T \text{Var}(L_t) E[C_t] e^{-r_f t} dt$ comes directly from this connection"
+- **Speaker notes:** This slide unifies what students learned in Session 2 with what they're learning today. Light bulb moment for many.
+
+### Slide 19.10 — Back to the OU Process
+
+- **Title:** "The OU process as a special case"
+- **OU SDE:** $dL_t = \kappa(\bar{L} - L_t)\,dt + \sigma_L\,dW_t$
+- **Identification with general Itô form:**
+  - Drift: $\mu(L) = \kappa(\bar{L} - L)$ (linear in $L$, pointing toward $\bar{L}$)
+  - Diffusion: $\sigma(L) = \sigma_L$ (constant)
+- **Solvable in closed form** because both drift and diffusion are simple
+- **Result (stated, not derived):** Stationary distribution $\mathcal{N}(\bar{L}, \sigma^2/(2\kappa))$ — *follows from applying Itô's lemma to the change-of-variable*
+- **Speaker notes:** Bridge to Session 4 material. Now students know *why* OU has the stationary distribution they learned earlier.
+
+### Slide 19.11 — Computing E[L_t] Over Time
+
+- **Title:** "Where does $L_t$ go over time?"
+- **Conditional expectation (stated):** $E[L_t | L_0] = \bar{L} + (L_0 - \bar{L}) e^{-\kappa t}$
+- **Plain English:** "From any starting point $L_0$, the expected value decays exponentially toward $\bar{L}$ at rate $\kappa$"
+- **Half-life again:** $\ln(2)/\kappa$
+- **Conditional variance:** $\text{Var}[L_t | L_0] = \dfrac{\sigma_L^2}{2\kappa}(1 - e^{-2\kappa t})$
+  - At $t = 0$: variance = 0 (we know the starting point)
+  - As $t \to \infty$: variance approaches stationary $\sigma_L^2/(2\kappa)$
+- **Speaker notes:** This is the *forecasting* formula. Used implicitly in every exit boundary computation.
+
+### Slide 19.12 — What Itô Can't Do
+
+- **Title:** "Limitations of pure Itô calculus"
+- **Three things Itô doesn't handle:**
+  1. **Jumps:** Real markets have discrete jumps (March 2020). Itô + Brownian motion is purely continuous.
+     - **Extension:** Itô-Lévy calculus, jump-diffusion models
+  2. **Fat tails:** Brownian increments are Gaussian. Real returns have power-law tails.
+     - **Extension:** Stable processes, Variance Gamma, etc.
+  3. **Non-Markov dynamics:** Itô assumes $dX_t$ depends only on current $X_t$. Real markets have memory.
+     - **Extension:** Fractional Brownian motion, rough volatility
+- **GE-LAV extensions:** Book Ch. 13 introduces Lévy jumps to the OU process
+- **Speaker notes:** Honesty about model limitations.
+
+### Slide 19.13 — Where We Are in the Course
+
+- **Title:** "Where we are"
+- **Visual:** Course roadmap with Session 19 highlighted
+- **What we just did:** Built intuition for the *stochastic process layer* of GE-LAV
+- **Next:** Session 20 — Stochastic control and the HJB equation (the *optimal decision* layer)
+- **Speaker notes:** Frame this as the first of six bridge sessions. Each builds on the previous.
+
+### Slide 19.14 — Connecting to Earlier Sessions
+
+- **Title:** "Connecting threads"
+- **Three connections:**
+  - **Session 2 (Jensen bias):** Now you know it comes from Itô's lemma
+  - **Session 4 (OU intuition):** Now you can see the SDE structure
+  - **Session 5 (Term structure):** The horizon-dependent variance comes from $(1 - e^{-2\kappa t})$
+- **For Track 2:** "Session 25 will derive the stationary distribution from Itô's lemma + the Kolmogorov equations. Today was the preview."
+- **Speaker notes:** Show progression. Students should feel the framework cohering.
+
+### Slide 19.15 — Discussion: How Did Today Feel?
+
+- **Title:** "Discussion (last 10 min)"
+- **Questions:**
+  - What's the *single new concept* you most want to revisit?
+  - How does Itô's lemma compare to the chain rule from calculus you've seen before?
+  - For Track 2 students: are you ready for Session 25 (HJB derivation with full proofs)?
+- **Speaker notes:** This is also a soft diagnostic. If many Track 2 students are struggling, you may want to lighten Sessions 25 content.
+
+## Discussion Questions
+
+1. The Itô correction term $\frac{1}{2} f''(X_t) \sigma^2 dt$ has the same mathematical form as the Jensen convexity correction $\frac{1}{2} f''(X) \text{Var}(X)$. Why are these two expressions the same? What's the deep connection?
+2. The OU process has $\kappa = 0.45$/yr, implying half-life of liquidity shocks ~18 months. Many practitioners would estimate half-life closer to 6-12 months (faster mean reversion). What evidence would resolve this?
+3. Real liquidity has jumps (March 2020). The GE-LAV core uses pure Itô (no jumps). For the purposes of valuation, is this approximation acceptable? When does it break?
+
+## Worked Example: Applying Itô's Lemma
+
+**Setup:** Let $L_t$ follow OU with $\kappa = 0.45$, $\sigma_L = 0.32$, $\bar{L} = 1.0$. Compute the expected value and variance of $f(L_t) = L_t^2$ at $t = 5$, given $L_0 = 0$.
+
+**Step 1: Apply Itô's lemma to $f(L) = L^2$**
+
+$f'(L) = 2L$, $f''(L) = 2$
+
+$df(L_t) = 2L_t dL_t + \frac{1}{2}(2)\sigma_L^2 dt = 2L_t [\kappa(\bar{L} - L_t)dt + \sigma_L dW_t] + \sigma_L^2 dt$
+
+Take expectations (Brownian term vanishes in expectation):
+$\frac{d}{dt} E[L_t^2] = 2\kappa \bar{L} E[L_t] - 2\kappa E[L_t^2] + \sigma_L^2$
+
+**Step 2: We need $E[L_t]$ first**
+
+$E[L_t | L_0 = 0] = \bar{L}(1 - e^{-\kappa t}) = 1.0 \cdot (1 - e^{-2.25}) = 1.0 \cdot 0.894 = 0.894$
+
+So at $t = 5$, $E[L_5] = 0.894$ (close to long-run mean).
+
+**Step 3: Variance**
+
+$\text{Var}[L_t | L_0] = \frac{\sigma_L^2}{2\kappa}(1 - e^{-2\kappa t}) = \frac{0.1024}{0.9}(1 - e^{-4.5}) = 0.1138 \cdot 0.989 = 0.1126$
+
+**Step 4: $E[L_t^2]$**
+
+$E[L_t^2] = \text{Var}[L_t] + (E[L_t])^2 = 0.1126 + 0.894^2 = 0.1126 + 0.799 = 0.912$
+
+**Interpretation:** Starting at $L_0 = 0$ (stressed but not crisis), 5 years later we expect $E[L] \approx 0.89$ (close to long-run mean) with variance $\approx 0.11$ (close to stationary). The $E[L^2]$ value $\approx 0.91$ matters for the *quadratic* premium function $\pi(L)$.
+
+**Teaching note:** Don't expect students to do this calculation cold. Walk through it. The point is to *see* how Itô's lemma turns SDEs into ODE-like equations for moments.
+
+## Common Student Confusions (Instructor Notes)
+
+- **"Why is $(dW_t)^2 = dt$? That makes no sense."** It's a notational shorthand for the variance of the Brownian increment. The variance accumulates at rate $dt$, so squaring the random increment behaves like $dt$ in expectation.
+- **"If the Itô correction term is always there, isn't every expectation biased?"** Yes — every expectation of a *nonlinear function* of a stochastic process has an Itô correction. For linear functions, the correction vanishes (because $f'' = 0$).
+- **"Why do we use Brownian motion instead of just a normal random variable?"** Brownian motion is the *continuous-time* version. It lets us write SDEs that hold at every instant, not just at discrete times.
+- **"How is this different from a random walk?"** Random walk is discrete time. Brownian motion is the continuous-time limit. As $\Delta t \to 0$ in a scaled random walk, you converge to Brownian motion.
+
+## What to Expect Next Session
+
+Session 20 introduces **stochastic control and the HJB equation**. We'll cover:
+
+- The optimal control problem: choose actions $u_t$ to maximize expected utility
+- The dynamic programming principle (Bellman's logic)
+- The HJB equation: a PDE that the value function must satisfy
+- Application: the LP's exit timing problem (Session 11–13 revisited mathematically)
+
+**Reading:** Book Chapter 11 (concepts only — skim the proofs).
+
+**For Track 2:** Session 25 derives the HJB for the GE-LAV exit problem with full smooth pasting and verification theorems. Today is the conceptual setup.
+
+------------------------------------------------------------------------
+
+[← Session 18](session-18.qmd) | [Schedule](../schedule.qmd) | [Next: Session 20 →](session-20.qmd)
