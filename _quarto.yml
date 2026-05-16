@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: _book
+  resources:
+    - slides/
 
 book:
   title: "Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation"
@@ -28,6 +30,7 @@ book:
       chapters:
         - syllabus.qmd
         - schedule.qmd
+        - slides.qmd
         - tracks.qmd
         - slide-reuse-map.qmd
     - part: "Assessments"

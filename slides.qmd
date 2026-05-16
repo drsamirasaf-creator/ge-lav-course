@@ -1,0 +1,72 @@
+# Slides {#sec-slides}
+
+```{=html}
+<!-- Force PDFs in slides/ to be copied to the rendered site -->
+```
+
+::: {.callout-note}
+## Access & copyright
+
+All session slide decks are © Samir Asaf 2026. Watermarked PDFs are provided for student use within this course. Redistribution requires written permission.
+
+Click any link in the **PDF** column to view or download that session's deck.
+:::
+
+The 32 session slide decks are listed below in course order. Each PDF is watermarked and view-enabled with printing permitted; editing is disabled.
+
+| # | Session title | Unit | PDF |
+|---|---|---|---|
+| 1 | Course Intro · Why Private Market Valuation Is Broken | 1 — Why DCF Fails | [Download](slides/GE-LAV_Session_01.pdf) |
+| 2 | The Three Structural Failures · LA-CAPM | 1 — Why DCF Fails | [Download](slides/GE-LAV_Session_02.pdf) |
+| 3 | The Liquidity Illusion · Secondary Market Evidence | 1 — Why DCF Fails | [Download](slides/GE-LAV_Session_03.pdf) |
+| 4 | The OU Process for Liquidity (Intuition Only) | 1 — Why DCF Fails | [Download](slides/GE-LAV_Session_04.pdf) |
+| 5 | Term Structure of Private Capital Returns | 2 — What's Wrong & What to Measure | [Download](slides/GE-LAV_Session_05.pdf) |
+| 6 | IRR · The Internal Rate of Return Problem | 2 — What's Wrong & What to Measure | [Download](slides/GE-LAV_Session_06.pdf) |
+| 7 | PME · LA-IRR · LA-PME | 2 — What's Wrong & What to Measure | [Download](slides/GE-LAV_Session_07.pdf) |
+| 8 | What a Correct Theory Must Deliver | 2 — What's Wrong & What to Measure | [Download](slides/GE-LAV_Session_08.pdf) |
+| 9 | Midterm Review | 2 — What's Wrong & What to Measure | [Download](slides/GE-LAV_Session_09.pdf) |
+| 10 | Midterm Exam | 2 — What's Wrong & What to Measure | [Download](slides/GE-LAV_Session_10.pdf) |
+| 11 | Exit Timing · The Trapped Investor Problem | 3 — Decisions Under Stochastic Premium | [Download](slides/GE-LAV_Session_11.pdf) |
+| 12 | The Exit Boundary $L^*(t)$ — Numerical Examples | 3 — Decisions Under Stochastic Premium | [Download](slides/GE-LAV_Session_12.pdf) |
+| 13 | Liquidity Traps · Historical Performance of GE-LAV | 3 — Decisions Under Stochastic Premium | [Download](slides/GE-LAV_Session_13.pdf) |
+| 14 | Portfolio Construction · Liquidity Hedge Demand | 3 — Decisions Under Stochastic Premium | [Download](slides/GE-LAV_Session_14.pdf) |
+| 15 | Pacing · Tactical Allocation · Stress Scenarios | 3 — Decisions Under Stochastic Premium | [Download](slides/GE-LAV_Session_15.pdf) |
+| 16 | Regulatory Implications · Crisis Dynamics | 4 — Regulatory & Platform Implementation | [Download](slides/GE-LAV_Session_16.pdf) |
+| 17 | The GE-LAV® Platform — Architecture, Data, Calibration | 4 — Regulatory & Platform Implementation | [Download](slides/GE-LAV_Session_17.pdf) |
+| 18 | Platform Demo · Historical Validation | 4 — Regulatory & Platform Implementation | [Download](slides/GE-LAV_Session_18.pdf) |
+| 19 | Brownian Motion · Itô · OU (Concepts Only) | 5 — Mathematical Intuition Bridges | [Download](slides/GE-LAV_Session_19.pdf) |
+| 20 | Stochastic Control · HJB Equation (Concepts Only) | 5 — Mathematical Intuition Bridges | [Download](slides/GE-LAV_Session_20.pdf) |
+| 21 | Mean-Field Games (Concepts Only) | 5 — Mathematical Intuition Bridges | [Download](slides/GE-LAV_Session_21.pdf) |
+| 22 | Fokker-Planck · Master Equation (Concepts Only) | 5 — Mathematical Intuition Bridges | [Download](slides/GE-LAV_Session_22.pdf) |
+| 23 | The LAV Operator · GE Equilibrium · Market Clearing | 5 — Mathematical Intuition Bridges | [Download](slides/GE-LAV_Session_23.pdf) |
+| 24 | Jensen Bias · Pigouvian Tax · Welfare (Synthesis) | 5 — Mathematical Intuition Bridges | [Download](slides/GE-LAV_Session_24.pdf) |
+| 25 | Split Track — PE Buyout Workshop / Full HJB Derivation | 6 — Split Track (T1 / T2) | [Download](slides/GE-LAV_Session_25.pdf) |
+| 26 | Split Track — VC & Secondaries / McKean-Vlasov MFG Proofs | 6 — Split Track (T1 / T2) | [Download](slides/GE-LAV_Session_26.pdf) |
+| 27 | Split Track — Infrastructure / Fokker-Planck & Master Eq | 6 — Split Track (T1 / T2) | [Download](slides/GE-LAV_Session_27.pdf) |
+| 28 | Split Track — Private Credit / GE Equilibrium Existence | 6 — Split Track (T1 / T2) | [Download](slides/GE-LAV_Session_28.pdf) |
+| 29 | Split Track — Digital & Climate / Jensen + Pigouvian Proofs | 6 — Split Track (T1 / T2) | [Download](slides/GE-LAV_Session_29.pdf) |
+| 30 | Project Draft Workshop · Valuation Hierarchy Proof (T2) | 6 — Split Track (T1 / T2) | [Download](slides/GE-LAV_Session_30.pdf) |
+| 31 | Research Frontiers · Course Synthesis | 6 — Split Track (T1 / T2) | [Download](slides/GE-LAV_Session_31.pdf) |
+| 32 | Capstone — Project Presentations | 7 — Capstone | [Download](slides/GE-LAV_Session_32.pdf) |
+
+: 32 session slide decks {.striped .hover tbl-colwidths="[5,45,30,20]"}
+
+## Download all decks {.unnumbered}
+
+A bundled archive of all 32 PDFs is available: [`GE-LAV_Session_Decks.zip`](slides/GE-LAV_Session_Decks.zip) (~7 MB).
+
+## Notes on the slides {.unnumbered}
+
+- **Format.** 16:9 widescreen, optimized for projection. Default Calibri typeface; navy/gold accent palette.
+- **Density.** Slides are dense (8–15 elements typical) and designed to be discussed, not read silently.
+- **Mathematics.** Equations are rendered as embedded images for fidelity across viewing platforms.
+- **Tracks.** Sessions 25–31 contain agenda content for both Track 1 (practitioner cases) and Track 2 (researcher proofs); live instruction expands the relevant track.
+- **Edits.** PDFs are encrypted to disable editing. For source `.pptx` files (instructor use only), contact the course author.
+
+```{=html}
+<style>
+table { font-size: 0.92em; }
+table td:first-child { text-align: center; font-weight: 600; color: #1E3A5F; }
+table td:last-child a { font-weight: 600; }
+</style>
+```
