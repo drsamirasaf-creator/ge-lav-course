@@ -4,3 +4,6 @@ _freeze/
 *.tex
 *.log
 .DS_Store
+
+/.quarto/
+**/*.quarto_ipynb
