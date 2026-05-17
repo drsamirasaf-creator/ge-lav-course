@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Graduate-level course on the GE-LAV® framework for liquidity-adjusted valuation in private capital markets. Two-track design accommodating both practitioner-oriented (Track 1) and research-oriented (Track 2) graduate finance students.">
+
+<title>28&nbsp; Session 18: Platform Demo · Historical Validation – Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../lectures/session-19.html" rel="next">
+<link href="../lectures/session-17.html" rel="prev">
+<link href="../resources/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="resources/custom.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/session-01.html">Lectures: Common Core (Sessions 1–24)</a></li><li class="breadcrumb-item"><a href="../lectures/session-18.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Session 18: Platform Demo · Historical Validation</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/[your-username]/ge-lav-course" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The General Equilibrium Theory of Private Capital Valuation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Course Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">32-Session Schedule</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Slides</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Companion Code</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tracks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Track Declaration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slide-reuse-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Slide Reuse Map</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Assessments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/project-specification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Term Project Specification</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/midterm-blueprint.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Midterm Exam Blueprint</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../problem-sets/psets-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Problem Sets Overview</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lectures: Common Core (Sessions 1–24)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Session 1: Course Intro · Why Private Market Valuation Is Broken</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Session 2: The Three Structural Failures · LA-CAPM</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Session 3: The Liquidity Illusion · Secondary Market Evidence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Session 4: The OU Process for Liquidity (Intuition Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Session 5: Term Structure of Private Capital Returns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Session 6: IRR · The Internal Rate of Return Problem</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Session 7: PME · LA-IRR · LA-PME</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Session 8: What a Correct Theory Must Deliver</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Session 9: Midterm Review</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Session 10: Midterm Exam</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Session 11: Exit Timing · The Trapped Investor Problem</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Session 12: The Exit Boundary <span class="math inline">\(L^*(t)\)</span> — Numerical Examples</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Session 13: Liquidity Traps · Historical Performance of GE-LAV</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Session 14: Portfolio Construction · Liquidity Hedge Demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Session 15: Pacing · Tactical Allocation · Stress Scenarios</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Session 16: Regulatory Implications · Crisis Dynamics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Session 17: The GE-LAV® Platform — Architecture, Data, Calibration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-18.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Session 18: Platform Demo · Historical Validation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Session 19: Brownian Motion · Itô · OU (Concepts Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Session 20: Stochastic Control · HJB Equation (Concepts Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Session 21: Mean-Field Games (Concepts Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Session 22: Fokker-Planck · Master Equation (Concepts Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Session 23: The LAV Operator · GE Equilibrium · Market Clearing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Session 24: Jensen Bias · Pigouvian Tax · Welfare (Synthesis)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lectures: Split Track (Sessions 25–31)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Session 25: Split Track — PE Buyout Workshop / Full HJB Derivation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-26.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Session 26: Split Track — VC &amp; Secondaries / McKean-Vlasov MFG Proofs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Session 27: Split Track — Infrastructure Case / Fokker-Planck &amp; Master Equation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Session 28: Split Track — Private Credit Case / GE Equilibrium Existence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Session 29: Split Track — Digital Assets &amp; Climate / Jensen + Pigouvian Proofs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-30.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Session 30: Project Draft Workshop · Valuation Hierarchy Proof (T2)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-31.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Session 31: Research Frontiers · Course Synthesis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Capstone</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-32.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Session 32: Capstone — Project Presentations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/A-math-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Appendix A: Mathematical Foundations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/B-reading-list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Reading List</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">28.1</span> Learning Objectives</a></li>
+  <li><a href="#pre-class-assignment" id="toc-pre-class-assignment" class="nav-link" data-scroll-target="#pre-class-assignment"><span class="header-section-number">28.2</span> Pre-Class Assignment</a></li>
+  <li><a href="#in-class-outline-75-minutes" id="toc-in-class-outline-75-minutes" class="nav-link" data-scroll-target="#in-class-outline-75-minutes"><span class="header-section-number">28.3</span> In-Class Outline (75 minutes)</a></li>
+  <li><a href="#slide-content-briefs-new-slides-needed" id="toc-slide-content-briefs-new-slides-needed" class="nav-link" data-scroll-target="#slide-content-briefs-new-slides-needed"><span class="header-section-number">28.4</span> Slide Content Briefs (New Slides Needed)</a>
+  <ul class="collapse">
+  <li><a href="#slide-18.1-title" id="toc-slide-18.1-title" class="nav-link" data-scroll-target="#slide-18.1-title"><span class="header-section-number">28.4.1</span> Slide 18.1 — Title</a></li>
+  <li><a href="#slide-18.2-end-to-end-demo-setup-new-slide" id="toc-slide-18.2-end-to-end-demo-setup-new-slide" class="nav-link" data-scroll-target="#slide-18.2-end-to-end-demo-setup-new-slide"><span class="header-section-number">28.4.2</span> Slide 18.2 — End-to-End Demo Setup (New Slide)</a></li>
+  <li><a href="#slide-18.3-validation-backtest-gfc-20082010-new-slide" id="toc-slide-18.3-validation-backtest-gfc-20082010-new-slide" class="nav-link" data-scroll-target="#slide-18.3-validation-backtest-gfc-20082010-new-slide"><span class="header-section-number">28.4.3</span> Slide 18.3 — Validation Backtest: GFC 2008–2010 (New Slide)</a></li>
+  <li><a href="#slide-18.4-validation-backtest-covid-2020-new-slide" id="toc-slide-18.4-validation-backtest-covid-2020-new-slide" class="nav-link" data-scroll-target="#slide-18.4-validation-backtest-covid-2020-new-slide"><span class="header-section-number">28.4.4</span> Slide 18.4 — Validation Backtest: COVID 2020 (New Slide)</a></li>
+  <li><a href="#slide-18.5-validation-backtest-2022-rate-shock-new-slide" id="toc-slide-18.5-validation-backtest-2022-rate-shock-new-slide" class="nav-link" data-scroll-target="#slide-18.5-validation-backtest-2022-rate-shock-new-slide"><span class="header-section-number">28.4.5</span> Slide 18.5 — Validation Backtest: 2022 Rate Shock (New Slide)</a></li>
+  </ul></li>
+  <li><a href="#existing-slides-to-reuse" id="toc-existing-slides-to-reuse" class="nav-link" data-scroll-target="#existing-slides-to-reuse"><span class="header-section-number">28.5</span> Existing Slides to Reuse</a>
+  <ul class="collapse">
+  <li><a href="#from-classes-10-12-25-remainder" id="toc-from-classes-10-12-25-remainder" class="nav-link" data-scroll-target="#from-classes-10-12-25-remainder"><span class="header-section-number">28.5.1</span> From Classes 10, 12, 25 (Remainder)</a></li>
+  </ul></li>
+  <li><a href="#discussion-questions" id="toc-discussion-questions" class="nav-link" data-scroll-target="#discussion-questions"><span class="header-section-number">28.6</span> Discussion Questions</a></li>
+  <li><a href="#worked-example-translating-platform-output-to-ic-memo" id="toc-worked-example-translating-platform-output-to-ic-memo" class="nav-link" data-scroll-target="#worked-example-translating-platform-output-to-ic-memo"><span class="header-section-number">28.7</span> Worked Example: Translating Platform Output to IC Memo</a></li>
+  <li><a href="#common-student-confusions-instructor-notes" id="toc-common-student-confusions-instructor-notes" class="nav-link" data-scroll-target="#common-student-confusions-instructor-notes"><span class="header-section-number">28.8</span> Common Student Confusions (Instructor Notes)</a></li>
+  <li><a href="#what-to-expect-next-session" id="toc-what-to-expect-next-session" class="nav-link" data-scroll-target="#what-to-expect-next-session"><span class="header-section-number">28.9</span> What to Expect Next Session</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/[your-username]/ge-lav-course/edit/main/lectures/session-18.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/blob/main/lectures/session-18.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/session-01.html">Lectures: Common Core (Sessions 1–24)</a></li><li class="breadcrumb-item"><a href="../lectures/session-18.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Session 18: Platform Demo · Historical Validation</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-session-18" class="quarto-section-identifier"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Session 18: Platform Demo · Historical Validation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><strong>Unit</strong></td>
+<td>3 — Decision and Application</td>
+</tr>
+<tr class="even">
+<td><strong>Book Chapter</strong></td>
+<td>9 (sections 9.6–9.10)</td>
+</tr>
+<tr class="odd">
+<td><strong>Slide source</strong></td>
+<td>Reuse Classes 10, 12, 25 (remainder) + ~5 new</td>
+</tr>
+<tr class="even">
+<td><strong>Slides needed</strong></td>
+<td>~5 new + adapt ~8 from existing</td>
+</tr>
+<tr class="odd">
+<td><strong>Track</strong></td>
+<td>Common core (both tracks)</td>
+</tr>
+</tbody>
+</table>
+<section id="learning-objectives" class="level2" data-number="28.1">
+<h2 data-number="28.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">28.1</span> Learning Objectives</h2>
+<p>By the end of this session, students will be able to:</p>
+<ol type="1">
+<li><strong>Execute</strong> a complete portfolio valuation workflow on the GE-LAV® platform — from raw data to investment committee output.</li>
+<li><strong>Validate</strong> platform outputs against historical episodes and identify what the platform would have recommended at each turning point.</li>
+<li><strong>Identify</strong> known limitations of the platform: data gaps, calibration sensitivity, regime-shift assumption violations.</li>
+<li><strong>Translate</strong> platform outputs into business language suitable for IC memos, board decks, or regulatory disclosure.</li>
+<li><strong>Diagnose</strong> typical errors in platform usage (wrong asset class selection, stale calibration, ignoring confidence intervals).</li>
+</ol>
+</section>
+<section id="pre-class-assignment" class="level2" data-number="28.2">
+<h2 data-number="28.2" class="anchored" data-anchor-id="pre-class-assignment"><span class="header-section-number">28.2</span> Pre-Class Assignment</h2>
+<ul>
+<li><strong>Read:</strong> Book Chapter 9, sections 9.6–9.10 (~10 pages)</li>
+<li><strong>Try:</strong> Run the platform tutorial walkthrough (link on course site, 30 min)</li>
+</ul>
+</section>
+<section id="in-class-outline-75-minutes" class="level2" data-number="28.3">
+<h2 data-number="28.3" class="anchored" data-anchor-id="in-class-outline-75-minutes"><span class="header-section-number">28.3</span> In-Class Outline (75 minutes)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Segment</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00–0:05</td>
+<td>Recap Session 17 · Today: full pipeline + validation</td>
+<td>Lecture</td>
+</tr>
+<tr class="even">
+<td>0:05–0:25</td>
+<td>Live demo: end-to-end portfolio valuation</td>
+<td>Live demo</td>
+</tr>
+<tr class="odd">
+<td>0:25–0:45</td>
+<td>Validation: GFC, COVID, 2022 backtest</td>
+<td>Lecture + chart deep-dive</td>
+</tr>
+<tr class="even">
+<td>0:45–0:55</td>
+<td>Platform limitations</td>
+<td>Lecture</td>
+</tr>
+<tr class="odd">
+<td>0:55–1:10</td>
+<td>Translating outputs to IC language</td>
+<td>Activity</td>
+</tr>
+<tr class="even">
+<td>1:10–1:15</td>
+<td>Wrap-up Unit 3 · Bridge to math intuition (Sessions 19–24)</td>
+<td>Lecture</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="slide-content-briefs-new-slides-needed" class="level2" data-number="28.4">
+<h2 data-number="28.4" class="anchored" data-anchor-id="slide-content-briefs-new-slides-needed"><span class="header-section-number">28.4</span> Slide Content Briefs (New Slides Needed)</h2>
+<section id="slide-18.1-title" class="level3" data-number="28.4.1">
+<h3 data-number="28.4.1" class="anchored" data-anchor-id="slide-18.1-title"><span class="header-section-number">28.4.1</span> Slide 18.1 — Title</h3>
+<ul>
+<li><strong>Title:</strong> “Platform Demo and Historical Validation”</li>
+<li><strong>Tag line:</strong> “Does it actually work?”</li>
+<li><strong>Speaker notes:</strong> Today is empirical credibility for the platform. Same way Session 13 tested the framework, today tests the implementation.</li>
+</ul>
+</section>
+<section id="slide-18.2-end-to-end-demo-setup-new-slide" class="level3" data-number="28.4.2">
+<h3 data-number="28.4.2" class="anchored" data-anchor-id="slide-18.2-end-to-end-demo-setup-new-slide"><span class="header-section-number">28.4.2</span> Slide 18.2 — End-to-End Demo Setup (New Slide)</h3>
+<ul>
+<li><strong>Title:</strong> “Demo: a 5-position institutional portfolio”</li>
+<li><strong>Portfolio (hypothetical):</strong></li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Position</th>
+<th>Asset Class</th>
+<th>Vintage</th>
+<th>NAV ($M)</th>
+<th>Hold Remaining (yr)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fund A</td>
+<td>PE Buyout</td>
+<td>2020</td>
+<td>75</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Fund B</td>
+<td>Infrastructure</td>
+<td>2018</td>
+<td>120</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>Fund C</td>
+<td>Growth Equity</td>
+<td>2021</td>
+<td>50</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>Fund D</td>
+<td>Private Credit</td>
+<td>2022</td>
+<td>45</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>Fund E</td>
+<td>Real Estate</td>
+<td>2019</td>
+<td>80</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>$370M</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Demo will produce:</strong>
+<ul>
+<li>Position-level LAV and GE-LAV marks</li>
+<li>Portfolio-level totals</li>
+<li>Exit recommendations</li>
+<li>Stress-scenario portfolio values</li>
+<li>Pigouvian tax accruals (if any positions are below exit boundary)</li>
+</ul></li>
+<li><strong>Speaker notes:</strong> Walk through this live on screen. Don’t just describe it.</li>
+</ul>
+</section>
+<section id="slide-18.3-validation-backtest-gfc-20082010-new-slide" class="level3" data-number="28.4.3">
+<h3 data-number="28.4.3" class="anchored" data-anchor-id="slide-18.3-validation-backtest-gfc-20082010-new-slide"><span class="header-section-number">28.4.3</span> Slide 18.3 — Validation Backtest: GFC 2008–2010 (New Slide)</h3>
+<ul>
+<li><strong>Title:</strong> “Validation 1: The Global Financial Crisis”</li>
+<li><strong>Setup:</strong> “Apply the platform retroactively to a representative institutional portfolio in Q4 2007. Track outputs through Q4 2010.”</li>
+<li><strong>Findings:</strong>
+<ul>
+<li><strong>Q4 2007:</strong> Platform recommended <em>holding</em> at current levels (LAV ≈ DCF; minimal gap)</li>
+<li><strong>Q3 2008:</strong> Platform began flagging stress; recommended reducing new commitments</li>
+<li><strong>Q1 2009:</strong> Platform exit boundary triggered for short-horizon positions (<span class="math inline">\(&lt;5\)</span> years)</li>
+<li><strong>Q3 2009:</strong> Platform recommended <em>opportunistic secondary purchases</em> (regime indicator: deep stress)</li>
+<li><strong>Q4 2010:</strong> Recovery confirmed; recommendation returned to normal pacing</li>
+</ul></li>
+<li><strong>Counterfactual:</strong> “An LP following platform recommendations would have improved 2008-2014 returns by ~5-8 percentage points vs.&nbsp;naive hold-through.”</li>
+<li><strong>Speaker notes:</strong> This is <em>retroactive</em> application — important methodological caveat. The platform was calibrated using post-GFC data so backtesting is informative but not pure.</li>
+</ul>
+</section>
+<section id="slide-18.4-validation-backtest-covid-2020-new-slide" class="level3" data-number="28.4.4">
+<h3 data-number="28.4.4" class="anchored" data-anchor-id="slide-18.4-validation-backtest-covid-2020-new-slide"><span class="header-section-number">28.4.4</span> Slide 18.4 — Validation Backtest: COVID 2020 (New Slide)</h3>
+<ul>
+<li><strong>Title:</strong> “Validation 2: COVID-19 Shock”</li>
+<li><strong>Findings:</strong>
+<ul>
+<li><strong>Q1 2020:</strong> Platform flagged transient stress; exit signal briefly active for short-horizon positions</li>
+<li><strong>Q2 2020:</strong> Platform recommended <em>hold</em> despite continued stress (mean reversion expected)</li>
+<li><strong>Q3 2020:</strong> Recovery confirmed; normal pacing resumed</li>
+</ul></li>
+<li><strong>Counterfactual:</strong> “An LP who panicked in March-April 2020 and sold secondaries at 20% discount would have lost ~10-15% of NAV unnecessarily. Platform would have recommended hold.”</li>
+<li><strong>Result:</strong> Platform performed well — fast mean reversion within OU parameters.</li>
+<li><strong>Speaker notes:</strong> COVID was the platform’s best episode. Sharp shock + fast recovery is exactly the regime OU is built for.</li>
+</ul>
+</section>
+<section id="slide-18.5-validation-backtest-2022-rate-shock-new-slide" class="level3" data-number="28.4.5">
+<h3 data-number="28.4.5" class="anchored" data-anchor-id="slide-18.5-validation-backtest-2022-rate-shock-new-slide"><span class="header-section-number">28.4.5</span> Slide 18.5 — Validation Backtest: 2022 Rate Shock (New Slide)</h3>
+<ul>
+<li><strong>Title:</strong> “Validation 3: The 2022 Rate Shock”</li>
+<li><strong>Findings:</strong>
+<ul>
+<li><strong>Q2 2022:</strong> Platform flagged stress; recommended pause on new commitments</li>
+<li><strong>Q4 2022 - Q2 2024:</strong> Platform persistently signaled stress; some short-horizon exits</li>
+<li><strong>Q3 2024:</strong> Recovery slow; platform began questioning whether <span class="math inline">\(\bar{L}\)</span> has shifted</li>
+</ul></li>
+<li><strong>Limitation:</strong> “If <span class="math inline">\(\bar{L}\)</span> has <em>permanently</em> shifted (e.g., to ~0.5 instead of 1.0 due to higher-for-longer rates), the platform needs recalibration. This is a known weakness.”</li>
+<li><strong>Speaker notes:</strong> This is honestly a partial failure. The platform handles transient shocks well but struggles with persistent shifts. Tease the regime-detection extensions in Ch. 21.</li>
+</ul>
+</section>
+</section>
+<section id="existing-slides-to-reuse" class="level2" data-number="28.5">
+<h2 data-number="28.5" class="anchored" data-anchor-id="existing-slides-to-reuse"><span class="header-section-number">28.5</span> Existing Slides to Reuse</h2>
+<section id="from-classes-10-12-25-remainder" class="level3" data-number="28.5.1">
+<h3 data-number="28.5.1" class="anchored" data-anchor-id="from-classes-10-12-25-remainder"><span class="header-section-number">28.5.1</span> From Classes 10, 12, 25 (Remainder)</h3>
+<ul>
+<li>3 slides showing calibration confidence intervals over time</li>
+<li>2 slides showing GFC backtest results visually</li>
+<li>2 slides showing COVID backtest</li>
+<li>1 slide showing the 2022 backtest (the platform’s weakest episode)</li>
+<li>2 slides showing the IC memo translation template</li>
+</ul>
+</section>
+</section>
+<section id="discussion-questions" class="level2" data-number="28.6">
+<h2 data-number="28.6" class="anchored" data-anchor-id="discussion-questions"><span class="header-section-number">28.6</span> Discussion Questions</h2>
+<ol type="1">
+<li>The platform improved hypothetical 2008–2010 returns by 5–8 percentage points. Why didn’t the GE-LAV® framework get adopted earlier, given the empirical success?</li>
+<li>The 2022 rate shock revealed a <span class="math inline">\(\bar{L}\)</span> stability assumption that may be wrong in the “higher for longer” environment. If you were running the platform, how would you decide whether <span class="math inline">\(\bar{L}\)</span> has shifted vs.&nbsp;just experienced a long stress excursion?</li>
+<li>The platform produces a “GE-LAV mark” that differs from GP-reported NAV. As an LP, do you report the platform mark to your board, or the GP mark? Why?</li>
+</ol>
+</section>
+<section id="worked-example-translating-platform-output-to-ic-memo" class="level2" data-number="28.7">
+<h2 data-number="28.7" class="anchored" data-anchor-id="worked-example-translating-platform-output-to-ic-memo"><span class="header-section-number">28.7</span> Worked Example: Translating Platform Output to IC Memo</h2>
+<p><strong>Platform output for Fund A (PE Buyout, vintage 2020, NAV $75M, 5 yr remaining):</strong></p>
+<pre><code>Reported NAV: $75.0M
+LAV Mark (Jensen-adjusted): $75.6M (+0.8% Jensen bias)
+GE-LAV Mark (current state L = -0.5): $73.1M (-2.5% equilibrium correction)
+
+Exit Boundary Analysis:
+  Current L_t: -0.5
+  Critical L*(t=5yr): -1.2
+  Recommendation: HOLD (L &gt; L*)
+
+Stress Test:
+  GFC-Scenario Value: $34.5M (-54%)
+  COVID-Scenario Value: $63.8M (-15%)
+
+Pigouvian Tax (if forced exit): 0.8% on transaction value</code></pre>
+<p><strong>Translation to IC memo language:</strong></p>
+<blockquote class="blockquote">
+<p>“Fund A (PE Buyout vintage 2020): The current GE-LAV-adjusted fair value is $73.1M, slightly below the GP-reported $75.0M (a 2.5% downward adjustment reflecting the current mild liquidity stress). Standard Jensen convexity bias adds 0.8% to value when properly accounted for; the equilibrium correction (-2.5%) reflects current secondary market conditions. The exit boundary analysis confirms hold — current liquidity state is above the critical exit threshold for the remaining horizon. Under a GFC-depth stress scenario, fair value would decline to $34.5M (a 54% drawdown). The position is appropriately retained at current parameters but should be monitored as liquidity conditions evolve.”</p>
+</blockquote>
+<p><strong>Teaching note:</strong> The translation removes math jargon while preserving quantitative content. This is the <em>practitioner deliverable</em>.</p>
+</section>
+<section id="common-student-confusions-instructor-notes" class="level2" data-number="28.8">
+<h2 data-number="28.8" class="anchored" data-anchor-id="common-student-confusions-instructor-notes"><span class="header-section-number">28.8</span> Common Student Confusions (Instructor Notes)</h2>
+<ul>
+<li><strong>“The GE-LAV mark is lower than GP NAV. Should I be worried about my GP?”</strong> Not necessarily. GP NAVs are typically smoothed and lag economic reality. The GE-LAV mark approximates what a <em>forced clearing transaction</em> would price at. Both numbers can be “right” in different senses.</li>
+<li><strong>“Why does the platform say HOLD when secondary market discounts are wide?”</strong> Because the platform compares expected hold value (including mean reversion) against current secondary price. If hold value exceeds secondary, hold dominates.</li>
+<li><strong>“What if the GP refuses to provide my data feed?”</strong> Most LPs have access to fund cash flows via their LP statements. Secondary market data is third-party (Preqin, Setter). GP doesn’t need to consent.</li>
+<li><strong>“How often should I rerun?”</strong> Quarterly is standard. After major market events, run ad-hoc.</li>
+</ul>
+</section>
+<section id="what-to-expect-next-session" class="level2" data-number="28.9">
+<h2 data-number="28.9" class="anchored" data-anchor-id="what-to-expect-next-session"><span class="header-section-number">28.9</span> What to Expect Next Session</h2>
+<p>Session 19 begins <strong>Unit 4: Math Intuition Bridges</strong>. This is where the framework’s <em>mathematical machinery</em> gets explained — at the intuition level, not the proof level.</p>
+<p>Sessions 19–24 cover: - 19: Brownian motion, Itô, OU (concepts) - 20: Stochastic control, HJB (concepts) - 21: Mean-field games (concepts) - 22: Fokker-Planck, master equation (concepts) - 23: LAV operator, GE equilibrium (concepts) - 24: Jensen bias, Pigouvian tax, welfare (results)</p>
+<p><strong>Track 1 students:</strong> These sessions give you the <em>meaning</em> of the math without the algebra. You’ll be assessed on conceptual understanding, not derivations.</p>
+<p><strong>Track 2 students:</strong> These sessions are the <em>first pass</em>. You’ll revisit each topic with full derivations in Sessions 25–29.</p>
+<p><strong>Reading:</strong> Book Chapter 10 (probability, Brownian motion, Itô) — read for <em>concepts</em>, not formulas. ~20 pages but skim heavily.</p>
+<hr>
+<p><a href="../lectures/session-17.html">← Session 17</a> | <a href="../schedule.html">Schedule</a> | <a href="../lectures/session-19.html">Next: Session 19 →</a></p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lectures/session-17.html" class="pagination-link" aria-label="Session 17: The GE-LAV® Platform — Architecture, Data, Calibration">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Session 17: The GE-LAV® Platform — Architecture, Data, Calibration</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lectures/session-19.html" class="pagination-link" aria-label="Session 19: Brownian Motion · Itô · OU (Concepts Only)">
+        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Session 19: Brownian Motion · Itô · OU (Concepts Only)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Session 18: Platform Demo · Historical Validation {#sec-session-18}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Unit** <span class="pp">|</span> 3 — Decision and Application <span class="pp">|</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Book Chapter** <span class="pp">|</span> 9 (sections 9.6–9.10) <span class="pp">|</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Slide source** <span class="pp">|</span> Reuse Classes 10, 12, 25 (remainder) + ~5 new <span class="pp">|</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Slides needed** <span class="pp">|</span> ~5 new + adapt ~8 from existing <span class="pp">|</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Track** <span class="pp">|</span> Common core (both tracks) <span class="pp">|</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objectives</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>By the end of this session, students will be able to:</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Execute** a complete portfolio valuation workflow on the GE-LAV® platform — from raw data to investment committee output.</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Validate** platform outputs against historical episodes and identify what the platform would have recommended at each turning point.</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Identify** known limitations of the platform: data gaps, calibration sensitivity, regime-shift assumption violations.</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Translate** platform outputs into business language suitable for IC memos, board decks, or regulatory disclosure.</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Diagnose** typical errors in platform usage (wrong asset class selection, stale calibration, ignoring confidence intervals).</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pre-Class Assignment</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Read:** Book Chapter 9, sections 9.6–9.10 (~10 pages)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Try:** Run the platform tutorial walkthrough (link on course site, 30 min)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## In-Class Outline (75 minutes)</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Time <span class="pp">|</span> Segment <span class="pp">|</span> Format <span class="pp">|</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:00–0:05 <span class="pp">|</span> Recap Session 17 · Today: full pipeline + validation <span class="pp">|</span> Lecture <span class="pp">|</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:05–0:25 <span class="pp">|</span> Live demo: end-to-end portfolio valuation <span class="pp">|</span> Live demo <span class="pp">|</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:25–0:45 <span class="pp">|</span> Validation: GFC, COVID, 2022 backtest <span class="pp">|</span> Lecture + chart deep-dive <span class="pp">|</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:45–0:55 <span class="pp">|</span> Platform limitations <span class="pp">|</span> Lecture <span class="pp">|</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:55–1:10 <span class="pp">|</span> Translating outputs to IC language <span class="pp">|</span> Activity <span class="pp">|</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1:10–1:15 <span class="pp">|</span> Wrap-up Unit 3 · Bridge to math intuition (Sessions 19–24) <span class="pp">|</span> Lecture <span class="pp">|</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Slide Content Briefs (New Slides Needed)</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 18.1 — Title</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Platform Demo and Historical Validation"</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tag line:** "Does it actually work?"</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Today is empirical credibility for the platform. Same way Session 13 tested the framework, today tests the implementation.</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 18.2 — End-to-End Demo Setup (New Slide)</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Demo: a 5-position institutional portfolio"</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Portfolio (hypothetical):**</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Position <span class="pp">|</span> Asset Class <span class="pp">|</span> Vintage <span class="pp">|</span> NAV ($M) <span class="pp">|</span> Hold Remaining (yr) <span class="pp">|</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fund A <span class="pp">|</span> PE Buyout <span class="pp">|</span> 2020 <span class="pp">|</span> 75 <span class="pp">|</span> 5 <span class="pp">|</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fund B <span class="pp">|</span> Infrastructure <span class="pp">|</span> 2018 <span class="pp">|</span> 120 <span class="pp">|</span> 12 <span class="pp">|</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fund C <span class="pp">|</span> Growth Equity <span class="pp">|</span> 2021 <span class="pp">|</span> 50 <span class="pp">|</span> 7 <span class="pp">|</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fund D <span class="pp">|</span> Private Credit <span class="pp">|</span> 2022 <span class="pp">|</span> 45 <span class="pp">|</span> 3 <span class="pp">|</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fund E <span class="pp">|</span> Real Estate <span class="pp">|</span> 2019 <span class="pp">|</span> 80 <span class="pp">|</span> 8 <span class="pp">|</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Total** | | | **$370M** <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Demo will produce:**</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Position-level LAV and GE-LAV marks</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Portfolio-level totals</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Exit recommendations</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Stress-scenario portfolio values</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Pigouvian tax accruals (if any positions are below exit boundary)</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Walk through this live on screen. Don't just describe it.</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 18.3 — Validation Backtest: GFC 2008–2010 (New Slide)</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Validation 1: The Global Financial Crisis"</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Setup:** "Apply the platform retroactively to a representative institutional portfolio in Q4 2007. Track outputs through Q4 2010."</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Findings:**</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Q4 2007:** Platform recommended *holding* at current levels (LAV ≈ DCF; minimal gap)</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Q3 2008:** Platform began flagging stress; recommended reducing new commitments</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Q1 2009:** Platform exit boundary triggered for short-horizon positions ($&lt;5$ years)</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Q3 2009:** Platform recommended *opportunistic secondary purchases* (regime indicator: deep stress)</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Q4 2010:** Recovery confirmed; recommendation returned to normal pacing</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Counterfactual:** "An LP following platform recommendations would have improved 2008-2014 returns by ~5-8 percentage points vs. naive hold-through."</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** This is *retroactive* application — important methodological caveat. The platform was calibrated using post-GFC data so backtesting is informative but not pure.</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 18.4 — Validation Backtest: COVID 2020 (New Slide)</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Validation 2: COVID-19 Shock"</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Findings:**</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Q1 2020:** Platform flagged transient stress; exit signal briefly active for short-horizon positions</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Q2 2020:** Platform recommended *hold* despite continued stress (mean reversion expected)</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Q3 2020:** Recovery confirmed; normal pacing resumed</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Counterfactual:** "An LP who panicked in March-April 2020 and sold secondaries at 20% discount would have lost ~10-15% of NAV unnecessarily. Platform would have recommended hold."</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Result:** Platform performed well — fast mean reversion within OU parameters.</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** COVID was the platform's best episode. Sharp shock + fast recovery is exactly the regime OU is built for.</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 18.5 — Validation Backtest: 2022 Rate Shock (New Slide)</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Validation 3: The 2022 Rate Shock"</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Findings:**</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Q2 2022:** Platform flagged stress; recommended pause on new commitments</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Q4 2022 - Q2 2024:** Platform persistently signaled stress; some short-horizon exits</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Q3 2024:** Recovery slow; platform began questioning whether $\bar{L}$ has shifted</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Limitation:** "If $\bar{L}$ has *permanently* shifted (e.g., to ~0.5 instead of 1.0 due to higher-for-longer rates), the platform needs recalibration. This is a known weakness."</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** This is honestly a partial failure. The platform handles transient shocks well but struggles with persistent shifts. Tease the regime-detection extensions in Ch. 21.</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="fu">## Existing Slides to Reuse</span></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### From Classes 10, 12, 25 (Remainder)</span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>3 slides showing calibration confidence intervals over time</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>2 slides showing GFC backtest results visually</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>2 slides showing COVID backtest</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>1 slide showing the 2022 backtest (the platform's weakest episode)</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>2 slides showing the IC memo translation template</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## Discussion Questions</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>The platform improved hypothetical 2008–2010 returns by 5–8 percentage points. Why didn't the GE-LAV® framework get adopted earlier, given the empirical success?</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>The 2022 rate shock revealed a $\bar{L}$ stability assumption that may be wrong in the "higher for longer" environment. If you were running the platform, how would you decide whether $\bar{L}$ has shifted vs. just experienced a long stress excursion?</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>The platform produces a "GE-LAV mark" that differs from GP-reported NAV. As an LP, do you report the platform mark to your board, or the GP mark? Why?</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked Example: Translating Platform Output to IC Memo</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>**Platform output for Fund A (PE Buyout, vintage 2020, NAV $75M, 5 yr remaining):**</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="in">Reported NAV: $75.0M</span></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="in">LAV Mark (Jensen-adjusted): $75.6M (+0.8% Jensen bias)</span></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="in">GE-LAV Mark (current state L = -0.5): $73.1M (-2.5% equilibrium correction)</span></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="in">Exit Boundary Analysis:</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a><span class="in">  Current L_t: -0.5</span></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="in">  Critical L*(t=5yr): -1.2</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="in">  Recommendation: HOLD (L &gt; L*)</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a><span class="in">Stress Test:</span></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a><span class="in">  GFC-Scenario Value: $34.5M (-54%)</span></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a><span class="in">  COVID-Scenario Value: $63.8M (-15%)</span></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a><span class="in">Pigouvian Tax (if forced exit): 0.8% on transaction value</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>**Translation to IC memo language:**</span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; "Fund A (PE Buyout vintage 2020): The current GE-LAV-adjusted fair value is $73.1M, slightly below the GP-reported $75.0M (a 2.5% downward adjustment reflecting the current mild liquidity stress). Standard Jensen convexity bias adds 0.8% to value when properly accounted for; the equilibrium correction (-2.5%) reflects current secondary market conditions. The exit boundary analysis confirms hold — current liquidity state is above the critical exit threshold for the remaining horizon. Under a GFC-depth stress scenario, fair value would decline to $34.5M (a 54% drawdown). The position is appropriately retained at current parameters but should be monitored as liquidity conditions evolve."</span></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>**Teaching note:** The translation removes math jargon while preserving quantitative content. This is the *practitioner deliverable*.</span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## Common Student Confusions (Instructor Notes)</span></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**"The GE-LAV mark is lower than GP NAV. Should I be worried about my GP?"** Not necessarily. GP NAVs are typically smoothed and lag economic reality. The GE-LAV mark approximates what a *forced clearing transaction* would price at. Both numbers can be "right" in different senses.</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**"Why does the platform say HOLD when secondary market discounts are wide?"** Because the platform compares expected hold value (including mean reversion) against current secondary price. If hold value exceeds secondary, hold dominates.</span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**"What if the GP refuses to provide my data feed?"** Most LPs have access to fund cash flows via their LP statements. Secondary market data is third-party (Preqin, Setter). GP doesn't need to consent.</span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**"How often should I rerun?"** Quarterly is standard. After major market events, run ad-hoc.</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to Expect Next Session</span></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>Session 19 begins **Unit 4: Math Intuition Bridges**. This is where the framework's *mathematical machinery* gets explained — at the intuition level, not the proof level.</span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>Sessions 19–24 cover:</span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>19: Brownian motion, Itô, OU (concepts)</span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>20: Stochastic control, HJB (concepts)</span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>21: Mean-field games (concepts)</span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>22: Fokker-Planck, master equation (concepts)</span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>23: LAV operator, GE equilibrium (concepts)</span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>24: Jensen bias, Pigouvian tax, welfare (results)</span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>**Track 1 students:** These sessions give you the *meaning* of the math without the algebra. You'll be assessed on conceptual understanding, not derivations.</span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>**Track 2 students:** These sessions are the *first pass*. You'll revisit each topic with full derivations in Sessions 25–29.</span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>**Reading:** Book Chapter 10 (probability, Brownian motion, Itô) — read for *concepts*, not formulas. ~20 pages but skim heavily.</span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">← Session 17</span><span class="co">](session-17.qmd)</span> | <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span> | <span class="co">[</span><span class="ot">Next: Session 19 →</span><span class="co">](session-19.qmd)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Samir Asaf · GE-LAV® is a registered trademark</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/[your-username]/ge-lav-course/edit/main/lectures/session-18.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/blob/main/lectures/session-18.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

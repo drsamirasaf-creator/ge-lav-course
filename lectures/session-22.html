@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Graduate-level course on the GE-LAV® framework for liquidity-adjusted valuation in private capital markets. Two-track design accommodating both practitioner-oriented (Track 1) and research-oriented (Track 2) graduate finance students.">
+
+<title>32&nbsp; Session 22: Fokker-Planck · Master Equation (Concepts Only) – Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../lectures/session-23.html" rel="next">
+<link href="../lectures/session-21.html" rel="prev">
+<link href="../resources/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="resources/custom.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/session-01.html">Lectures: Common Core (Sessions 1–24)</a></li><li class="breadcrumb-item"><a href="../lectures/session-22.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Session 22: Fokker-Planck · Master Equation (Concepts Only)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/[your-username]/ge-lav-course" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The General Equilibrium Theory of Private Capital Valuation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Course Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">32-Session Schedule</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Slides</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Companion Code</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tracks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Track Declaration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slide-reuse-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Slide Reuse Map</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Assessments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/project-specification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Term Project Specification</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/midterm-blueprint.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Midterm Exam Blueprint</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../problem-sets/psets-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Problem Sets Overview</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lectures: Common Core (Sessions 1–24)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Session 1: Course Intro · Why Private Market Valuation Is Broken</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Session 2: The Three Structural Failures · LA-CAPM</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Session 3: The Liquidity Illusion · Secondary Market Evidence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Session 4: The OU Process for Liquidity (Intuition Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Session 5: Term Structure of Private Capital Returns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Session 6: IRR · The Internal Rate of Return Problem</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Session 7: PME · LA-IRR · LA-PME</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Session 8: What a Correct Theory Must Deliver</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Session 9: Midterm Review</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Session 10: Midterm Exam</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Session 11: Exit Timing · The Trapped Investor Problem</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Session 12: The Exit Boundary <span class="math inline">\(L^*(t)\)</span> — Numerical Examples</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Session 13: Liquidity Traps · Historical Performance of GE-LAV</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Session 14: Portfolio Construction · Liquidity Hedge Demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Session 15: Pacing · Tactical Allocation · Stress Scenarios</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Session 16: Regulatory Implications · Crisis Dynamics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Session 17: The GE-LAV® Platform — Architecture, Data, Calibration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Session 18: Platform Demo · Historical Validation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Session 19: Brownian Motion · Itô · OU (Concepts Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Session 20: Stochastic Control · HJB Equation (Concepts Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Session 21: Mean-Field Games (Concepts Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-22.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Session 22: Fokker-Planck · Master Equation (Concepts Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Session 23: The LAV Operator · GE Equilibrium · Market Clearing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Session 24: Jensen Bias · Pigouvian Tax · Welfare (Synthesis)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lectures: Split Track (Sessions 25–31)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Session 25: Split Track — PE Buyout Workshop / Full HJB Derivation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-26.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Session 26: Split Track — VC &amp; Secondaries / McKean-Vlasov MFG Proofs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Session 27: Split Track — Infrastructure Case / Fokker-Planck &amp; Master Equation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Session 28: Split Track — Private Credit Case / GE Equilibrium Existence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Session 29: Split Track — Digital Assets &amp; Climate / Jensen + Pigouvian Proofs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-30.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Session 30: Project Draft Workshop · Valuation Hierarchy Proof (T2)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-31.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Session 31: Research Frontiers · Course Synthesis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Capstone</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-32.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Session 32: Capstone — Project Presentations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/A-math-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Appendix A: Mathematical Foundations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/B-reading-list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Reading List</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">32.1</span> Learning Objectives</a></li>
+  <li><a href="#pre-class-assignment" id="toc-pre-class-assignment" class="nav-link" data-scroll-target="#pre-class-assignment"><span class="header-section-number">32.2</span> Pre-Class Assignment</a></li>
+  <li><a href="#in-class-outline-75-minutes" id="toc-in-class-outline-75-minutes" class="nav-link" data-scroll-target="#in-class-outline-75-minutes"><span class="header-section-number">32.3</span> In-Class Outline (75 minutes)</a></li>
+  <li><a href="#slide-content-briefs-all-new-slides" id="toc-slide-content-briefs-all-new-slides" class="nav-link" data-scroll-target="#slide-content-briefs-all-new-slides"><span class="header-section-number">32.4</span> Slide Content Briefs (All New Slides)</a>
+  <ul class="collapse">
+  <li><a href="#slide-22.1-title" id="toc-slide-22.1-title" class="nav-link" data-scroll-target="#slide-22.1-title"><span class="header-section-number">32.4.1</span> Slide 22.1 — Title</a></li>
+  <li><a href="#slide-22.2-why-distributions-matter" id="toc-slide-22.2-why-distributions-matter" class="nav-link" data-scroll-target="#slide-22.2-why-distributions-matter"><span class="header-section-number">32.4.2</span> Slide 22.2 — Why Distributions Matter</a></li>
+  <li><a href="#slide-22.3-fokker-planck-concept" id="toc-slide-22.3-fokker-planck-concept" class="nav-link" data-scroll-target="#slide-22.3-fokker-planck-concept"><span class="header-section-number">32.4.3</span> Slide 22.3 — Fokker-Planck: Concept</a></li>
+  <li><a href="#slide-22.4-connection-to-the-heat-equation" id="toc-slide-22.4-connection-to-the-heat-equation" class="nav-link" data-scroll-target="#slide-22.4-connection-to-the-heat-equation"><span class="header-section-number">32.4.4</span> Slide 22.4 — Connection to the Heat Equation</a></li>
+  <li><a href="#slide-22.5-fokker-planck-for-the-ou-process-visual" id="toc-slide-22.5-fokker-planck-for-the-ou-process-visual" class="nav-link" data-scroll-target="#slide-22.5-fokker-planck-for-the-ou-process-visual"><span class="header-section-number">32.4.5</span> Slide 22.5 — Fokker-Planck for the OU Process (Visual)</a></li>
+  <li><a href="#slide-22.6-fokker-planck-for-ou-the-equation" id="toc-slide-22.6-fokker-planck-for-ou-the-equation" class="nav-link" data-scroll-target="#slide-22.6-fokker-planck-for-ou-the-equation"><span class="header-section-number">32.4.6</span> Slide 22.6 — Fokker-Planck for OU: The Equation</a></li>
+  <li><a href="#slide-22.7-what-fokker-planck-tells-the-practitioner" id="toc-slide-22.7-what-fokker-planck-tells-the-practitioner" class="nav-link" data-scroll-target="#slide-22.7-what-fokker-planck-tells-the-practitioner"><span class="header-section-number">32.4.7</span> Slide 22.7 — What Fokker-Planck Tells the Practitioner</a></li>
+  <li><a href="#slide-22.8-the-master-equation-a-step-up" id="toc-slide-22.8-the-master-equation-a-step-up" class="nav-link" data-scroll-target="#slide-22.8-the-master-equation-a-step-up"><span class="header-section-number">32.4.8</span> Slide 22.8 — The Master Equation: A Step Up</a></li>
+  <li><a href="#slide-22.9-master-equation-in-concept" id="toc-slide-22.9-master-equation-in-concept" class="nav-link" data-scroll-target="#slide-22.9-master-equation-in-concept"><span class="header-section-number">32.4.9</span> Slide 22.9 — Master Equation in Concept</a></li>
+  <li><a href="#slide-22.10-master-equation-in-ge-lav" id="toc-slide-22.10-master-equation-in-ge-lav" class="nav-link" data-scroll-target="#slide-22.10-master-equation-in-ge-lav"><span class="header-section-number">32.4.10</span> Slide 22.10 — Master Equation in GE-LAV</a></li>
+  <li><a href="#slide-22.11-when-computing-distributions-matters" id="toc-slide-22.11-when-computing-distributions-matters" class="nav-link" data-scroll-target="#slide-22.11-when-computing-distributions-matters"><span class="header-section-number">32.4.11</span> Slide 22.11 — When Computing Distributions Matters</a></li>
+  <li><a href="#slide-22.12-synthesis-of-sessions-1922" id="toc-slide-22.12-synthesis-of-sessions-1922" class="nav-link" data-scroll-target="#slide-22.12-synthesis-of-sessions-1922"><span class="header-section-number">32.4.12</span> Slide 22.12 — Synthesis of Sessions 19–22</a></li>
+  </ul></li>
+  <li><a href="#discussion-questions" id="toc-discussion-questions" class="nav-link" data-scroll-target="#discussion-questions"><span class="header-section-number">32.5</span> Discussion Questions</a></li>
+  <li><a href="#worked-example-fokker-planck-stress-test" id="toc-worked-example-fokker-planck-stress-test" class="nav-link" data-scroll-target="#worked-example-fokker-planck-stress-test"><span class="header-section-number">32.6</span> Worked Example: Fokker-Planck Stress Test</a></li>
+  <li><a href="#common-student-confusions-instructor-notes" id="toc-common-student-confusions-instructor-notes" class="nav-link" data-scroll-target="#common-student-confusions-instructor-notes"><span class="header-section-number">32.7</span> Common Student Confusions (Instructor Notes)</a></li>
+  <li><a href="#what-to-expect-next-session" id="toc-what-to-expect-next-session" class="nav-link" data-scroll-target="#what-to-expect-next-session"><span class="header-section-number">32.8</span> What to Expect Next Session</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/[your-username]/ge-lav-course/edit/main/lectures/session-22.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/blob/main/lectures/session-22.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/session-01.html">Lectures: Common Core (Sessions 1–24)</a></li><li class="breadcrumb-item"><a href="../lectures/session-22.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Session 22: Fokker-Planck · Master Equation (Concepts Only)</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-session-22" class="quarto-section-identifier"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Session 22: Fokker-Planck · Master Equation (Concepts Only)</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Unit</strong></td>
+<td>4 — Math Intuition Bridges</td>
+</tr>
+<tr class="even">
+<td><strong>Book Chapters</strong></td>
+<td>14, 15 (concepts only — full derivation in Session 27 Track 2)</td>
+</tr>
+<tr class="odd">
+<td><strong>Slide source</strong></td>
+<td>All new — adapted from Class 6 with derivations stripped</td>
+</tr>
+<tr class="even">
+<td><strong>Slides needed</strong></td>
+<td>~12 new</td>
+</tr>
+<tr class="odd">
+<td><strong>Track</strong></td>
+<td>Common core (both tracks)</td>
+</tr>
+</tbody>
+</table>
+<section id="learning-objectives" class="level2" data-number="32.1">
+<h2 data-number="32.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">32.1</span> Learning Objectives</h2>
+<p>By the end of this session, students will be able to:</p>
+<ol type="1">
+<li><strong>State what the Fokker-Planck equation does</strong> — describe how a probability distribution evolves over time under SDE dynamics.</li>
+<li><strong>Recognize the Fokker-Planck for the OU process</strong> and identify its three terms (drift transport, diffusion spreading, mean-reverting concentration).</li>
+<li><strong>State what the master equation does</strong> — describe how the value function of an MFG evolves on the space of distributions.</li>
+<li><strong>Connect</strong> Fokker-Planck to the well-known heat equation as a familiar analogue.</li>
+<li><strong>Identify</strong> when computing distributions matters (regulatory stress testing, portfolio diagnostics) vs.&nbsp;when individual states suffice (single-asset valuation).</li>
+</ol>
+</section>
+<section id="pre-class-assignment" class="level2" data-number="32.2">
+<h2 data-number="32.2" class="anchored" data-anchor-id="pre-class-assignment"><span class="header-section-number">32.2</span> Pre-Class Assignment</h2>
+<ul>
+<li><strong>Read:</strong> Book Chapters 14, 15 (concepts only — skim equations)</li>
+</ul>
+</section>
+<section id="in-class-outline-75-minutes" class="level2" data-number="32.3">
+<h2 data-number="32.3" class="anchored" data-anchor-id="in-class-outline-75-minutes"><span class="header-section-number">32.3</span> In-Class Outline (75 minutes)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Segment</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00–0:05</td>
+<td>Recap Sessions 19–21 · Today: tracking distributions</td>
+<td>Lecture</td>
+</tr>
+<tr class="even">
+<td>0:05–0:25</td>
+<td>The Fokker-Planck equation</td>
+<td>Lecture + visual</td>
+</tr>
+<tr class="odd">
+<td>0:25–0:45</td>
+<td>Applying Fokker-Planck to the GE-LAV OU process</td>
+<td>Lecture</td>
+</tr>
+<tr class="even">
+<td>0:45–1:05</td>
+<td>The master equation — value functions on distribution spaces</td>
+<td>Lecture</td>
+</tr>
+<tr class="odd">
+<td>1:05–1:15</td>
+<td>Why this matters for practitioners</td>
+<td>Discussion</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="slide-content-briefs-all-new-slides" class="level2" data-number="32.4">
+<h2 data-number="32.4" class="anchored" data-anchor-id="slide-content-briefs-all-new-slides"><span class="header-section-number">32.4</span> Slide Content Briefs (All New Slides)</h2>
+<section id="slide-22.1-title" class="level3" data-number="32.4.1">
+<h3 data-number="32.4.1" class="anchored" data-anchor-id="slide-22.1-title"><span class="header-section-number">32.4.1</span> Slide 22.1 — Title</h3>
+<ul>
+<li><strong>Title:</strong> “Fokker-Planck · The Master Equation”</li>
+<li><strong>Subtitle:</strong> “Tracking how distributions evolve · Concepts only · Track 2 derivation in Session 27”</li>
+<li><strong>Speaker notes:</strong> Two equations, both about distributions. Today is the <em>bookkeeping</em> layer of MFG.</li>
+</ul>
+</section>
+<section id="slide-22.2-why-distributions-matter" class="level3" data-number="32.4.2">
+<h3 data-number="32.4.2" class="anchored" data-anchor-id="slide-22.2-why-distributions-matter"><span class="header-section-number">32.4.2</span> Slide 22.2 — Why Distributions Matter</h3>
+<ul>
+<li><strong>Title:</strong> “Why we need to track distributions”</li>
+<li><strong>Recall from Session 21:</strong>
+<ul>
+<li>MFG equilibrium requires the <em>population distribution</em> <span class="math inline">\(\mu_t\)</span> of liquidity states</li>
+<li>Each LP reacts to <span class="math inline">\(\mu_t\)</span></li>
+<li><span class="math inline">\(\mu_t\)</span> is determined by all LPs’ decisions</li>
+</ul></li>
+<li><strong>Today’s question:</strong> “How does <span class="math inline">\(\mu_t\)</span> evolve over time, given the LPs are all doing OU dynamics + optimal exit?”</li>
+<li><strong>Answer:</strong> The Fokker-Planck equation tells us.</li>
+<li><strong>Speaker notes:</strong> Frame today as computational machinery for what Session 21 set up conceptually.</li>
+</ul>
+</section>
+<section id="slide-22.3-fokker-planck-concept" class="level3" data-number="32.4.3">
+<h3 data-number="32.4.3" class="anchored" data-anchor-id="slide-22.3-fokker-planck-concept"><span class="header-section-number">32.4.3</span> Slide 22.3 — Fokker-Planck: Concept</h3>
+<ul>
+<li><strong>Title:</strong> “The Fokker-Planck equation, intuitively”</li>
+<li><strong>What it does:</strong>
+<ul>
+<li>Tells us how the probability density <span class="math inline">\(p(L, t)\)</span> evolves over time</li>
+<li>Given an SDE for individual <span class="math inline">\(L_t\)</span>, derive the PDE for the <em>density</em> of many <span class="math inline">\(L_t\)</span> paths</li>
+</ul></li>
+<li><strong>General form (for SDE <span class="math inline">\(dX_t = \mu(X) dt + \sigma(X) dW_t\)</span>):</strong>
+<ul>
+<li><span class="math inline">\(\dfrac{\partial p}{\partial t} = -\dfrac{\partial}{\partial x}[\mu(x) p] + \dfrac{1}{2} \dfrac{\partial^2}{\partial x^2}[\sigma^2(x) p]\)</span></li>
+</ul></li>
+<li><strong>Two terms:</strong>
+<ul>
+<li><strong>Drift transport:</strong> <span class="math inline">\(-\partial_x [\mu \cdot p]\)</span> — probability mass moves with drift</li>
+<li><strong>Diffusion spreading:</strong> <span class="math inline">\(\frac{1}{2} \partial_{xx} [\sigma^2 \cdot p]\)</span> — Brownian motion spreads the mass</li>
+</ul></li>
+<li><strong>Speaker notes:</strong> This is mathematically intimidating but conceptually simple. Walk through term by term.</li>
+</ul>
+</section>
+<section id="slide-22.4-connection-to-the-heat-equation" class="level3" data-number="32.4.4">
+<h3 data-number="32.4.4" class="anchored" data-anchor-id="slide-22.4-connection-to-the-heat-equation"><span class="header-section-number">32.4.4</span> Slide 22.4 — Connection to the Heat Equation</h3>
+<ul>
+<li><strong>Title:</strong> “Fokker-Planck is just a more general heat equation”</li>
+<li><strong>Heat equation (everyone has seen):</strong> <span class="math inline">\(\dfrac{\partial u}{\partial t} = D \dfrac{\partial^2 u}{\partial x^2}\)</span> — heat diffuses</li>
+<li><strong>Pure diffusion Fokker-Planck (no drift):</strong> <span class="math inline">\(\dfrac{\partial p}{\partial t} = \dfrac{\sigma^2}{2} \dfrac{\partial^2 p}{\partial x^2}\)</span> — same form!</li>
+<li><strong>With drift:</strong> Fokker-Planck adds the transport term, making it an <em>advection-diffusion equation</em></li>
+<li><strong>Bottom-line:</strong> “If you understand how heat spreads in a metal bar, you understand the diffusion part of Fokker-Planck. Add a wind that blows the heat around, and you have Fokker-Planck.”</li>
+<li><strong>Speaker notes:</strong> Use the heat analogy heavily. Students typically <em>do</em> have intuition for heat equations from physics or PDEs class.</li>
+</ul>
+</section>
+<section id="slide-22.5-fokker-planck-for-the-ou-process-visual" class="level3" data-number="32.4.5">
+<h3 data-number="32.4.5" class="anchored" data-anchor-id="slide-22.5-fokker-planck-for-the-ou-process-visual"><span class="header-section-number">32.4.5</span> Slide 22.5 — Fokker-Planck for the OU Process (Visual)</h3>
+<ul>
+<li><strong>Title:</strong> “OU Fokker-Planck: visual”</li>
+<li><strong>Visual:</strong> Three panels showing <span class="math inline">\(p(L, t)\)</span> at <span class="math inline">\(t = 0, 1, 5\)</span> years
+<ul>
+<li><span class="math inline">\(t = 0\)</span>: delta function at <span class="math inline">\(L_0 = -1\)</span> (initial stressed state)</li>
+<li><span class="math inline">\(t = 1\)</span>: shifted toward <span class="math inline">\(\bar{L}\)</span>, broadened by diffusion</li>
+<li><span class="math inline">\(t = 5\)</span>: nearly Gaussian centered at 0.9 (close to <span class="math inline">\(\bar{L} = 1\)</span>), width close to stationary</li>
+</ul></li>
+<li><strong>Caption:</strong> “Initial point distribution → drift toward mean + diffusion → eventually Gaussian stationary”</li>
+<li><strong>Speaker notes:</strong> Show the <em>dynamics</em> visually. This is the most useful visual of Unit 4.</li>
+</ul>
+</section>
+<section id="slide-22.6-fokker-planck-for-ou-the-equation" class="level3" data-number="32.4.6">
+<h3 data-number="32.4.6" class="anchored" data-anchor-id="slide-22.6-fokker-planck-for-ou-the-equation"><span class="header-section-number">32.4.6</span> Slide 22.6 — Fokker-Planck for OU: The Equation</h3>
+<ul>
+<li><strong>Title:</strong> “Writing it down (for OU specifically)”</li>
+<li><strong>OU SDE:</strong> <span class="math inline">\(dL_t = \kappa(\bar{L} - L_t) dt + \sigma_L dW_t\)</span></li>
+<li><strong>Plug into general Fokker-Planck:</strong>
+<ul>
+<li>Drift: <span class="math inline">\(\mu(L) = \kappa(\bar{L} - L)\)</span></li>
+<li>Diffusion: <span class="math inline">\(\sigma^2(L) = \sigma_L^2\)</span></li>
+<li>Result: <span class="math inline">\(\dfrac{\partial p}{\partial t} = -\kappa \dfrac{\partial}{\partial L}[(\bar{L} - L) p] + \dfrac{\sigma_L^2}{2} \dfrac{\partial^2 p}{\partial L^2}\)</span></li>
+</ul></li>
+<li><strong>Stationary condition:</strong> Set <span class="math inline">\(\partial p / \partial t = 0\)</span></li>
+<li><strong>Resulting ODE for stationary density</strong> can be solved → Gaussian with mean <span class="math inline">\(\bar{L}\)</span>, variance <span class="math inline">\(\sigma_L^2/(2\kappa)\)</span></li>
+<li><strong>Speaker notes:</strong> Don’t derive in detail. Show the form; reference Session 4 for the result.</li>
+</ul>
+</section>
+<section id="slide-22.7-what-fokker-planck-tells-the-practitioner" class="level3" data-number="32.4.7">
+<h3 data-number="32.4.7" class="anchored" data-anchor-id="slide-22.7-what-fokker-planck-tells-the-practitioner"><span class="header-section-number">32.4.7</span> Slide 22.7 — What Fokker-Planck Tells the Practitioner</h3>
+<ul>
+<li><strong>Title:</strong> “Why this matters for practitioners”</li>
+<li><strong>Use case 1: Stress testing</strong>
+<ul>
+<li>“What’s the probability the entire LP population is in stress 5 years from now?”</li>
+<li>Answer: integrate <span class="math inline">\(p(L, t = 5)\)</span> over <span class="math inline">\(L &lt; -1\)</span></li>
+</ul></li>
+<li><strong>Use case 2: Regulatory portfolio analysis</strong>
+<ul>
+<li>“What’s the <em>distribution</em> of capital adequacy outcomes across an insurer’s PE portfolio?”</li>
+<li>Answer: apply Fokker-Planck per-position, aggregate</li>
+</ul></li>
+<li><strong>Use case 3: Welfare analysis</strong>
+<ul>
+<li>“What’s the expected welfare loss from the MFG externality?”</li>
+<li>Answer: integrate <span class="math inline">\(\Delta W\)</span> against the distribution of <span class="math inline">\(L\)</span> states</li>
+</ul></li>
+<li><strong>Bottom-line:</strong> “Fokker-Planck is the <em>measurement</em> tool. Anytime you need ‘what fraction of the population is X’, you use it.”</li>
+<li><strong>Speaker notes:</strong> Connect to practitioner use cases. Most practitioners don’t need to <em>solve</em> Fokker-Planck; they need to <em>understand</em> what its outputs mean.</li>
+</ul>
+</section>
+<section id="slide-22.8-the-master-equation-a-step-up" class="level3" data-number="32.4.8">
+<h3 data-number="32.4.8" class="anchored" data-anchor-id="slide-22.8-the-master-equation-a-step-up"><span class="header-section-number">32.4.8</span> Slide 22.8 — The Master Equation: A Step Up</h3>
+<ul>
+<li><strong>Title:</strong> “The master equation — when value functions live on distribution spaces”</li>
+<li><strong>Recap:</strong>
+<ul>
+<li>Standard HJB: <span class="math inline">\(V(L, t)\)</span> — value at state <span class="math inline">\(L\)</span> and time <span class="math inline">\(t\)</span></li>
+<li>For MFG: value also depends on the <em>population distribution</em> <span class="math inline">\(\mu\)</span></li>
+<li><span class="math inline">\(V(L, t, \mu)\)</span> — value at individual state <span class="math inline">\(L\)</span>, time <span class="math inline">\(t\)</span>, and population state <span class="math inline">\(\mu\)</span></li>
+</ul></li>
+<li><strong>The master equation:</strong> A PDE on this enlarged space</li>
+<li><strong>Wasserstein space:</strong> “The space of probability distributions, equipped with a notion of distance. Master equation lives here.”</li>
+<li><strong>Why we need it:</strong> Single-asset HJB ignores population effects. Master equation captures them.</li>
+<li><strong>Speaker notes:</strong> This is where the math gets genuinely abstract. Be honest: most students won’t internalize this. The point is to know it exists.</li>
+</ul>
+</section>
+<section id="slide-22.9-master-equation-in-concept" class="level3" data-number="32.4.9">
+<h3 data-number="32.4.9" class="anchored" data-anchor-id="slide-22.9-master-equation-in-concept"><span class="header-section-number">32.4.9</span> Slide 22.9 — Master Equation in Concept</h3>
+<ul>
+<li><strong>Title:</strong> “What the master equation says”</li>
+<li><strong>In one sentence:</strong> “The value function on the joint (state, time, distribution) space satisfies a PDE that combines individual HJB + Fokker-Planck dynamics for the distribution.”</li>
+<li><strong>Structurally:</strong>
+<ul>
+<li>One time derivative: <span class="math inline">\(\partial V / \partial t\)</span></li>
+<li>One state-space derivative (like standard HJB): <span class="math inline">\(\partial V / \partial L\)</span></li>
+<li>One “distribution derivative” (technically: Wasserstein gradient): <span class="math inline">\(\delta V / \delta \mu\)</span></li>
+</ul></li>
+<li><strong>Plain English:</strong> “Total value evolves in three dimensions: time, your state, and the population state.”</li>
+<li><strong>Speaker notes:</strong> Honest about the abstraction. Don’t pretend it’s easy. Just establish it exists.</li>
+</ul>
+</section>
+<section id="slide-22.10-master-equation-in-ge-lav" class="level3" data-number="32.4.10">
+<h3 data-number="32.4.10" class="anchored" data-anchor-id="slide-22.10-master-equation-in-ge-lav"><span class="header-section-number">32.4.10</span> Slide 22.10 — Master Equation in GE-LAV</h3>
+<ul>
+<li><strong>Title:</strong> “What the master equation computes in GE-LAV”</li>
+<li><strong>The output:</strong>
+<ul>
+<li>Value of any LP position as a function of <span class="math inline">\((L, t, \mu)\)</span></li>
+<li>Equilibrium liquidity premium <span class="math inline">\(\lambda^*(L, t, \mu)\)</span></li>
+<li>Optimal exit boundary <span class="math inline">\(L^*(t, \mu)\)</span> as a function of population state</li>
+</ul></li>
+<li><strong>In words:</strong> “The master equation gives you the <em>complete</em> GE-LAV result: every value, every premium, every threshold, at every population state.”</li>
+<li><strong>Computational cost:</strong>
+<ul>
+<li>For 1D state + distribution: numerically tractable on a laptop (seconds-minutes)</li>
+<li>For higher dimensions: needs more sophisticated methods</li>
+</ul></li>
+<li><strong>Speaker notes:</strong> This is the <em>engine</em> underneath the GE-LAV® platform. Practitioners get the outputs; the master equation is what produced them.</li>
+</ul>
+</section>
+<section id="slide-22.11-when-computing-distributions-matters" class="level3" data-number="32.4.11">
+<h3 data-number="32.4.11" class="anchored" data-anchor-id="slide-22.11-when-computing-distributions-matters"><span class="header-section-number">32.4.11</span> Slide 22.11 — When Computing Distributions Matters</h3>
+<ul>
+<li><strong>Title:</strong> “When you need Fokker-Planck and master equation outputs”</li>
+<li><strong>You need distribution-level analysis when:</strong>
+<ul>
+<li>Stress testing a portfolio (what fraction of positions cross the exit boundary in scenario X?)</li>
+<li>Computing welfare effects (aggregate cost vs.&nbsp;benefit)</li>
+<li>Designing Pigouvian taxes (tax depends on population state, not just individual)</li>
+<li>Regulatory diagnostics across an industry</li>
+</ul></li>
+<li><strong>You don’t need it when:</strong>
+<ul>
+<li>Valuing a single asset under known conditions (HJB alone)</li>
+<li>Standard back-testing</li>
+<li>Simple exit boundary lookup</li>
+</ul></li>
+<li><strong>Speaker notes:</strong> Help students <em>triage</em> — they don’t need all the math all the time.</li>
+</ul>
+</section>
+<section id="slide-22.12-synthesis-of-sessions-1922" class="level3" data-number="32.4.12">
+<h3 data-number="32.4.12" class="anchored" data-anchor-id="slide-22.12-synthesis-of-sessions-1922"><span class="header-section-number">32.4.12</span> Slide 22.12 — Synthesis of Sessions 19–22</h3>
+<ul>
+<li><strong>Title:</strong> “Where we are”</li>
+<li><strong>Built so far:</strong>
+<ul>
+<li><strong>Session 19:</strong> Stochastic processes (Brownian, Itô, OU)</li>
+<li><strong>Session 20:</strong> Optimal control (HJB)</li>
+<li><strong>Session 21:</strong> Mean-field games (McKean-Vlasov)</li>
+<li><strong>Session 22:</strong> Distribution dynamics (Fokker-Planck, master equation)</li>
+</ul></li>
+<li><strong>Coming:</strong>
+<ul>
+<li><strong>Session 23:</strong> The LAV operator and GE equilibrium pricing (synthesis)</li>
+<li><strong>Session 24:</strong> Jensen bias, Pigouvian tax, welfare (results)</li>
+</ul></li>
+<li><strong>Speaker notes:</strong> Encourage students. The hard sessions are behind. Sessions 23–24 wrap up the conceptual core.</li>
+</ul>
+</section>
+</section>
+<section id="discussion-questions" class="level2" data-number="32.5">
+<h2 data-number="32.5" class="anchored" data-anchor-id="discussion-questions"><span class="header-section-number">32.5</span> Discussion Questions</h2>
+<ol type="1">
+<li>The Fokker-Planck equation is mathematically equivalent to a generalized heat equation. Does that connection give you confidence in the framework, or does it suggest the framework is just “thermodynamics applied to finance”? How are the two domains structurally similar / different?</li>
+<li>The master equation operates on the space of probability distributions (Wasserstein space). This is abstract. What’s the <em>practical</em> consequence of “values live on distribution spaces”?</li>
+<li>Computing the master equation requires substantial numerical infrastructure. Is this a barrier to GE-LAV adoption, or does the platform’s existence eliminate the barrier for practitioners?</li>
+</ol>
+</section>
+<section id="worked-example-fokker-planck-stress-test" class="level2" data-number="32.6">
+<h2 data-number="32.6" class="anchored" data-anchor-id="worked-example-fokker-planck-stress-test"><span class="header-section-number">32.6</span> Worked Example: Fokker-Planck Stress Test</h2>
+<p><strong>Setup:</strong> A regulator wants to know: starting from current conditions (<span class="math inline">\(L_0 = -0.5\)</span> for all LPs), what’s the probability that aggregate PE liquidity is <em>worse</em> than current (<span class="math inline">\(L_t &lt; -0.5\)</span>) at <span class="math inline">\(t = 2\)</span> years?</p>
+<p><strong>Step 1: Solve OU Fokker-Planck</strong></p>
+<p>Using OU calibration (<span class="math inline">\(\kappa = 0.45\)</span>, <span class="math inline">\(\sigma_L = 0.32\)</span>, <span class="math inline">\(\bar{L} = 1.0\)</span>):</p>
+<p>Conditional density at <span class="math inline">\(t = 2\)</span>: - Mean: <span class="math inline">\(\bar{L} + (L_0 - \bar{L}) e^{-\kappa t} = 1.0 + (-1.5) \cdot e^{-0.9} = 1.0 + (-1.5)(0.407) = 0.39\)</span> - Variance: <span class="math inline">\(\frac{\sigma_L^2}{2\kappa}(1 - e^{-2\kappa t}) = 0.1138 \cdot (1 - e^{-1.8}) = 0.1138 \cdot 0.835 = 0.0950\)</span> - Standard deviation: 0.308</p>
+<p><strong>Step 2: Compute probability</strong></p>
+<p><span class="math inline">\(P(L_2 &lt; -0.5 | L_0 = -0.5) = \Phi\left(\dfrac{-0.5 - 0.39}{0.308}\right) = \Phi(-2.89) \approx 0.19\%\)</span></p>
+<p><strong>Interpretation:</strong> “Less than 0.2% probability that aggregate liquidity will be worse than current conditions 2 years from now.”</p>
+<p><strong>Note:</strong> This is a <em>single-LP</em> mean-reversion forecast. The MFG externality could amplify in extreme cases — but at <span class="math inline">\(L = -0.5\)</span> we’re in the stable regime, so the single-LP Fokker-Planck is a good approximation.</p>
+<p><strong>Teaching note:</strong> This is exactly the kind of analysis the GE-LAV platform produces for stress testing.</p>
+</section>
+<section id="common-student-confusions-instructor-notes" class="level2" data-number="32.7">
+<h2 data-number="32.7" class="anchored" data-anchor-id="common-student-confusions-instructor-notes"><span class="header-section-number">32.7</span> Common Student Confusions (Instructor Notes)</h2>
+<ul>
+<li><strong>“Why is Fokker-Planck not in the standard finance curriculum?”</strong> It is in PhD finance. MBA and master’s curricula focus on Black-Scholes-style problem-solving, which uses the <em>related</em> Kolmogorov backward equation (for pricing) more than Fokker-Planck (for densities). Both are forms of the same math.</li>
+<li><strong>“Is the master equation just a fancy form of Fokker-Planck?”</strong> No — it’s structurally different. Fokker-Planck governs how the <em>distribution</em> evolves. Master equation governs how the <em>value function on the distribution</em> evolves. Different objects.</li>
+<li><strong>“Wasserstein space — is that important?”</strong> Mathematically yes (it’s the right space for distributions with finite second moments). Practically, students don’t need to manipulate it directly. The platform abstracts it away.</li>
+<li><strong>“Can I do GE-LAV without solving Fokker-Planck?”</strong> Yes for single-asset use cases. No for stress testing, welfare analysis, or Pigouvian tax design.</li>
+</ul>
+</section>
+<section id="what-to-expect-next-session" class="level2" data-number="32.8">
+<h2 data-number="32.8" class="anchored" data-anchor-id="what-to-expect-next-session"><span class="header-section-number">32.8</span> What to Expect Next Session</h2>
+<p>Session 23 synthesizes everything from Sessions 19–22 into the <strong>LAV operator</strong> (book Ch. 16) and the <strong>GE equilibrium</strong> (book Ch. 17). We’ll see:</p>
+<ul>
+<li>The Liquidity-Adjusted Valuation operator: how a single asset’s value depends on the entire <span class="math inline">\(L_t\)</span> path</li>
+<li>General equilibrium pricing: the fixed-point that determines <span class="math inline">\(\lambda^*\)</span></li>
+<li>Market clearing in the GE-LAV framework</li>
+</ul>
+<p><strong>Reading:</strong> Book Chapters 16, 17 (concepts).</p>
+<hr>
+<p><a href="../lectures/session-21.html">← Session 21</a> | <a href="../schedule.html">Schedule</a> | <a href="../lectures/session-22.html">Next: Session 23 →</a></p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lectures/session-21.html" class="pagination-link" aria-label="Session 21: Mean-Field Games (Concepts Only)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Session 21: Mean-Field Games (Concepts Only)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lectures/session-23.html" class="pagination-link" aria-label="Session 23: The LAV Operator · GE Equilibrium · Market Clearing">
+        <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Session 23: The LAV Operator · GE Equilibrium · Market Clearing</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Session 22: Fokker-Planck · Master Equation (Concepts Only) {#sec-session-22}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Unit** <span class="pp">|</span> 4 — Math Intuition Bridges <span class="pp">|</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Book Chapters** <span class="pp">|</span> 14, 15 (concepts only — full derivation in Session 27 Track 2) <span class="pp">|</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Slide source** <span class="pp">|</span> All new — adapted from Class 6 with derivations stripped <span class="pp">|</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Slides needed** <span class="pp">|</span> ~12 new <span class="pp">|</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Track** <span class="pp">|</span> Common core (both tracks) <span class="pp">|</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objectives</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>By the end of this session, students will be able to:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**State what the Fokker-Planck equation does** — describe how a probability distribution evolves over time under SDE dynamics.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Recognize the Fokker-Planck for the OU process** and identify its three terms (drift transport, diffusion spreading, mean-reverting concentration).</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**State what the master equation does** — describe how the value function of an MFG evolves on the space of distributions.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Connect** Fokker-Planck to the well-known heat equation as a familiar analogue.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Identify** when computing distributions matters (regulatory stress testing, portfolio diagnostics) vs. when individual states suffice (single-asset valuation).</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pre-Class Assignment</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Read:** Book Chapters 14, 15 (concepts only — skim equations)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## In-Class Outline (75 minutes)</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Time <span class="pp">|</span> Segment <span class="pp">|</span> Format <span class="pp">|</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:00–0:05 <span class="pp">|</span> Recap Sessions 19–21 · Today: tracking distributions <span class="pp">|</span> Lecture <span class="pp">|</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:05–0:25 <span class="pp">|</span> The Fokker-Planck equation <span class="pp">|</span> Lecture + visual <span class="pp">|</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:25–0:45 <span class="pp">|</span> Applying Fokker-Planck to the GE-LAV OU process <span class="pp">|</span> Lecture <span class="pp">|</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:45–1:05 <span class="pp">|</span> The master equation — value functions on distribution spaces <span class="pp">|</span> Lecture <span class="pp">|</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1:05–1:15 <span class="pp">|</span> Why this matters for practitioners <span class="pp">|</span> Discussion <span class="pp">|</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Slide Content Briefs (All New Slides)</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 22.1 — Title</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Fokker-Planck · The Master Equation"</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Subtitle:** "Tracking how distributions evolve · Concepts only · Track 2 derivation in Session 27"</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Two equations, both about distributions. Today is the *bookkeeping* layer of MFG.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 22.2 — Why Distributions Matter</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Why we need to track distributions"</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Recall from Session 21:**</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>MFG equilibrium requires the *population distribution* $\mu_t$ of liquidity states</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Each LP reacts to $\mu_t$</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$\mu_t$ is determined by all LPs' decisions</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Today's question:** "How does $\mu_t$ evolve over time, given the LPs are all doing OU dynamics + optimal exit?"</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Answer:** The Fokker-Planck equation tells us.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Frame today as computational machinery for what Session 21 set up conceptually.</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 22.3 — Fokker-Planck: Concept</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "The Fokker-Planck equation, intuitively"</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**What it does:**</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Tells us how the probability density $p(L, t)$ evolves over time</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Given an SDE for individual $L_t$, derive the PDE for the *density* of many $L_t$ paths</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**General form (for SDE $dX_t = \mu(X) dt + \sigma(X) dW_t$):**</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$\dfrac{\partial p}{\partial t} = -\dfrac{\partial}{\partial x}<span class="co">[</span><span class="ot">\mu(x) p</span><span class="co">]</span> + \dfrac{1}{2} \dfrac{\partial^2}{\partial x^2}<span class="co">[</span><span class="ot">\sigma^2(x) p</span><span class="co">]</span>$</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Two terms:**</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Drift transport:** $-\partial_x <span class="co">[</span><span class="ot">\mu \cdot p</span><span class="co">]</span>$ — probability mass moves with drift</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Diffusion spreading:** $\frac{1}{2} \partial_{xx} <span class="co">[</span><span class="ot">\sigma^2 \cdot p</span><span class="co">]</span>$ — Brownian motion spreads the mass</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** This is mathematically intimidating but conceptually simple. Walk through term by term.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 22.4 — Connection to the Heat Equation</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Fokker-Planck is just a more general heat equation"</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Heat equation (everyone has seen):** $\dfrac{\partial u}{\partial t} = D \dfrac{\partial^2 u}{\partial x^2}$ — heat diffuses</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Pure diffusion Fokker-Planck (no drift):** $\dfrac{\partial p}{\partial t} = \dfrac{\sigma^2}{2} \dfrac{\partial^2 p}{\partial x^2}$ — same form!</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**With drift:** Fokker-Planck adds the transport term, making it an *advection-diffusion equation*</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Bottom-line:** "If you understand how heat spreads in a metal bar, you understand the diffusion part of Fokker-Planck. Add a wind that blows the heat around, and you have Fokker-Planck."</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Use the heat analogy heavily. Students typically *do* have intuition for heat equations from physics or PDEs class.</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 22.5 — Fokker-Planck for the OU Process (Visual)</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "OU Fokker-Planck: visual"</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Visual:** Three panels showing $p(L, t)$ at $t = 0, 1, 5$ years</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$t = 0$: delta function at $L_0 = -1$ (initial stressed state)</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$t = 1$: shifted toward $\bar{L}$, broadened by diffusion</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$t = 5$: nearly Gaussian centered at 0.9 (close to $\bar{L} = 1$), width close to stationary</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Caption:** "Initial point distribution → drift toward mean + diffusion → eventually Gaussian stationary"</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Show the *dynamics* visually. This is the most useful visual of Unit 4.</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 22.6 — Fokker-Planck for OU: The Equation</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Writing it down (for OU specifically)"</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**OU SDE:** $dL_t = \kappa(\bar{L} - L_t) dt + \sigma_L dW_t$</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Plug into general Fokker-Planck:**</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Drift: $\mu(L) = \kappa(\bar{L} - L)$</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Diffusion: $\sigma^2(L) = \sigma_L^2$</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Result: $\dfrac{\partial p}{\partial t} = -\kappa \dfrac{\partial}{\partial L}<span class="co">[</span><span class="ot">(\bar{L} - L) p</span><span class="co">]</span> + \dfrac{\sigma_L^2}{2} \dfrac{\partial^2 p}{\partial L^2}$</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Stationary condition:** Set $\partial p / \partial t = 0$</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Resulting ODE for stationary density** can be solved → Gaussian with mean $\bar{L}$, variance $\sigma_L^2/(2\kappa)$</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Don't derive in detail. Show the form; reference Session 4 for the result.</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 22.7 — What Fokker-Planck Tells the Practitioner</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Why this matters for practitioners"</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Use case 1: Stress testing**</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>"What's the probability the entire LP population is in stress 5 years from now?"</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Answer: integrate $p(L, t = 5)$ over $L &lt; -1$</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Use case 2: Regulatory portfolio analysis**</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>"What's the *distribution* of capital adequacy outcomes across an insurer's PE portfolio?"</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Answer: apply Fokker-Planck per-position, aggregate</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Use case 3: Welfare analysis**</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>"What's the expected welfare loss from the MFG externality?"</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Answer: integrate $\Delta W$ against the distribution of $L$ states</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Bottom-line:** "Fokker-Planck is the *measurement* tool. Anytime you need 'what fraction of the population is X', you use it."</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Connect to practitioner use cases. Most practitioners don't need to *solve* Fokker-Planck; they need to *understand* what its outputs mean.</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 22.8 — The Master Equation: A Step Up</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "The master equation — when value functions live on distribution spaces"</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Recap:**</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Standard HJB: $V(L, t)$ — value at state $L$ and time $t$</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>For MFG: value also depends on the *population distribution* $\mu$</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$V(L, t, \mu)$ — value at individual state $L$, time $t$, and population state $\mu$</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**The master equation:** A PDE on this enlarged space</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Wasserstein space:** "The space of probability distributions, equipped with a notion of distance. Master equation lives here."</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Why we need it:** Single-asset HJB ignores population effects. Master equation captures them.</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** This is where the math gets genuinely abstract. Be honest: most students won't internalize this. The point is to know it exists.</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 22.9 — Master Equation in Concept</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "What the master equation says"</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**In one sentence:** "The value function on the joint (state, time, distribution) space satisfies a PDE that combines individual HJB + Fokker-Planck dynamics for the distribution."</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Structurally:**</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>One time derivative: $\partial V / \partial t$</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>One state-space derivative (like standard HJB): $\partial V / \partial L$</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>One "distribution derivative" (technically: Wasserstein gradient): $\delta V / \delta \mu$</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Plain English:** "Total value evolves in three dimensions: time, your state, and the population state."</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Honest about the abstraction. Don't pretend it's easy. Just establish it exists.</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 22.10 — Master Equation in GE-LAV</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "What the master equation computes in GE-LAV"</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**The output:**</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Value of any LP position as a function of $(L, t, \mu)$</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Equilibrium liquidity premium $\lambda^*(L, t, \mu)$</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Optimal exit boundary $L^*(t, \mu)$ as a function of population state</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**In words:** "The master equation gives you the *complete* GE-LAV result: every value, every premium, every threshold, at every population state."</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Computational cost:**</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>For 1D state + distribution: numerically tractable on a laptop (seconds-minutes)</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>For higher dimensions: needs more sophisticated methods</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** This is the *engine* underneath the GE-LAV® platform. Practitioners get the outputs; the master equation is what produced them.</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 22.11 — When Computing Distributions Matters</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "When you need Fokker-Planck and master equation outputs"</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**You need distribution-level analysis when:**</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Stress testing a portfolio (what fraction of positions cross the exit boundary in scenario X?)</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Computing welfare effects (aggregate cost vs. benefit)</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Designing Pigouvian taxes (tax depends on population state, not just individual)</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Regulatory diagnostics across an industry</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**You don't need it when:**</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Valuing a single asset under known conditions (HJB alone)</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Standard back-testing</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Simple exit boundary lookup</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Help students *triage* — they don't need all the math all the time.</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 22.12 — Synthesis of Sessions 19–22</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Where we are"</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Built so far:**</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Session 19:** Stochastic processes (Brownian, Itô, OU)</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Session 20:** Optimal control (HJB)</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Session 21:** Mean-field games (McKean-Vlasov)</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Session 22:** Distribution dynamics (Fokker-Planck, master equation)</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Coming:**</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Session 23:** The LAV operator and GE equilibrium pricing (synthesis)</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Session 24:** Jensen bias, Pigouvian tax, welfare (results)</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Encourage students. The hard sessions are behind. Sessions 23–24 wrap up the conceptual core.</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="fu">## Discussion Questions</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>The Fokker-Planck equation is mathematically equivalent to a generalized heat equation. Does that connection give you confidence in the framework, or does it suggest the framework is just "thermodynamics applied to finance"? How are the two domains structurally similar / different?</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>The master equation operates on the space of probability distributions (Wasserstein space). This is abstract. What's the *practical* consequence of "values live on distribution spaces"?</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Computing the master equation requires substantial numerical infrastructure. Is this a barrier to GE-LAV adoption, or does the platform's existence eliminate the barrier for practitioners?</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked Example: Fokker-Planck Stress Test</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>**Setup:** A regulator wants to know: starting from current conditions ($L_0 = -0.5$ for all LPs), what's the probability that aggregate PE liquidity is *worse* than current ($L_t &lt; -0.5$) at $t = 2$ years?</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>**Step 1: Solve OU Fokker-Planck**</span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>Using OU calibration ($\kappa = 0.45$, $\sigma_L = 0.32$, $\bar{L} = 1.0$):</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>Conditional density at $t = 2$:</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mean: $\bar{L} + (L_0 - \bar{L}) e^{-\kappa t} = 1.0 + (-1.5) \cdot e^{-0.9} = 1.0 + (-1.5)(0.407) = 0.39$</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variance: $\frac{\sigma_L^2}{2\kappa}(1 - e^{-2\kappa t}) = 0.1138 \cdot (1 - e^{-1.8}) = 0.1138 \cdot 0.835 = 0.0950$</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Standard deviation: 0.308</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>**Step 2: Compute probability**</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>$P(L_2 &lt; -0.5 | L_0 = -0.5) = \Phi\left(\dfrac{-0.5 - 0.39}{0.308}\right) = \Phi(-2.89) \approx 0.19\%$</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>**Interpretation:** "Less than 0.2% probability that aggregate liquidity will be worse than current conditions 2 years from now."</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>**Note:** This is a *single-LP* mean-reversion forecast. The MFG externality could amplify in extreme cases — but at $L = -0.5$ we're in the stable regime, so the single-LP Fokker-Planck is a good approximation.</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>**Teaching note:** This is exactly the kind of analysis the GE-LAV platform produces for stress testing.</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="fu">## Common Student Confusions (Instructor Notes)</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**"Why is Fokker-Planck not in the standard finance curriculum?"** It is in PhD finance. MBA and master's curricula focus on Black-Scholes-style problem-solving, which uses the *related* Kolmogorov backward equation (for pricing) more than Fokker-Planck (for densities). Both are forms of the same math.</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**"Is the master equation just a fancy form of Fokker-Planck?"** No — it's structurally different. Fokker-Planck governs how the *distribution* evolves. Master equation governs how the *value function on the distribution* evolves. Different objects.</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**"Wasserstein space — is that important?"** Mathematically yes (it's the right space for distributions with finite second moments). Practically, students don't need to manipulate it directly. The platform abstracts it away.</span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**"Can I do GE-LAV without solving Fokker-Planck?"** Yes for single-asset use cases. No for stress testing, welfare analysis, or Pigouvian tax design.</span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to Expect Next Session</span></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>Session 23 synthesizes everything from Sessions 19–22 into the **LAV operator** (book Ch. 16) and the **GE equilibrium** (book Ch. 17). We'll see:</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The Liquidity-Adjusted Valuation operator: how a single asset's value depends on the entire $L_t$ path</span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>General equilibrium pricing: the fixed-point that determines $\lambda^*$</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Market clearing in the GE-LAV framework</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>**Reading:** Book Chapters 16, 17 (concepts).</span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">← Session 21</span><span class="co">](session-21.qmd)</span> | <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span> | <span class="co">[</span><span class="ot">Next: Session 23 →</span><span class="co">](session-22.qmd)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Samir Asaf · GE-LAV® is a registered trademark</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/[your-username]/ge-lav-course/edit/main/lectures/session-22.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/blob/main/lectures/session-22.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

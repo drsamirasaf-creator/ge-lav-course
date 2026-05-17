@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Graduate-level course on the GE-LAV® framework for liquidity-adjusted valuation in private capital markets. Two-track design accommodating both practitioner-oriented (Track 1) and research-oriented (Track 2) graduate finance students.">
+
+<title>30&nbsp; Session 20: Stochastic Control · HJB Equation (Concepts Only) – Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../lectures/session-21.html" rel="next">
+<link href="../lectures/session-19.html" rel="prev">
+<link href="../resources/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="resources/custom.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/session-01.html">Lectures: Common Core (Sessions 1–24)</a></li><li class="breadcrumb-item"><a href="../lectures/session-20.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Session 20: Stochastic Control · HJB Equation (Concepts Only)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/[your-username]/ge-lav-course" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The General Equilibrium Theory of Private Capital Valuation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Course Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Syllabus</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">32-Session Schedule</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Slides</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Companion Code</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tracks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Track Declaration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slide-reuse-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Slide Reuse Map</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Assessments</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/project-specification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Term Project Specification</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/midterm-blueprint.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Midterm Exam Blueprint</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../problem-sets/psets-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Problem Sets Overview</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lectures: Common Core (Sessions 1–24)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Session 1: Course Intro · Why Private Market Valuation Is Broken</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Session 2: The Three Structural Failures · LA-CAPM</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Session 3: The Liquidity Illusion · Secondary Market Evidence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Session 4: The OU Process for Liquidity (Intuition Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Session 5: Term Structure of Private Capital Returns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Session 6: IRR · The Internal Rate of Return Problem</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Session 7: PME · LA-IRR · LA-PME</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Session 8: What a Correct Theory Must Deliver</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Session 9: Midterm Review</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Session 10: Midterm Exam</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Session 11: Exit Timing · The Trapped Investor Problem</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Session 12: The Exit Boundary <span class="math inline">\(L^*(t)\)</span> — Numerical Examples</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Session 13: Liquidity Traps · Historical Performance of GE-LAV</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Session 14: Portfolio Construction · Liquidity Hedge Demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Session 15: Pacing · Tactical Allocation · Stress Scenarios</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Session 16: Regulatory Implications · Crisis Dynamics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Session 17: The GE-LAV® Platform — Architecture, Data, Calibration</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Session 18: Platform Demo · Historical Validation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Session 19: Brownian Motion · Itô · OU (Concepts Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-20.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Session 20: Stochastic Control · HJB Equation (Concepts Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Session 21: Mean-Field Games (Concepts Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Session 22: Fokker-Planck · Master Equation (Concepts Only)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Session 23: The LAV Operator · GE Equilibrium · Market Clearing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Session 24: Jensen Bias · Pigouvian Tax · Welfare (Synthesis)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lectures: Split Track (Sessions 25–31)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Session 25: Split Track — PE Buyout Workshop / Full HJB Derivation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-26.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Session 26: Split Track — VC &amp; Secondaries / McKean-Vlasov MFG Proofs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-27.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Session 27: Split Track — Infrastructure Case / Fokker-Planck &amp; Master Equation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-28.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Session 28: Split Track — Private Credit Case / GE Equilibrium Existence</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-29.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Session 29: Split Track — Digital Assets &amp; Climate / Jensen + Pigouvian Proofs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-30.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Session 30: Project Draft Workshop · Valuation Hierarchy Proof (T2)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-31.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Session 31: Research Frontiers · Course Synthesis</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Capstone</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/session-32.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Session 32: Capstone — Project Presentations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/A-math-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Appendix A: Mathematical Foundations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/B-reading-list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Reading List</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">30.1</span> Learning Objectives</a></li>
+  <li><a href="#pre-class-assignment" id="toc-pre-class-assignment" class="nav-link" data-scroll-target="#pre-class-assignment"><span class="header-section-number">30.2</span> Pre-Class Assignment</a></li>
+  <li><a href="#in-class-outline-75-minutes" id="toc-in-class-outline-75-minutes" class="nav-link" data-scroll-target="#in-class-outline-75-minutes"><span class="header-section-number">30.3</span> In-Class Outline (75 minutes)</a></li>
+  <li><a href="#slide-content-briefs-all-new-slides" id="toc-slide-content-briefs-all-new-slides" class="nav-link" data-scroll-target="#slide-content-briefs-all-new-slides"><span class="header-section-number">30.4</span> Slide Content Briefs (All New Slides)</a>
+  <ul class="collapse">
+  <li><a href="#slide-20.1-title" id="toc-slide-20.1-title" class="nav-link" data-scroll-target="#slide-20.1-title"><span class="header-section-number">30.4.1</span> Slide 20.1 — Title</a></li>
+  <li><a href="#slide-20.2-the-optimal-control-problem" id="toc-slide-20.2-the-optimal-control-problem" class="nav-link" data-scroll-target="#slide-20.2-the-optimal-control-problem"><span class="header-section-number">30.4.2</span> Slide 20.2 — The Optimal Control Problem</a></li>
+  <li><a href="#slide-20.3-examples-of-stochastic-control" id="toc-slide-20.3-examples-of-stochastic-control" class="nav-link" data-scroll-target="#slide-20.3-examples-of-stochastic-control"><span class="header-section-number">30.4.3</span> Slide 20.3 — Examples of Stochastic Control</a></li>
+  <li><a href="#slide-20.4-the-value-function" id="toc-slide-20.4-the-value-function" class="nav-link" data-scroll-target="#slide-20.4-the-value-function"><span class="header-section-number">30.4.4</span> Slide 20.4 — The Value Function</a></li>
+  <li><a href="#slide-20.5-dynamic-programming-bellmans-insight" id="toc-slide-20.5-dynamic-programming-bellmans-insight" class="nav-link" data-scroll-target="#slide-20.5-dynamic-programming-bellmans-insight"><span class="header-section-number">30.4.5</span> Slide 20.5 — Dynamic Programming (Bellman’s Insight)</a></li>
+  <li><a href="#slide-20.6-from-bellman-to-hjb" id="toc-slide-20.6-from-bellman-to-hjb" class="nav-link" data-scroll-target="#slide-20.6-from-bellman-to-hjb"><span class="header-section-number">30.4.6</span> Slide 20.6 — From Bellman to HJB</a></li>
+  <li><a href="#slide-20.7-the-hjb-in-words" id="toc-slide-20.7-the-hjb-in-words" class="nav-link" data-scroll-target="#slide-20.7-the-hjb-in-words"><span class="header-section-number">30.4.7</span> Slide 20.7 — The HJB in Words</a></li>
+  <li><a href="#slide-20.8-solving-hjb-numerically" id="toc-slide-20.8-solving-hjb-numerically" class="nav-link" data-scroll-target="#slide-20.8-solving-hjb-numerically"><span class="header-section-number">30.4.8</span> Slide 20.8 — Solving HJB Numerically</a></li>
+  <li><a href="#slide-20.9-application-the-lp-exit-problem-revisited" id="toc-slide-20.9-application-the-lp-exit-problem-revisited" class="nav-link" data-scroll-target="#slide-20.9-application-the-lp-exit-problem-revisited"><span class="header-section-number">30.4.9</span> Slide 20.9 — Application: The LP Exit Problem (Revisited)</a></li>
+  <li><a href="#slide-20.10-smooth-pasting-properly-now" id="toc-slide-20.10-smooth-pasting-properly-now" class="nav-link" data-scroll-target="#slide-20.10-smooth-pasting-properly-now"><span class="header-section-number">30.4.10</span> Slide 20.10 — Smooth Pasting (Properly Now)</a></li>
+  <li><a href="#slide-20.11-numerical-output" id="toc-slide-20.11-numerical-output" class="nav-link" data-scroll-target="#slide-20.11-numerical-output"><span class="header-section-number">30.4.11</span> Slide 20.11 — Numerical Output</a></li>
+  <li><a href="#slide-20.12-hjb-beyond-exit-timing" id="toc-slide-20.12-hjb-beyond-exit-timing" class="nav-link" data-scroll-target="#slide-20.12-hjb-beyond-exit-timing"><span class="header-section-number">30.4.12</span> Slide 20.12 — HJB Beyond Exit Timing</a></li>
+  <li><a href="#slide-20.13-limitations-of-hjb-approach" id="toc-slide-20.13-limitations-of-hjb-approach" class="nav-link" data-scroll-target="#slide-20.13-limitations-of-hjb-approach"><span class="header-section-number">30.4.13</span> Slide 20.13 — Limitations of HJB Approach</a></li>
+  <li><a href="#slide-20.14-bridge-to-mean-field-games" id="toc-slide-20.14-bridge-to-mean-field-games" class="nav-link" data-scroll-target="#slide-20.14-bridge-to-mean-field-games"><span class="header-section-number">30.4.14</span> Slide 20.14 — Bridge to Mean-Field Games</a></li>
+  <li><a href="#slide-20.15-summary" id="toc-slide-20.15-summary" class="nav-link" data-scroll-target="#slide-20.15-summary"><span class="header-section-number">30.4.15</span> Slide 20.15 — Summary</a></li>
+  </ul></li>
+  <li><a href="#discussion-questions" id="toc-discussion-questions" class="nav-link" data-scroll-target="#discussion-questions"><span class="header-section-number">30.5</span> Discussion Questions</a></li>
+  <li><a href="#worked-example-sketch-of-the-ge-lav-hjb" id="toc-worked-example-sketch-of-the-ge-lav-hjb" class="nav-link" data-scroll-target="#worked-example-sketch-of-the-ge-lav-hjb"><span class="header-section-number">30.6</span> Worked Example: Sketch of the GE-LAV HJB</a></li>
+  <li><a href="#common-student-confusions-instructor-notes" id="toc-common-student-confusions-instructor-notes" class="nav-link" data-scroll-target="#common-student-confusions-instructor-notes"><span class="header-section-number">30.7</span> Common Student Confusions (Instructor Notes)</a></li>
+  <li><a href="#what-to-expect-next-session" id="toc-what-to-expect-next-session" class="nav-link" data-scroll-target="#what-to-expect-next-session"><span class="header-section-number">30.8</span> What to Expect Next Session</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/[your-username]/ge-lav-course/edit/main/lectures/session-20.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/blob/main/lectures/session-20.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/session-01.html">Lectures: Common Core (Sessions 1–24)</a></li><li class="breadcrumb-item"><a href="../lectures/session-20.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Session 20: Stochastic Control · HJB Equation (Concepts Only)</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-session-20" class="quarto-section-identifier"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Session 20: Stochastic Control · HJB Equation (Concepts Only)</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Unit</strong></td>
+<td>4 — Math Intuition Bridges</td>
+</tr>
+<tr class="even">
+<td><strong>Book Chapter</strong></td>
+<td>11 (concepts only — full derivation in Session 25 Track 2)</td>
+</tr>
+<tr class="odd">
+<td><strong>Slide source</strong></td>
+<td>All new — adapted from Class 7 with derivations stripped</td>
+</tr>
+<tr class="even">
+<td><strong>Slides needed</strong></td>
+<td>~15 new</td>
+</tr>
+<tr class="odd">
+<td><strong>Track</strong></td>
+<td>Common core (both tracks)</td>
+</tr>
+</tbody>
+</table>
+<section id="learning-objectives" class="level2" data-number="30.1">
+<h2 data-number="30.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">30.1</span> Learning Objectives</h2>
+<p>By the end of this session, students will be able to:</p>
+<ol type="1">
+<li><strong>State the optimal control problem</strong> in plain language — what is being optimized, over what choices, subject to what constraints.</li>
+<li><strong>Articulate the dynamic programming principle</strong> (Bellman’s logic) and why it works.</li>
+<li><strong>Describe what the HJB equation is</strong> — a PDE that the value function must satisfy — without solving it.</li>
+<li><strong>Apply the HJB intuition</strong> to the LP exit timing problem from Sessions 11–13.</li>
+<li><strong>Identify the smooth pasting condition</strong> as the boundary condition that determines the optimal exit threshold.</li>
+</ol>
+</section>
+<section id="pre-class-assignment" class="level2" data-number="30.2">
+<h2 data-number="30.2" class="anchored" data-anchor-id="pre-class-assignment"><span class="header-section-number">30.2</span> Pre-Class Assignment</h2>
+<ul>
+<li><strong>Read:</strong> Book Chapter 11 (read for concepts; skim proofs)</li>
+</ul>
+</section>
+<section id="in-class-outline-75-minutes" class="level2" data-number="30.3">
+<h2 data-number="30.3" class="anchored" data-anchor-id="in-class-outline-75-minutes"><span class="header-section-number">30.3</span> In-Class Outline (75 minutes)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Segment</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00–0:05</td>
+<td>Recap Session 19 · Today: optimal decisions under uncertainty</td>
+<td>Lecture</td>
+</tr>
+<tr class="even">
+<td>0:05–0:20</td>
+<td>The control problem — what we’re solving for</td>
+<td>Lecture</td>
+</tr>
+<tr class="odd">
+<td>0:20–0:35</td>
+<td>Dynamic programming and the value function</td>
+<td>Lecture + intuitive proof sketch</td>
+</tr>
+<tr class="even">
+<td>0:35–0:55</td>
+<td>The HJB equation — what it says and what it doesn’t</td>
+<td>Lecture</td>
+</tr>
+<tr class="odd">
+<td>0:55–1:10</td>
+<td>Smooth pasting and the exit boundary</td>
+<td>Lecture (revisit Session 12 with new lens)</td>
+</tr>
+<tr class="even">
+<td>1:10–1:15</td>
+<td>Bridge to Session 21 (mean-field games)</td>
+<td>Lecture</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="slide-content-briefs-all-new-slides" class="level2" data-number="30.4">
+<h2 data-number="30.4" class="anchored" data-anchor-id="slide-content-briefs-all-new-slides"><span class="header-section-number">30.4</span> Slide Content Briefs (All New Slides)</h2>
+<section id="slide-20.1-title" class="level3" data-number="30.4.1">
+<h3 data-number="30.4.1" class="anchored" data-anchor-id="slide-20.1-title"><span class="header-section-number">30.4.1</span> Slide 20.1 — Title</h3>
+<ul>
+<li><strong>Title:</strong> “Stochastic Control and the HJB Equation”</li>
+<li><strong>Subtitle:</strong> “How GE-LAV computes the optimal exit boundary · Concepts only · Track 2 derivation in Session 25”</li>
+<li><strong>Speaker notes:</strong> Session 19 was about <em>describing</em> stochastic processes. Today is about <em>making optimal decisions</em> under stochastic uncertainty.</li>
+</ul>
+</section>
+<section id="slide-20.2-the-optimal-control-problem" class="level3" data-number="30.4.2">
+<h3 data-number="30.4.2" class="anchored" data-anchor-id="slide-20.2-the-optimal-control-problem"><span class="header-section-number">30.4.2</span> Slide 20.2 — The Optimal Control Problem</h3>
+<ul>
+<li><strong>Title:</strong> “What stochastic control solves”</li>
+<li><strong>The setup:</strong>
+<ul>
+<li>System evolves stochastically: <span class="math inline">\(dX_t = \mu(X_t, u_t) dt + \sigma(X_t, u_t) dW_t\)</span></li>
+<li>At every time <span class="math inline">\(t\)</span>, choose action <span class="math inline">\(u_t\)</span></li>
+<li>Receive running reward <span class="math inline">\(f(X_t, u_t)\)</span> over time</li>
+<li>At terminal time <span class="math inline">\(T\)</span>, receive terminal reward <span class="math inline">\(g(X_T)\)</span></li>
+</ul></li>
+<li><strong>Goal:</strong> Choose action sequence to maximize expected total reward
+<ul>
+<li><span class="math inline">\(V(x, t) = \max_{u} E\left[\int_t^T f(X_s, u_s) ds + g(X_T) \,\big|\, X_t = x\right]\)</span></li>
+</ul></li>
+<li><strong>Speaker notes:</strong> This abstract framework is what the LP exit decision is doing. Make the connection explicit.</li>
+</ul>
+</section>
+<section id="slide-20.3-examples-of-stochastic-control" class="level3" data-number="30.4.3">
+<h3 data-number="30.4.3" class="anchored" data-anchor-id="slide-20.3-examples-of-stochastic-control"><span class="header-section-number">30.4.3</span> Slide 20.3 — Examples of Stochastic Control</h3>
+<ul>
+<li><strong>Title:</strong> “Stochastic control is everywhere”</li>
+<li><strong>Examples in finance:</strong>
+<ul>
+<li><strong>Merton portfolio:</strong> Choose allocation <span class="math inline">\(u_t\)</span> to maximize expected utility of terminal wealth</li>
+<li><strong>Black-Scholes:</strong> Choose hedging strategy to replicate option payoff</li>
+<li><strong>GE-LAV exit:</strong> Choose exit time to maximize expected discounted value</li>
+<li><strong>Optimal execution:</strong> Choose trading rate to minimize impact cost</li>
+</ul></li>
+<li><strong>Examples outside finance:</strong>
+<ul>
+<li><strong>Inventory management:</strong> Choose ordering to minimize total cost</li>
+<li><strong>Renewable energy:</strong> Choose battery dispatch to maximize revenue</li>
+<li><strong>Aerospace:</strong> Trajectory optimization for spacecraft</li>
+</ul></li>
+<li><strong>Speaker notes:</strong> Show breadth. Same math, many domains.</li>
+</ul>
+</section>
+<section id="slide-20.4-the-value-function" class="level3" data-number="30.4.4">
+<h3 data-number="30.4.4" class="anchored" data-anchor-id="slide-20.4-the-value-function"><span class="header-section-number">30.4.4</span> Slide 20.4 — The Value Function</h3>
+<ul>
+<li><strong>Title:</strong> “The value function <span class="math inline">\(V(x, t)\)</span>”</li>
+<li><strong>Definition:</strong> “Maximum expected reward attainable starting from state <span class="math inline">\(x\)</span> at time <span class="math inline">\(t\)</span>, under the optimal policy”</li>
+<li><strong>Why we want this:</strong>
+<ul>
+<li>Knowing <span class="math inline">\(V\)</span> tells us the <em>value</em> of being in state <span class="math inline">\(x\)</span></li>
+<li>Differentiating <span class="math inline">\(V\)</span> tells us the <em>optimal action</em></li>
+<li><span class="math inline">\(V\)</span> summarizes all future decisions in a single function</li>
+</ul></li>
+<li><strong>Key property:</strong>
+<ul>
+<li><span class="math inline">\(V\)</span> depends only on <em>current state</em> — past doesn’t matter (Markov property)</li>
+<li>This is why dynamic programming works</li>
+</ul></li>
+<li><strong>Speaker notes:</strong> Establish <span class="math inline">\(V\)</span> as the central object. Everything else is computing it.</li>
+</ul>
+</section>
+<section id="slide-20.5-dynamic-programming-bellmans-insight" class="level3" data-number="30.4.5">
+<h3 data-number="30.4.5" class="anchored" data-anchor-id="slide-20.5-dynamic-programming-bellmans-insight"><span class="header-section-number">30.4.5</span> Slide 20.5 — Dynamic Programming (Bellman’s Insight)</h3>
+<ul>
+<li><strong>Title:</strong> “Bellman’s principle of optimality”</li>
+<li><strong>The insight (paraphrased):</strong> “An optimal policy has the property that whatever the initial state and initial decision, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision.”</li>
+<li><strong>In formula:</strong> <span class="math inline">\(V(x, t) = \max_u \left[ f(x, u) \Delta t + E[V(X_{t+\Delta t}, t+\Delta t) | X_t = x, u_t = u] \right]\)</span></li>
+<li><strong>Translation:</strong> “Best total = best current + best continuation”</li>
+<li><strong>Why it matters:</strong> Reduces a problem of “choosing infinite future actions” to a problem of “choosing one action and trusting the value function”</li>
+<li><strong>Speaker notes:</strong> Bellman’s name and idea is worth establishing. Many students have heard “dynamic programming” without knowing where it came from.</li>
+</ul>
+</section>
+<section id="slide-20.6-from-bellman-to-hjb" class="level3" data-number="30.4.6">
+<h3 data-number="30.4.6" class="anchored" data-anchor-id="slide-20.6-from-bellman-to-hjb"><span class="header-section-number">30.4.6</span> Slide 20.6 — From Bellman to HJB</h3>
+<ul>
+<li><strong>Title:</strong> “From discrete to continuous: the HJB equation”</li>
+<li><strong>Bellman’s equation (discrete time):</strong> <span class="math inline">\(V(x, t) = \max_u [f \Delta t + E[V(X_{t+\Delta t})] ]\)</span></li>
+<li><strong>Take <span class="math inline">\(\Delta t \to 0\)</span> and apply Itô’s lemma to <span class="math inline">\(E[V(X_{t+\Delta t})]\)</span>:</strong>
+<ul>
+<li>The result is a partial differential equation (PDE) for <span class="math inline">\(V(x, t)\)</span></li>
+</ul></li>
+<li><strong>The Hamilton-Jacobi-Bellman (HJB) equation:</strong>
+<ul>
+<li><span class="math inline">\(\dfrac{\partial V}{\partial t} + \max_u \left[ f(x, u) + \mu(x, u) \dfrac{\partial V}{\partial x} + \dfrac{1}{2} \sigma^2(x, u) \dfrac{\partial^2 V}{\partial x^2} \right] = 0\)</span></li>
+</ul></li>
+<li><strong>What this says:</strong>
+<ul>
+<li>The first term is time-decay of value</li>
+<li>The bracketed max is the <em>Hamiltonian</em> — a function of current state and action</li>
+<li>The whole equation must hold at every <span class="math inline">\((x, t)\)</span></li>
+</ul></li>
+<li><strong>Speaker notes:</strong> Don’t dwell on the formula. Walk through it term by term — drift effect, diffusion effect, time decay, action choice. Track 2 students will see derivation; Track 1 students need the <em>shape</em> only.</li>
+</ul>
+</section>
+<section id="slide-20.7-the-hjb-in-words" class="level3" data-number="30.4.7">
+<h3 data-number="30.4.7" class="anchored" data-anchor-id="slide-20.7-the-hjb-in-words"><span class="header-section-number">30.4.7</span> Slide 20.7 — The HJB in Words</h3>
+<ul>
+<li><strong>Title:</strong> “What the HJB equation says, in words”</li>
+<li><strong>Plain English:</strong> “At every state and time, the <em>time decay</em> of value equals the <em>expected change</em> in value due to drift and diffusion, plus the <em>maximum gain</em> obtainable from the current action.”</li>
+<li><strong>In a sentence:</strong> “Value evolves consistently with the optimal action.”</li>
+<li><strong>Mathematical interpretation:</strong>
+<ul>
+<li>It’s a <em>constraint</em> on the value function — not a closed-form solution</li>
+<li>Solving it (analytically or numerically) gives <span class="math inline">\(V\)</span> and simultaneously the optimal action <span class="math inline">\(u^*(x, t)\)</span></li>
+</ul></li>
+<li><strong>Speaker notes:</strong> Students will not need to solve HJB equations. They need to know: “There’s a PDE the value function satisfies, and solving it gives both value and policy.”</li>
+</ul>
+</section>
+<section id="slide-20.8-solving-hjb-numerically" class="level3" data-number="30.4.8">
+<h3 data-number="30.4.8" class="anchored" data-anchor-id="slide-20.8-solving-hjb-numerically"><span class="header-section-number">30.4.8</span> Slide 20.8 — Solving HJB Numerically</h3>
+<ul>
+<li><strong>Title:</strong> “How HJB is solved in practice”</li>
+<li><strong>Methods:</strong>
+<ul>
+<li><strong>Finite differences</strong> (most common for low-dimensional state spaces, like GE-LAV)</li>
+<li><strong>Spectral methods</strong> (for very smooth problems)</li>
+<li><strong>Machine learning approximation</strong> (recent trend; neural networks for high-dimensional state)</li>
+</ul></li>
+<li><strong>For GE-LAV exit problem:</strong>
+<ul>
+<li>State space: <span class="math inline">\((L, t)\)</span> — 2-dimensional</li>
+<li>Standard finite-difference grid</li>
+<li>Solution time: seconds on a laptop</li>
+</ul></li>
+<li><strong>Speaker notes:</strong> Demystify. HJB is solvable. The platform does this routinely.</li>
+</ul>
+</section>
+<section id="slide-20.9-application-the-lp-exit-problem-revisited" class="level3" data-number="30.4.9">
+<h3 data-number="30.4.9" class="anchored" data-anchor-id="slide-20.9-application-the-lp-exit-problem-revisited"><span class="header-section-number">30.4.9</span> Slide 20.9 — Application: The LP Exit Problem (Revisited)</h3>
+<ul>
+<li><strong>Title:</strong> “Revisiting the LP exit problem from Sessions 11–13”</li>
+<li><strong>The control problem (now formalized):</strong>
+<ul>
+<li>State: <span class="math inline">\(L_t\)</span> (liquidity state)</li>
+<li>Action: continue holding OR exit (binary)</li>
+<li>Payoff from exiting at time <span class="math inline">\(t\)</span>: <span class="math inline">\(P_\text{secondary}(L_t)\)</span></li>
+<li>Payoff from continuing: expected future distributions discounted at <span class="math inline">\(r(L)\)</span></li>
+</ul></li>
+<li><strong>HJB equation here is an <em>obstacle problem</em>:</strong>
+<ul>
+<li><span class="math inline">\(V\)</span> must satisfy the PDE in the “continuation region”</li>
+<li><span class="math inline">\(V\)</span> equals the exit payoff in the “stopping region”</li>
+<li><span class="math inline">\(V\)</span> matches smoothly at the boundary between regions</li>
+</ul></li>
+<li><strong>Speaker notes:</strong> Connect to Sessions 11–13. They’ve seen the <em>result</em> (exit boundary); now they see the <em>math</em> that produced it.</li>
+</ul>
+</section>
+<section id="slide-20.10-smooth-pasting-properly-now" class="level3" data-number="30.4.10">
+<h3 data-number="30.4.10" class="anchored" data-anchor-id="slide-20.10-smooth-pasting-properly-now"><span class="header-section-number">30.4.10</span> Slide 20.10 — Smooth Pasting (Properly Now)</h3>
+<ul>
+<li><strong>Title:</strong> “The smooth pasting condition”</li>
+<li><strong>Setup:</strong> At the exit boundary <span class="math inline">\(L^*(t)\)</span>:
+<ul>
+<li><strong>Value match:</strong> <span class="math inline">\(V(L^*, t) = P_\text{secondary}(L^*)\)</span> — values equal</li>
+<li><strong>Smooth pasting:</strong> <span class="math inline">\(\dfrac{\partial V}{\partial L}\Big|_{L^*} = \dfrac{dP_\text{secondary}}{dL}\Big|_{L^*}\)</span> — slopes equal</li>
+</ul></li>
+<li><strong>Why slopes must match:</strong> “If the value function ‘kinked’ at the boundary, you could improve by moving the boundary.”</li>
+<li><strong>Visual:</strong> Two curves meeting tangentially (the canonical free-boundary picture)</li>
+<li><strong>Speaker notes:</strong> This is the <em>mathematical</em> characterization of the boundary. Session 12’s exit boundary chart is the output of smooth pasting.</li>
+</ul>
+</section>
+<section id="slide-20.11-numerical-output" class="level3" data-number="30.4.11">
+<h3 data-number="30.4.11" class="anchored" data-anchor-id="slide-20.11-numerical-output"><span class="header-section-number">30.4.11</span> Slide 20.11 — Numerical Output</h3>
+<ul>
+<li><strong>Title:</strong> “What you get from solving HJB”</li>
+<li><strong>Two outputs:</strong>
+<ul>
+<li><strong>Value function <span class="math inline">\(V(L, t)\)</span>:</strong> The maximum expected discounted value from state <span class="math inline">\((L, t)\)</span></li>
+<li><strong>Optimal policy <span class="math inline">\(u^*(L, t)\)</span>:</strong> The optimal action at each <span class="math inline">\((L, t)\)</span></li>
+</ul></li>
+<li><strong>For exit problem:</strong>
+<ul>
+<li>Value function gives the <em>hold value</em> (and equals exit payoff in stopping region)</li>
+<li>Policy is binary: HOLD if <span class="math inline">\(L &gt; L^*(t)\)</span>, EXIT otherwise</li>
+<li>The boundary <span class="math inline">\(L^*(t)\)</span> is implicitly defined by smooth pasting</li>
+</ul></li>
+<li><strong>Connecting back:</strong> “Sessions 11–13 showed the <span class="math inline">\(L^*(t)\)</span> chart. That chart is the <em>output</em> of the HJB solution.”</li>
+<li><strong>Speaker notes:</strong> Close the loop. Students should see today’s math as the <em>machinery</em> underlying earlier results.</li>
+</ul>
+</section>
+<section id="slide-20.12-hjb-beyond-exit-timing" class="level3" data-number="30.4.12">
+<h3 data-number="30.4.12" class="anchored" data-anchor-id="slide-20.12-hjb-beyond-exit-timing"><span class="header-section-number">30.4.12</span> Slide 20.12 — HJB Beyond Exit Timing</h3>
+<ul>
+<li><strong>Title:</strong> “HJB is everywhere in GE-LAV”</li>
+<li><strong>Other applications in the framework:</strong>
+<ul>
+<li><strong>Portfolio allocation:</strong> HJB determines the optimal <span class="math inline">\(w^*(L, t)\)</span> — the curve we saw in Session 14</li>
+<li><strong>Pacing decisions:</strong> HJB on a multi-dimensional state including unfunded commitments</li>
+<li><strong>Optimal Pigouvian tax:</strong> Inverse HJB — what tax achieves the welfare-maximum?</li>
+</ul></li>
+<li><strong>GE-LAV uses HJB at every decision layer.</strong> This isn’t just one application — it’s the <em>engine</em> of the optimal-decision side of the framework.</li>
+<li><strong>Speaker notes:</strong> Plant the seed that we’ll see HJB again. Session 25 (Track 2) derives the GE-LAV HJB from scratch; Track 1 PSets ask intuition questions about HJB outputs.</li>
+</ul>
+</section>
+<section id="slide-20.13-limitations-of-hjb-approach" class="level3" data-number="30.4.13">
+<h3 data-number="30.4.13" class="anchored" data-anchor-id="slide-20.13-limitations-of-hjb-approach"><span class="header-section-number">30.4.13</span> Slide 20.13 — Limitations of HJB Approach</h3>
+<ul>
+<li><strong>Title:</strong> “When HJB doesn’t work”</li>
+<li><strong>Three challenges:</strong>
+<ol type="1">
+<li><strong>Curse of dimensionality:</strong> State space dimension matters. 2D (GE-LAV exit) is easy. 10+ dimensions becomes hard.</li>
+<li><strong>Non-Markovian dynamics:</strong> HJB assumes Markov property. Memory effects break the standard formulation.</li>
+<li><strong>Discontinuous policies:</strong> Smooth pasting requires some regularity. If exit payoffs are jumpy, complications arise.</li>
+</ol></li>
+<li><strong>GE-LAV is well-suited:</strong> Low-dimensional state <span class="math inline">\((L_t)\)</span>, OU process is Markovian, exit payoff is smooth.</li>
+<li><strong>Speaker notes:</strong> Honest about scope. The framework works precisely because the GE-LAV problem fits HJB’s assumptions.</li>
+</ul>
+</section>
+<section id="slide-20.14-bridge-to-mean-field-games" class="level3" data-number="30.4.14">
+<h3 data-number="30.4.14" class="anchored" data-anchor-id="slide-20.14-bridge-to-mean-field-games"><span class="header-section-number">30.4.14</span> Slide 20.14 — Bridge to Mean-Field Games</h3>
+<ul>
+<li><strong>Title:</strong> “Where we go next: when <em>everyone</em> is solving HJB”</li>
+<li><strong>The HJB so far:</strong>
+<ul>
+<li>Single LP solving its own optimal exit problem</li>
+<li>Taking the market (secondary discounts) as given</li>
+</ul></li>
+<li><strong>The McKean-Vlasov twist:</strong>
+<ul>
+<li>Many LPs all solving their own exit problems simultaneously</li>
+<li>Their <em>collective</em> exit decisions move the secondary market</li>
+<li>Each LP’s optimal decision depends on what other LPs decide</li>
+</ul></li>
+<li><strong>This is mean-field games (MFG):</strong> Session 21 covers this concept.</li>
+<li><strong>Speaker notes:</strong> Tease Session 21. The framework gets richer when we add the collective layer.</li>
+</ul>
+</section>
+<section id="slide-20.15-summary" class="level3" data-number="30.4.15">
+<h3 data-number="30.4.15" class="anchored" data-anchor-id="slide-20.15-summary"><span class="header-section-number">30.4.15</span> Slide 20.15 — Summary</h3>
+<ul>
+<li><strong>Title:</strong> “Today in one sentence”</li>
+<li><strong>Statement:</strong> “Stochastic control formalizes the LP’s decision problem; the HJB equation is the consistency requirement on the value function; smooth pasting is the boundary condition that determines the exit threshold.”</li>
+<li><strong>You can now:</strong>
+<ul>
+<li>Read <span class="math inline">\(L^*(t)\)</span> charts knowing where they come from</li>
+<li>Discuss the framework’s <em>decision</em> layer with rigor</li>
+<li>Recognize HJB applications in other areas of finance</li>
+</ul></li>
+<li><strong>Speaker notes:</strong> Reinforce the conceptual progression: process → control → equilibrium.</li>
+</ul>
+</section>
+</section>
+<section id="discussion-questions" class="level2" data-number="30.5">
+<h2 data-number="30.5" class="anchored" data-anchor-id="discussion-questions"><span class="header-section-number">30.5</span> Discussion Questions</h2>
+<ol type="1">
+<li>The HJB equation is a PDE. Most LPs don’t solve PDEs. Is the framework’s reliance on this math a barrier to adoption? How can it be mitigated?</li>
+<li>Real LPs face liquidity, regulatory, tax, and behavioral constraints in addition to the value-maximization problem. How does HJB extend to handle these?</li>
+<li>The smooth pasting condition assumes the exit payoff is smooth. What if the secondary market has discrete pricing tiers (e.g., -5%, -10%, -15% bid levels) creating jumps? Does the boundary still exist?</li>
+</ol>
+</section>
+<section id="worked-example-sketch-of-the-ge-lav-hjb" class="level2" data-number="30.6">
+<h2 data-number="30.6" class="anchored" data-anchor-id="worked-example-sketch-of-the-ge-lav-hjb"><span class="header-section-number">30.6</span> Worked Example: Sketch of the GE-LAV HJB</h2>
+<p><strong>The GE-LAV exit problem in HJB form:</strong></p>
+<p>State: <span class="math inline">\(L_t\)</span>. Time horizon: <span class="math inline">\([0, T]\)</span>. Liquidity dynamics: <span class="math inline">\(dL_t = \kappa(\bar{L} - L_t) dt + \sigma_L dW_t\)</span>.</p>
+<p><strong>Value function:</strong> <span class="math inline">\(V(L, t)\)</span> = expected discounted hold value from <span class="math inline">\((L, t)\)</span>.</p>
+<p><strong>HJB equation (continuation region <span class="math inline">\(L &gt; L^*(t)\)</span>):</strong></p>
+<p><span class="math inline">\(\dfrac{\partial V}{\partial t} + \kappa(\bar{L} - L) \dfrac{\partial V}{\partial L} + \dfrac{1}{2} \sigma_L^2 \dfrac{\partial^2 V}{\partial L^2} - r(L) V + C(L, t) = 0\)</span></p>
+<p>Where <span class="math inline">\(C(L, t)\)</span> is the expected cash flow rate from the position.</p>
+<p><strong>Terminal condition:</strong> $V(L, T) = $ terminal payoff (final distribution).</p>
+<p><strong>Boundary conditions at the free boundary <span class="math inline">\(L^*(t)\)</span>:</strong> - <span class="math inline">\(V(L^*, t) = P_\text{secondary}(L^*)\)</span> (value match) - <span class="math inline">\(\dfrac{\partial V}{\partial L}\Big|_{L^*} = \dfrac{dP_\text{secondary}}{dL}\Big|_{L^*}\)</span> (smooth pasting)</p>
+<p><strong>Numerical solution:</strong></p>
+<p>Discretize <span class="math inline">\(L\)</span> on a grid, <span class="math inline">\(t\)</span> on a time-step grid. Back-step from <span class="math inline">\(t = T\)</span> to <span class="math inline">\(t = 0\)</span> using finite differences. At each step: - Compute <span class="math inline">\(V\)</span> assuming continuation - Compare to <span class="math inline">\(P_\text{secondary}(L)\)</span> - Take maximum (American option style) - Record the boundary where the max switches</p>
+<p><strong>Output:</strong> The <span class="math inline">\(L^*(t)\)</span> chart from Session 12.</p>
+<p><strong>Teaching note:</strong> Don’t expect students to do this calculation. The point is to <em>see</em> that the exit boundary comes from a well-defined PDE.</p>
+</section>
+<section id="common-student-confusions-instructor-notes" class="level2" data-number="30.7">
+<h2 data-number="30.7" class="anchored" data-anchor-id="common-student-confusions-instructor-notes"><span class="header-section-number">30.7</span> Common Student Confusions (Instructor Notes)</h2>
+<ul>
+<li><strong>“Why does the HJB require both value match and smooth pasting? Isn’t one enough?”</strong> Value match locates a candidate boundary. Smooth pasting picks the optimal boundary among candidates. Without smooth pasting, you could “improve” by moving the boundary.</li>
+<li><strong>“What if I’m not maximizing utility — I just want to minimize tail risk?”</strong> HJB still applies. Replace “expected reward” with whatever objective. The math is identical.</li>
+<li><strong>“Curse of dimensionality sounds bad. Does GE-LAV scale to portfolios?”</strong> Single-asset GE-LAV is 2D (<span class="math inline">\(L, t\)</span>). Multi-asset GE-LAV is higher-dimensional. Approximations and decomposition tricks are needed. Active research area.</li>
+<li><strong>“Why is the HJB called <em>Hamilton</em>-Jacobi-Bellman?”</strong> Hamilton: classical mechanics (1830s). Jacobi: PDE theory. Bellman: dynamic programming (1950s). Three independent developments converged on the same math.</li>
+</ul>
+</section>
+<section id="what-to-expect-next-session" class="level2" data-number="30.8">
+<h2 data-number="30.8" class="anchored" data-anchor-id="what-to-expect-next-session"><span class="header-section-number">30.8</span> What to Expect Next Session</h2>
+<p>Session 21 covers <strong>mean-field games (MFG)</strong> — the framework for when many agents are each solving their own HJB and influencing the aggregate state. This is the <em>general equilibrium</em> layer of GE-LAV.</p>
+<p>Key concepts: - McKean-Vlasov SDEs (the OU process when drift depends on the population distribution) - The fixed-point structure of MFG equilibrium - The collective externality and why it matters for private market valuation</p>
+<p><strong>Reading:</strong> Book Chapter 13 (concepts only).</p>
+<hr>
+<p><a href="../lectures/session-19.html">← Session 19</a> | <a href="../schedule.html">Schedule</a> | <a href="../lectures/session-21.html">Next: Session 21 →</a></p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lectures/session-19.html" class="pagination-link" aria-label="Session 19: Brownian Motion · Itô · OU (Concepts Only)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Session 19: Brownian Motion · Itô · OU (Concepts Only)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lectures/session-21.html" class="pagination-link" aria-label="Session 21: Mean-Field Games (Concepts Only)">
+        <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Session 21: Mean-Field Games (Concepts Only)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Session 20: Stochastic Control · HJB Equation (Concepts Only) {#sec-session-20}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Unit** <span class="pp">|</span> 4 — Math Intuition Bridges <span class="pp">|</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Book Chapter** <span class="pp">|</span> 11 (concepts only — full derivation in Session 25 Track 2) <span class="pp">|</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Slide source** <span class="pp">|</span> All new — adapted from Class 7 with derivations stripped <span class="pp">|</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Slides needed** <span class="pp">|</span> ~15 new <span class="pp">|</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Track** <span class="pp">|</span> Common core (both tracks) <span class="pp">|</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objectives</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>By the end of this session, students will be able to:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**State the optimal control problem** in plain language — what is being optimized, over what choices, subject to what constraints.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Articulate the dynamic programming principle** (Bellman's logic) and why it works.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Describe what the HJB equation is** — a PDE that the value function must satisfy — without solving it.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Apply the HJB intuition** to the LP exit timing problem from Sessions 11–13.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Identify the smooth pasting condition** as the boundary condition that determines the optimal exit threshold.</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pre-Class Assignment</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Read:** Book Chapter 11 (read for concepts; skim proofs)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## In-Class Outline (75 minutes)</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Time <span class="pp">|</span> Segment <span class="pp">|</span> Format <span class="pp">|</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:00–0:05 <span class="pp">|</span> Recap Session 19 · Today: optimal decisions under uncertainty <span class="pp">|</span> Lecture <span class="pp">|</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:05–0:20 <span class="pp">|</span> The control problem — what we're solving for <span class="pp">|</span> Lecture <span class="pp">|</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:20–0:35 <span class="pp">|</span> Dynamic programming and the value function <span class="pp">|</span> Lecture + intuitive proof sketch <span class="pp">|</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:35–0:55 <span class="pp">|</span> The HJB equation — what it says and what it doesn't <span class="pp">|</span> Lecture <span class="pp">|</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 0:55–1:10 <span class="pp">|</span> Smooth pasting and the exit boundary <span class="pp">|</span> Lecture (revisit Session 12 with new lens) <span class="pp">|</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1:10–1:15 <span class="pp">|</span> Bridge to Session 21 (mean-field games) <span class="pp">|</span> Lecture <span class="pp">|</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Slide Content Briefs (All New Slides)</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.1 — Title</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Stochastic Control and the HJB Equation"</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Subtitle:** "How GE-LAV computes the optimal exit boundary · Concepts only · Track 2 derivation in Session 25"</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Session 19 was about *describing* stochastic processes. Today is about *making optimal decisions* under stochastic uncertainty.</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.2 — The Optimal Control Problem</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "What stochastic control solves"</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**The setup:**</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>System evolves stochastically: $dX_t = \mu(X_t, u_t) dt + \sigma(X_t, u_t) dW_t$</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>At every time $t$, choose action $u_t$</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Receive running reward $f(X_t, u_t)$ over time</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>At terminal time $T$, receive terminal reward $g(X_T)$</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Goal:** Choose action sequence to maximize expected total reward</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$V(x, t) = \max_{u} E\left<span class="co">[</span><span class="ot">\int_t^T f(X_s, u_s) ds + g(X_T) \,\big|\, X_t = x\right</span><span class="co">]</span>$</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** This abstract framework is what the LP exit decision is doing. Make the connection explicit.</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.3 — Examples of Stochastic Control</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Stochastic control is everywhere"</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Examples in finance:**</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Merton portfolio:** Choose allocation $u_t$ to maximize expected utility of terminal wealth</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Black-Scholes:** Choose hedging strategy to replicate option payoff</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**GE-LAV exit:** Choose exit time to maximize expected discounted value</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Optimal execution:** Choose trading rate to minimize impact cost</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Examples outside finance:**</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Inventory management:** Choose ordering to minimize total cost</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Renewable energy:** Choose battery dispatch to maximize revenue</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Aerospace:** Trajectory optimization for spacecraft</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Show breadth. Same math, many domains.</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.4 — The Value Function</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "The value function $V(x, t)$"</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Definition:** "Maximum expected reward attainable starting from state $x$ at time $t$, under the optimal policy"</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Why we want this:**</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Knowing $V$ tells us the *value* of being in state $x$</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Differentiating $V$ tells us the *optimal action*</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$V$ summarizes all future decisions in a single function</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Key property:**</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$V$ depends only on *current state* — past doesn't matter (Markov property)</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>This is why dynamic programming works</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Establish $V$ as the central object. Everything else is computing it.</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.5 — Dynamic Programming (Bellman's Insight)</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Bellman's principle of optimality"</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**The insight (paraphrased):** "An optimal policy has the property that whatever the initial state and initial decision, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision."</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**In formula:** $V(x, t) = \max_u \left[ f(x, u) \Delta t + E[V(X_{t+\Delta t}, t+\Delta t) | X_t = x, u_t = u] \right]$</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Translation:** "Best total = best current + best continuation"</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Why it matters:** Reduces a problem of "choosing infinite future actions" to a problem of "choosing one action and trusting the value function"</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Bellman's name and idea is worth establishing. Many students have heard "dynamic programming" without knowing where it came from.</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.6 — From Bellman to HJB</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "From discrete to continuous: the HJB equation"</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Bellman's equation (discrete time):** $V(x, t) = \max_u [f \Delta t + E[V(X_{t+\Delta t})] ]$</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Take $\Delta t \to 0$ and apply Itô's lemma to $E[V(X_{t+\Delta t})]$:**</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>The result is a partial differential equation (PDE) for $V(x, t)$</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**The Hamilton-Jacobi-Bellman (HJB) equation:**</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$\dfrac{\partial V}{\partial t} + \max_u \left<span class="co">[</span><span class="ot"> f(x, u) + \mu(x, u) \dfrac{\partial V}{\partial x} + \dfrac{1}{2} \sigma^2(x, u) \dfrac{\partial^2 V}{\partial x^2} \right</span><span class="co">]</span> = 0$</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**What this says:**</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>The first term is time-decay of value</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>The bracketed max is the *Hamiltonian* — a function of current state and action</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>The whole equation must hold at every $(x, t)$</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Don't dwell on the formula. Walk through it term by term — drift effect, diffusion effect, time decay, action choice. Track 2 students will see derivation; Track 1 students need the *shape* only.</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.7 — The HJB in Words</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "What the HJB equation says, in words"</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Plain English:** "At every state and time, the *time decay* of value equals the *expected change* in value due to drift and diffusion, plus the *maximum gain* obtainable from the current action."</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**In a sentence:** "Value evolves consistently with the optimal action."</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Mathematical interpretation:**</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>It's a *constraint* on the value function — not a closed-form solution</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Solving it (analytically or numerically) gives $V$ and simultaneously the optimal action $u^*(x, t)$</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Students will not need to solve HJB equations. They need to know: "There's a PDE the value function satisfies, and solving it gives both value and policy."</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.8 — Solving HJB Numerically</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "How HJB is solved in practice"</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Methods:**</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Finite differences** (most common for low-dimensional state spaces, like GE-LAV)</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Spectral methods** (for very smooth problems)</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Machine learning approximation** (recent trend; neural networks for high-dimensional state)</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**For GE-LAV exit problem:**</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>State space: $(L, t)$ — 2-dimensional</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Standard finite-difference grid</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Solution time: seconds on a laptop</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Demystify. HJB is solvable. The platform does this routinely.</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.9 — Application: The LP Exit Problem (Revisited)</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Revisiting the LP exit problem from Sessions 11–13"</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**The control problem (now formalized):**</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>State: $L_t$ (liquidity state)</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Action: continue holding OR exit (binary)</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Payoff from exiting at time $t$: $P_\text{secondary}(L_t)$</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Payoff from continuing: expected future distributions discounted at $r(L)$</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**HJB equation here is an *obstacle problem*:**</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$V$ must satisfy the PDE in the "continuation region"</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$V$ equals the exit payoff in the "stopping region"</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>$V$ matches smoothly at the boundary between regions</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Connect to Sessions 11–13. They've seen the *result* (exit boundary); now they see the *math* that produced it.</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.10 — Smooth Pasting (Properly Now)</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "The smooth pasting condition"</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Setup:** At the exit boundary $L^*(t)$:</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Value match:** $V(L^*, t) = P_\text{secondary}(L^*)$ — values equal</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Smooth pasting:** $\dfrac{\partial V}{\partial L}\Big|_{L^*} = \dfrac{dP_\text{secondary}}{dL}\Big|_{L^*}$ — slopes equal</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Why slopes must match:** "If the value function 'kinked' at the boundary, you could improve by moving the boundary."</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Visual:** Two curves meeting tangentially (the canonical free-boundary picture)</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** This is the *mathematical* characterization of the boundary. Session 12's exit boundary chart is the output of smooth pasting.</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.11 — Numerical Output</span></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "What you get from solving HJB"</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Two outputs:**</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Value function $V(L, t)$:** The maximum expected discounted value from state $(L, t)$</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Optimal policy $u^*(L, t)$:** The optimal action at each $(L, t)$</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**For exit problem:**</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Value function gives the *hold value* (and equals exit payoff in stopping region)</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Policy is binary: HOLD if $L &gt; L^*(t)$, EXIT otherwise</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>The boundary $L^*(t)$ is implicitly defined by smooth pasting</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Connecting back:** "Sessions 11–13 showed the $L^*(t)$ chart. That chart is the *output* of the HJB solution."</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Close the loop. Students should see today's math as the *machinery* underlying earlier results.</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.12 — HJB Beyond Exit Timing</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "HJB is everywhere in GE-LAV"</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Other applications in the framework:**</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Portfolio allocation:** HJB determines the optimal $w^*(L, t)$ — the curve we saw in Session 14</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Pacing decisions:** HJB on a multi-dimensional state including unfunded commitments</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**Optimal Pigouvian tax:** Inverse HJB — what tax achieves the welfare-maximum?</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**GE-LAV uses HJB at every decision layer.** This isn't just one application — it's the *engine* of the optimal-decision side of the framework.</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Plant the seed that we'll see HJB again. Session 25 (Track 2) derives the GE-LAV HJB from scratch; Track 1 PSets ask intuition questions about HJB outputs.</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.13 — Limitations of HJB Approach</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "When HJB doesn't work"</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Three challenges:**</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="ss">  1. </span>**Curse of dimensionality:** State space dimension matters. 2D (GE-LAV exit) is easy. 10+ dimensions becomes hard.</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="ss">  2. </span>**Non-Markovian dynamics:** HJB assumes Markov property. Memory effects break the standard formulation.</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="ss">  3. </span>**Discontinuous policies:** Smooth pasting requires some regularity. If exit payoffs are jumpy, complications arise.</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**GE-LAV is well-suited:** Low-dimensional state $(L_t)$, OU process is Markovian, exit payoff is smooth.</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Honest about scope. The framework works precisely because the GE-LAV problem fits HJB's assumptions.</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.14 — Bridge to Mean-Field Games</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Where we go next: when *everyone* is solving HJB"</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**The HJB so far:**</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Single LP solving its own optimal exit problem</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Taking the market (secondary discounts) as given</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**The McKean-Vlasov twist:**</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Many LPs all solving their own exit problems simultaneously</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Their *collective* exit decisions move the secondary market</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Each LP's optimal decision depends on what other LPs decide</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**This is mean-field games (MFG):** Session 21 covers this concept.</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Tease Session 21. The framework gets richer when we add the collective layer.</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slide 20.15 — Summary</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Title:** "Today in one sentence"</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Statement:** "Stochastic control formalizes the LP's decision problem; the HJB equation is the consistency requirement on the value function; smooth pasting is the boundary condition that determines the exit threshold."</span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**You can now:**</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Read $L^*(t)$ charts knowing where they come from</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Discuss the framework's *decision* layer with rigor</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Recognize HJB applications in other areas of finance</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Speaker notes:** Reinforce the conceptual progression: process → control → equilibrium.</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="fu">## Discussion Questions</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>The HJB equation is a PDE. Most LPs don't solve PDEs. Is the framework's reliance on this math a barrier to adoption? How can it be mitigated?</span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Real LPs face liquidity, regulatory, tax, and behavioral constraints in addition to the value-maximization problem. How does HJB extend to handle these?</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>The smooth pasting condition assumes the exit payoff is smooth. What if the secondary market has discrete pricing tiers (e.g., -5%, -10%, -15% bid levels) creating jumps? Does the boundary still exist?</span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked Example: Sketch of the GE-LAV HJB</span></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>**The GE-LAV exit problem in HJB form:**</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>State: $L_t$. Time horizon: $<span class="co">[</span><span class="ot">0, T</span><span class="co">]</span>$. Liquidity dynamics: $dL_t = \kappa(\bar{L} - L_t) dt + \sigma_L dW_t$.</span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>**Value function:** $V(L, t)$ = expected discounted hold value from $(L, t)$.</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>**HJB equation (continuation region $L &gt; L^*(t)$):**</span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>$\dfrac{\partial V}{\partial t} + \kappa(\bar{L} - L) \dfrac{\partial V}{\partial L} + \dfrac{1}{2} \sigma_L^2 \dfrac{\partial^2 V}{\partial L^2} - r(L) V + C(L, t) = 0$</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>Where $C(L, t)$ is the expected cash flow rate from the position.</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>**Terminal condition:** $V(L, T) = $ terminal payoff (final distribution).</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>**Boundary conditions at the free boundary $L^*(t)$:**</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$V(L^*, t) = P_\text{secondary}(L^*)$ (value match)</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\dfrac{\partial V}{\partial L}\Big|_{L^*} = \dfrac{dP_\text{secondary}}{dL}\Big|_{L^*}$ (smooth pasting)</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a>**Numerical solution:**</span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>Discretize $L$ on a grid, $t$ on a time-step grid. Back-step from $t = T$ to $t = 0$ using finite differences. At each step:</span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Compute $V$ assuming continuation</span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Compare to $P_\text{secondary}(L)$</span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Take maximum (American option style)</span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Record the boundary where the max switches</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>**Output:** The $L^*(t)$ chart from Session 12.</span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>**Teaching note:** Don't expect students to do this calculation. The point is to *see* that the exit boundary comes from a well-defined PDE.</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="fu">## Common Student Confusions (Instructor Notes)</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**"Why does the HJB require both value match and smooth pasting? Isn't one enough?"** Value match locates a candidate boundary. Smooth pasting picks the optimal boundary among candidates. Without smooth pasting, you could "improve" by moving the boundary.</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**"What if I'm not maximizing utility — I just want to minimize tail risk?"** HJB still applies. Replace "expected reward" with whatever objective. The math is identical.</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**"Curse of dimensionality sounds bad. Does GE-LAV scale to portfolios?"** Single-asset GE-LAV is 2D ($L, t$). Multi-asset GE-LAV is higher-dimensional. Approximations and decomposition tricks are needed. Active research area.</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**"Why is the HJB called *Hamilton*-Jacobi-Bellman?"** Hamilton: classical mechanics (1830s). Jacobi: PDE theory. Bellman: dynamic programming (1950s). Three independent developments converged on the same math.</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to Expect Next Session</span></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>Session 21 covers **mean-field games (MFG)** — the framework for when many agents are each solving their own HJB and influencing the aggregate state. This is the *general equilibrium* layer of GE-LAV.</span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>Key concepts:</span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>McKean-Vlasov SDEs (the OU process when drift depends on the population distribution)</span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The fixed-point structure of MFG equilibrium</span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The collective externality and why it matters for private market valuation</span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>**Reading:** Book Chapter 13 (concepts only).</span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">← Session 19</span><span class="co">](session-19.qmd)</span> | <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span> | <span class="co">[</span><span class="ot">Next: Session 21 →</span><span class="co">](session-21.qmd)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Samir Asaf · GE-LAV® is a registered trademark</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/[your-username]/ge-lav-course/edit/main/lectures/session-20.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/blob/main/lectures/session-20.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
