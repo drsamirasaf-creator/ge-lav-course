@@ -31,9 +31,6 @@ book:
       © 2026 Samir Asaf · GE-LAV® is a registered trademark
     center: |
       [liquidityillusion.com](https://liquidityillusion.com) · the production GE-LAV® engine
-    right: |
-      Built with [Quarto](https://quarto.org)
-
   chapters:
     - index.qmd
     - part: "Course Foundations"
@@ -102,7 +99,7 @@ format:
       dark: darkly
     css: resources/custom.css
     code-link: true
-    code-tools: true
+    code-tools: false
     toc: true
     toc-depth: 3
     number-sections: true
