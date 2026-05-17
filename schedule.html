@@ -112,9 +112,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -708,8 +705,7 @@ window.Quarto = {
   <li><a href="#unit-5-split-track-sessions-2531" id="toc-unit-5-split-track-sessions-2531" class="nav-link" data-scroll-target="#unit-5-split-track-sessions-2531"><span class="header-section-number">3.3.5</span> Unit 5: Split Track (Sessions 25–31)</a></li>
   <li><a href="#capstone-session-32" id="toc-capstone-session-32" class="nav-link" data-scroll-target="#capstone-session-32"><span class="header-section-number">3.3.6</span> Capstone (Session 32)</a></li>
   </ul></li>
-  <li><a href="#slide-reuse-heat-map" id="toc-slide-reuse-heat-map" class="nav-link" data-scroll-target="#slide-reuse-heat-map"><span class="header-section-number">3.4</span> Slide Reuse Heat Map</a></li>
-  <li><a href="#visual-timeline" id="toc-visual-timeline" class="nav-link" data-scroll-target="#visual-timeline"><span class="header-section-number">3.5</span> Visual Timeline</a></li>
+  <li><a href="#visual-timeline" id="toc-visual-timeline" class="nav-link" data-scroll-target="#visual-timeline"><span class="header-section-number">3.4</span> Visual Timeline</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/[your-username]/ge-lav-course/edit/main/schedule.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/blob/main/schedule.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -1107,83 +1103,9 @@ window.Quarto = {
 </table>
 </section>
 </section>
-<section id="slide-reuse-heat-map" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="slide-reuse-heat-map"><span class="header-section-number">3.4</span> Slide Reuse Heat Map</h2>
-<p>Of the 485 existing slides in your 6 PPTX files:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Reuse pattern</th>
-<th>Count</th>
-<th>Where they go</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Direct reuse (minimal adaptation)</td>
-<td>~190 slides</td>
-<td>Sessions 11–18, 25–31, 32</td>
-</tr>
-<tr class="even">
-<td>Conceptual adaptation (strip math)</td>
-<td>~80 slides</td>
-<td>Sessions 4, 19–24</td>
-</tr>
-<tr class="odd">
-<td>Track 2 deep dive (full math)</td>
-<td>~140 slides</td>
-<td>Sessions 25–31 Track 2</td>
-</tr>
-<tr class="even">
-<td>Appendix / reference only</td>
-<td>~75 slides</td>
-<td>Appendix A (Math Foundations)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>New slides needed:</strong> approximately 200–280 slides, primarily for Sessions 1–3, 5–10, and 19–24. Slide content briefs for these new slides are provided in the the slide-build briefs folder, one per session.</p>
-</section>
-<section id="visual-timeline" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="visual-timeline"><span class="header-section-number">3.5</span> Visual Timeline</h2>
-<div class="cell" data-layout-align="default">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gantt</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    title GE-LAV Course Timeline (16 weeks, 32 sessions)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    dateFormat YYYY-MM-DD</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    axisFormat %b %d</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    section Unit 1</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    Sessions 1-5 (Why DCF Fails)          :u1, 2027-01-19, 2w</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    section Unit 2</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    Sessions 6-9 (Measurement)            :u2a, 2027-02-02, 11d</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    Midterm (Session 10)                  :milestone, m1, 2027-02-12, 0d</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    section Unit 3</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    Sessions 11-18 (Decision &amp; App)       :u3, 2027-02-16, 4w</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    Project Proposal Due                  :milestone, m2, 2027-03-05, 0d</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    PS2 Due                               :milestone, m3, 2027-03-09, 0d</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    section Unit 4</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    Sessions 19-24 (Math Bridges)         :u4, 2027-03-16, 3w</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    PS3 Due                               :milestone, m4, 2027-04-06, 0d</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    section Unit 5</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    Sessions 25-31 (Split Track)          :u5, 2027-04-08, 4w</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    Project Draft Due                     :milestone, m5, 2027-04-29, 0d</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    PS4 Due                               :milestone, m6, 2027-05-04, 0d</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    section Capstone</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    Session 32 (Presentations)            :u6, 2027-05-06, 1d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">gantt
+<section id="visual-timeline" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="visual-timeline"><span class="header-section-number">3.4</span> Visual Timeline</h2>
+<pre class="mermaid"><code>gantt
     title GE-LAV Course Timeline (16 weeks, 32 sessions)
     dateFormat YYYY-MM-DD
     axisFormat %b %d
@@ -1210,13 +1132,7 @@ window.Quarto = {
     PS4 Due                               :milestone, m6, 2027-05-04, 0d
 
     section Capstone
-    Session 32 (Presentations)            :u6, 2027-05-06, 1d
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+    Session 32 (Presentations)            :u6, 2027-05-06, 1d</code></pre>
 <p><em>Dates above are illustrative; actual dates will be set per the university’s Spring 2027 academic calendar.</em></p>
 <hr>
 <p><a href="./tracks.html">Next: Tracks →</a></p>
@@ -1792,58 +1708,44 @@ window.Quarto = {
 <span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
 <span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">32</span><span class="co">](lectures/session-32.qmd)</span> <span class="pp">|</span> **Project presentations** — both tracks, 20 min presentation + 5 min Q&amp;A each | **Project final due** <span class="pp">|</span></span>
 <span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## Slide Reuse Heat Map</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visual Timeline</span></span>
 <span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>Of the 485 existing slides in your 6 PPTX files:</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Reuse pattern <span class="pp">|</span> Count <span class="pp">|</span> Where they go <span class="pp">|</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Direct reuse (minimal adaptation) <span class="pp">|</span> ~190 slides <span class="pp">|</span> Sessions 11–18, 25–31, 32 <span class="pp">|</span></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Conceptual adaptation (strip math) <span class="pp">|</span> ~80 slides <span class="pp">|</span> Sessions 4, 19–24 <span class="pp">|</span></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Track 2 deep dive (full math) <span class="pp">|</span> ~140 slides <span class="pp">|</span> Sessions 25–31 Track 2 <span class="pp">|</span></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Appendix / reference only <span class="pp">|</span> ~75 slides <span class="pp">|</span> Appendix A (Math Foundations) <span class="pp">|</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mermaid}</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>gantt</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>    title GE-LAV Course Timeline (<span class="dv">16</span> weeks, <span class="dv">32</span> sessions)</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    dateFormat YYYY-MM-DD</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>    axisFormat <span class="dt">%b</span> <span class="dt">%d</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>    section Unit <span class="dv">1</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>    Sessions <span class="dv">1-5</span> (Why DCF Fails)          :u1, <span class="dv">2027</span><span class="bn">-01</span><span class="dv">-19</span>, <span class="dv">2</span>w</span>
 <span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>**New slides needed:** approximately 200–280 slides, primarily for Sessions 1–3, 5–10, and 19–24. Slide content briefs for these new slides are provided in the the slide-build briefs folder, one per session.</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visual Timeline</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>    section Unit <span class="dv">2</span></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>    Sessions <span class="dv">6-9</span> (Measurement)            :u2a, <span class="dv">2027</span><span class="bn">-02-02</span>, <span class="dv">11</span>d</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>    Midterm (Session <span class="dv">10</span>)                  :milestone, m1, <span class="dv">2027</span><span class="bn">-02</span><span class="dv">-12</span>, <span class="dv">0</span>d</span>
 <span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>gantt</span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>    title GE-LAV Course Timeline (<span class="dv">16</span> weeks, <span class="dv">32</span> sessions)</span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>    dateFormat YYYY-MM-DD</span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>    axisFormat <span class="dt">%b</span> <span class="dt">%d</span></span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>    section Unit <span class="dv">1</span></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>    Sessions <span class="dv">1-5</span> (Why DCF Fails)          :u1, <span class="dv">2027</span><span class="bn">-01</span><span class="dv">-19</span>, <span class="dv">2</span>w</span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>    section Unit <span class="dv">2</span></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>    Sessions <span class="dv">6-9</span> (Measurement)            :u2a, <span class="dv">2027</span><span class="bn">-02-02</span>, <span class="dv">11</span>d</span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>    Midterm (Session <span class="dv">10</span>)                  :milestone, m1, <span class="dv">2027</span><span class="bn">-02</span><span class="dv">-12</span>, <span class="dv">0</span>d</span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>    section Unit <span class="dv">3</span></span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>    Sessions <span class="dv">11-18</span> (Decision &amp; App)       :u3, <span class="dv">2027</span><span class="bn">-02</span><span class="dv">-16</span>, <span class="dv">4</span>w</span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>    Project Proposal Due                  :milestone, m2, <span class="dv">2027</span><span class="bn">-03-05</span>, <span class="dv">0</span>d</span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>    PS2 Due                               :milestone, m3, <span class="dv">2027</span><span class="bn">-03</span><span class="dv">-0</span>9, <span class="dv">0</span>d</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>    section Unit <span class="dv">3</span></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>    Sessions <span class="dv">11-18</span> (Decision &amp; App)       :u3, <span class="dv">2027</span><span class="bn">-02</span><span class="dv">-16</span>, <span class="dv">4</span>w</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>    Project Proposal Due                  :milestone, m2, <span class="dv">2027</span><span class="bn">-03-05</span>, <span class="dv">0</span>d</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>    PS2 Due                               :milestone, m3, <span class="dv">2027</span><span class="bn">-03</span><span class="dv">-0</span>9, <span class="dv">0</span>d</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>    section Unit <span class="dv">4</span></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>    Sessions <span class="dv">19-24</span> (Math Bridges)         :u4, <span class="dv">2027</span><span class="bn">-03</span><span class="dv">-16</span>, <span class="dv">3</span>w</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>    PS3 Due                               :milestone, m4, <span class="dv">2027</span><span class="bn">-04-06</span>, <span class="dv">0</span>d</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>    section Unit <span class="dv">5</span></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>    Sessions <span class="dv">25-31</span> (Split Track)          :u5, <span class="dv">2027</span><span class="bn">-04</span><span class="dv">-0</span>8, <span class="dv">4</span>w</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>    Project Draft Due                     :milestone, m5, <span class="dv">2027</span><span class="bn">-04</span><span class="dv">-29</span>, <span class="dv">0</span>d</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>    PS4 Due                               :milestone, m6, <span class="dv">2027</span><span class="bn">-05-04</span>, <span class="dv">0</span>d</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>    section Capstone</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>    Session <span class="dv">32</span> (Presentations)            :u6, <span class="dv">2027</span><span class="bn">-05-06</span>, <span class="dv">1</span>d</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>*Dates above are illustrative; actual dates will be set per the university's Spring 2027 academic calendar.*</span>
 <span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>    section Unit <span class="dv">4</span></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>    Sessions <span class="dv">19-24</span> (Math Bridges)         :u4, <span class="dv">2027</span><span class="bn">-03</span><span class="dv">-16</span>, <span class="dv">3</span>w</span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>    PS3 Due                               :milestone, m4, <span class="dv">2027</span><span class="bn">-04-06</span>, <span class="dv">0</span>d</span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>    section Unit <span class="dv">5</span></span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>    Sessions <span class="dv">25-31</span> (Split Track)          :u5, <span class="dv">2027</span><span class="bn">-04</span><span class="dv">-0</span>8, <span class="dv">4</span>w</span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>    Project Draft Due                     :milestone, m5, <span class="dv">2027</span><span class="bn">-04</span><span class="dv">-29</span>, <span class="dv">0</span>d</span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>    PS4 Due                               :milestone, m6, <span class="dv">2027</span><span class="bn">-05-04</span>, <span class="dv">0</span>d</span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>    section Capstone</span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>    Session <span class="dv">32</span> (Presentations)            :u6, <span class="dv">2027</span><span class="bn">-05-06</span>, <span class="dv">1</span>d</span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>*Dates above are illustrative; actual dates will be set per the university's Spring 2027 academic calendar.*</span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Next: Tracks →</span><span class="co">](tracks.qmd)</span></span>
-</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Next: Tracks →</span><span class="co">](tracks.qmd)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

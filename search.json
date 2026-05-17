@@ -245,22 +245,11 @@
     ]
   },
   {
-    "objectID": "schedule.html#slide-reuse-heat-map",
-    "href": "schedule.html#slide-reuse-heat-map",
-    "title": "3  32-Session Schedule",
-    "section": "3.4 Slide Reuse Heat Map",
-    "text": "3.4 Slide Reuse Heat Map\nOf the 485 existing slides in your 6 PPTX files:\n\n\n\n\n\n\n\n\nReuse pattern\nCount\nWhere they go\n\n\n\n\nDirect reuse (minimal adaptation)\n~190 slides\nSessions 11–18, 25–31, 32\n\n\nConceptual adaptation (strip math)\n~80 slides\nSessions 4, 19–24\n\n\nTrack 2 deep dive (full math)\n~140 slides\nSessions 25–31 Track 2\n\n\nAppendix / reference only\n~75 slides\nAppendix A (Math Foundations)\n\n\n\nNew slides needed: approximately 200–280 slides, primarily for Sessions 1–3, 5–10, and 19–24. Slide content briefs for these new slides are provided in the the slide-build briefs folder, one per session.",
-    "crumbs": [
-      "Course Foundations",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>32-Session Schedule</span>"
-    ]
-  },
-  {
     "objectID": "schedule.html#visual-timeline",
     "href": "schedule.html#visual-timeline",
     "title": "3  32-Session Schedule",
-    "section": "3.5 Visual Timeline",
-    "text": "3.5 Visual Timeline\n\ngantt\n    title GE-LAV Course Timeline (16 weeks, 32 sessions)\n    dateFormat YYYY-MM-DD\n    axisFormat %b %d\n\n    section Unit 1\n    Sessions 1-5 (Why DCF Fails)          :u1, 2027-01-19, 2w\n\n    section Unit 2\n    Sessions 6-9 (Measurement)            :u2a, 2027-02-02, 11d\n    Midterm (Session 10)                  :milestone, m1, 2027-02-12, 0d\n\n    section Unit 3\n    Sessions 11-18 (Decision & App)       :u3, 2027-02-16, 4w\n    Project Proposal Due                  :milestone, m2, 2027-03-05, 0d\n    PS2 Due                               :milestone, m3, 2027-03-09, 0d\n\n    section Unit 4\n    Sessions 19-24 (Math Bridges)         :u4, 2027-03-16, 3w\n    PS3 Due                               :milestone, m4, 2027-04-06, 0d\n\n    section Unit 5\n    Sessions 25-31 (Split Track)          :u5, 2027-04-08, 4w\n    Project Draft Due                     :milestone, m5, 2027-04-29, 0d\n    PS4 Due                               :milestone, m6, 2027-05-04, 0d\n\n    section Capstone\n    Session 32 (Presentations)            :u6, 2027-05-06, 1d\n\n\n\n\ngantt\n    title GE-LAV Course Timeline (16 weeks, 32 sessions)\n    dateFormat YYYY-MM-DD\n    axisFormat %b %d\n\n    section Unit 1\n    Sessions 1-5 (Why DCF Fails)          :u1, 2027-01-19, 2w\n\n    section Unit 2\n    Sessions 6-9 (Measurement)            :u2a, 2027-02-02, 11d\n    Midterm (Session 10)                  :milestone, m1, 2027-02-12, 0d\n\n    section Unit 3\n    Sessions 11-18 (Decision & App)       :u3, 2027-02-16, 4w\n    Project Proposal Due                  :milestone, m2, 2027-03-05, 0d\n    PS2 Due                               :milestone, m3, 2027-03-09, 0d\n\n    section Unit 4\n    Sessions 19-24 (Math Bridges)         :u4, 2027-03-16, 3w\n    PS3 Due                               :milestone, m4, 2027-04-06, 0d\n\n    section Unit 5\n    Sessions 25-31 (Split Track)          :u5, 2027-04-08, 4w\n    Project Draft Due                     :milestone, m5, 2027-04-29, 0d\n    PS4 Due                               :milestone, m6, 2027-05-04, 0d\n\n    section Capstone\n    Session 32 (Presentations)            :u6, 2027-05-06, 1d\n\n\n\n\n\n\nDates above are illustrative; actual dates will be set per the university’s Spring 2027 academic calendar.\n\nNext: Tracks →",
+    "section": "3.4 Visual Timeline",
+    "text": "3.4 Visual Timeline\ngantt\n    title GE-LAV Course Timeline (16 weeks, 32 sessions)\n    dateFormat YYYY-MM-DD\n    axisFormat %b %d\n\n    section Unit 1\n    Sessions 1-5 (Why DCF Fails)          :u1, 2027-01-19, 2w\n\n    section Unit 2\n    Sessions 6-9 (Measurement)            :u2a, 2027-02-02, 11d\n    Midterm (Session 10)                  :milestone, m1, 2027-02-12, 0d\n\n    section Unit 3\n    Sessions 11-18 (Decision & App)       :u3, 2027-02-16, 4w\n    Project Proposal Due                  :milestone, m2, 2027-03-05, 0d\n    PS2 Due                               :milestone, m3, 2027-03-09, 0d\n\n    section Unit 4\n    Sessions 19-24 (Math Bridges)         :u4, 2027-03-16, 3w\n    PS3 Due                               :milestone, m4, 2027-04-06, 0d\n\n    section Unit 5\n    Sessions 25-31 (Split Track)          :u5, 2027-04-08, 4w\n    Project Draft Due                     :milestone, m5, 2027-04-29, 0d\n    PS4 Due                               :milestone, m6, 2027-05-04, 0d\n\n    section Capstone\n    Session 32 (Presentations)            :u6, 2027-05-06, 1d\nDates above are illustrative; actual dates will be set per the university’s Spring 2027 academic calendar.\n\nNext: Tracks →",
     "crumbs": [
       "Course Foundations",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>32-Session Schedule</span>"
