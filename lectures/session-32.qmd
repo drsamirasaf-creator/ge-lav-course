@@ -176,3 +176,7 @@ If you find errors, omissions, or improvements in the course or the framework, p
 ------------------------------------------------------------------------
 
 [← Session 31](session-31.qmd) | [Schedule](../schedule.qmd) | [Back to Course Home](../index.qmd)
+
+:::{.gelav-product-callout}
+**Beyond this course:** The production GE-LAV® engine at [liquidityillusion.com](https://liquidityillusion.com) is where the framework continues evolving. Bookmark it.
+:::

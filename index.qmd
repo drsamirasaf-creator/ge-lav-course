@@ -1,5 +1,17 @@
 
 
+
+:::{.gelav-hero-cta}
+:::{.gelav-hero-cta-text}
+### Try the production engine
+
+The same GE-LAV® framework taught here is implemented as a live valuation tool at
+**liquidityillusion.com**, with calibrated state parameters, real-time π(L, T) computation,
+and portfolio-level stress testing.
+:::
+[Open liquidityillusion.com →](https://liquidityillusion.com){.gelav-hero-cta-button target="_blank" rel="noopener"}
+:::
+
 ## The General Equilibrium Theory of Private Capital Valuation
 
 **Graduate Finance Course · Spring 2027 · 32 Sessions · 3 Credit Hours**

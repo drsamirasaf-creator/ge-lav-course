@@ -321,7 +321,7 @@ Heavy reuse from existing decks. New slides primarily bridging adapted content.
 | 4 | 25–32 | 50 | 21 | 154 |
 | **Total** | **All** | **278 new + ~50 adapted** | **~154** | **154 hr** |
 
-Total new + adapted slides: ~328 (matches the slide-reuse-map's estimate).
+Total new + adapted slides: ~328 (matches the original reuse plan).
 
 **Note:** Total of 154 hours assumes a single person experienced with your visual style. With TA assistance (2 people building in parallel), this drops to ~80–100 hours real time.
 

@@ -190,3 +190,7 @@ Session 18 is a **deep platform demo + validation** session. We'll:
 ------------------------------------------------------------------------
 
 [← Session 16](session-16.qmd) | [Schedule](../schedule.qmd) | [Next: Session 18 →](session-18.qmd)
+
+:::{.gelav-product-callout}
+**Compute it live:** The π(L, T) market-clearing surface in this session is interactive at [liquidityillusion.com](https://liquidityillusion.com).
+:::

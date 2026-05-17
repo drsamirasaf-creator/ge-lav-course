@@ -232,3 +232,7 @@ Use directly.
 ------------------------------------------------------------------------
 
 [← Session 26](session-26.qmd) | [Schedule](../schedule.qmd) | [Next: Session 28 →](session-28.qmd)
+
+:::{.gelav-product-callout}
+**Run your own scenario:** Apply the FP-coupled GE-LAV® system to a custom infrastructure asset at [liquidityillusion.com](https://liquidityillusion.com).
+:::

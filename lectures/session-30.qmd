@@ -193,3 +193,7 @@ By the end of the Track 2 portion, students will additionally be able to:
 ------------------------------------------------------------------------
 
 [← Session 29](session-29.qmd) | [Schedule](../schedule.qmd) | [Next: Session 31 →](session-31.qmd)
+
+:::{.gelav-product-callout}
+**For your capstone:** Students often use [liquidityillusion.com](https://liquidityillusion.com) to compute final-project results. The production engine accepts your own cash-flow inputs.
+:::

@@ -85,4 +85,4 @@ The course depends on students self-selecting honestly. Choosing Track 1 when yo
 
 ------------------------------------------------------------------------
 
-[Next: Slide Reuse Map →](slide-reuse-map.qmd)
+[Next: Term Project Specification →](project/project-specification.qmd)

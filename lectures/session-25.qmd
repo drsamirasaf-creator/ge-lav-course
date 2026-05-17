@@ -230,3 +230,7 @@ PS4 drops at the end of today's session. Track-specific content:
 ------------------------------------------------------------------------
 
 [← Session 24](session-24.qmd) | [Schedule](../schedule.qmd) | [Next: Session 26 →](session-26.qmd)
+
+:::{.gelav-product-callout}
+**Try this case in the engine:** The RJR Nabisco GE-LAV® analysis is available as a worked template at [liquidityillusion.com](https://liquidityillusion.com).
+:::
