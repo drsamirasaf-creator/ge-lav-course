@@ -4,8 +4,6 @@
 |---|---|
 | **Unit** | 3 — Decision and Application |
 | **Book Chapter** | 6 (sections 6.1–6.4) |
-| **Slide source** | Reuse from Class 13 (PE Decomposition) + ~5 new |
-| **Slides needed** | ~5 new + adapt ~8 from Class 13 |
 | **Track** | Common core (both tracks) |
 
 ## Learning Objectives
@@ -32,81 +30,6 @@ By the end of this session, students will be able to:
 | 0:25–0:45 | The optimal stopping formulation | Lecture |
 | 0:45–1:00 | Smooth pasting (intuition only) | Lecture |
 | 1:00–1:15 | Trapped investor scenarios — four cases | Discussion + cases |
-
-## Slide Content Briefs (New Slides Needed)
-
-### Slide 11.1 — Title and Unit 3 Setup
-
-- **Title:** "Exit Timing · The Trapped Investor"
-- **Tag line:** "Unit 3 begins: from diagnosis to decision"
-- **Unit 3 preview:** "Sessions 11–18 build the GE-LAV alternative: exit timing, portfolio, regulation, implementation"
-- **Speaker notes:** Pivot moment. Less critique, more building.
-
-### Slide 11.2 — The Exit Decision in Practice
-
-- **Title:** "What an LP actually faces"
-- **Setup:** "An LP holds a 7-year PE position currently 4 years in. NAV reported by GP: $50M. Recent secondary market bid: $42M (16% discount). What should they do?"
-- **Standard practice:**
-  - Most LPs hold to natural liquidation (no decision)
-  - Some LPs sell to secondaries when forced (denominator effect, liquidity needs)
-  - Very few LPs systematically optimize the exit decision
-- **GE-LAV question:** "What's the *optimal* policy as a function of $L_t$?"
-- **Speaker notes:** Frame the gap between practice and theory. Most LPs don't optimize because they don't have the framework.
-
-### Slide 11.3 — The Optimal Stopping Formulation
-
-- **Title:** "Exit as an optimal stopping problem"
-- **Setup:**
-  - At any time $t$, the LP can:
-    - **Hold:** receive future distributions per the GP plan
-    - **Exit:** sell into the secondary market at price $P_\text{secondary}(L_t)$
-  - The LP wants to maximize expected discounted value
-- **Value function:** $V(L, t) = \max\{ P_\text{secondary}(L), E[V_\text{hold}(L_t, t)] \}$
-- **Intuition:** "Hold if expected hold value exceeds secondary price; otherwise exit"
-- **Speaker notes:** This is a textbook American option style problem. Students with derivatives background will recognize the structure.
-
-### Slide 11.4 — The Exit Boundary $L^*(t)$ (Preview)
-
-- **Title:** "There is an optimal $L^*$ — and we can compute it"
-- **Setup:**
-  - For each time $t$ remaining, there's a critical liquidity level $L^*(t)$
-  - **Above $L^*$:** Hold (better expected value from waiting)
-  - **Below $L^*$:** Exit (secondary price exceeds expected hold value)
-- **Boundary shape:** $L^*(t)$ rises as $t \to T$ (near maturity, only marginally stressed liquidity should trigger exit)
-- **Calibrated benchmark:** "For typical mid-life PE position, $L^* \approx -1.0$ — moderate stress"
-- **Speaker notes:** Numerical computation in Session 12. Today is conceptual.
-
-### Slide 11.5 — Smooth Pasting (Intuition Only)
-
-- **Title:** "Why $L^*$ is special: smooth pasting"
-- **Concept:**
-  - At $L^*$, the value of holding equals the value of exiting
-  - At $L^*$, the *slope* of the hold value with respect to $L$ also equals the slope of the exit value
-  - This "smooth pasting" condition determines $L^*$ uniquely
-- **Visual:** Two curves (hold value, exit value) meeting tangentially at $L^*$
-- **Track 2 note:** "Full derivation in Session 25 — for now, accept it as the optimality condition"
-- **Speaker notes:** Don't derive. Just establish that smooth pasting is *how* we compute $L^*$. Track 2 students will see this for real with HJB and variational inequalities.
-
-### Slide 11.6 — The Four Trapped Investor Scenarios
-
-- **Title:** "When an LP is 'trapped'"
-- **Definition:** "Trapped = unable to exit at fair value despite wanting to exit"
-- **Four scenarios:**
-  1. **Liquidity stress:** $L_t \ll L^*$, secondary market discounts widen beyond LAV value → exit destroys value
-  2. **Denominator effect:** Public market decline forces PE % allocation above policy limit → LP must sell at bad time
-  3. **Regulatory constraint:** Solvency II / Basel capital charge rises with stress → insurer must reduce private exposure
-  4. **Funding obligation:** LP needs cash to meet pension payouts or other liabilities → must sell regardless of price
-- **Speaker notes:** Scenarios 2–4 are *forced* exits; scenario 1 is *value-destroying voluntary* exit. Both create trapped behavior.
-
-## Existing Slides to Reuse from Class 13 (PE Return Decomposition)
-
-From your Deck 3, Class 13 covered "PE Return Decomposition: Five-Component Attribution." Pull approximately 8 slides covering:
-
-- The decomposition of PE returns into: (1) operating value creation, (2) multiple expansion, (3) leverage effect, (4) timing/liquidity premium, (5) Jensen bias
-- Visual showing how the liquidity-timing component varies by vintage
-- Slide showing the "trapped" pattern empirically across 2008-2010 LPs
-
-**Adaptation:** These slides are well-aligned with Session 11's theme. Use them substantially as-is. Add 2-3 new slides bridging to the exit boundary concept.
 
 ## Discussion Questions
 
@@ -151,15 +74,6 @@ If $L_t$ dropped to $-1.5$ (GFC depth) and secondary discount widened to 40%:
 - But $V_\text{hold}$ also drops (higher expected premium during recovery period) — maybe to ~$\$70M$
 - At $L_t = -1.5$, hold still slightly dominates exit for a 5-year position
 - For shorter remaining horizons (e.g., 2 years), the trade flips: exit becomes optimal because there's less time for mean reversion
-
-**Teaching note:** Walk through this on the board. Students should leave with a quantitative feel for when exit makes sense.
-
-## Common Student Confusions (Instructor Notes)
-
-- **"Why is mean reversion the dominant force here?"** Because $\kappa = 0.45$/yr is moderately fast — over 5 years, $L_t$ reverts substantially toward $\bar{L}$. Short positions don't have this luxury.
-- **"What if I think the secondary market is *underpricing* my position?"** That's exactly what the hold-vs-exit calculation tests. If $V_\text{hold} > P_\text{secondary}$, you agree the secondary is underpricing, and you hold.
-- **"How is this different from American option exercise?"** Mathematically very similar. Both use optimal stopping. Difference: PE has more complex cash flow structure (J-curve, distributions over time, not a single payoff).
-- **"Does the GP have a role in the LP's exit decision?"** No directly — secondary market transactions don't require GP consent under most LPAs. But GPs often have right of first refusal, and GP attitude affects valuation. Practical complication beyond pure theory.
 
 ## What to Expect Next Session
 

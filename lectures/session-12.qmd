@@ -4,8 +4,6 @@
 |---|---|
 | **Unit** | 3 — Decision and Application |
 | **Book Chapter** | 6 (sections 6.5–6.7) |
-| **Slide source** | Reuse from Class 13 + ~5 new |
-| **Slides needed** | ~5 new + adapt ~6 from Class 13 |
 | **Track** | Common core (both tracks) |
 
 ## Learning Objectives
@@ -33,94 +31,6 @@ By the end of this session, students will be able to:
 | 0:40–0:55 | Sensitivity to OU parameters and asset class | Lecture |
 | 0:55–1:10 | Historical application: GFC, COVID, rate shock | Case + discussion |
 | 1:10–1:15 | Worked example: should this LP exit? | Live problem |
-
-## Slide Content Briefs (New Slides Needed)
-
-### Slide 12.1 — Title and Today's Goal
-
-- **Title:** "The Exit Boundary $L^*(t)$ in Practice"
-- **Tag line:** "Yesterday: the structure. Today: the numbers."
-- **Speaker notes:** Today is operational. Students should leave able to look at a position and identify the exit recommendation.
-
-### Slide 12.2 — The Exit Boundary Chart (Anchor Visual)
-
-- **Title:** "The GE-LAV exit boundary"
-- **Visual:** Master chart showing $L^*(t)$ as a function of remaining time-to-maturity $T - t$
-- **Key features to annotate:**
-  - X-axis: years remaining (0 to 15)
-  - Y-axis: critical liquidity state $L^*$
-  - Boundary curve: rises from approximately $L^* = -2.0$ at $T - t = 10$+ years, up to $L^* \approx -0.5$ at $T - t = 1$ year, to $L^* \approx 0$ near maturity
-  - **Hold region:** Above the curve
-  - **Exit region:** Below the curve
-- **Calibrated benchmark numbers (table):**
-
-| Remaining T | $L^*$ |
-|---|---|
-| 10 yr | −1.8 |
-| 7 yr | −1.5 |
-| 5 yr | −1.2 |
-| 3 yr | −0.8 |
-| 1 yr | −0.5 |
-| 0.5 yr | −0.2 |
-
-- **Speaker notes:** This chart is the operational tool. Spend 10+ minutes on it.
-
-### Slide 12.3 — Why $L^*(t)$ Rises as $t \to T$
-
-- **Title:** "The shape of $L^*(t)$, intuitively"
-- **Three reasons:**
-  1. **Less time for mean reversion:** Near maturity, even small stress can't be recovered before forced exit at terminal date
-  2. **Smaller Jensen benefit:** Jensen bias scales with $T$ — less to gain by holding short-term
-  3. **Asymmetric payoff:** Distress risk dominates upside as horizon shrinks
-- **Visual:** Three small annotations on the master chart
-- **Speaker notes:** Connect to Black-Scholes intuition — option time value decays as expiry approaches. Same principle.
-
-### Slide 12.4 — Asset Class Differences
-
-- **Title:** "Exit boundaries vary by asset class"
-- **Table or overlaid chart:**
-
-| Asset Class | $L^*$ at 5 years remaining |
-|---|---|
-| PE Buyout | −1.2 |
-| Growth Equity | −1.1 |
-| Real Estate | −1.4 |
-| Infrastructure | −1.6 |
-| Private Credit | −0.9 |
-
-- **Explanation of pattern:**
-  - **Infrastructure** has the most negative $L^*$ → most willing to hold through stress (long mean-reversion runway, stable cash flows)
-  - **Private credit** has the least negative $L^*$ → quickest to exit (short duration, less Jensen benefit to hold)
-- **Speaker notes:** Asset class matters for the boundary. This is why portfolio-level exit policy needs asset-class differentiation.
-
-### Slide 12.5 — Calibrated Exit Boundary Performance (Class 13 Reuse)
-
-- **Title:** "Historical performance of the GE-LAV exit rule"
-- **Setup:** "If LPs had applied the GE-LAV exit boundary 1990–2024, what would have happened?"
-- **Results table (from Class 13 reuse):**
-
-| Episode | Date | Standard LP Outcome | GE-LAV-Optimal Outcome |
-|---|---|---|---|
-| LTCM | 1998 | −12% capital loss on PE secondaries | Hold; no loss |
-| Dot-com | 2001–2002 | −18% on early VC secondaries | Partial exit @ −0.5σ → −8% |
-| GFC | 2008–2010 | −35% on PE secondaries | Exit signal triggered → 0% to −10% |
-| COVID | 2020 | −15% briefly | Hold; recovered by Q3 |
-| Rate shock | 2022 | −18% PE, −22% RE | Partial exit signal in RE |
-
-- **Speaker notes:** This is one of the most empirically powerful slides in the course. GE-LAV would have improved LP outcomes in 3 of 5 major episodes.
-
-## Existing Slides to Reuse from Class 13
-
-From Deck 3, Class 13 ("PE Return Decomposition: Five-Component Attribution"), pull approximately 6 slides:
-
-- Slide showing the $L^*(t)$ master chart (this is the anchor visual)
-- Slide showing historical performance of the exit rule
-- Slide showing sensitivity to OU parameters (κ, σ variations)
-- Slide showing asset class comparison
-- Slide showing the smooth pasting visual
-- One slide showing a numerical example
-
-**Adaptation:** Class 13 was titled "PE Return Decomposition" but contains substantial exit-boundary content. Repurpose these slides as the bulk of Session 12.
 
 ## Discussion Questions
 
@@ -165,15 +75,6 @@ The expected liquidity state in 4 years is +0.72, well above current. The Jensen
 Expected hold value: $\$200M \times (1 + 0.0072) \approx \$201.4M$, plus mean-reversion gain (state goes from −0.7 to +0.7 generates ~5–8% NAV uplift via lower discount rates).
 
 **Conclusion:** Pure GE-LAV says hold. Hybrid view (GE-LAV + Solvency II): probably still hold, but the case is closer than a non-regulatory LP would face.
-
-**Teaching note:** This is a realistic decision insurance allocators face quarterly. The framework is more useful for *defending* the hold decision to a board than for making a clear binary call.
-
-## Common Student Confusions (Instructor Notes)
-
-- **"The boundary is so deep ($L^* \approx -1.5$). When would anyone actually trigger exit?"** GFC was −2.0+ at peak distress. COVID briefly touched −1.0. Boundary is conservative on purpose — exit is value-destroying unless conditions are extreme.
-- **"What if my secondary market price is below GE-LAV equilibrium?"** Then the secondary market is offering you a *bad* deal, and you should hold. The exit boundary uses the secondary price as the alternative — if that price is too low, the boundary correctly says hold.
-- **"Does the boundary depend on my personal $\gamma$ (risk aversion)?"** Slightly. Higher $\gamma$ → exit more readily (less willing to bear hold risk). But the boundary moves only modestly across reasonable $\gamma$ values.
-- **"What if I disagree with the OU calibration?"** That's the right question. Robustness checks (using bootstrap CI on $\kappa, \sigma, \bar{L}$) show the boundary is robust to ±20% parameter variation. Anything beyond that, recalibrate.
 
 ## What to Expect Next Session
 

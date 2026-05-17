@@ -4,8 +4,6 @@
 |---|---|
 | **Unit** | 3 — Decision and Application |
 | **Book Chapter** | 9 (sections 9.6–9.10) |
-| **Slide source** | Reuse Classes 10, 12, 25 (remainder) + ~5 new |
-| **Slides needed** | ~5 new + adapt ~8 from existing |
 | **Track** | Common core (both tracks) |
 
 ## Learning Objectives
@@ -33,80 +31,6 @@ By the end of this session, students will be able to:
 | 0:45–0:55 | Platform limitations | Lecture |
 | 0:55–1:10 | Translating outputs to IC language | Activity |
 | 1:10–1:15 | Wrap-up Unit 3 · Bridge to math intuition (Sessions 19–24) | Lecture |
-
-## Slide Content Briefs (New Slides Needed)
-
-### Slide 18.1 — Title
-
-- **Title:** "Platform Demo and Historical Validation"
-- **Tag line:** "Does it actually work?"
-- **Speaker notes:** Today is empirical credibility for the platform. Same way Session 13 tested the framework, today tests the implementation.
-
-### Slide 18.2 — End-to-End Demo Setup (New Slide)
-
-- **Title:** "Demo: a 5-position institutional portfolio"
-- **Portfolio (hypothetical):**
-
-| Position | Asset Class | Vintage | NAV ($M) | Hold Remaining (yr) |
-|---|---|---|---|---|
-| Fund A | PE Buyout | 2020 | 75 | 5 |
-| Fund B | Infrastructure | 2018 | 120 | 12 |
-| Fund C | Growth Equity | 2021 | 50 | 7 |
-| Fund D | Private Credit | 2022 | 45 | 3 |
-| Fund E | Real Estate | 2019 | 80 | 8 |
-| **Total** | | | **$370M** | |
-
-- **Demo will produce:**
-  - Position-level LAV and GE-LAV marks
-  - Portfolio-level totals
-  - Exit recommendations
-  - Stress-scenario portfolio values
-  - Pigouvian tax accruals (if any positions are below exit boundary)
-- **Speaker notes:** Walk through this live on screen. Don't just describe it.
-
-### Slide 18.3 — Validation Backtest: GFC 2008–2010 (New Slide)
-
-- **Title:** "Validation 1: The Global Financial Crisis"
-- **Setup:** "Apply the platform retroactively to a representative institutional portfolio in Q4 2007. Track outputs through Q4 2010."
-- **Findings:**
-  - **Q4 2007:** Platform recommended *holding* at current levels (LAV ≈ DCF; minimal gap)
-  - **Q3 2008:** Platform began flagging stress; recommended reducing new commitments
-  - **Q1 2009:** Platform exit boundary triggered for short-horizon positions ($<5$ years)
-  - **Q3 2009:** Platform recommended *opportunistic secondary purchases* (regime indicator: deep stress)
-  - **Q4 2010:** Recovery confirmed; recommendation returned to normal pacing
-- **Counterfactual:** "An LP following platform recommendations would have improved 2008-2014 returns by ~5-8 percentage points vs. naive hold-through."
-- **Speaker notes:** This is *retroactive* application — important methodological caveat. The platform was calibrated using post-GFC data so backtesting is informative but not pure.
-
-### Slide 18.4 — Validation Backtest: COVID 2020 (New Slide)
-
-- **Title:** "Validation 2: COVID-19 Shock"
-- **Findings:**
-  - **Q1 2020:** Platform flagged transient stress; exit signal briefly active for short-horizon positions
-  - **Q2 2020:** Platform recommended *hold* despite continued stress (mean reversion expected)
-  - **Q3 2020:** Recovery confirmed; normal pacing resumed
-- **Counterfactual:** "An LP who panicked in March-April 2020 and sold secondaries at 20% discount would have lost ~10-15% of NAV unnecessarily. Platform would have recommended hold."
-- **Result:** Platform performed well — fast mean reversion within OU parameters.
-- **Speaker notes:** COVID was the platform's best episode. Sharp shock + fast recovery is exactly the regime OU is built for.
-
-### Slide 18.5 — Validation Backtest: 2022 Rate Shock (New Slide)
-
-- **Title:** "Validation 3: The 2022 Rate Shock"
-- **Findings:**
-  - **Q2 2022:** Platform flagged stress; recommended pause on new commitments
-  - **Q4 2022 - Q2 2024:** Platform persistently signaled stress; some short-horizon exits
-  - **Q3 2024:** Recovery slow; platform began questioning whether $\bar{L}$ has shifted
-- **Limitation:** "If $\bar{L}$ has *permanently* shifted (e.g., to ~0.5 instead of 1.0 due to higher-for-longer rates), the platform needs recalibration. This is a known weakness."
-- **Speaker notes:** This is honestly a partial failure. The platform handles transient shocks well but struggles with persistent shifts. Tease the regime-detection extensions in Ch. 21.
-
-## Existing Slides to Reuse
-
-### From Classes 10, 12, 25 (Remainder)
-
-- 3 slides showing calibration confidence intervals over time
-- 2 slides showing GFC backtest results visually
-- 2 slides showing COVID backtest
-- 1 slide showing the 2022 backtest (the platform's weakest episode)
-- 2 slides showing the IC memo translation template
 
 ## Discussion Questions
 
@@ -138,15 +62,6 @@ Pigouvian Tax (if forced exit): 0.8% on transaction value
 **Translation to IC memo language:**
 
 > "Fund A (PE Buyout vintage 2020): The current GE-LAV-adjusted fair value is $73.1M, slightly below the GP-reported $75.0M (a 2.5% downward adjustment reflecting the current mild liquidity stress). Standard Jensen convexity bias adds 0.8% to value when properly accounted for; the equilibrium correction (-2.5%) reflects current secondary market conditions. The exit boundary analysis confirms hold — current liquidity state is above the critical exit threshold for the remaining horizon. Under a GFC-depth stress scenario, fair value would decline to $34.5M (a 54% drawdown). The position is appropriately retained at current parameters but should be monitored as liquidity conditions evolve."
-
-**Teaching note:** The translation removes math jargon while preserving quantitative content. This is the *practitioner deliverable*.
-
-## Common Student Confusions (Instructor Notes)
-
-- **"The GE-LAV mark is lower than GP NAV. Should I be worried about my GP?"** Not necessarily. GP NAVs are typically smoothed and lag economic reality. The GE-LAV mark approximates what a *forced clearing transaction* would price at. Both numbers can be "right" in different senses.
-- **"Why does the platform say HOLD when secondary market discounts are wide?"** Because the platform compares expected hold value (including mean reversion) against current secondary price. If hold value exceeds secondary, hold dominates.
-- **"What if the GP refuses to provide my data feed?"** Most LPs have access to fund cash flows via their LP statements. Secondary market data is third-party (Preqin, Setter). GP doesn't need to consent.
-- **"How often should I rerun?"** Quarterly is standard. After major market events, run ad-hoc.
 
 ## What to Expect Next Session
 

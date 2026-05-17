@@ -81,7 +81,7 @@ The book is structured for both audiences:
 
 ## Supplementary Readings
 
-A full reading list appears in [Appendix B](../appendices/B-reading-list.qmd). Selected supplementary readings include:
+A full reading list appears in [Appendix B](appendices/B-reading-list.qmd). Selected supplementary readings include:
 
 **For practitioner context:**
 
@@ -124,7 +124,7 @@ A full reading list appears in [Appendix B](../appendices/B-reading-list.qmd). S
 
 ### Midterm Exam
 
-The midterm exam is held in **Session 10** and covers Sessions 1–9 (book chapters 1–4 and selected concepts from chapter 5). The exam is identical for both tracks. The midterm is **closed-book, 75 minutes, with one 8.5×11" double-sided handwritten formula sheet permitted**. See [midterm blueprint](../exams/midterm-blueprint.qmd) for topic weighting and sample questions.
+The midterm exam is held in **Session 10** and covers Sessions 1–9 (book chapters 1–4 and selected concepts from chapter 5). The exam is identical for both tracks. The midterm is **closed-book, 75 minutes, with one 8.5×11" double-sided handwritten formula sheet permitted**. See [midterm blueprint](exams/midterm-blueprint.qmd) for topic weighting and sample questions.
 
 ### Problem Sets
 
@@ -148,7 +148,7 @@ The term project is the integrative deliverable of the course. Students apply th
 
 **Track 2 projects** emphasize theoretical extension, novel calibration, or mathematical analysis of a specific GE-LAV result.
 
-See the [full project specification and rubric](../project/project-specification.qmd).
+See the [full project specification and rubric](project/project-specification.qmd).
 
 **Project milestones:**
 

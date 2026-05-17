@@ -1,6 +1,6 @@
 # Reading List {#sec-reading-list}
 
-This document organizes the course readings by unit and session, with brief annotations indicating relevance. Full BibTeX citations are in [references.bib](../references.bib).
+This document organizes the course readings by unit and session, with brief annotations indicating relevance. Full BibTeX citations are in [references.bib](../resources/references.bib).
 
 ## How to Use This Reading List
 
@@ -278,4 +278,4 @@ The book *Liquidity Illusion* serves as the anchor; everything else builds outwa
 
 ---
 
-[← Syllabus](../syllabus.qmd) | [References.bib →](../references.bib)
+[← Syllabus](../syllabus.qmd) | [References.bib →](../resources/references.bib)

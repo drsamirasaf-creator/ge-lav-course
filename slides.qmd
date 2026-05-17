@@ -51,22 +51,4 @@ The 32 session slide decks are listed below in course order. Each PDF is waterma
 
 : 32 session slide decks {.striped .hover tbl-colwidths="[5,45,30,20]"}
 
-## Download all decks {.unnumbered}
-
-A bundled archive of all 32 PDFs is available: [`GE-LAV_Session_Decks.zip`](slides/GE-LAV_Session_Decks.zip) (~7 MB).
-
-## Notes on the slides {.unnumbered}
-
-- **Format.** 16:9 widescreen, optimized for projection. Default Calibri typeface; navy/gold accent palette.
-- **Density.** Slides are dense (8–15 elements typical) and designed to be discussed, not read silently.
-- **Mathematics.** Equations are rendered as embedded images for fidelity across viewing platforms.
-- **Tracks.** Sessions 25–31 contain agenda content for both Track 1 (practitioner cases) and Track 2 (researcher proofs); live instruction expands the relevant track.
-- **Edits.** PDFs are encrypted to disable editing. For source `.pptx` files (instructor use only), contact the course author.
-
-```{=html}
-<style>
-table { font-size: 0.92em; }
-table td:first-child { text-align: center; font-weight: 600; color: #1E3A5F; }
-table td:last-child a { font-weight: 600; }
-</style>
-```
+A bundled archive of all 32 PDFs is available:  (~7 MB).

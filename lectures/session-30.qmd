@@ -64,60 +64,6 @@ Each student provides written feedback to their partner addressing:
 - "The presentation should emphasize..."
 - "One thing that would *delete* if I had to cut to 12 pages..."
 
-### Workshop Slide Briefs (New Slides Needed)
-
-**Slide 30.1 — Workshop Introduction**
-
-- **Title:** "Project Draft Workshop"
-- **Goals:** Identify weaknesses in your own work via someone else's perspective
-- **Norms:**
-  - Be specific, not vague ("the GE-LAV calculation is unclear at step 3" not "I'm confused")
-  - Be constructive, not destructive
-  - Focus on the work, not the person
-  - Both you and your partner are still learning
-- **Speaker notes:** Set the tone for peer review. Many students are uncomfortable giving direct feedback. Frame as professional courtesy.
-
-**Slide 30.2 — Peer Review Process**
-
-- **Title:** "How the next hour works"
-- **Time blocks:**
-  - 20 min: Read your partner's draft carefully (don't skim)
-  - 25 min: Take turns giving and receiving feedback (12.5 min each)
-  - 10 min: Capture YOUR top 3 revision priorities
-- **Speaker notes:** Discipline the structure. Without time limits, peer review degrades into chat.
-
-**Slide 30.3 — Common Weaknesses to Watch For**
-
-- **Title:** "Common weaknesses across project drafts"
-- **For Track 1 (Practitioner) drafts:**
-  - Asset specification too vague
-  - Calibration parameters unjustified
-  - GE-LAV computation lacks regime variation
-  - Recommendation doesn't connect to the LAV/GE-LAV result
-- **For Track 2 (Researcher) drafts:**
-  - Mathematical claims unproven or under-proven
-  - Numerical implementation lacks convergence diagnostics
-  - Connection to existing literature unclear
-  - Extension proposal too ambitious for paper scope
-- **Speaker notes:** Make these visible. Both tracks share the same pitfalls in slightly different forms.
-
-**Slide 30.4 — What Goes in the Final Paper**
-
-- **Title:** "Revising for the final submission"
-- **Final paper requirements (Session 32):**
-  - 20 pages excluding references and appendices
-  - All revisions from peer feedback addressed
-  - Specific improvements over draft (state them explicitly in a "Revisions" footnote)
-  - Polished writing quality
-  - Reproducible computations
-- **What gets graded:**
-  - 2% improvement over draft
-  - 2% writing quality
-  - 1% final correctness
-- **Speaker notes:** Set clear expectations. The final paper is *not* the draft with minor edits.
-
----
-
 ## Track 2: Valuation Hierarchy Proof (15 additional minutes)
 
 ### Track 2 Learning Objectives
@@ -157,7 +103,6 @@ By the end of the Track 2 portion, students will additionally be able to:
   - As $\sigma_L \to 0$: liquidity is deterministic, no path dependence
   - As $\gamma \to 0$: no externality, partial equilibrium
 - **Result:** The framework reduces to DCF in the "no-uncertainty, no-coupling" limit.
-- **Speaker notes:** This is the *consistency check*. GE-LAV doesn't conflict with DCF in DCF's domain of validity.
 
 ### Track 2 Discussion Questions
 

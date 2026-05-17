@@ -4,8 +4,6 @@
 |---|---|
 | **Unit** | 2 — Measurement and Theory (synthesis) |
 | **Book Chapters** | Review of Ch. 1–5 |
-| **Slide source** | All new (review slides) |
-| **Slides needed** | ~10 new |
 | **Track** | Common core (both tracks) |
 
 ## Learning Objectives
@@ -34,149 +32,6 @@ By the end of this session, students will be able to:
 | 0:55–1:10 | Formula sheet review — what to include, what to omit | Activity |
 | 1:10–1:15 | Q&A — bring your weak areas | Discussion |
 
-## Slide Content Briefs (New Slides Needed)
-
-### Slide 9.1 — Title and Midterm Logistics
-
-- **Title:** "Midterm Review"
-- **Logistics box:**
-  - **Date/Time:** Session 10 (next class), 75 minutes
-  - **Location:** [TBD]
-  - **Format:** Closed-book, 1 handwritten 8.5×11" double-sided formula sheet
-  - **Materials:** pen, pencil, eraser, non-programmable calculator, ID
-  - **Coverage:** Sessions 1–9 (Book Ch. 1–5)
-- **Speaker notes:** Get logistics out of the way first. Address questions about format up front.
-
-### Slide 9.2 — The Conceptual Arc
-
-- **Title:** "Where we've been"
-- **Visual:** Linear flow diagram
-- **Flow:**
-  - **Unit 1 (Sessions 1–5):** "DCF is broken"
-    - 1: Why valuation matters → 2: Three failures → 3: Secondary market evidence → 4: OU process intuition → 5: Term structure
-  - **Unit 2 (Sessions 6–8):** "Measurement is also broken"
-    - 6: IRR's biases → 7: PME and LA-IRR/LA-PME → 8: Five requirements
-- **Where we're going:** Unit 3 (Sessions 11–18) → "Build the solution"
-- **Speaker notes:** This diagram should already be familiar from the syllabus. The point is to anchor where the midterm sits in the bigger arc.
-
-### Slide 9.3 — High-Probability Exam Topics
-
-- **Title:** "Topics most likely on the exam"
-- **Tier 1 (definitely on the exam):**
-  - Three structural failures of DCF
-  - Jensen convexity bias — intuition and magnitude
-  - OU process parameters (κ, $\bar{L}$, σ) and stationary distribution
-  - IRR's two biases
-- **Tier 2 (very likely):**
-  - Valuation hierarchy (DCF ⊊ LAV ⊊ GE-LAV)
-  - Secondary market regimes
-  - PME variants (Kaplan-Schoar, Long-Nickels, Direct Alpha)
-  - Five requirements
-- **Tier 3 (possible):**
-  - Term structure of Jensen bias
-  - DLOM vs. GE-LAV
-  - LA-CAPM
-  - Vintage-year effects
-- **Speaker notes:** This is your study triage. Master Tier 1 first. Get to Tier 2 if time. Tier 3 is bonus.
-
-### Slide 9.4 — Worked Example #1: Short Answer Style
-
-- **Title:** "Type 1 — Short Answer"
-- **Question:** "State the GE-LAV stationary distribution of $L_t$ at calibrated parameters κ = 0.45, σ = 0.32, $\bar{L} = 1.0$. Show how you compute the variance."
-- **Answer (worked live):**
-  - Stationary distribution: $L_\infty \sim \mathcal{N}(\bar{L}, \sigma^2/(2\kappa))$
-  - Mean: 1.0
-  - Variance: $0.32^2 / (2 \times 0.45) = 0.1024 / 0.9 = 0.1138$
-  - Std: $\sqrt{0.1138} = 0.337$
-  - Distribution: $L_\infty \sim \mathcal{N}(1.0, 0.1138)$
-- **Common errors to avoid:**
-  - Reporting $\sigma$ instead of $\sigma^2/(2\kappa)$
-  - Forgetting the factor of 2
-  - Mixing up variance and standard deviation
-- **Speaker notes:** Walk through this on the board. Have students write it down.
-
-### Slide 9.5 — Worked Example #2: Quantitative Problem
-
-- **Title:** "Type 2 — Quantitative Problem"
-- **Question:** "Compute the Jensen bias for a 15-year infrastructure asset at $A = 0.18\%$/yr and $C = 0$. Express in dollars for a $\$200M$ DCF mark."
-- **Answer:**
-  - $B(T) = A \cdot T + C = 0.18\% \times 15 + 0 = 2.7\%$
-  - Dollar impact: $\$200M \times 2.7\% = \$5.4M$
-  - LAV mark: $\$200M + \$5.4M = \$205.4M$
-  - **Direction:** LAV > DCF (always for Jensen channel)
-- **Speaker notes:** Make sure students remember Jensen bias is *always positive*. This catches them.
-
-### Slide 9.6 — Worked Example #3: Conceptual Essay
-
-- **Title:** "Type 3 — Conceptual Essay (200 words)"
-- **Question:** "Explain why DCF's constant-premium assumption fails for private market assets, citing both empirical and theoretical evidence."
-- **Outline of a strong answer:**
-  - **Sentence 1:** State the failure precisely (the premium varies stochastically)
-  - **Sentence 2–3:** Empirical evidence (secondary market data 2003–2024; range 0–50%)
-  - **Sentence 4–5:** Theoretical reason (Jensen's inequality + McKean-Vlasov endogeneity)
-  - **Sentence 6:** Magnitude implication (Jensen bias 1–4%; equilibrium correction up to 70%)
-  - **Sentence 7:** Bottom-line (DCF systematically misvalues; magnitude regime-dependent)
-- **Common errors:**
-  - Listing all three failures without depth on any
-  - Forgetting to cite empirical magnitude
-  - Confusing Jensen bias with the equilibrium correction
-- **Speaker notes:** Quality > quantity. A focused 150-word answer beats a sprawling 250-word answer.
-
-### Slide 9.7 — Worked Example #4: Integrative Case
-
-- **Title:** "Type 4 — Integrative Case"
-- **Quick walkthrough of the sample case from the midterm blueprint** (the 2007-vintage trapped LP)
-- **Key steps:**
-  - (a) DCF computation: hold-to-liquidation PV
-  - (b) LAV adjustment using $r_\text{LAV}(L)$
-  - (c) Decomposition (level vs. convexity)
-  - (d) Qualitative discussion of additional GE-LAV considerations
-- **Time budget on the exam:** 30 minutes for this question alone
-- **Speaker notes:** Have a printed copy of the sample case for students. Work through (a) and (b) live; assign (c) and (d) for self-study.
-
-### Slide 9.8 — Formula Sheet: What to Include
-
-- **Title:** "Building your formula sheet"
-- **Must include:**
-  - OU SDE: $dL_t = \kappa(\bar{L} - L_t) dt + \sigma dW_t$
-  - OU stationary: $L_\infty \sim \mathcal{N}(\bar{L}, \sigma^2/(2\kappa))$
-  - Half-life: $\ln(2)/\kappa$
-  - Premium function: $\pi(L) = \pi_0 - \pi_1 L + \pi_2 L^2$
-  - DCF rate decomposition: $r_f + \beta \cdot \text{ERP} + \text{size} + \pi$
-  - Jensen bias affine form: $B(T) = AT + C$
-  - Asset class calibration: A values (0.10–0.18%/yr)
-  - KS PME: $\sum D_t/B_t / \sum C_t/B_t$
-  - Five requirements (one-line each)
-- **Speaker notes:** This is the *essential* list. Don't waste your formula sheet on derivations students need to memorize anyway.
-
-### Slide 9.9 — Formula Sheet: What to Omit
-
-- **Title:** "What NOT to put on your formula sheet"
-- **Omit:**
-  - General CAPM formulas (presumed prerequisite)
-  - Detailed derivation steps (not on the midterm)
-  - GE-LAV math (Part 2 content; not on midterm)
-  - Calibration numbers you should know cold (κ = 0.45, σ = 0.32)
-  - Worked examples (use the space for formulas instead)
-- **Speaker notes:** Density matters. A focused 30-formula sheet beats a chaotic 100-formula sheet.
-
-### Slide 9.10 — Study Plan for the Next 48 Hours
-
-- **Title:** "Your 48-hour study plan"
-- **Day 1 (24 hours before exam):**
-  - Re-read book Ch. 1 carefully (the conceptual core)
-  - Work all PS1 questions a second time
-  - Finalize formula sheet
-- **Day 2 (12 hours before):**
-  - Re-read book Ch. 4–5 (measurement + theory)
-  - Practice all four sample question types
-  - Light review of OU process intuition
-- **Last 6 hours:**
-  - One pass through your formula sheet
-  - Light review only — no new content
-  - Sleep
-- **Speaker notes:** Stress the sleep point. Tired students perform worse than students who study less but sleep more.
-
 ## Discussion Questions
 
 For Q&A in the last 5 minutes:
@@ -184,13 +39,6 @@ For Q&A in the last 5 minutes:
 1. What's the one concept from Sessions 1–8 you're least confident about?
 2. Which question type do you find hardest — short answer, quantitative, conceptual, or integrative?
 3. What would you do differently if you could re-take Sessions 1–8?
-
-## Common Student Concerns (Instructor Notes)
-
-- **"How much partial credit is given?"** Generous on quantitative problems if work is shown. Strict on short answers (right or wrong). Conceptual essays graded against rubric.
-- **"What if I freeze on the integrative case?"** Start with the easiest sub-part (usually (a)). Work outward. Even partial answers on (b), (c), (d) earn credit.
-- **"Can I bring a typed formula sheet?"** No — must be handwritten. The act of writing it is part of the study process.
-- **"Is GE-LAV math on the midterm?"** No. Only intuition and applications. The math is reserved for Track 2 in Sessions 25–31.
 
 ## What to Expect Next Session
 

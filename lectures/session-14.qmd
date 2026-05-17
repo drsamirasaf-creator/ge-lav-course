@@ -4,8 +4,6 @@
 |---|---|
 | **Unit** | 3 — Decision and Application |
 | **Book Chapter** | 7 (sections 7.1–7.3) |
-| **Slide source** | Reuse Class 24 (partial) + new |
-| **Slides needed** | ~3 new + adapt ~10 from Class 24 |
 | **Track** | Common core (both tracks) |
 | **Assessment milestone** | **Project proposal due (start of class)** |
 
@@ -33,116 +31,6 @@ By the end of this session, students will be able to:
 | 0:20–0:40 | Adding liquidity: the hedge demand term | Lecture |
 | 0:40–1:00 | Reading the optimal allocation curve | Lecture + chart deep-dive |
 | 1:00–1:15 | Worked example: institutional allocation decision | Live problem |
-
-## Slide Content Briefs (New Slides Needed)
-
-### Slide 14.1 — Title
-
-- **Title:** "Portfolio Construction with Liquidity Hedge Demand"
-- **Tag line:** "Why the Merton allocation is always too high for private markets"
-- **Speaker notes:** This is the *most controversial* slide of the course. Standard practice over-allocates by ~8 percentage points. Many students will work for institutions that are over-allocated.
-
-### Slide 14.2 — The Merton Allocation Benchmark
-
-- **Title:** "Starting point: Merton allocation"
-- **Formula:** $w_\text{Merton} = \dfrac{\mu_V - r_f}{\gamma \sigma_V^2}$
-- **Calibrated example:**
-  - Expected PE return $\mu_V = 12\%$
-  - Risk-free rate $r_f = 4\%$
-  - Risk aversion $\gamma = 3$
-  - PE volatility $\sigma_V = 25\%$
-  - $w_\text{Merton} = (0.12 - 0.04) / (3 \times 0.0625) = 0.08 / 0.1875 = 42.6\%$ of wealth
-- **Interpretation:** "Without liquidity risk, a rational investor with these preferences holds 42.6% in PE"
-- **Speaker notes:** This is the textbook benchmark. Almost no institution uses it directly, but it's the conceptual starting point.
-
-### Slide 14.3 — The Merton-GE-LAV Decomposition (New Slide)
-
-- **Title:** "GE-LAV adds a liquidity hedge term"
-- **Formula:** $w^*_\text{GE-LAV} = \underbrace{\dfrac{\mu_V - r_f - \lambda^*}{\gamma \sigma_V^2}}_{\text{Adjusted Merton}} - \underbrace{\dfrac{\rho \sigma_L}{\sigma_V} \cdot \dfrac{\partial_L f}{\gamma f}}_{\text{Liquidity hedge demand}}$
-- **Two components:**
-  - **Adjusted Merton:** Subtract the equilibrium liquidity premium $\lambda^*$ from expected excess return (reduces denominator slightly)
-  - **Hedge demand:** Subtract the term reflecting the *correlation* between PE returns and liquidity state
-- **Sign:** Hedge demand is **negative** for typical correlations $\rho > 0$ → reduces allocation
-- **Speaker notes:** Don't derive (Track 2, Session 25). Just establish structure.
-
-### Slide 14.4 — Quantifying the Hedge Demand (New Slide)
-
-- **Title:** "How big is the wedge?"
-- **Calibrated values:**
-  - $\rho = 0.30$ (correlation of PE returns with liquidity state changes)
-  - $\sigma_L = 0.32$
-  - $\sigma_V = 0.25$
-  - At normal liquidity ($L = \bar{L}$): wedge = **8 percentage points**
-- **Result:** $w^*_\text{GE-LAV} \approx 42.6\% - 8\% = 34.6\%$ at $L = \bar{L}$
-- **Regime sensitivity:**
-
-| Liquidity State $L$ | Hedge Demand | $w^*$ |
-|---|---|---|
-| Boom (+0.5) | 5% | ~38% |
-| Normal (0) | 8% | ~35% |
-| Stress (−0.5) | 12% | ~30% |
-| Deep stress (−1.5, GFC) | 20-22% | ~10-20% |
-
-- **Speaker notes:** The wedge isn't constant — it widens in stress. This is *exactly* when you don't want to be overweight private markets.
-
-### Slide 14.5 — The Optimal Allocation Curve (Chart from Class 24 reuse)
-
-- **Title:** "Optimal PE allocation across liquidity states"
-- **Visual:** S-shaped curve from book Figure 7.1
-- **Key features:**
-  - **Crisis region ($L < -1.5$):** Optimal allocation → 0 (zero allocation)
-  - **Stress region ($-1.5 < L < -0.5$):** Steep slope, allocation rises rapidly
-  - **Normal region ($-0.5 < L < +0.5$):** Plateau near 35%
-  - **Boom region ($L > +0.5$):** Convergence toward (but never reaches) Merton 42.6%
-- **Three structural features (from book Ch. 7.7):**
-  1. Merton benchmark is *flat* across $L$ — wrong by construction
-  2. GE-LAV curve is *S-shaped* — emerges from HJB solution
-  3. Hedge wedge is *widest at GFC depth* — over-allocation cost is asymmetric
-- **Speaker notes:** This is the operational chart for allocation decisions. Students should leave able to read it.
-
-### Slide 14.6 — Three Allocation Signals (Class 24 reuse)
-
-- **Title:** "What the model tells you to do"
-- **Signal 1 — Increase:** $L_t > +1.0$ (boom liquidity, allocation below GE-LAV optimal) → new commitments warranted
-- **Signal 2 — Hold:** $-0.5 < L_t < +0.5$ → GE-LAV ≈ Merton minus 8% — no rebalancing needed
-- **Signal 3 — Reduce:** $L_t < -1.0$ → hedge demand widens → reduce PE exposure via secondary sales if below $L^*$ exit boundary
-- **Speaker notes:** This is *actionable*. Most institutions don't operate this way. Connect to Session 12's exit boundary.
-
-### Slide 14.7 — Quantifying Over-Allocation in Practice
-
-- **Title:** "How over-allocated is the typical institution?"
-- **Data:**
-  - **Yale endowment:** target 30% PE (above GE-LAV optimal of ~25% post-Jensen adjustment)
-  - **Harvard endowment:** ~30% PE
-  - **CalPERS:** 13% private equity target (under-allocated vs. GE-LAV optimal? closer call)
-  - **Median public pension:** 11% PE (probably under-allocated for those with long horizons)
-- **Asymmetric over-allocation:**
-  - Endowments tend to over-allocate (especially Yale model imitators)
-  - Pensions tend to be conservative (under-allocated for long horizons)
-- **Speaker notes:** Real institutional data. Students may work at any of these or comparable institutions.
-
-### Slide 14.8 — Why Practitioners Over-Allocate
-
-- **Title:** "Why over-allocation persists"
-- **Three reasons:**
-  1. **Smoothed NAVs** → Apparent low volatility → Merton-style optimization recommends high allocation
-  2. **Yale model halo effect** → "Endowments did 30%, so we should too" — without controlling for risk tolerance differences
-  3. **No accepted framework for hedge demand** → GE-LAV is the first published framework that quantifies it
-- **Bottom line:** "Over-allocation isn't ignorance — it's the Nash equilibrium of incentives + missing theory"
-- **Speaker notes:** Be respectful of practitioners. The framework didn't exist; reasonable people made reasonable decisions with the tools they had.
-
-## Existing Slides to Reuse from Class 24
-
-From Deck 5, Class 24 ("Portfolio Construction with GE-LAV"), pull approximately 10 slides:
-
-- The optimal allocation curve (Figure 7.1)
-- The three allocation signals
-- The Merton-GE-LAV decomposition graphic
-- Calibrated parameters table
-- Stress scenario comparison
-- Multi-asset extension preview
-
-**Adaptation:** Class 24 is well-aligned. Use most of it.
 
 ## Discussion Questions
 
@@ -189,15 +77,6 @@ Options:
 3. **Update IPS** to reflect GE-LAV framework and target ~22%
 
 **Recommendation:** Option 1 + 3. Active sales aren't called for unless secondary discounts widen.
-
-**Teaching note:** Real allocators face exactly this question quarterly. The framework provides numerical support for what's otherwise a judgment call.
-
-## Common Student Confusions (Instructor Notes)
-
-- **"The numbers feel sensitive to assumed $\mu_V$. Isn't this just garbage in / garbage out?"** Yes — return assumption matters a lot. The point of GE-LAV is not to make this less sensitive; it's to ensure the hedge demand term is *also* in the calculation, which Merton ignores entirely.
-- **"What if I have a different $\gamma$? How does the allocation change?"** Allocation scales inversely with $\gamma$. Hedge demand also scales with $\gamma$ but less steeply. Net effect: higher $\gamma$ → lower allocation, with the GE-LAV vs. Merton gap *narrowing* slightly.
-- **"How is this different from just imposing an allocation cap?"** Caps are ad hoc. GE-LAV derives the optimal allocation from first principles. Caps may approximate GE-LAV in some cases but can't tell you *what* the cap should be.
-- **"What's $\rho$ economically?"** Correlation between PE return realization and changes in aggregate liquidity. Calibrated at 0.30 from historical data. Higher in distressed regimes (so the wedge widens — exactly when you don't want concentration).
 
 ## What to Expect Next Session
 

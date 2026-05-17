@@ -3,9 +3,6 @@ title: "Companion Code"
 subtitle: "Python notebooks reproducing every numerical result"
 ---
 
-The companion code lives in a public GitHub repo:
-**[ge-lav-companion-code](https://github.com/drsamirasaf-creator/ge-lav-companion-code)**
-
 [![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-orange.svg)](https://polyformproject.org/licenses/noncommercial/1.0.0)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Tests](https://github.com/drsamirasaf-creator/ge-lav-companion-code/actions/workflows/tests.yml/badge.svg)](https://github.com/drsamirasaf-creator/ge-lav-companion-code/actions/workflows/tests.yml)
@@ -31,31 +28,10 @@ data. Drop in real data when you have it.
 
 ## How to run
 
-### Option A — One-click in Google Colab
-
-Each notebook on GitHub has an **Open in Colab** badge at the top. Click it
-and Colab will load the notebook with the `gelav` package auto-installed.
-No local setup needed.
-
-### Option B — One-click in Binder
-
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/drsamirasaf-creator/ge-lav-companion-code/main)
 
-Click the badge above. Binder launches a free JupyterLab in your browser with
-everything pre-installed. First build takes 2-3 minutes; subsequent visits
-are 30 seconds.
+Click the badge above. Binder launches a free JupyterLab in your browser with everything pre-installed. First build takes 2-3 minutes; subsequent visits are 30 seconds.
 
-### Option C — Clone and run locally
-
-Open a terminal and run:
-
-    git clone https://github.com/drsamirasaf-creator/ge-lav-companion-code.git
-    cd ge-lav-companion-code
-    python -m venv .venv && source .venv/bin/activate
-    pip install -e .
-    jupyter notebook notebooks/
-
-Tested with Python 3.10, 3.11, 3.12 on macOS, Linux, Windows.
 
 ## For students
 

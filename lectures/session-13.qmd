@@ -4,8 +4,6 @@
 |---|---|
 | **Unit** | 3 — Decision and Application |
 | **Book Chapter** | 6 (sections 6.7–6.10) |
-| **Slide source** | Reuse Class 13 remainder + ~5 new |
-| **Slides needed** | ~5 new |
 | **Track** | Common core (both tracks) |
 
 ## Learning Objectives
@@ -33,143 +31,6 @@ By the end of this session, students will be able to:
 | 0:40–0:55 | When the GE-LAV rule fails | Lecture |
 | 0:55–1:10 | LP-GP friction: extensions, continuation funds, NAV loans | Lecture + discussion |
 | 1:10–1:15 | Tease: Pigouvian exit tax (full treatment Session 24) | Lecture |
-
-## Slide Content Briefs (New Slides Needed)
-
-### Slide 13.1 — Title
-
-- **Title:** "Liquidity Traps and Historical Performance"
-- **Tag line:** "Does GE-LAV survive contact with the data?"
-- **Speaker notes:** Today is the empirical credibility test. If the framework can't backtest well, it's just theory.
-
-### Slide 13.2 — The Liquidity Trap, Formally
-
-- **Title:** "The liquidity trap"
-- **Definition (boxed):** "A liquidity trap is a state where (1) an LP wants to exit, (2) the secondary market is functional, but (3) the discount required to clear is so large that exiting destroys substantial value, leaving the LP economically worse off than holding through."
-- **Three conditions for a trap:**
-  - $L_t \ll L^*$ (deep stress)
-  - Secondary market is functioning but at extreme discounts
-  - LP's exit options are constrained (must sell soon, can't wait for mean reversion)
-- **Key insight:** "A trap isn't just stress — it's stress + constraint. The framework handles the stress; the constraint is the friction."
-- **Speaker notes:** Distinguish from "no buyers" scenarios (market closure). Traps are a *price* problem, not a *quantity* problem.
-
-### Slide 13.3 — GFC 2008–2010 Case Study
-
-- **Title:** "Case 1: The Global Financial Crisis"
-- **Timeline:**
-  - **Q3 2008:** Lehman collapses; PE secondary market freezes briefly
-  - **Q4 2008–Q2 2009:** Market re-opens at 35–50% discounts
-  - **Implied $L_t$:** −2.0 to −2.5 (worst on record)
-- **What LPs did (empirical):**
-  - Most held through
-  - Some forced sellers (denominator effect, funding obligations)
-  - CalPERS, Yale, Harvard publicly discussed selling
-- **What GE-LAV would have said:**
-  - Exit boundary triggered for positions with ≤5 years remaining
-  - Hold recommendation for >7 year positions despite the stress
-- **Outcome (counterfactual):**
-  - LPs who held: Recovered fully by 2013 (mean reversion)
-  - LPs who sold: Crystallized 30-50% losses
-  - GE-LAV-optimal decision (selective exit based on remaining horizon): Improved outcomes ~5-10%
-- **Speaker notes:** This is the framework's strongest case. The mean-reversion bet paid off; GE-LAV got the timing roughly right.
-
-### Slide 13.4 — COVID 2020 Case Study
-
-- **Title:** "Case 2: COVID-19 Shock"
-- **Timeline:**
-  - **March 2020:** Secondary discounts spike from 5% to 20% in 3 weeks
-  - **April 2020:** Fed intervention; markets stabilize
-  - **Q3 2020:** Discounts back to 8-10%
-  - **Implied $L_t$ path:** 0 → -1.0 → -0.3 → 0
-- **What LPs did:**
-  - Some panicked sellers in late March
-  - Most held; recovery was rapid
-- **What GE-LAV would have said:**
-  - Brief exit signal triggered for very short-horizon positions only
-  - Strong hold recommendation for typical positions
-- **Outcome:**
-  - GE-LAV substantially correct on hold-through recommendation
-  - The fast mean reversion (within months, not years) was atypical and favorable
-- **Speaker notes:** COVID was a *brief* stress, atypical of historical patterns. GE-LAV got it right because the OU mean-reversion speed ($\kappa = 0.45$) was appropriate for the recovery.
-
-### Slide 13.5 — 2022 Rate Shock Case Study
-
-- **Title:** "Case 3: The 2022 Rate Shock"
-- **Timeline:**
-  - **2022 Q1:** Fed begins aggressive tightening
-  - **Throughout 2022–2023:** Public markets fall; PE NAVs don't adjust → denominator effect
-  - **Secondary discounts:** Widen to 15-20% and *stay there* for 18+ months
-  - **Implied $L_t$:** −0.6 to −0.8, persistent rather than spiking
-- **What LPs did:**
-  - Increased secondary sales to manage allocation limits
-  - Several sovereign wealth funds publicly stepped back from new commitments
-- **What GE-LAV would have said:**
-  - Selective exit for short-horizon positions (≤3 years)
-  - Hold for long-horizon (especially infrastructure)
-  - **Reduce new commitments** (Session 14–15 portfolio implication)
-- **Outcome:**
-  - Mixed performance — recovery slower than COVID, more like a slow grind
-  - GE-LAV handled it reasonably, but the *persistence* of the stress tested the mean-reversion assumption
-- **Speaker notes:** This is the framework's weakest case. Persistent moderate stress is harder for OU to model than sharp spikes followed by mean reversion.
-
-### Slide 13.6 — When the GE-LAV Rule Fails
-
-- **Title:** "Where the framework underperforms"
-- **Three failure modes:**
-  1. **Regime shift:** If $\bar{L}$ permanently shifts (e.g., post-2022 "higher for longer" rates), OU calibrated to historical $\bar{L} = 1.0$ produces wrong hold recommendations
-  2. **Sustained stress without mean reversion:** If $\kappa$ is overestimated (mean reversion is *slower* than assumed), holds become value-destroying
-  3. **Crisis without secondary market function:** If the secondary market closes (Q4 2008 briefly), the exit option is unavailable regardless of what the boundary says
-- **Mitigation:**
-  - Regular re-calibration (book recommends quarterly)
-  - Stress-test scenarios with alternative $\kappa$, $\bar{L}$
-  - Liquidity buffer for crisis-unavailable scenarios
-- **Speaker notes:** Honesty about failure modes. The framework is good, not perfect.
-
-### Slide 13.7 — LP-GP Friction: Extensions and Continuation Funds
-
-- **Title:** "What the GP wants vs. what the LP wants"
-- **The conflict:**
-  - **GPs often want fund extensions or continuation funds** during stress (preserves AUM, defers underperformance crystallization)
-  - **LPs may want to exit** per GE-LAV recommendation (avoid crystallizing in the trough)
-- **Empirical pattern (2020–2024):**
-  - GP-led secondaries (continuation funds) exploded post-2020
-  - Many LPs felt pressured to "go along" despite suboptimal economics
-- **GE-LAV recommendation:**
-  - Evaluate continuation fund terms against the GE-LAV exit boundary
-  - **If the GP is offering you a continuation in stressed conditions, your hold is *probably* correct — but on different terms than they propose**
-- **Speaker notes:** This connects theory to LP-GP politics. Useful for students entering institutional roles.
-
-### Slide 13.8 — NAV Loans: The Hidden Liquidity Mechanism
-
-- **Title:** "NAV loans and what they reveal"
-- **Setup:**
-  - **NAV loan:** GP borrows against fund NAV, using future distributions as collateral
-  - Emerged ~2020 as alternative to secondary sales for liquidity needs
-- **What NAV loans reveal:**
-  - GPs implicitly believe NAVs are *understated* (otherwise no lender would advance against them)
-  - Or alternatively: GPs need liquidity even when secondary discounts are wide (forced-seller equivalence)
-- **GE-LAV interpretation:**
-  - NAV loans = *holding against funding* — an LP-equivalent strategy
-  - Should be evaluated against the LAV (not DCF) value of the underlying
-- **Speaker notes:** NAV loans are a rapidly growing market. Students entering the industry should know what they are.
-
-### Slide 13.9 — The Pigouvian Exit Tax (Preview)
-
-- **Title:** "Tease: the Pigouvian exit tax"
-- **The externality:**
-  - When many LPs exit simultaneously, secondary prices drop for *everyone* (the McKean-Vlasov effect)
-  - Each individual LP doesn't internalize this collective cost
-  - This is a classic externality → calls for a Pigouvian correction
-- **The GE-LAV solution:**
-  - Tax $\tau(L_t)$ on secondary sales, varying by liquidity state
-  - At normal liquidity ($L \approx 0$): tax ≈ 0
-  - At GFC depth ($L \approx -2$): tax ≈ 6–8% of transaction value
-- **Effect:**
-  - Discourages forced sales during stress
-  - Internalizes the externality
-  - Welfare gain ~2.3%/yr per book Ch. 19
-- **Full treatment:** Session 24 (intuition) + Session 29 Track 2 (full derivation)
-- **Speaker notes:** Don't go deep — just plant the seed. The Pigouvian tax is the most policy-relevant GE-LAV result.
 
 ## Discussion Questions
 
@@ -218,15 +79,6 @@ The exit signal triggered, but in retrospect, the *magnitude* of GE-LAV-optimal 
 - Raised needed cash + partial allocation reduction
 - Preserved more upside for the mean reversion
 - Net improvement vs. the all-in exit: ~$150M
-
-**Teaching note:** This is *informed counterfactual analysis*, not perfect hindsight. The point is GE-LAV provides a quantitative framework for choosing the *size* of an exit, not just the binary decision.
-
-## Common Student Confusions (Instructor Notes)
-
-- **"If the framework worked in GFC, why didn't institutions use it?"** It didn't exist in publishable form until ~2024. The math tools (McKean-Vlasov, modern Itô calculus applied to liquidity) only matured in the 2010s.
-- **"COVID and GFC look like different events. Does GE-LAV unify them?"** Yes — both are excursions of $L_t$ below $\bar{L}$. The differences (speed, depth, recovery time) are captured by the OU parameters. Same framework, different parameter realizations.
-- **"What if $\kappa$ varies by regime?"** Likely true empirically. The current GE-LAV uses constant $\kappa$ as a simplification. Regime-dependent $\kappa$ is a research extension (Ch 21).
-- **"NAV loans seem to undermine the framework."** Not really — they're an LP-equivalent strategy that GE-LAV can evaluate. They reveal that *NAV* is understated, which is exactly what GE-LAV predicts.
 
 ## What to Expect Next Session
 

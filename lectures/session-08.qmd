@@ -4,8 +4,6 @@
 |---|---|
 | **Unit** | 2 — Measurement and Theory |
 | **Book Chapter** | 5 (all sections) |
-| **Slide source** | All new |
-| **Slides needed** | ~12 new |
 | **Track** | Common core (both tracks) |
 | **Assessment milestone** | **PS1 due (start of class)** |
 
@@ -35,160 +33,6 @@ By the end of this session, students will be able to:
 | 1:00–1:10 | The GE-LAV model at a glance | Lecture |
 | 1:10–1:15 | Bridge to Session 9 (Midterm review) and Unit 3 | Lecture + Q&A |
 
-## Slide Content Briefs (New Slides Needed)
-
-### Slide 8.1 — Title
-
-- **Title:** "What a Correct Theory Must Deliver"
-- **Tag line:** "Five requirements · The standard GE-LAV satisfies and no other framework meets"
-- **Speaker notes:** Session 8 is the conceptual synthesis. Students should leave knowing the *criteria* against which any valuation theory should be judged.
-
-### Slide 8.2 — Why a Theory, Not Just Better Numbers
-
-- **Title:** "Why we need a theory"
-- **The problem with ad hoc fixes:**
-  - DLOM with regime-dependent percentages: which regime are we in?
-  - "Improved" IRR with reinvestment assumptions: which rate?
-  - Factor models: which factors?
-- **What a theory provides:**
-  - **Falsifiable predictions** that data can confirm or reject
-  - **Internal consistency** — pieces fit together
-  - **Generalization** to new asset classes without recalibration of every parameter
-  - **Welfare implications** — can we say what the *socially optimal* outcome is?
-- **Speaker notes:** Be philosophical here. Students from MBA backgrounds often resist theory in favor of "just give me the number." Make the case for theoretical rigor.
-
-### Slide 8.3 — Requirement 1: Stochastic Premia
-
-- **Title:** "Requirement 1: The illiquidity premium must be stochastic"
-- **Why:** "Secondary market evidence shows the premium varies 10× the magnitude of its assumed constant" (Session 3 result)
-- **What this rules out:**
-  - Standard DCF (constant premium)
-  - DLOM (constant percentage)
-  - Standard CAPM (no liquidity term)
-- **What this requires:**
-  - A stochastic process model: OU is the minimal choice
-  - Calibration to time-series data
-- **Speaker notes:** This is the *empirical* requirement. The data demands it.
-
-### Slide 8.4 — Requirement 2: Investor Heterogeneity
-
-- **Title:** "Requirement 2: The theory must accommodate investor heterogeneity"
-- **Why:** "Different LPs have different liquidity preferences (insurers with long liabilities, endowments with intergenerational concerns, sovereign wealth funds with no horizon)"
-- **What this rules out:**
-  - Representative agent models (assumes one LP type)
-  - Most factor models (single discount factor)
-- **What this requires:**
-  - **Heterogeneous beta** in the GE-LAV setting
-  - **Distributional dynamics** of investor liquidity states
-- **Speaker notes:** Heterogeneity is what makes the McKean-Vlasov machinery necessary. One representative LP wouldn't need it.
-
-### Slide 8.5 — Requirement 3: Endogenous Market Clearing
-
-- **Title:** "Requirement 3: Premium must be determined in equilibrium, not assumed"
-- **Why:** "The illiquidity premium is what the *marginal investor* requires to clear the market. Taking it as a fixed parameter ignores the price-setting mechanism."
-- **What this rules out:**
-  - DCF with fixed premium (no market clearing)
-  - Partial equilibrium asset pricing
-- **What this requires:**
-  - **Fixed-point structure:** premium depends on behavior, behavior depends on premium
-  - **General equilibrium:** simultaneous solution for premium and behavior
-  - **McKean-Vlasov mechanism:** mathematical formalization
-- **Speaker notes:** This is the *structural* requirement. GE-LAV's main theoretical contribution.
-
-### Slide 8.6 — Requirement 4: Empirical Implementability
-
-- **Title:** "Requirement 4: The theory must be implementable on real data"
-- **Why:** "A theory that only works on synthetic data is not a theory of finance"
-- **What this requires:**
-  - Calibration procedures with confidence intervals
-  - Robustness checks
-  - Software / platform for practitioners
-  - Reproducibility
-- **GE-LAV implementation:**
-  - OU calibration via MLE on Preqin / Setter data
-  - Closed-form Jensen bias formula
-  - Numerical HJB solution for exit boundary
-  - GE-LAV® platform at liquidityillusion.com
-- **Speaker notes:** Distinguish GE-LAV from purely academic theories that lack empirical implementation. The platform is a deliberate part of the framework.
-
-### Slide 8.7 — Requirement 5: Welfare and Regulatory Support
-
-- **Title:** "Requirement 5: The theory must support welfare and regulatory analysis"
-- **Why:** "Private markets are systemically important ($13T AUM); valuation methodology has financial-stability implications"
-- **What this requires:**
-  - Ability to compute *constrained social optimum* (welfare-maximizing allocation given liquidity friction)
-  - Identification of externalities
-  - Corrective instruments (taxes, subsidies, capital charges)
-- **GE-LAV outputs:**
-  - **Welfare gap:** Quantified cost of the McKean-Vlasov externality (~2.3%/year)
-  - **Pigouvian exit tax:** Optimal regulatory correction
-  - **Capital adequacy adjustments:** Solvency II / Basel III implications
-- **Speaker notes:** This is what elevates GE-LAV from "better valuation method" to "framework with policy implications." Critical for regulators.
-
-### Slide 8.8 — Summary: The Five Requirements
-
-- **Title:** "Five requirements, summarized"
-- **Numbered list:**
-  1. Stochastic premia (data demands it)
-  2. Investor heterogeneity (institutional reality)
-  3. Endogenous market clearing (theoretical necessity)
-  4. Empirical implementability (engineering requirement)
-  5. Welfare and regulatory support (social responsibility)
-- **Speaker notes:** This slide is the *poster* for the rest of the course. Have students photograph it.
-
-### Slide 8.9 — Evaluating Alternatives: The Comparison Table
-
-- **Title:** "How alternatives stack up"
-- **Table:**
-
-| Framework | Stochastic? | Heterogeneous? | Endogenous? | Implementable? | Welfare? |
-|---|---|---|---|---|---|
-| **DCF (constant premium)** | ✗ | ✗ | ✗ | ✓ | ✗ |
-| **DLOM** | ✗ | ✗ | ✗ | ✓ | ✗ |
-| **CAPM / LA-CAPM** | Partial | ✗ | ✗ | ✓ | ✗ |
-| **Factor models (Pastor-Stambaugh)** | ✓ | ✗ | ✗ | ✓ | ✗ |
-| **Black-Litterman with illiq prior** | ✗ | Partial | ✗ | ✓ | ✗ |
-| **GE-LAV** | ✓ | ✓ | ✓ | ✓ | ✓ |
-
-- **Bottom-line:** "GE-LAV is the first framework to satisfy all five requirements simultaneously."
-- **Speaker notes:** Don't oversell. Be respectful of prior frameworks. They were the best available given their time and tools. GE-LAV is the first to have *both* the conceptual structure and the modern math tools (Itô calculus, MFG theory, computational power).
-
-### Slide 8.10 — The GE-LAV Model at a Glance
-
-- **Title:** "GE-LAV in one slide"
-- **Layout:** Six components, one box each
-- **Components:**
-  - **Liquidity process:** $dL_t = \kappa(\bar{L} - L_t)\,dt + \sigma\,dW_t$
-  - **Premium function:** $\pi(L) = \pi_0 - \pi_1 L + \pi_2 L^2$
-  - **Effective discount rate:** $r(L) = r_f + \beta(\text{ERP}) + \pi(L)$
-  - **Valuation operator (LAV):** $V_0 = E^Q[\int_0^T C_t e^{-\int_0^t r(L_s) ds} dt]$
-  - **General equilibrium correction:** $r_{GE-LAV}(L) = r(L) + \text{collective externality term}$
-  - **Welfare instrument:** Pigouvian exit tax $\tau(L)$
-- **Speaker notes:** This is the architecture. Each component gets its own treatment in Unit 3 and onward. Track 2 sees the derivation of each in Sessions 25–29.
-
-### Slide 8.11 — The Five Main Results of GE-LAV
-
-- **Title:** "The five results (Ch. 1 preview, restated)"
-- **Numbered:**
-  1. **Jensen Convexity Bias:** Closed-form, calibrated 0.8–5.4% across asset classes (Ch. 18)
-  2. **Optimal Exit Boundary $L^*(t)$:** Smooth-pasting solution to HJB (Ch. 6, 11)
-  3. **Welfare Gap:** Quantified externality cost ~2.3%/year (Ch. 19)
-  4. **Pigouvian Exit Tax:** Welfare-maximizing corrective $\tau(L)$ (Ch. 19)
-  5. **Strict Valuation Hierarchy:** DCF ⊊ LAV ⊊ GE-LAV proven (Ch. 20)
-- **Speaker notes:** Each of these has been mentioned before. Now they're named. Students should know what each is by Session 24.
-
-### Slide 8.12 — Bridge to Unit 3 and the Midterm
-
-- **Title:** "Where we go next"
-- **Session 9:** Midterm review (synthesis of Sessions 1–8)
-- **Session 10:** Midterm exam
-- **Unit 3 (Sessions 11–18):** Building the GE-LAV alternative
-  - Sessions 11–13: Exit timing (Ch. 6)
-  - Sessions 14–15: Portfolio construction (Ch. 7)
-  - Session 16: Regulation and crisis dynamics (Ch. 8)
-  - Sessions 17–18: GE-LAV platform implementation (Ch. 9)
-- **Speaker notes:** Unit 1 diagnosed the problem. Unit 2 examined the measurement consequences. Unit 3 builds the solution. This is the conceptual arc.
-
 ## Discussion Questions
 
 1. Of the five requirements, which do you think is most controversial within the practitioner community? Which is most controversial within the academic community? Why might they differ?
@@ -208,15 +52,6 @@ By the end of this session, students will be able to:
 5. **Welfare?** *No.* No mechanism for welfare analysis or regulatory correction.
 
 **Conclusion:** Adaptive DCF is an improvement over constant-premium DCF but doesn't satisfy requirements 2, 3, or 5. It would be acceptable as a *transition methodology* but not as a long-term framework.
-
-**Teaching note:** Use this exercise to show students *how* to evaluate frameworks they encounter in their careers. The five-requirement template is the rubric.
-
-## Common Student Confusions (Instructor Notes)
-
-- **"Aren't these requirements just GE-LAV-specific?"** No — they're general criteria any theory should meet. GE-LAV happens to satisfy them; that's the test, not the definition.
-- **"What if a new framework satisfied 4 of 5 but missed welfare? Could that be acceptable?"** Depends on use case. For internal LP valuation: probably fine. For regulatory adoption: no, welfare matters.
-- **"Why is welfare requirement 5 and not 1?"** Logical ordering — without stochastic premia (1), you can't even ask welfare questions. The five build on each other.
-- **"Is there a sixth requirement we're missing?"** Plausibly: jump dynamics / tail risk. GE-LAV addresses these in Ch. 13 (Lévy extension) but not as a base requirement. Reasonable critique.
 
 ## What to Expect Next Session
 

@@ -4,8 +4,6 @@
 |---|---|
 | **Unit** | 1 — Why DCF Fails |
 | **Book Chapter** | 1 (sections 1.5–1.7) |
-| **Slide source** | New (~12 slides) + Class 9 leftovers |
-| **Slides needed** | ~12 new |
 | **Track** | Common core (both tracks) |
 
 ## Learning Objectives
@@ -33,142 +31,6 @@ By the end of this session, students will be able to:
 | 0:45–1:05 | **Failure 3:** Liquidity is collectively determined — McKean-Vlasov | Lecture + thought experiment |
 | 1:05–1:15 | LA-CAPM — connection to portfolio theory you already know | Lecture + Q&A |
 
-## Slide Content Briefs (New Slides Needed)
-
-### Slide 2.1 — Title and Recap
-
-- **Title:** "Three Structural Failures of DCF"
-- **Visual:** Carry forward the valuation hierarchy diagram from Session 1
-- **One-line recap:** "Last session: the illiquidity premium is the weak link. Today: three specific ways it breaks DCF."
-
-### Slide 2.2 — Failure 1: The Premium Is Stochastic
-
-- **Title:** "Failure 1: A constant premium contradicts the data"
-- **Layout:** Headline + key evidence
-- **Headline:** "Secondary market discounts move 10× the magnitude of the assumed constant premium"
-- **Evidence (table):**
-  - 2007 peak: secondary discount 3–8% → implied premium near floor
-  - 2009 GFC: discount 35–50% → implied premium ~28%
-  - 2020 COVID: discount 15–25% → implied premium ~18%
-  - 2022 rate shock: discount 15–20% sustained → premium ~12%
-  - "Long-run mean: ~3.5%. Volatility: σ ≈ 0.34"
-- **Bottom-line:** "If the assumption is 3.5% constant, the data is screaming 'no.'"
-- **Speaker notes:** Establish the credibility of the data. Mention Preqin, Setter Capital, and broker reports.
-
-### Slide 2.3 — The OU Calibration (Numbers)
-
-- **Title:** "The Ornstein-Uhlenbeck calibration"
-- **Equation (large, centered):** $dL_t = \kappa(\bar{L} - L_t)\,dt + \sigma_L\,dW_t$
-- **Calibrated parameters (boxed):**
-  - $\kappa = 0.45$/yr (mean reversion speed; half-life ≈ 18 months)
-  - $\bar{L} = 1.0$ (normalized long-run mean liquidity state)
-  - $\sigma_L = 0.32$ (diffusion)
-  - Stationary std: $\sqrt{\sigma_L^2/(2\kappa)} \approx 0.34$
-- **Visual:** Simulated paths of OU process — 5 sample paths overlaid, all converging to $\bar{L}$ but with stochastic fluctuation
-- **Bottom-line:** "This is the engine that drives everything in the course. Memorize the form."
-- **Speaker notes:** Don't derive yet — that's Session 4. Just establish the process and the numbers. Connect κ to a half-life concept (similar to interest rate models — Vasicek).
-
-### Slide 2.4 — Failure 2: Jensen Convexity Bias (Setup)
-
-- **Title:** "Failure 2: Even if you got the mean right, the math fails"
-- **Setup (text):** "Suppose by miracle you knew $E[r] = 7.5\%$. Is your DCF correct?"
-- **Statement of Jensen's inequality:**
-  - For any **strictly convex** function $f$ and any **non-degenerate** random variable $X$: $$E[f(X)] > f(E[X])$$
-- **Visual:** Standard Jensen's inequality diagram — convex function with two points and a chord
-- **Speaker notes:** Many students will have seen Jensen in stats class but never in finance. Make the connection.
-
-### Slide 2.5 — Why Discount Factors Are Convex
-
-- **Title:** "The discount factor is strictly convex in the rate"
-- **Math display:**
-  - $f(r) = e^{-rT}$
-  - $f'(r) = -T e^{-rT}$
-  - $f''(r) = T^2 e^{-rT} > 0 \quad \forall r, T > 0$
-- **Implication:** "$E[e^{-rT}] > e^{-E[r]T}$ whenever $r$ is genuinely stochastic"
-- **Visual:** Plot of $e^{-rT}$ as function of $r$ for $T = 10$ years, with the chord vs. curve gap shaded
-- **Speaker notes:** Convexity gets larger with $T$ — this is why long-horizon assets have larger Jensen bias.
-
-### Slide 2.6 — The Magnitude of the Jensen Bias
-
-- **Title:** "Jensen bias by asset class and horizon"
-- **Layout:** Table
-- **Data:**
-
-| Asset Class | Horizon T | Jensen Bias B(T) |
-|---|---|---|
-| 5-year buyout | 5 yr | 0.8% |
-| 10-year growth equity | 10 yr | 1.7% |
-| 15-year secondaries | 15 yr | 2.5% |
-| 20-year infrastructure | 20 yr | 3.6% |
-
-- **Bottom-line:** "Bias scales approximately linearly with $T$ at calibrated parameters."
-- **Speaker notes:** These are *closed-form* results derived in Chapter 18 of the book. Track 2 students will see the proof in Session 29.
-
-### Slide 2.7 — Worked Numerical Example: 20-Year Infrastructure
-
-- **Title:** "Worked: a $1B infrastructure fund"
-- **Layout:** Comparison table
-- **Data:**
-  - DCF mark (constant 7.5% discount): $1,000M
-  - LAV mark (Jensen-corrected, normal markets): $1,036M
-  - **Gap: $36M = 3.6% on Jensen bias alone**
-  - GE-LAV mark (normal markets): can be lower or higher depending on regime
-  - GE-LAV mark (GFC depth): ~$300M
-- **Speaker notes:** This is the building block of the larger story. The Jensen bias is *one* of the three corrections. The McKean-Vlasov correction (Failure 3) is the bigger one, especially in stressed regimes.
-
-### Slide 2.8 — Failure 3: McKean-Vlasov Externality (Setup)
-
-- **Title:** "Failure 3: Liquidity is collective"
-- **Thought experiment:**
-  - A single LP wants to exit a $50M PE position
-  - Lazard quotes 5% discount on volume; the LP transacts; no aggregate effect
-  - Now 100 large pension funds each want to exit $500M positions simultaneously
-  - The total $50B is suddenly trying to find buyers
-  - Equilibrium clearing price drops; discount widens to 25–40%
-- **Punchline:** "The clearing price depends on *everyone's* behavior, not just yours."
-- **Speaker notes:** This is the central conceptual move of GE-LAV. McKean-Vlasov is the mathematical formalization of this dependence — but the *idea* is intuitive.
-
-### Slide 2.9 — McKean-Vlasov: The Math Preview (Intuition Only)
-
-- **Title:** "How math formalizes 'liquidity depends on everyone'"
-- **Layout:** Side-by-side
-- **Left (standard SDE):** $dL_t = \kappa(\bar{L} - L_t)\,dt + \sigma_L\,dW_t$ — *just one investor's view*
-- **Right (McKean-Vlasov):** $dL_t = \kappa(\bar{L} - L_t)\,dt + \gamma \int \phi(L_t, l') \mu_t(dl')\,dt + \sigma_L\,dW_t$ — *includes coupling to distribution $\mu_t$ of all investors*
-- **Intuition:** "$\mu_t$ is the *aggregate* distribution of liquidity states across all investors. Your dynamics depend on it. Theirs depends on yours."
-- **Bottom-line:** "This is a fixed point: behavior depends on premium; premium depends on behavior."
-- **Speaker notes:** Do NOT derive. Just point at the structure. Track 2 students see this for real in Session 26.
-
-### Slide 2.10 — Why DCF Misses This Entirely
-
-- **Title:** "DCF cannot see the externality"
-- **Bullets:**
-  - DCF takes the illiquidity premium as a fixed parameter
-  - It cannot ask: "What premium will clear the market given other investors' positions?"
-  - It is, mathematically, a *partial equilibrium* calculation
-  - The 2008 crisis revealed this: every DCF mark was wrong because they ignored coordinated exit behavior
-- **Speaker notes:** Connect to 2008. Many students will know the story of "the markdown that wasn't." This is the formalization.
-
-### Slide 2.11 — The Three Failures Together
-
-- **Title:** "Failures compound"
-- **Layout:** Three-row table
-- **Rows:**
-  - **Failure 1:** stochastic premium → adds 2–4% premium volatility to base 3.5%
-  - **Failure 2:** Jensen bias → adds 1–4% systematic positive bias in valuation
-  - **Failure 3:** McKean-Vlasov externality → adds 5–20% in normal markets, 50–70% in crisis
-- **Bottom-line:** "Each failure compounds the others. GE-LAV is the framework that handles all three simultaneously."
-- **Speaker notes:** This slide motivates the rest of the course. Each failure gets its own session(s).
-
-### Slide 2.12 — Liquidity-Adjusted CAPM
-
-- **Title:** "LA-CAPM: connecting to portfolio theory you know"
-- **Layout:** Standard CAPM → LA-CAPM transformation
-- **Standard CAPM:** $E[r_i] - r_f = \beta_i (E[r_m] - r_f)$
-- **LA-CAPM (Acharya-Pedersen 2005):** $E[r_i] - r_f = E[c_i] + \beta_i^1 \cdot (\text{premium}_m) + \beta_i^2 \cdot (\text{premium}_{L}) - \beta_i^3 \cdot (\text{cov with } r_m, L)$
-- **Annotation:** Four channels — (1) expected illiquidity cost; (2) standard market beta; (3) liquidity beta (sensitivity to aggregate liquidity); (4) cross-effects
-- **GE-LAV connection:** "GE-LAV refines the *aggregate liquidity factor* into a stochastic, equilibrium-determined process"
-- **Speaker notes:** This is the bridge from standard finance theory to GE-LAV. Students with prior asset pricing background will recognize the structure.
-
 ## Discussion Questions
 
 For the last 10 minutes if time permits:
@@ -188,12 +50,6 @@ For the last 10 minutes if time permits:
 **Failure 3 (McKean-Vlasov):** In normal markets, GE-LAV equilibrium rate exceeds DCF assumed rate by ~1%, so GE-LAV value ≈ $98M$. In GFC depth, equilibrium rate is 32.3% vs. DCF 7.5% → GE-LAV value ≈ $30M$.
 
 **Walk through:** "Are the corrections all in the same direction? Sometimes (Failure 2 always positive). Sometimes they offset (Failure 2 positive, Failure 3 can be negative in crisis). GE-LAV handles them simultaneously and correctly."
-
-## Common Student Confusions (Instructor Notes)
-
-- **"Jensen bias seems small. Why do we care?"** Two reasons: (1) it's *always positive and systematic* — every long-horizon asset is underpriced by DCF, every quarter, forever; (2) cumulative across the $13T market, the bias is ~$300B–$500B mispricing.
-- **"McKean-Vlasov sounds like a panic-selling story. Isn't that already in CAPM via correlations?"** No — CAPM uses *covariance* (a linear concept). The MV externality is *fixed-point structure*: clearing price depends on coordinated behavior, not just correlation. Different math entirely.
-- **"If LA-CAPM exists, why do we need GE-LAV?"** LA-CAPM (Acharya-Pedersen) is a static factor model. GE-LAV is a *continuous-time general equilibrium* with endogenous, stochastic, collectively-determined premium dynamics. LA-CAPM is the "linearized snapshot"; GE-LAV is the dynamic system.
 
 ## What to Expect Next Session
 

@@ -6,7 +6,6 @@
 | **Book Chapter** | 21 (Future Research Directions) |
 | **Track 1 source** | Class 26 (Research Frontiers) + Classes 28-29 (advanced) |
 | **Track 2 source** | Class 26 + Classes 28, 29 (Neural SDE, Network) |
-| **Slides needed** | T1: ~5 new + ~9 from Class 26; T2: ~5 new + ~14 from Classes 26, 28, 29 |
 | **Assessment milestone** | **PS4 due (start of class)** |
 
 ::: callout-important
@@ -27,7 +26,6 @@ Tracks meet together for the first 30 minutes for course synthesis, then split f
 
 - **Title:** "Research Frontiers and Course Synthesis"
 - **Subtitle:** "Where the framework goes next · What you've built"
-- **Speaker notes:** Final substantive session. Help students see the arc.
 
 **Slide 31.2 — What You've Built (Course Arc)**
 
@@ -40,7 +38,6 @@ Tracks meet together for the first 30 minutes for course synthesis, then split f
   - Unit 4 (Sessions 19–24): Math intuition bridges ✓
   - Unit 5 (Sessions 25–31): Split track ✓
 - **Capstone (Session 32):** Project presentations
-- **Speaker notes:** Show progression. Students should feel pride.
 
 **Slide 31.3 — Key Takeaways for Both Tracks**
 
@@ -67,7 +64,6 @@ Tracks meet together for the first 30 minutes for course synthesis, then split f
 - **Crisis amplification:** 4.31×
 - **Welfare gap:** ~2.3%/yr
 - **Hedge demand at normal:** ~8 percentage points
-- **Speaker notes:** Concrete numbers. Students should know these on exit.
 
 ---
 
@@ -90,7 +86,6 @@ By end of Track 1 session, Track 1 students will be able to:
 - **Phase 2 (3–5 years):** Voluntary adoption by sophisticated LPs (pensions, sovereign wealth funds)
 - **Phase 3 (5–10 years):** Regulatory inclusion (Solvency II review cycles, IPEV updates)
 - **Phase 4 (10+ years):** Standard methodology, replacing DCF as default
-- **Speaker notes:** Realistic timeline. Not overnight; not never.
 
 **Slide T1-31.2 — Open Practitioner Questions**
 
@@ -104,7 +99,6 @@ By end of Track 1 session, Track 1 students will be able to:
 - **Synthetic exposures:**
   - GP-led continuation funds, NAV loans, structured secondaries
   - GE-LAV applies in principle; need clean implementations
-- **Speaker notes:** These are research projects students can do post-course.
 
 **Slide T1-31.3 — Career Implications**
 
@@ -123,15 +117,6 @@ By end of Track 1 session, Track 1 students will be able to:
 - **For regulators:**
   - Quantitative basis for stress testing
   - Pigouvian-style policy proposals
-- **Speaker notes:** Direct career relevance. Students from each path should see themselves.
-
-### Track 1 Existing Slides to Reuse
-
-From Class 26 (Research Frontiers & Course Synthesis) — 9 slides
-- Adoption pathway
-- Open practitioner questions
-
----
 
 ## Track 2: Research Frontiers (45 Additional Minutes)
 
@@ -157,7 +142,6 @@ By end of Track 2 session, Track 2 students will be able to:
 - **Neural SDE calibration:**
   - Data-driven parameter estimation using neural networks
   - Class 29 covers; more research needed
-- **Speaker notes:** Each of these is a thesis chapter or research paper opportunity.
 
 **Slide T2-31.2 — Open Research Questions**
 
@@ -185,7 +169,6 @@ By end of Track 2 session, Track 2 students will be able to:
   - GE-LAV-style Pigouvian instruments analog to default fund / margin requirements
 - **Climate finance:**
   - Long-duration risk pricing; transition risk dynamics
-- **Speaker notes:** Place GE-LAV in the research ecosystem. Students should see it as one node in a broader network.
 
 **Slide T2-31.4 — Career Implications for Researchers**
 
@@ -199,15 +182,6 @@ By end of Track 2 session, Track 2 students will be able to:
 - **Quant researchers:**
   - Implementation of master equation
   - Calibration techniques
-- **Speaker notes:** Connect to active research conversations.
-
-### Track 2 Existing Slides to Reuse
-
-From Class 26 + Classes 28-29 (Neural SDE + Network):
-- 14 slides on theoretical frontiers
-- Advanced empirical/numerical techniques
-
----
 
 ## Both Tracks: Pre-Session 32 Preparation
 

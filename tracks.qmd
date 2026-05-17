@@ -71,7 +71,7 @@ Track choice is made via the course site form. After the deadline, track changes
 - **Sessions 25–31:** Different content in parallel (Track 1 in one room, Track 2 in another)
 - **Problem sets:** Same drop dates, different question content
 - **Book reading:** Part 2 (Ch 10–20) is required for Track 2 and recommended-optional for Track 1
-- **Project rubric weighting:** Slightly different emphasis (applied implementation vs. theoretical depth) — see [project specification](../project/project-specification.qmd)
+- **Project rubric weighting:** Slightly different emphasis (applied implementation vs. theoretical depth) — see [project specification](project/project-specification.qmd)
 
 ## Cross-Track Audit Policy
 

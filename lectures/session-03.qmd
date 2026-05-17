@@ -4,8 +4,6 @@
 |---|---|
 | **Unit** | 1 — Why DCF Fails |
 | **Book Chapter** | 2 (sections 2.1–2.7) |
-| **Slide source** | New (~12 slides) + Classes 21–22 excerpts |
-| **Slides needed** | ~12 new |
 | **Track** | Common core (both tracks) |
 
 ## Learning Objectives
@@ -33,147 +31,6 @@ By the end of this session, students will be able to:
 | 0:25–0:50 | The four regimes 2003–2024: empirical walkthrough | Lecture + chart deep-dive |
 | 0:50–1:05 | Level illusion vs. convexity illusion | Lecture |
 | 1:05–1:15 | Implications for portfolio mark-to-market | Discussion + Q&A |
-
-## Slide Content Briefs (New Slides Needed)
-
-### Slide 3.1 — Title and Recap
-
-- **Title:** "The Liquidity Illusion: What Secondary Markets Reveal"
-- **Tag line:** "Failure 1, examined empirically"
-- **Speaker notes:** Today is the *evidence* day. Session 2 told them the premium is stochastic. Today we look at the data.
-
-### Slide 3.2 — Secondary Market: Structure
-
-- **Title:** "The PE secondary market — who participates"
-- **Layout:** Diagram or three-column grid
-- **Sellers:**
-  - LPs needing liquidity (denominator effect, funding obligations, portfolio rebalancing)
-  - LPs exiting underperforming relationships
-  - Institutional restructurings (insurance run-offs, sovereign wealth reallocation)
-- **Buyers:**
-  - Dedicated secondaries funds (Ardian, Lexington, Coller, HarbourVest, Pantheon)
-  - Strategic buyers (other GPs acquiring stakes in companies they know)
-  - LP-led tender offers
-- **Brokers/intermediaries:** Lazard, Evercore, Goldman Sachs Asset Management, Hamilton Lane, Setter Capital, PJT Park Hill
-- **Speaker notes:** Students may not know how this market is organized. Establish basic plumbing.
-
-### Slide 3.3 — Market Scale
-
-- **Title:** "Secondary market in numbers"
-- **Stat callouts:**
-  - **$130B+** Annual transaction volume (2024)
-  - **~1,200** Transactions per year tracked by Preqin
-  - **5–8%** of total PE NAV trades through secondaries each year
-  - **Growing 12–15%/yr** since 2015
-- **Bottom-line:** "Large enough to be informationally relevant; structured enough to extract a price signal"
-- **Speaker notes:** This is *not* a distressed market. It's a real, deep, growing market.
-
-### Slide 3.4 — The Discount-to-NAV Ratio
-
-- **Title:** "Reading the price signal"
-- **Equation:** $\text{Discount} = 1 - \dfrac{\text{Secondary transaction price}}{\text{GP-reported NAV}}$
-- **Worked example:**
-  - GP reports NAV of $100M for an LP position
-  - Secondary buyer pays $85M cash
-  - Discount = 15%
-- **Translation to liquidity premium:** "For a 5-year hold position with normal mean reversion, a 15% discount corresponds to roughly a +5% addition to the implied annual discount rate over the hold period"
-- **Speaker notes:** This is the data we observe. Everything that follows is interpreting this number across time and assets.
-
-### Slide 3.5 — The Four Regimes (Overview)
-
-- **Title:** "Four regimes of secondary discounts (2003–2024)"
-- **Visual:** Full time series chart 2003–2024, shaded by regime
-- **Regimes:**
-  - **2003–2007:** Boom (discounts 0–10%)
-  - **2008–2010:** Crisis (discounts 25–50%)
-  - **2011–2019:** Normalization (discounts 5–15%)
-  - **2020–2024:** Multi-shock era (discounts 10–25% with volatility)
-- **Speaker notes:** Each regime gets one slide of detail.
-
-### Slide 3.6 — Regime 1: The Boom (2003–2007)
-
-- **Title:** "The boom: cheap money, no shocks"
-- **Key features:**
-  - Tight discounts (often 0–5%)
-  - High deal volume but driven by GP-side restructurings, not LP distress
-  - Liquidity state $L_t$ persistently above $\bar{L}$
-  - Implied premium: 1–3% (vs. long-run 3.5%)
-- **Speaker notes:** This is the regime DCF was calibrated against. The "constant premium" assumption is *least wrong* here.
-
-### Slide 3.7 — Regime 2: The Crisis (2008–2010)
-
-- **Title:** "The crisis: the constant-premium assumption breaks"
-- **Key features:**
-  - Discounts widen to 35–50%
-  - Volume *initially collapses* (no buyers willing to bid), then recovers in mid-2009 as opportunistic buyers enter
-  - Liquidity state $L_t$ at −1.5σ or worse
-  - Implied premium peak: ~28%
-- **Anecdote:** "In Q1 2009, some endowments sold PE positions at 60% of NAV to meet liquidity needs. CalPERS publicly disclosed selling secondaries at large discounts to rebalance."
-- **Speaker notes:** This is the regime that should have killed the constant-premium assumption. It didn't, because there was no theoretical alternative.
-
-### Slide 3.8 — Regime 3: Normalization (2011–2019)
-
-- **Title:** "The normalization: false comfort"
-- **Key features:**
-  - Discounts settle at 5–15%
-  - Deal volume grows steadily
-  - GP-led secondaries (continuation funds) become common
-  - Implied premium: 4–7%
-- **Speaker notes:** Practitioners drew the wrong lesson from this period. "The crisis was a one-off; the normal state is stable." Wrong.
-
-### Slide 3.9 — Regime 4: Multi-Shock Era (2020–2024)
-
-- **Title:** "The multi-shock era: volatility is the new normal"
-- **Key shocks:**
-  - **March 2020:** COVID liquidity shock — discounts spike to 15–25%, then recover
-  - **2022:** Rate shock + denominator effect — discounts widen to 15–20% sustained
-  - **2023–24:** Persistent elevated discounts as rates stayed high
-- **Implied premium:** 8–15% sustained
-- **Speaker notes:** This regime is the strongest argument for GE-LAV. Repeated shocks, persistent dislocation, no return to pre-2020 calm.
-
-### Slide 3.10 — The Liquidity Illusion Defined
-
-- **Title:** "What is the liquidity illusion?"
-- **Definition (boxed):** "The systematic gap between GP-reported NAV (computed via DCF with constant premium) and the economic clearing value (computed via GE-LAV equilibrium)."
-- **Decomposition:**
-  - **Level illusion:** Level of GP-reported NAV is wrong (Failure 1: stochastic premium)
-  - **Convexity illusion:** Sensitivity of NAV to changes in liquidity state is wrong (Failure 2: Jensen bias)
-- **Bottom-line:** "Both illusions persist because the GP's mark uses a model that cannot see liquidity state dynamics"
-- **Speaker notes:** The term "illusion" is deliberate. NAVs *appear* stable but mask large, regime-dependent valuation gaps.
-
-### Slide 3.11 — Level Illusion: Numerical Example
-
-- **Title:** "Level illusion: a 25-year infrastructure asset"
-- **Setup:**
-  - GP-reported NAV (DCF, constant 7.5% rate): $100M
-  - True economic value:
-    - In Regime 3 (normalization): ~$95M (close to GP mark)
-    - In Regime 2 (crisis): ~$60M (40% gap)
-    - In Regime 4 (multi-shock): ~$80M (20% gap)
-- **Bottom-line:** "GP mark of $100M is approximately correct ONLY in normalization regimes. Across the full cycle, it's wrong by an average of ~12%."
-- **Speaker notes:** Anchor this with the dollar magnitudes. Make the gap viscerally real.
-
-### Slide 3.12 — Implications for Portfolio Mark-to-Market
-
-- **Title:** "What this means for your portfolio"
-- **Bullets:**
-  - GP-reported NAVs **smooth and lag** true economic value
-  - During crisis: GP marks *overstate* value (no markdown despite secondary market signal)
-  - During boom: GP marks *understate* value (no markup despite tight discounts)
-  - The smoothing effect is what makes private markets *appear* uncorrelated with public markets
-  - **The diversification benefit of private markets is partly an artifact of stale marks**
-- **Bottom-line:** "If you mark to market correctly using secondary market evidence, the diversification benefit is smaller than commonly believed."
-- **Speaker notes:** This is the controversial slide. It directly challenges a core marketing pitch of private markets — "uncorrelated returns." Be prepared for pushback. Lock-step with academic literature (Stafford, Phalippou) that has made this point.
-
-## Existing Slides to Reuse
-
-From your existing Deck 5 (Classes 21–22 PE Buyout and Infrastructure):
-
-- Class 21 slides showing real secondary market discount data with annotations
-- Class 22 infrastructure slides showing long-horizon valuation gaps
-- Adapt these to fit the regime-based narrative
-
-Approximately 4–6 slides from these can be brought forward with minimal modification.
 
 ## Discussion Questions
 
@@ -216,13 +73,6 @@ Solutions: $L = (0.025 ± \sqrt{0.000625 + 0.001932}) / 0.042 = (0.025 ± 0.0506
 Taking the negative root (since $L$ should drop below $\bar{L}$ when premium rises): $L \approx -0.61$, or **0.61σ below the long-run mean**.
 
 **Interpretation:** Current secondary market is pricing in a moderate-stress liquidity state. Not crisis (which would be −1.5σ or worse), but not normalization either.
-
-## Common Student Confusions (Instructor Notes)
-
-- **"Aren't secondary discounts noisy / not representative?"** Volume of $130B+/yr with $1,200+ transactions is more than adequate for statistical inference. The Preqin and Setter aggregations smooth idiosyncratic noise.
-- **"Doesn't the denominator effect contaminate the signal?"** Partially yes, but the regime-level signal is robust. Even excluding pure denominator-driven sales, the 2022 widening was clear.
-- **"How is this different from the bond yield curve telling us about expected default rates?"** Conceptually similar. The secondary market is doing for private equity what corporate bond spreads do for credit — extracting market-implied premia. But private markets had no such signal before secondaries scaled up.
-- **"If GP NAVs smooth, doesn't reported portfolio variance underestimate true variance?"** Yes — Stafford (2022) and others document this. Once you correct for smoothing, the Sharpe ratio of PE is much closer to public equity than gross numbers suggest.
 
 ## What to Expect Next Session
 

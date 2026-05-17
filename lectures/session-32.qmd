@@ -4,7 +4,6 @@
 |---|---|
 | **Unit** | Capstone (both tracks reunified) |
 | **Format** | Project presentations + brief course wrap-up |
-| **Slides needed** | ~5 new (course wrap-up) |
 | **Assessment milestone** | **Final paper + presentation due** |
 
 ::: callout-important
@@ -47,7 +46,6 @@ After all presentations conclude, a brief wrap-up session.
 
 - **Title:** "Course Conclusion"
 - **Tag line:** "What we built. Where it goes."
-- **Speaker notes:** Brief but real closure. Acknowledge what students accomplished.
 
 ### Slide 32.2 — Course Synthesis (One-Slide)
 
@@ -59,7 +57,6 @@ After all presentations conclude, a brief wrap-up session.
   3. Welfare gap (~2.3%/yr)
   4. Pigouvian exit tax
   5. Strict valuation hierarchy DCF ⊊ LAV ⊊ GE-LAV
-- **Speaker notes:** Anchor the framework one last time.
 
 ### Slide 32.3 — What Each Student Now Knows
 
@@ -88,7 +85,6 @@ After all presentations conclude, a brief wrap-up session.
   - GE-LAV platform updates (new asset classes, new calibrations)
   - Regulatory developments (Solvency II updates, IPEV revisions)
   - Academic literature on MFG and private market valuation
-- **Speaker notes:** Help students translate course knowledge into career.
 
 ### Slide 32.5 — Personal Note
 
@@ -98,7 +94,6 @@ After all presentations conclude, a brief wrap-up session.
   - Recognition of student engagement
   - Encouragement to stay in touch (LinkedIn, professional network)
 - **Course evaluation:** Reminder to complete
-- **Speaker notes:** This is the personal moment. Brief but real.
 
 ## How the Presentations Are Graded
 

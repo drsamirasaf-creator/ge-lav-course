@@ -4,8 +4,6 @@
 |---|---|
 | **Unit** | 1 — Why DCF Fails |
 | **Book Chapter** | 1 (sections 1.1–1.4, 1.10–1.16) |
-| **Slide source** | New (60%) + existing Class 9 (40%) |
-| **Slides needed** | ~15 new + ~6 adapted from Class 9 |
 | **Track** | Common core (both tracks) |
 | **Assessment milestone** | **PS1 drops** |
 
@@ -37,171 +35,6 @@ By the end of this session, students will be able to:
 | 0:55–1:05 | Course logistics: tracks, assessments, AI policy, project | Lecture + Q&A |
 | 1:05–1:15 | Discussion: "Where in your career will you encounter this?" | Discussion |
 
-## Slide Content Briefs (New Slides Needed)
-
-### Slide 1.1 — Title Slide
-
-- **Title:** "Why Private Market Valuation Is Broken"
-- **Subtitle:** "Session 1 · Unit 1 · Liquidity Illusion · GE-LAV® Framework"
-- **Visual:** Photo or stylized image of a private market context (no copyrighted material — consider a generic chart showing PE NAV growth 1990–2025)
-- **Footer:** Course name, instructor name, school
-
-### Slide 1.2 — Course Agenda
-
-- **Title:** "What we'll do today"
-- **Bullets:**
-  - The scale of the problem
-  - How DCF is applied to private assets
-  - Why the illiquidity premium is the weak link
-  - Preview: the GE-LAV framework
-  - Course logistics: tracks, assessment, project
-- **Speaker notes:** Frame the day as motivational — students should leave wanting to take the rest of the course.
-
-### Slide 1.3 — The Scale of the Problem
-
-- **Title:** "Private capital is now too big for valuation errors to be tolerable"
-- **Stat callouts (large numbers):**
-  - **$13T** Global private capital AUM (2025)
-  - **~10,000+** Active private market funds
-  - **$2.5T** Public pension fund private market allocations
-  - **15-25%** Typical private market allocation for endowments and large pensions
-- **Bottom-of-slide line:** "A 5% systematic valuation error implies $650B mismeasured. This is not a rounding issue."
-- **Visual:** Single bar showing PE+VC+Infra+RE+PC AUM growth 2000–2025 (use stylized bars; do not reproduce copyrighted images)
-- **Speaker notes:** This is the motivation. Students need to feel that this matters. Reference specific allocators (CalPERS, CalSTRS, Yale endowment) by way of example.
-
-### Slide 1.4 — Who Cares About This?
-
-- **Title:** "Who has skin in the game"
-- **Format:** Four-quadrant or icon-grid layout
-- **Items:**
-  - **LPs** (pensions, endowments, sovereign wealth funds, insurers): need correct NAVs for allocation, rebalancing, and reporting
-  - **GPs** (PE/VC/RE/PC fund managers): need correct valuations for IC review, board reporting, and carry calculation
-  - **Regulators** (insurance, banking, securities): need correct valuations for capital adequacy and systemic risk
-  - **Auditors / valuation firms**: need defensible methodology for fair value reporting
-- **Speaker notes:** Career relevance — wherever students end up, this matters. Ask: "Who here is going to work for an LP? GP? Regulator? Auditor?" — get a hand count.
-
-### Slide 1.5 — How DCF Is Applied (Standard Practice)
-
-- **Title:** "DCF in current private market practice"
-- **Layout:** Equation with annotated components
-- **Equation:** $V_0 = \sum_{t=1}^{T} \dfrac{CF_t}{(1+r)^t}$
-- **Discount rate decomposition (boxed):** $r = r_f + \beta \cdot ERP + \text{Size premium} + \text{Illiquidity premium}$
-- **Typical PE buyout calibration:**
-  - $r_f = 4.0\%$ (SOFR + term)
-  - $\beta \cdot ERP = 3{-}4\%$
-  - Size premium = 1–2%
-  - **Illiquidity premium = 3–4%**
-  - Total = **11–14%**, held constant for fund life
-- **Speaker notes:** The whole rest of the lecture is about that bottom row. Why is it 3–4%? Why is it constant? Both questions are wrong.
-
-### Slide 1.6 — Where the Illiquidity Premium Comes From
-
-- **Title:** "The 3% illiquidity premium: history, not theory"
-- **Bullets:**
-  - Amihud & Mendelson (1986): illiquidity premium ∝ bid-ask spread (for public markets)
-  - Private market application: averaged historical excess return of PE over public equity (~3.5%)
-  - IPEV valuation guidelines (2022): endorse this practice
-  - Solvency II (insurance): embeds similar fixed premium structure
-  - **Result:** the 3.5% is a *historical average*, not a *theoretical equilibrium*
-- **Speaker notes:** Stress that this is "what the data showed on average" — but averages mask everything that matters about liquidity.
-
-### Slide 1.7 — Secondary Market Evidence (Tease)
-
-- **Title:** "What the secondary market shows"
-- **Visual:** Time series chart of secondary market discount to NAV, 2003–2024 (you'll need to build or recreate this; cite Preqin data)
-- **Annotations on chart:**
-  - 2007 peak: 3–8% discount
-  - 2009 GFC trough: 35–50% discount
-  - 2020 COVID: 15–25% discount briefly
-  - 2022 rate shock: 15–20% discount sustained
-- **Bottom-line:** "If the premium is fixed at 3.5%, where do these moves come from?"
-- **Speaker notes:** This is the *first appearance* of the chart that will dominate Session 3. Tease it here; don't unpack fully.
-
-### Slide 1.8 — The Three Structural Failures (Preview)
-
-- **Title:** "Three reasons DCF fails for private assets"
-- **Layout:** Three columns or three icons
-- **Failure 1:** "The premium is stochastic, not constant"
-- **Failure 2:** "Premium variability creates Jensen bias"
-- **Failure 3:** "Liquidity is collectively determined (McKean-Vlasov externality)"
-- **Speaker notes:** This is a preview. Session 2 unpacks each failure in detail. Don't drill down here.
-
-### Slide 1.9 — The Valuation Hierarchy
-
-- **Title:** "Three nested theories"
-- **Visual:** Three nested rectangles or set-theoretic diagram showing **DCF ⊊ LAV ⊊ GE-LAV**
-- **Annotations:**
-  - DCF: constant premium, partial equilibrium, deterministic discount factor
-  - LAV: stochastic premium (OU process), partial equilibrium, Jensen-corrected discount factor
-  - GE-LAV: stochastic premium, **general equilibrium** (market clearing), McKean-Vlasov collective dynamics
-- **Speaker notes:** This diagram appears throughout the course. Establish it now. Strict containment matters — DCF is a special case of LAV which is a special case of GE-LAV.
-
-### Slide 1.10 — The Five Main Results (Preview)
-
-- **Title:** "What GE-LAV delivers"
-- **Numbered list:**
-  1. **Jensen convexity bias:** closed-form formula, calibrated 0.8–3.6% by asset class
-  2. **Optimal exit boundary:** when to hold, sell, or delay
-  3. **Welfare gap:** quantified cost of the McKean-Vlasov externality (~2.3%/year)
-  4. **Pigouvian exit tax:** the corrective instrument
-  5. **Valuation hierarchy:** strict nesting DCF ⊊ LAV ⊊ GE-LAV
-- **Speaker notes:** Foreshadowing. Each of these is a session or set of sessions later. Tell students they will be able to compute or apply each by mid-semester.
-
-### Slide 1.11 — A Worked Number to Anchor the Course
-
-- **Title:** "The $73 million gap"
-- **Setup:** "A pension fund holds a 20-year infrastructure asset"
-- **DCF mark:** $103.6M (constant 7.5% discount, 3.5% illiquidity premium)
-- **GE-LAV equilibrium at GFC depth (L = −1.5):** $30.9M
-- **Gap:** $73M, or 70.1%
-- **Bottom-line:** "This is not a mark-to-market fluctuation. It is the correct equilibrium price at which the market would clear."
-- **Visual:** Two bars side-by-side — DCF vs. GE-LAV, with the gap shaded
-- **Speaker notes:** This is the single most powerful number in the course. Anchor everything around it. Refer back when students ask "but how big is the error really?"
-
-### Slide 1.12 — Course Roadmap
-
-- **Title:** "Where we go from here"
-- **Visual:** Sankey or flow diagram showing Sessions 1–32 organized by unit
-- **Highlight:** Sessions 1–10 (diagnosis + measurement), 11–18 (decision + application), 19–24 (math intuition), 25–31 (split track), 32 (capstone)
-- **Speaker notes:** This is in the syllabus, but show it visually now. Students need to know what they're committing to.
-
-### Slide 1.13 — Tracks Preview
-
-- **Title:** "Track 1 (Practitioner) vs. Track 2 (Researcher)"
-- **Visual:** Side-by-side comparison table
-- **Key differentiators:** math depth in sessions 25–31, PSet content, project orientation
-- **Decision point:** "Choose by end of Session 5"
-- **Speaker notes:** Reassure students that the default is Track 1 if they don't choose. Tell them Session 4 will be a deliberate self-test.
-
-### Slide 1.14 — Assessment
-
-- **Title:** "How you'll be graded"
-- **Pie chart or table:** Midterm 20% / PSets 25% / Project 50% / Participation 5%
-- **Key dates:** PS1 due Session 8, Midterm Session 10, Project proposal Session 14, Project presentations Session 32
-- **Speaker notes:** Highlight that there is no final exam. The project replaces it. Project is 50% — invest accordingly.
-
-### Slide 1.15 — Working Agreement: Discussion Questions
-
-- **Title:** "Pair discussion: 5 minutes"
-- **Prompts:**
-  - Where in your career do you expect to encounter private market valuation?
-  - What's one thing you already believe about DCF that this course might change?
-  - Which track are you leaning toward and why?
-- **Speaker notes:** Use this for the last 10 minutes. Walk around, listen, get a sense of the room. This is also informally diagnostic of student backgrounds.
-
-## Existing Slides to Reuse from Class 9 ("Private Capital Markets: Scale, Structure & Core Frictions")
-
-From your existing Deck 2 (Classes 6–10), slides covering Class 9 — pull approximately 6 slides:
-
-- Class 9 slide on scale of private capital ($13T figure)
-- Class 9 slide on PE/VC/Infra/PC AUM breakdown
-- Class 9 slide on LP/GP frictions (information asymmetry, illiquidity, agency)
-- Class 9 slide on secondary market structure (Lazard, Evercore, etc.)
-- Class 9 slide on capital call / distribution timing (J-curve intuition)
-- Class 9 slide on regulatory landscape (IPEV, IFRS 13, Solvency II at high level)
-
-**Adaptation needed:** Mostly editorial — strip any math-heavy content, keep the institutional and structural content. These slides become slides 1.3, 1.4, and parts of 1.6.
-
 ## Discussion Questions
 
 For the last 10 minutes of class. Choose 2–3 depending on time:
@@ -220,15 +53,6 @@ For the last 10 minutes of class. Choose 2–3 depending on time:
 | LAV (Jensen-corrected, normal markets) | r ≈ 7.7% | ~$108M |
 | GE-LAV (normal markets) | r ≈ 8.4% | ~$95M |
 | GE-LAV (GFC depth, L = −1.5) | r ≈ 32.3% | **$30.9M** |
-
-**Teaching note:** Walk through *why* GFC GE-LAV is so far from DCF: it's the McKean-Vlasov collective externality — when everyone tries to exit simultaneously, the equilibrium price clears at a much higher rate than the GP-assumed constant. This is the preview of what comes in later sessions.
-
-## Common Student Confusions (Instructor Notes)
-
-- **"If GE-LAV says NAV is lower, isn't that just a markdown?"** No — the GE-LAV value is the equilibrium clearing price *given collective behavior*. It's the correct value, not a discount on the correct value. The DCF "value" is the wrong value.
-- **"If everyone uses DCF, doesn't that make it the right value?"** No — convention isn't correctness. The market clearing price (secondary market) reveals the true equilibrium; DCF is a model that fails to compute it correctly.
-- **"Why hasn't the industry adopted this already?"** Practitioner consensus trap (covered in section 1.4 of book) — being the first GP to mark down to GE-LAV creates LP pushback. Coordination problem.
-- **"Is this an academic exercise or does it matter for real portfolios?"** $73M on one $103M asset matters. Magnify across a $13T market and the implications are systemic.
 
 ## What to Expect Next Session
 

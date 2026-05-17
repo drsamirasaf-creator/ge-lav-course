@@ -98,7 +98,7 @@ Of the 485 existing slides in your 6 PPTX files:
 | Track 2 deep dive (full math) | ~140 slides | Sessions 25–31 Track 2 |
 | Appendix / reference only | ~75 slides | Appendix A (Math Foundations) |
 
-**New slides needed:** approximately 200–280 slides, primarily for Sessions 1–3, 5–10, and 19–24. Slide content briefs for these new slides are provided in the [slide-briefs](../slide-briefs/) folder, one per session.
+**New slides needed:** approximately 200–280 slides, primarily for Sessions 1–3, 5–10, and 19–24. Slide content briefs for these new slides are provided in the the slide-build briefs folder, one per session.
 
 ## Visual Timeline
 
