@@ -51,4 +51,3 @@ The 32 session slide decks are listed below in course order. Each PDF is waterma
 
 : 32 session slide decks {.striped .hover tbl-colwidths="[5,45,30,20]"}
 
-A bundled archive of all 32 PDFs is available:  (~7 MB).
