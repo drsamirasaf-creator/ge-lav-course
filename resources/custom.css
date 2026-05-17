@@ -1,0 +1,286 @@
+/* =========================================================
+   GE-LAV Course Site Custom Styles
+   Palette: Navy #1E3A5F + Gold #C89B3C (matches slide deck)
+   ========================================================= */
+
+/* ---- Google Fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ---- CSS Variables ---- */
+:root {
+  --gelav-navy: #1E3A5F;
+  --gelav-navy-light: #2E4B7A;
+  --gelav-navy-dark: #142845;
+  --gelav-gold: #C89B3C;
+  --gelav-gold-light: #E0B85C;
+  --gelav-gold-dark: #A07A28;
+  --gelav-bg: #FAFAF7;
+  --gelav-text: #1A1A1A;
+  --gelav-text-muted: #555;
+  --gelav-border: #E5E5E0;
+  --gelav-code-bg: #F4F1EA;
+
+  --font-serif: 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+}
+
+/* ---- Base typography ---- */
+body {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--gelav-text);
+  background: var(--gelav-bg);
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+}
+
+/* Headings in sans-serif for clean modern feel */
+h1, h2, h3, h4, h5, h6,
+.sidebar-title, .navbar-title, .sidebar-item-text {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--gelav-navy);
+  letter-spacing: -0.01em;
+}
+
+h1.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-top: 1rem;
+}
+
+/* Gold accent bar above the page title */
+h1.title::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--gelav-gold);
+  margin-bottom: 1.25rem;
+  border-radius: 2px;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--gelav-text-muted);
+  font-style: normal;
+  margin-bottom: 1.5rem;
+}
+
+/* ---- Section heading numbers ---- */
+.header-section-number {
+  color: var(--gelav-gold);
+  font-weight: 500;
+  margin-right: 0.5em;
+  font-feature-settings: "tnum" 1;
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin-top: 2.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--gelav-border);
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  color: var(--gelav-navy-light);
+}
+
+/* ---- Links ---- */
+a {
+  color: var(--gelav-navy);
+  text-decoration: underline;
+  text-decoration-color: var(--gelav-gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+a:hover {
+  color: var(--gelav-gold-dark);
+  text-decoration-color: var(--gelav-navy);
+}
+
+/* ---- Author/byline block ---- */
+.quarto-title-meta {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--gelav-border);
+  border-bottom: 1px solid var(--gelav-border);
+  padding: 1rem 0;
+  margin: 1.5rem 0 2rem 0;
+}
+.quarto-title-meta-heading {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  color: var(--gelav-text-muted);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* ---- Sidebar (left navigation) ---- */
+.sidebar {
+  background: white;
+  border-right: 1px solid var(--gelav-border);
+}
+
+.sidebar-navigation .sidebar-item a {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--gelav-text);
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.sidebar-navigation .sidebar-item a:hover {
+  background: var(--gelav-code-bg);
+  color: var(--gelav-navy);
+}
+.sidebar-navigation .sidebar-item a.active {
+  background: var(--gelav-navy);
+  color: white;
+  font-weight: 500;
+}
+
+/* Sidebar section labels (Course Foundations, Assessments, etc.) */
+.sidebar-item-section > .sidebar-item-container > a {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.78rem !important;
+  color: var(--gelav-text-muted) !important;
+  margin-top: 1rem;
+}
+
+/* ---- Right TOC ---- */
+#quarto-margin-sidebar .nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--gelav-text-muted);
+  border-left: 2px solid transparent;
+  padding-left: 0.75rem;
+}
+#quarto-margin-sidebar .nav-link.active {
+  color: var(--gelav-navy);
+  border-left-color: var(--gelav-gold);
+  font-weight: 500;
+}
+
+/* ---- Code blocks ---- */
+pre, code {
+  font-family: var(--font-mono);
+}
+code {
+  font-size: 0.9em;
+  background: var(--gelav-code-bg);
+  color: var(--gelav-navy-dark);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+pre {
+  background: var(--gelav-navy-dark) !important;
+  color: #E8E8E0;
+  padding: 1.1rem 1.3rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* ---- Blockquotes ---- */
+blockquote {
+  border-left: 4px solid var(--gelav-gold);
+  background: var(--gelav-code-bg);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--gelav-text);
+}
+
+/* ---- Tables ---- */
+table {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+thead {
+  background: var(--gelav-navy);
+  color: white;
+}
+thead th {
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+tbody tr {
+  border-bottom: 1px solid var(--gelav-border);
+}
+tbody tr:nth-child(even) {
+  background: var(--gelav-code-bg);
+}
+tbody td {
+  padding: 0.6rem 1rem;
+}
+
+/* ---- Callouts ---- */
+.callout {
+  border-radius: 6px;
+  border-left-width: 4px;
+}
+.callout-note { border-left-color: var(--gelav-navy); }
+.callout-tip { border-left-color: var(--gelav-gold); }
+.callout-important { border-left-color: #C0392B; }
+.callout-warning { border-left-color: #E67E22; }
+
+/* ---- Math (KaTeX/MathJax) ---- */
+.math.display, .MathJax_Display {
+  font-size: 1.05em;
+  margin: 1.25rem 0;
+}
+
+/* ---- Buttons & badges ---- */
+img[alt*="badge"], img[src*="shields.io"], img[src*="mybinder.org/badge_logo"] {
+  height: 22px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* ---- Footer ---- */
+.nav-footer {
+  background: var(--gelav-navy-dark);
+  color: #B8B8B0;
+  border-top: 4px solid var(--gelav-gold);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  padding: 1.5rem 0;
+}
+.nav-footer a { color: var(--gelav-gold-light); }
+.nav-footer a:hover { color: white; }
+
+/* ---- Print ---- */
+@media print {
+  .sidebar, #quarto-margin-sidebar, .nav-footer { display: none; }
+  body { background: white; font-size: 12pt; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  h1.title { font-size: 1.75rem; }
+  body { font-size: 16px; }
+}
+
