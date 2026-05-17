@@ -127,5 +127,11 @@
   },
   "references.qmd": {
     "references.html": "f54ee0c0"
+  },
+  "slides.qmd": {
+    "slides.html": "b707adc7"
+  },
+  "code.qmd": {
+    "code.html": "23db15b4"
   }
 }
