@@ -284,3 +284,90 @@ img[alt*="badge"], img[src*="shields.io"], img[src*="mybinder.org/badge_logo"] {
   body { font-size: 16px; }
 }
 
+
+
+/* =========================================================
+   liquidityillusion.com CTA styles
+   ========================================================= */
+
+/* Navbar gold pill button */
+.navbar .gelav-cta {
+  background: var(--gelav-gold);
+  color: white !important;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none !important;
+  margin-left: 0.5rem;
+  display: inline-block;
+  transition: background 0.15s ease, transform 0.15s ease;
+  letter-spacing: 0.01em;
+}
+.navbar .gelav-cta:hover {
+  background: var(--gelav-gold-dark);
+  color: white !important;
+  transform: translateY(-1px);
+}
+
+/* Homepage hero CTA block */
+.gelav-hero-cta {
+  background: linear-gradient(135deg, var(--gelav-navy) 0%, var(--gelav-navy-dark) 100%);
+  color: white;
+  padding: 1.75rem 2rem;
+  border-radius: 8px;
+  margin: 2rem 0 2.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  border-left: 6px solid var(--gelav-gold);
+}
+.gelav-hero-cta-text { flex: 1; min-width: 280px; }
+.gelav-hero-cta-text h3 {
+  color: white !important;
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+  font-size: 1.25rem;
+  border: none;
+}
+.gelav-hero-cta-text p {
+  margin: 0;
+  color: #E5E5E0;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+}
+.gelav-hero-cta-button {
+  background: var(--gelav-gold);
+  color: white !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: background 0.15s ease, transform 0.15s ease;
+  font-family: var(--font-sans);
+}
+.gelav-hero-cta-button:hover {
+  background: var(--gelav-gold-light);
+  color: var(--gelav-navy) !important;
+  transform: translateY(-1px);
+}
+
+/* Inline session-page callout */
+.gelav-product-callout {
+  background: #FAF7F0;
+  border-left: 4px solid var(--gelav-gold);
+  padding: 0.9rem 1.15rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+}
+.gelav-product-callout strong { color: var(--gelav-navy); }
+.gelav-product-callout a {
+  font-weight: 600;
+  white-space: nowrap;
+}
