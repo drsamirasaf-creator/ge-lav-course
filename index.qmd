@@ -1,6 +1,17 @@
 
 
 
+## Course Preview · 15 minutes
+
+::: {.ratio .ratio-16x9 style="max-width: 900px; margin: 1.5rem auto 2.5rem auto;"}
+<iframe
+  src="https://www.youtube.com/embed/lyBxw_SwlDk"
+  title="Liquidity Illusion — Graduate Course Preview"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen></iframe>
+:::
+
 :::{.gelav-hero-cta}
 :::{.gelav-hero-cta-text}
 ### Try the production engine
