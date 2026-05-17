@@ -98,7 +98,7 @@ The book is structured in two parts that mirror the course's two tracks:
 
 **Samir Asaf** is Senior Partner at Regent Financial, a private markets advisory firm in New York. He holds a PhD in Finance, an MSc (Economics) from LSE, a PGDip in Mathematical Economics from Birkbeck, and a BSc (Economics) from Boston College. He is a CFA, CMA, CTP, CM&AA, and Chartered Director (FIoD, UK).
 
-His research explores stochastic control, McKean-Vlasov mean-field games, and their application to private markets. The GE-LAV® framework introduced in the primary text is his main contribution to financial economics. He has advised leading institutional investors and fund managers on private equity, infrastructure, private credit, and cross-border M&A across North America, Europe, Asia-Pacific, and the Middle East.
+His research explores stochastic control, McKean-Vlasov mean-field games, and their application to private markets. The GE-LAV® framework introduced in the primary text is his main contribution to financial economics. He is a Senior Principal Investment Banker, holding active FINRA Series 7, 24, 63, 66, 79, and 82 licenses, and has advised leading institutional investors and fund managers on private equity, infrastructure, private credit, and cross-border M&A across North America, Europe, Asia-Pacific, and the Middle East.
 
 His earlier work, *Executive Corporate Finance: The Business of Enhancing Shareholder Value* (Prentice Hall, 2004), has been adopted worldwide for MBA and executive education programs.
 
