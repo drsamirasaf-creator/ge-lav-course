@@ -104,4 +104,4 @@ His earlier work, *Executive Corporate Finance: The Business of Enhancing Shareh
 
 ------------------------------------------------------------------------
 
-*This course website is built with [Quarto](https://quarto.org) and is the canonical source for syllabus, schedule, lecture notes, problem sets, and the term project. All updates appear here first.*
+*This course website is the canonical source for the syllabus, schedule, lecture notes, problem sets, and term project. All updates appear here first.*
