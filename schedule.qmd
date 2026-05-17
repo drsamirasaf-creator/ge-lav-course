@@ -1,4 +1,8 @@
-# 32-Session Schedule {#sec-schedule}
+---
+title: "32-Session Schedule"
+execute:
+  echo: false
+---
 
 This page lists all 32 sessions with topic, book chapter, slide source, and assessment milestones. For full lecture notes on each session, click the session link.
 
@@ -89,7 +93,7 @@ Track 1 (Practitioner) and Track 2 (Researcher) diverge. Both tracks meet at the
 
 ## Visual Timeline
 
-```{.mermaid}
+```{mermaid}
 gantt
     title GE-LAV Course Timeline (16 weeks, 32 sessions)
     dateFormat YYYY-MM-DD
