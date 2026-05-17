@@ -24,41 +24,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -698,7 +663,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syllabus.html">Course Foundations</a></li><li class="breadcrumb-item"><a href="./slides.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Slides</span></a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="sec-slides" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Slides</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<h1 class="title"><span id="sec-slides" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Slides</span></span></h1>
 </div>
 
 
@@ -945,8 +910,6 @@ window.Quarto = {
 <p>A bundled archive of all 32 PDFs is available: (~7 MB).</p>
 
 
-<!-- -->
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1032,57 +995,6 @@ window.Quarto = {
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -1424,62 +1336,7 @@ window.Quarto = {
         <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Companion Code</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Slides {#sec-slides}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- Force PDFs in slides/ to be copied to the rendered site --&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Access &amp; copyright</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>All session slide decks are © Samir Asaf 2026. Watermarked PDFs are provided for student use within this course. Redistribution requires written permission.</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Click any link in the **PDF** column to view or download that session's deck.</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>The 32 session slide decks are listed below in course order. Each PDF is watermarked and view-enabled with printing permitted; editing is disabled.</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> # <span class="pp">|</span> Session title <span class="pp">|</span> Unit <span class="pp">|</span> PDF <span class="pp">|</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> Course Intro · Why Private Market Valuation Is Broken <span class="pp">|</span> 1 — Why DCF Fails <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_01.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> The Three Structural Failures · LA-CAPM <span class="pp">|</span> 1 — Why DCF Fails <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_02.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> The Liquidity Illusion · Secondary Market Evidence <span class="pp">|</span> 1 — Why DCF Fails <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_03.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4 <span class="pp">|</span> The OU Process for Liquidity (Intuition Only) <span class="pp">|</span> 1 — Why DCF Fails <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_04.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5 <span class="pp">|</span> Term Structure of Private Capital Returns <span class="pp">|</span> 2 — What's Wrong &amp; What to Measure <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_05.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 6 <span class="pp">|</span> IRR · The Internal Rate of Return Problem <span class="pp">|</span> 2 — What's Wrong &amp; What to Measure <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_06.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 7 <span class="pp">|</span> PME · LA-IRR · LA-PME <span class="pp">|</span> 2 — What's Wrong &amp; What to Measure <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_07.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 8 <span class="pp">|</span> What a Correct Theory Must Deliver <span class="pp">|</span> 2 — What's Wrong &amp; What to Measure <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_08.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 9 <span class="pp">|</span> Midterm Review <span class="pp">|</span> 2 — What's Wrong &amp; What to Measure <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_09.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 10 <span class="pp">|</span> Midterm Exam <span class="pp">|</span> 2 — What's Wrong &amp; What to Measure <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_10.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 11 <span class="pp">|</span> Exit Timing · The Trapped Investor Problem <span class="pp">|</span> 3 — Decisions Under Stochastic Premium <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_11.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 12 <span class="pp">|</span> The Exit Boundary $L^*(t)$ — Numerical Examples <span class="pp">|</span> 3 — Decisions Under Stochastic Premium <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_12.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 13 <span class="pp">|</span> Liquidity Traps · Historical Performance of GE-LAV <span class="pp">|</span> 3 — Decisions Under Stochastic Premium <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_13.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 14 <span class="pp">|</span> Portfolio Construction · Liquidity Hedge Demand <span class="pp">|</span> 3 — Decisions Under Stochastic Premium <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_14.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 15 <span class="pp">|</span> Pacing · Tactical Allocation · Stress Scenarios <span class="pp">|</span> 3 — Decisions Under Stochastic Premium <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_15.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 16 <span class="pp">|</span> Regulatory Implications · Crisis Dynamics <span class="pp">|</span> 4 — Regulatory &amp; Platform Implementation <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_16.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 17 <span class="pp">|</span> The GE-LAV® Platform — Architecture, Data, Calibration <span class="pp">|</span> 4 — Regulatory &amp; Platform Implementation <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_17.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 18 <span class="pp">|</span> Platform Demo · Historical Validation <span class="pp">|</span> 4 — Regulatory &amp; Platform Implementation <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_18.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 19 <span class="pp">|</span> Brownian Motion · Itô · OU (Concepts Only) <span class="pp">|</span> 5 — Mathematical Intuition Bridges <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_19.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 20 <span class="pp">|</span> Stochastic Control · HJB Equation (Concepts Only) <span class="pp">|</span> 5 — Mathematical Intuition Bridges <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_20.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 21 <span class="pp">|</span> Mean-Field Games (Concepts Only) <span class="pp">|</span> 5 — Mathematical Intuition Bridges <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_21.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 22 <span class="pp">|</span> Fokker-Planck · Master Equation (Concepts Only) <span class="pp">|</span> 5 — Mathematical Intuition Bridges <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_22.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 23 <span class="pp">|</span> The LAV Operator · GE Equilibrium · Market Clearing <span class="pp">|</span> 5 — Mathematical Intuition Bridges <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_23.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 24 <span class="pp">|</span> Jensen Bias · Pigouvian Tax · Welfare (Synthesis) <span class="pp">|</span> 5 — Mathematical Intuition Bridges <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_24.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 25 <span class="pp">|</span> Split Track — PE Buyout Workshop / Full HJB Derivation <span class="pp">|</span> 6 — Split Track (T1 / T2) <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_25.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 26 <span class="pp">|</span> Split Track — VC &amp; Secondaries / McKean-Vlasov MFG Proofs <span class="pp">|</span> 6 — Split Track (T1 / T2) <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_26.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 27 <span class="pp">|</span> Split Track — Infrastructure / Fokker-Planck &amp; Master Eq <span class="pp">|</span> 6 — Split Track (T1 / T2) <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_27.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 28 <span class="pp">|</span> Split Track — Private Credit / GE Equilibrium Existence <span class="pp">|</span> 6 — Split Track (T1 / T2) <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_28.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 29 <span class="pp">|</span> Split Track — Digital &amp; Climate / Jensen + Pigouvian Proofs <span class="pp">|</span> 6 — Split Track (T1 / T2) <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_29.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 30 <span class="pp">|</span> Project Draft Workshop · Valuation Hierarchy Proof (T2) <span class="pp">|</span> 6 — Split Track (T1 / T2) <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_30.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 31 <span class="pp">|</span> Research Frontiers · Course Synthesis <span class="pp">|</span> 6 — Split Track (T1 / T2) <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_31.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 32 <span class="pp">|</span> Capstone — Project Presentations <span class="pp">|</span> 7 — Capstone <span class="pp">|</span> <span class="co">[</span><span class="ot">Download</span><span class="co">](slides/GE-LAV_Session_32.pdf)</span> <span class="pp">|</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>: 32 session slide decks {.striped .hover tbl-colwidths="<span class="co">[</span><span class="ot">5,45,30,20</span><span class="co">]</span>"}</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>A bundled archive of all 32 PDFs is available:  (~7 MB).</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1490,8 +1347,8 @@ window.Quarto = {
 <p><a href="https://liquidityillusion.com">liquidityillusion.com</a> · the production GE-LAV® engine</p>
 <div class="toc-actions"><ul><li><a href="https://github.com/[your-username]/ge-lav-course/edit/main/slides.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/blob/main/slides.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/[your-username]/ge-lav-course/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>Built with <a href="https://quarto.org">Quarto</a></p>
-</div>
+      &nbsp;
+    </div>
   </div>
 </footer>
 
