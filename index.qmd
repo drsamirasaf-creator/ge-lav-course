@@ -1,7 +1,7 @@
 
 
 
-## Course Preview · 15 minutes
+## Course Preview · 24 minutes
 
 ::: {.ratio .ratio-16x9 style="max-width: 900px; margin: 1.5rem auto 2.5rem auto;"}
 <iframe
