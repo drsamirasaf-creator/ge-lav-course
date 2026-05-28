@@ -1,6 +1,3 @@
-
-
-
 ## Course Preview · 24 minutes
 
 ::: {.ratio .ratio-16x9 style="max-width: 900px; margin: 1.5rem auto 2.5rem auto;"}
@@ -11,6 +8,19 @@
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen></iframe>
 :::
+
+## Lecture 1 · The Framework
+
+::: {.ratio .ratio-16x9 style="max-width: 900px; margin: 1.5rem auto 2.5rem auto;"}
+<iframe
+  src="https://www.youtube.com/embed/s2LVwqCLjIo"
+  title="Lecture 1 · Liquidity-Adjusted Value — The Framework"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen></iframe>
+:::
+
+The opening lecture of the GE-LAV® video series. The illiquidity puzzle, the Ornstein–Uhlenbeck liquidity state, closed-form moments, the Jensen convexity multiplier, and the GE-LAV® operator — the framework's left factor in approximately 45 minutes.
 
 :::{.gelav-hero-cta}
 :::{.gelav-hero-cta-text}
@@ -80,39 +90,4 @@ See [Tracks](tracks.qmd) for full declaration policy and decision guidance.
 - **Unit 5 (Sessions 25–31):** **Split track** — applied vs. mathematical deep dives
 - **Capstone (Session 32):** Project presentations
 
-See the [full 32-session schedule](schedule.qmd).
-
-## Assessments
-
-| Component | Weight |
-|---|---|
-| Midterm exam (Session 10) | 20% |
-| 4 problem sets (track-differentiated) | 25% |
-| Term project (proposal + draft + presentation) | 50% |
-| Class participation | 5% |
-
-**There is no final exam.** Session 32 is reserved for project presentations.
-
-See the [project specification](project/project-specification.qmd), [midterm blueprint](exams/midterm-blueprint.qmd), and [problem sets overview](problem-sets/psets-overview.qmd) for details.
-
-## Primary Text
-
-Asaf, S. (2026). *Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation.* Forthcoming, 2026. 421 pp. Under editorial review.
-
-The book is structured in two parts that mirror the course's two tracks:
-
-- **Part 1 (Chapters 1–9): The Practitioner's Guide** — required for all students
-- **Part 2 (Chapters 10–20): The Researcher's Framework** — required for Track 2; recommended optional for Track 1
-- **Chapter 21:** Future research directions
-
-## Instructor
-
-**Samir Asaf** is Senior Partner at Regent Financial, a private markets advisory firm in New York. He holds a PhD in Finance, an MSc (Economics) from LSE, a PGDip in Mathematical Economics from Birkbeck, and a BSc (Economics) from Boston College. He is a CFA, CMA, CTP, CM&AA, and Chartered Director (FIoD, UK).
-
-His research explores stochastic control, McKean-Vlasov mean-field games, and their application to private markets. The GE-LAV® framework introduced in the primary text is his main contribution to financial economics. He is a Senior Principal Investment Banker, holding active FINRA Series 7, 24, 63, 66, 79, and 82 licenses, and has advised leading institutional investors and fund managers on private equity, infrastructure, private credit, and cross-border M&A across North America, Europe, Asia-Pacific, and the Middle East.
-
-His earlier work, *Executive Corporate Finance: The Business of Enhancing Shareholder Value* (Prentice Hall, 2004), has been adopted worldwide for MBA and executive education programs.
-
-------------------------------------------------------------------------
-
-*This course website is the canonical source for the syllabus, schedule, lecture notes, problem sets, and term project. All updates appear here first.*
+See the [full
