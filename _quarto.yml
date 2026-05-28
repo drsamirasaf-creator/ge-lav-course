@@ -16,7 +16,7 @@ book:
     graduate finance students.
   favicon: resources/favicon.png
   search: true
-  repo-url: https://github.com/[your-username]/ge-lav-course
+  repo-url: https://github.com/drsamirasaf-creator/ge-lav-course
   repo-actions: [edit, source, issue]
   navbar:
     background: light
@@ -105,27 +105,6 @@ format:
     number-sections: true
     crossref:
       chapters: true
-  pdf:
-    documentclass: scrreprt
-    papersize: letter
-    geometry:
-      - margin=1in
-    fontsize: 11pt
-    fig-pos: 'H'
-    keep-tex: false
-    include-in-header:
-      text: |
-        \usepackage{amsmath,amssymb,amsthm}
-        \usepackage{mathtools}
-        \newtheorem{theorem}{Theorem}[chapter]
-        \newtheorem{lemma}[theorem]{Lemma}
-        \newtheorem{proposition}[theorem]{Proposition}
-        \newtheorem{corollary}[theorem]{Corollary}
-        \theoremstyle{definition}
-        \newtheorem{definition}[theorem]{Definition}
-        \newtheorem{example}[theorem]{Example}
-        \theoremstyle{remark}
-        \newtheorem{remark}[theorem]{Remark}
 
 execute:
   freeze: auto
