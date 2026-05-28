@@ -1,5 +1,4 @@
 _book/
-_freeze/
 .quarto/
 *.tex
 *.log
