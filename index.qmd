@@ -1,26 +1,39 @@
-## Course Preview · 24 minutes
+## Course Preview (24 min.)
 
 ::: {.ratio .ratio-16x9 style="max-width: 900px; margin: 1.5rem auto 2.5rem auto;"}
 <iframe
-  src="https://www.youtube.com/embed/lyBxw_SwlDk"
-  title="Liquidity Illusion — Graduate Course Preview"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen></iframe>
+src="https://www.youtube.com/embed/lyBxw_SwlDk"
+title="Liquidity Illusion — Graduate Course Preview"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
 :::
 
-## Lecture 1 · The Framework
+## Lecture 1 · The Practitioner's Guide (26 min.)
 
 ::: {.ratio .ratio-16x9 style="max-width: 900px; margin: 1.5rem auto 2.5rem auto;"}
 <iframe
-  src="https://www.youtube.com/embed/s2LVwqCLjIo"
-  title="Lecture 1 · Liquidity-Adjusted Value — The Framework"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen></iframe>
+src="https://www.youtube.com/embed/s2LVwqCLjIo"
+title="Lecture 1 · Liquidity-Adjusted Value — The Framework"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
 :::
 
 The opening lecture of the GE-LAV® video series. The illiquidity puzzle, the Ornstein–Uhlenbeck liquidity state, closed-form moments, the Jensen convexity multiplier, and the GE-LAV® operator — the framework's left factor in approximately 45 minutes.
+
+## Lecture 2 · The Researcher's Framework (53 min.)
+
+::: {.ratio .ratio-16x9 style="max-width: 900px; margin: 1.5rem auto 2.5rem auto;"}
+<iframe
+src="https://www.youtube.com/embed/mzA-Xrfpy08"
+title="Lecture 2 · Liquidity-Adjusted Value — The Analytical Machinery"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
+:::
+
+The second lecture of the GE-LAV® video series. From the filtered probability space and the Hamilton–Jacobi–Bellman equation through viscosity solutions, the Kalman–Bucy filter, mean field games, Hawkes jumps, and the closed-form Pigouvian tax — the framework's analytical machinery in approximately 45 minutes.
 
 :::{.gelav-hero-cta}
 :::{.gelav-hero-cta-text}
@@ -30,6 +43,7 @@ The same GE-LAV® framework taught here is implemented as a live valuation tool 
 **liquidityillusion.com**, with calibrated state parameters, real-time π(L, T) computation,
 and portfolio-level stress testing.
 :::
+
 [Open liquidityillusion.com →](https://liquidityillusion.com){.gelav-hero-cta-button target="_blank" rel="noopener"}
 :::
 
@@ -54,16 +68,23 @@ This course teaches the GE-LAV® framework — the first continuous-time general
 By the end of the course, every student will have:
 
 - A working command of the GE-LAV® valuation hierarchy (DCF ⊊ LAV ⊊ GE-LAV)
+
 - The ability to identify and quantify the Jensen convexity bias in real private-market portfolios
+
 - A complete liquidity-adjusted valuation of a real private market asset of their choice (the term project)
+
 - Familiarity with the secondary market evidence that exposes the liquidity illusion
+
 - Working knowledge of the GE-LAV® computational platform
 
 **Track 2 students will additionally:**
 
 - Derive the optimal exit boundary from first principles using stochastic control
+
 - Prove the existence of a mean-field equilibrium under McKean-Vlasov dynamics
+
 - Calibrate the Ornstein-Uhlenbeck liquidity process to empirical data
+
 - Implement the Pigouvian exit tax under stress scenarios
 
 ## Two-Track Design
@@ -84,10 +105,15 @@ See [Tracks](tracks.qmd) for full declaration policy and decision guidance.
 ## Course Structure at a Glance
 
 - **Unit 1 (Sessions 1–5):** Why private market valuation is broken — DCF failures, the liquidity illusion, term structure
+
 - **Unit 2 (Sessions 6–10):** Measurement and theory — IRR/PME, what a correct theory must deliver, midterm
+
 - **Unit 3 (Sessions 11–18):** Exit timing, portfolio construction, regulation, implementation
+
 - **Unit 4 (Sessions 19–24):** Math intuition bridges — OU, HJB, MFG, GE, Jensen, Pigouvian (concepts, not proofs)
+
 - **Unit 5 (Sessions 25–31):** **Split track** — applied vs. mathematical deep dives
+
 - **Capstone (Session 32):** Project presentations
 
 See the [full
