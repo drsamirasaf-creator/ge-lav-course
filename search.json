@@ -4,69 +4,79 @@
     "href": "index.html",
     "title": "Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation",
     "section": "",
-    "text": "0.1 Course Preview · 24 minutes",
+    "text": "0.1 Course Preview (24 min.)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview · 24 minutes</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview (24 min.)</span>"
     ]
   },
   {
-    "objectID": "index.html#lecture-1-the-framework",
-    "href": "index.html#lecture-1-the-framework",
+    "objectID": "index.html#lecture-1-the-practitioners-guide-26-min.",
+    "href": "index.html#lecture-1-the-practitioners-guide-26-min.",
     "title": "Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation",
-    "section": "0.2 Lecture 1 · The Framework",
-    "text": "0.2 Lecture 1 · The Framework\n\n\n\n\nThe opening lecture of the GE-LAV® video series. The illiquidity puzzle, the Ornstein–Uhlenbeck liquidity state, closed-form moments, the Jensen convexity multiplier, and the GE-LAV® operator — the framework’s left factor in approximately 45 minutes.\n\n\n0.2.1 Try the production engine\nThe same GE-LAV® framework taught here is implemented as a live valuation tool at liquidityillusion.com, with calibrated state parameters, real-time π(L, T) computation, and portfolio-level stress testing.\n\nOpen liquidityillusion.com →",
+    "section": "0.2 Lecture 1 · The Practitioner’s Guide (26 min.)",
+    "text": "0.2 Lecture 1 · The Practitioner’s Guide (26 min.)\n\n\n\n\nThe opening lecture of the GE-LAV® video series. The illiquidity puzzle, the Ornstein–Uhlenbeck liquidity state, closed-form moments, the Jensen convexity multiplier, and the GE-LAV® operator — the framework’s left factor in approximately 45 minutes.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview · 24 minutes</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview (24 min.)</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#lecture-2-the-researchers-framework-53-min.",
+    "href": "index.html#lecture-2-the-researchers-framework-53-min.",
+    "title": "Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation",
+    "section": "0.3 Lecture 2 · The Researcher’s Framework (53 min.)",
+    "text": "0.3 Lecture 2 · The Researcher’s Framework (53 min.)\n\n\n\n\nThe second lecture of the GE-LAV® video series. From the filtered probability space and the Hamilton–Jacobi–Bellman equation through viscosity solutions, the Kalman–Bucy filter, mean field games, Hawkes jumps, and the closed-form Pigouvian tax — the framework’s analytical machinery in approximately 45 minutes.\n\n\n0.3.1 Try the production engine\nThe same GE-LAV® framework taught here is implemented as a live valuation tool at liquidityillusion.com, with calibrated state parameters, real-time π(L, T) computation, and portfolio-level stress testing.\n\nOpen liquidityillusion.com →",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview (24 min.)</span>"
     ]
   },
   {
     "objectID": "index.html#the-general-equilibrium-theory-of-private-capital-valuation",
     "href": "index.html#the-general-equilibrium-theory-of-private-capital-valuation",
     "title": "Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation",
-    "section": "0.3 The General Equilibrium Theory of Private Capital Valuation",
-    "text": "0.3 The General Equilibrium Theory of Private Capital Valuation\nGraduate Finance Course · Spring 2027 · 32 Sessions · 3 Credit Hours\nSamir Asaf, PhD, CFA, CMA, CTP, CM&AA\nSenior Partner, Regent Financial LLC, New York\nFormer Finance Instructor, Stanford University",
+    "section": "0.4 The General Equilibrium Theory of Private Capital Valuation",
+    "text": "0.4 The General Equilibrium Theory of Private Capital Valuation\nGraduate Finance Course · Spring 2027 · 32 Sessions · 3 Credit Hours\nSamir Asaf, PhD, CFA, CMA, CTP, CM&AA\nSenior Partner, Regent Financial LLC, New York\nFormer Finance Instructor, Stanford University",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview · 24 minutes</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview (24 min.)</span>"
     ]
   },
   {
     "objectID": "index.html#why-this-course-exists",
     "href": "index.html#why-this-course-exists",
     "title": "Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation",
-    "section": "0.4 Why This Course Exists",
-    "text": "0.4 Why This Course Exists\nThe most dangerous phrase in finance is: “assume the liquidity premium is constant.” It is not a simplification — it is a mistake with large, measurable, and correctable consequences for managing trillions in institutional capital.\nThis course teaches the GE-LAV® framework — the first continuous-time general equilibrium model of liquidity pricing in private markets. Students will learn why conventional Discounted Cash Flow (DCF) analysis structurally misvalues private assets, what a correct theory must deliver, and how to implement liquidity-adjusted valuation across private equity, infrastructure, private credit, and real estate.",
+    "section": "0.5 Why This Course Exists",
+    "text": "0.5 Why This Course Exists\nThe most dangerous phrase in finance is: “assume the liquidity premium is constant.” It is not a simplification — it is a mistake with large, measurable, and correctable consequences for managing trillions in institutional capital.\nThis course teaches the GE-LAV® framework — the first continuous-time general equilibrium model of liquidity pricing in private markets. Students will learn why conventional Discounted Cash Flow (DCF) analysis structurally misvalues private assets, what a correct theory must deliver, and how to implement liquidity-adjusted valuation across private equity, infrastructure, private credit, and real estate.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview · 24 minutes</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview (24 min.)</span>"
     ]
   },
   {
     "objectID": "index.html#what-you-will-build",
     "href": "index.html#what-you-will-build",
     "title": "Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation",
-    "section": "0.5 What You Will Build",
-    "text": "0.5 What You Will Build\nBy the end of the course, every student will have:\n\nA working command of the GE-LAV® valuation hierarchy (DCF ⊊ LAV ⊊ GE-LAV)\nThe ability to identify and quantify the Jensen convexity bias in real private-market portfolios\nA complete liquidity-adjusted valuation of a real private market asset of their choice (the term project)\nFamiliarity with the secondary market evidence that exposes the liquidity illusion\nWorking knowledge of the GE-LAV® computational platform\n\nTrack 2 students will additionally:\n\nDerive the optimal exit boundary from first principles using stochastic control\nProve the existence of a mean-field equilibrium under McKean-Vlasov dynamics\nCalibrate the Ornstein-Uhlenbeck liquidity process to empirical data\nImplement the Pigouvian exit tax under stress scenarios",
+    "section": "0.6 What You Will Build",
+    "text": "0.6 What You Will Build\nBy the end of the course, every student will have:\n\nA working command of the GE-LAV® valuation hierarchy (DCF ⊊ LAV ⊊ GE-LAV)\nThe ability to identify and quantify the Jensen convexity bias in real private-market portfolios\nA complete liquidity-adjusted valuation of a real private market asset of their choice (the term project)\nFamiliarity with the secondary market evidence that exposes the liquidity illusion\nWorking knowledge of the GE-LAV® computational platform\n\nTrack 2 students will additionally:\n\nDerive the optimal exit boundary from first principles using stochastic control\nProve the existence of a mean-field equilibrium under McKean-Vlasov dynamics\nCalibrate the Ornstein-Uhlenbeck liquidity process to empirical data\nImplement the Pigouvian exit tax under stress scenarios",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview · 24 minutes</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview (24 min.)</span>"
     ]
   },
   {
     "objectID": "index.html#two-track-design",
     "href": "index.html#two-track-design",
     "title": "Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation",
-    "section": "0.6 Two-Track Design",
-    "text": "0.6 Two-Track Design\nThis course recognizes that graduate finance students arrive with different mathematical backgrounds and different career trajectories. Rather than teaching to the lowest common denominator (which would frustrate quantitative students) or the highest (which would exclude practitioner-oriented students), the course is structured as two parallel tracks merging into a common core.\n\n\n\n\n\n\n\n\n\nTrack 1 (Practitioner)\nTrack 2 (Researcher)\n\n\n\n\nSessions 1–24\nCommon core: 24 sessions identical for both tracks\n\n\n\nSessions 25–31\nApplied case workshops\nFull mathematical derivations\n\n\nSession 32\nProject presentations (both tracks present)\n\n\n\nMath required\nAsset pricing, basic calculus\nStochastic calculus, measure theory\n\n\nProblem sets\n4 applied (real data)\n4 mathematical (proofs + numerics)\n\n\nBest for\nMBA / MSF / applied master’s students\nMFE / quant master’s / PhD-track students\n\n\n\nSee Tracks for full declaration policy and decision guidance.",
+    "section": "0.7 Two-Track Design",
+    "text": "0.7 Two-Track Design\nThis course recognizes that graduate finance students arrive with different mathematical backgrounds and different career trajectories. Rather than teaching to the lowest common denominator (which would frustrate quantitative students) or the highest (which would exclude practitioner-oriented students), the course is structured as two parallel tracks merging into a common core.\n\n\n\n\n\n\n\n\n\nTrack 1 (Practitioner)\nTrack 2 (Researcher)\n\n\n\n\nSessions 1–24\nCommon core: 24 sessions identical for both tracks\n\n\n\nSessions 25–31\nApplied case workshops\nFull mathematical derivations\n\n\nSession 32\nProject presentations (both tracks present)\n\n\n\nMath required\nAsset pricing, basic calculus\nStochastic calculus, measure theory\n\n\nProblem sets\n4 applied (real data)\n4 mathematical (proofs + numerics)\n\n\nBest for\nMBA / MSF / applied master’s students\nMFE / quant master’s / PhD-track students\n\n\n\nSee Tracks for full declaration policy and decision guidance.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview · 24 minutes</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview (24 min.)</span>"
     ]
   },
   {
     "objectID": "index.html#course-structure-at-a-glance",
     "href": "index.html#course-structure-at-a-glance",
     "title": "Liquidity Illusion: The General Equilibrium Theory of Private Capital Valuation",
-    "section": "0.7 Course Structure at a Glance",
-    "text": "0.7 Course Structure at a Glance\n\nUnit 1 (Sessions 1–5): Why private market valuation is broken — DCF failures, the liquidity illusion, term structure\nUnit 2 (Sessions 6–10): Measurement and theory — IRR/PME, what a correct theory must deliver, midterm\nUnit 3 (Sessions 11–18): Exit timing, portfolio construction, regulation, implementation\nUnit 4 (Sessions 19–24): Math intuition bridges — OU, HJB, MFG, GE, Jensen, Pigouvian (concepts, not proofs)\nUnit 5 (Sessions 25–31): Split track — applied vs. mathematical deep dives\nCapstone (Session 32): Project presentations\n\nSee the [full",
+    "section": "0.8 Course Structure at a Glance",
+    "text": "0.8 Course Structure at a Glance\n\nUnit 1 (Sessions 1–5): Why private market valuation is broken — DCF failures, the liquidity illusion, term structure\nUnit 2 (Sessions 6–10): Measurement and theory — IRR/PME, what a correct theory must deliver, midterm\nUnit 3 (Sessions 11–18): Exit timing, portfolio construction, regulation, implementation\nUnit 4 (Sessions 19–24): Math intuition bridges — OU, HJB, MFG, GE, Jensen, Pigouvian (concepts, not proofs)\nUnit 5 (Sessions 25–31): Split track — applied vs. mathematical deep dives\nCapstone (Session 32): Project presentations\n\nSee the [full",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview · 24 minutes</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Preview (24 min.)</span>"
     ]
   },
   {
